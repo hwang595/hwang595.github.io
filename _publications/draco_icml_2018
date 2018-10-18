@@ -1,10 +1,7 @@
 ---
 title: "DRACO: Robust Distributed Training via Redundant Gradients"
-collection: publications
-permalink: /publication/arxiv
-excerpt: ''
+excerpt: 'Lingjiao Chen, Hongyi Wang, Zachary Charles, Dimitris Papailiopoulos'
 date: 2018-3-27
 venue: 'Thirty-fifth International Conference on Machine Learning (ICML2018)'
 paperurl: 'https://arxiv.org/abs/1803.09877'
-citation: 'Lingjiao Chen, Hongyi Wang, Zachary Charles, Dimitris Papailiopoulos (2018). &quot;DRACO: Robust Distributed Training via Redundant Gradients.&quot; <i>ICML 2018</i>.'
 ---

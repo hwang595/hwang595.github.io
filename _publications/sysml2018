@@ -1,10 +1,7 @@
 ---
 title: "Draco: Robust Distributed Training against Adversaries"
-collection: publications
-permalink: /publication/sysml2018
-excerpt: ''
+excerpt: 'Lingjiao Chen, Hongyi Wang, Dimitris Papailiopoulos'
 date: 2018-2-16
 venue: 'SysML 2018'
 paperurl: 'http://www.sysml.cc/doc/199.pdf'
-citation: 'Lingjiao Chen, Hongyi Wang, Dimitris Papailiopoulos (2018). &quot;Draco: Robust Distributed Training against Adversaries.&quot; <i>SysML 2018</i>.'
 ---

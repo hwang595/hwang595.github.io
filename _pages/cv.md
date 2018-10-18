@@ -44,6 +44,8 @@ Skills
 
 Honors & Awards
 ======
+* Student Travel Award, NIPS 2018
+  * *Dec 2018, issued by Thirty-second Conference on Neural Information Processing Systems (NIPS 2018)*
 * Student Travel Award, ICML 2018
   * *May 2018, issued by Thirty-fifth International Conference on Machine Learning (ICML 2018)*
 * Huawei Scholarship
