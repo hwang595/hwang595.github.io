@@ -1,0 +1,10 @@
+---
+title: "ErasureHead: Distributed Gradient Descent without Delays Using Approximate Gradient Coding"
+collection: publications
+permalink: /publication/arxiv
+excerpt: ''
+date: 2019-1-29
+venue: 'arXiv'
+paperurl: 'https://arxiv.org/abs/1901.09671'
+citation: 'Hongyi Wang, Zachary Charles, Dimitris Papailiopoulos (2018). &quot;ErasureHead: Distributed Gradient Descent without Delays Using Approximate Gradient Coding.&quot; <i>arXiv 2019</i>.'
+---
