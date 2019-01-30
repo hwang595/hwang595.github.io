@@ -7,4 +7,5 @@ date: 2018-6-11
 venue: 'Thirty-second Conference on Neural Information Processing Systems (NIPS 2018)'
 paperurl: 'https://arxiv.org/abs/1806.04090'
 citation: 'Hongyi Wang, Scott Sievert, Zachary Charles, Dimitris Papailiopoulos, Stephen Wright (2018). &quot;ATOMO: Communication-efficient Learning via Atomic Sparsification.&quot; <i>NIPS 2018</i>.'
+paperurl: 'http://papers.nips.cc/paper/8191-atomo-communication-efficient-learning-via-atomic-sparsification'
 ---
