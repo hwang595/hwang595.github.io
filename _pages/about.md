@@ -16,4 +16,4 @@ Previously, I was a member of [Graphics Group](https://graphics.cs.wisc.edu/WP/)
 
 You can find a copy of my CV [here](http://pages.cs.wisc.edu/~hongyiwang/cv/hwang_cv.pdf).
 
-I serve as reviewer for: [ICML 2019](https://icml.cc/), [NeurIPS](https://nips.cc/).
+I serve as reviewer for: [ICML 2019](https://icml.cc/), [NeurIPS 2019](https://nips.cc/).
