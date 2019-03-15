@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Bibliography
+Biography
 ======
 I'm currently a third-year Ph.D. student at [Computer Sciences Department](https://www.cs.wisc.edu/) of University of Wisconsin - Madison, advised by [Prof. Dimitris Papailiopoulos](http://papail.io/). My research interests are communication efficient and robust ditributed machine learning. I also work on building large-scale machine learning systems.  
   
