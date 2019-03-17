@@ -25,4 +25,3 @@ author_profile: true
   {% endif %}
 {% endfor %}
 
-
