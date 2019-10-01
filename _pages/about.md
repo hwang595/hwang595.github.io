@@ -10,7 +10,7 @@ redirect_from:
 
 Biography
 ======
-I'm currently a fourth-year Ph.D. student at [Computer Sciences Department](https://www.cs.wisc.edu/) of University of Wisconsin - Madison, advised by [Prof. Dimitris Papailiopoulos](http://papail.io/). I am also very fortunate to work closely with [Prof. Shivaram Venkataraman](http://shivaram.org/). My research interests are communication efficient and robust ditributed machine learning. I also work on building large-scale machine learning systems.
+I'm currently a fourth-year Ph.D. student at [Computer Sciences Department](https://www.cs.wisc.edu/) of University of Wisconsin - Madison, advised by [Prof. Dimitris Papailiopoulos](http://papail.io/). I am also very fortunate to work closely with [Prof. Shivaram Venkataraman](http://shivaram.org/) and [Prof. Kangwook Lee](http://kangwooklee.com/). My research interests are communication efficient and robust ditributed machine learning. I also work on building large-scale machine learning systems.
 
 You can find a copy of my CV [here](http://pages.cs.wisc.edu/~hongyiwang/cv/hwang_cv.pdf).
 
