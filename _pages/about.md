@@ -15,9 +15,11 @@ My research studies the scalability and robustness of distributed machine learni
 
 You can find a copy of my CV [here](http://pages.cs.wisc.edu/~hongyiwang/cv/hwang_cv.pdf).
 
-I serve as reviewer/committee member for: 
-Conference: [ICML 2019, 20](https://icml.cc/) (top 33% reviewer of ICML 2020)  
+I serve as reviewer/committee member for:  
+Conference:  
+[ICML 2019, 20](https://icml.cc/) (top 33% reviewer of ICML 2020)  
 [NeurIPS 2019, 20](https://nips.cc/) (50% highest-scoring reviewer)  
 [ICLR 2021](https://www.iclr.cc/Conferences/2021)  
 [AAAI 2021](https://aaai.org/Conferences/AAAI-21/)  
-Journal: [IEEE TNNLS](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385).
+Journal:  
+[IEEE TNNLS](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385).
