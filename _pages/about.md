@@ -17,8 +17,10 @@ You can find a copy of my CV [here](http://pages.cs.wisc.edu/~hongyiwang/cv/hwan
 
 I serve as reviewer/PC member for:  
 Conference:  
-[ICML 2019, 20](https://icml.cc/) (top 33% reviewer of ICML 2020)  
+[ICML 2019, 20, 21](https://icml.cc/) (top 33% reviewer of ICML 2020)  
 [NeurIPS 2019, 20](https://nips.cc/) (50% highest-scoring reviewer)  
+[CVPR 2021](http://cvpr2021.thecvf.com/)
+[ICCV 2021](http://iccv2021.thecvf.com/home)
 [ICLR 2021](https://www.iclr.cc/Conferences/2021)  
 [AAAI 2021](https://aaai.org/Conferences/AAAI-21/)  
 Journal:  
