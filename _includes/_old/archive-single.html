@@ -30,18 +30,18 @@
 <p class="p1"><span class="s1">{% endif %} {% if post.collection == 'teaching' %}</span></p>
 <p class="p2"><span class="s1">{{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}<span class="Apple-converted-space"> </span></span></p>
 <p class="p1"><span class="s1">{% elsif post.collection == 'publications' %}</span></p>
-<!--<p class="p2"><span class="s1">Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}<span class="Apple-converted-space"> </span></span></p>-->
+<p class="p2"><span class="s1">Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}<span class="Apple-converted-space"> </span></span></p>
 <p class="p1"><span class="s1">{% elsif post.date %}</span></p>
 <p class="p2"><span class="s1"><b>{{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</b> {{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</span></p>
 <p class="p1"><span class="s1">{% endif %} {% if post.excerpt and site.read_more != 'enabled' %}</span></p>
 <p class="p2"><span class="s1">{{ post.excerpt | markdownify }}</span></p>
 <p class="p1"><span class="s1">{% elsif post.excerpt and site.read_more == 'enabled' %}</span></p>
-<!--<p class="p4"><span class="s1"></span><br></p>-->
+<p class="p4"><span class="s1"></span><br></p>
 <p class="p2"><span class="s1">{{ post.excerpt | markdownify | remove: '</span></p>
 <p class="p2"><span class="s1">' | remove: '</span></p>
 <p class="p5"><span class="s3">' }}<a href="file:///Users/hongyiwang/Desktop/My_Code/github_repos/hwang595.github.io/_includes/%7B%7B%20base_path%20%7D%7D%7B%7B%20post.url%20%7D%7D"><span class="s4"><b> Read more</b></span></a></span></p>
-<!--<p class="p4"><span class="s1"></span><br></p>-->
-<!--<p class="p4"><span class="s1"></span><br></p>-->
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
 <p class="p1"><span class="s1">{% endif %} {% if post.citation and post.paperurl %}</span></p>
 <p class="p2"><span class="s1">Recommended citation: {{ post.citation }} <a href="file:///Users/hongyiwang/Desktop/My_Code/github_repos/hwang595.github.io/_includes/%7B%7B%20post.paperurl%20%7D%7D"><span class="s4">{{ post.paperurl }}</span></a></span></p>
 <p class="p1"><span class="s1">{% elsif post.citation %}</span></p>
