@@ -30,7 +30,7 @@
 <p class="p1"><span class="s1">{% endif %} {% if post.collection == 'teaching' %}</span></p>
 <p class="p2"><span class="s1">{{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}<span class="Apple-converted-space"> </span></span></p>
 <p class="p1"><span class="s1">{% elsif post.collection == 'publications' %}</span></p>
-<!--<p class="p2"><span class="s1">Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}<span class="Apple-converted-space"> </span></span></p>-->
+<p class="p2"><span class="s1">Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}<span class="Apple-converted-space"> </span></span></p>
 <p class="p1"><span class="s1">{% elsif post.date %}</span></p>
 <p class="p2"><span class="s1"><b>{{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</b> {{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</span></p>
 <p class="p1"><span class="s1">{% endif %} {% if post.excerpt and site.read_more != 'enabled' %}</span></p>
