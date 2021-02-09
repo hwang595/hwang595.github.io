@@ -11,21 +11,21 @@ author_profile: true
 
 {% include base_path %}
 
-<h3 style="margin: 0; line-height:20px;">2021</h3>
+<h3 style="margin: 0; line-height:30px;">2021</h3>
 {% for post in site.publications reversed %}
   {% if post.pubtype == '2021' %}
       {% include archive-single.html %}
   {% endif %}
 {% endfor %}
 
-<h3 style="margin: 0; line-height:20px;">2020</h3>
+<h3 style="margin: 0; line-height:30px;">2020</h3>
 {% for post in site.publications reversed %}
   {% if post.pubtype == '2020' %}
       {% include archive-single.html %}
   {% endif %}
 {% endfor %}
 
-<h3 style="margin: 0; line-height:20px;">2019</h3>
+<h3 style="margin: 0; line-height:30px;">2019</h3>
 {% for post in site.publications reversed %}
   {% if post.pubtype == '2019' %}
       {% include archive-single.html %}
@@ -33,7 +33,7 @@ author_profile: true
 {% endfor %}
 
 
-<h3 style="margin: 0; line-height:20px;">2018</h3>
+<h3 style="margin: 0; line-height:30px;">2018</h3>
 {% for post in site.publications reversed %}
   {% if post.pubtype == '2018' %}
       {% include archive-single.html %}
@@ -41,7 +41,7 @@ author_profile: true
 {% endfor %}
 
 
-<h3 style="margin: 0; line-height:20px;">2017</h3>
+<h3 style="margin: 0; line-height:30px;">2017</h3>
 {% for post in site.publications reversed %}
   {% if post.pubtype == '2017' %}
       {% include archive-single.html %}
