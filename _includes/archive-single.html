@@ -26,13 +26,13 @@
       </div>
     {% endif %}
 
-    <h3 style="margin: 0; line-height:20px;" class="archive__item-title" itemprop="headline">
+    <p style="margin: 0; padding:0; line-height:20px;" class="archive__item-excerpt" itemprop="description">
       {% if post.link %}
         <a href="{{ post.link }}">{{ title }}</a>
       {% else %}
         <b>{{ title }}</b>
       {% endif %}
-    </h3>
+    </p>
 
     {% if post.excerpt and site.read_more != 'enabled' %}
     <p style="margin:0; padding:0; line-height:20px;" class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
