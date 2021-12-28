@@ -10,11 +10,12 @@ redirect_from:
 
 Biography
 ======
-I'm joining the [The Machine Learning Department at Carnegie Mellon University](https://www.ml.cmu.edu/) as a Postdoctoral Fellow working with [Prof. Eric Xing](http://www.cs.cmu.edu/~epxing/) on machine learning and systems.
+I'm a Postdoctoral Fellow at [the Machine Learning Department at CMU](https://www.ml.cmu.edu/) and a member of [the SAILING Lab](https://sailing-lab.github.io/) working with [Eric Xing](http://www.cs.cmu.edu/~epxing/) on machine learning and systems.
 
 
-I recently graduated from the [Computer Sciences Department](https://www.cs.wisc.edu/) at University of Wisconsin - Madison, advised by [Prof. Dimitris Papailiopoulos](http://papail.io/). It was very fortunate to work closely with [Prof. Shivaram Venkataraman](http://shivaram.org/), [Prof. Kangwook Lee](http://kangwooklee.com/), and [Prof. Theodoros Rekatsinas](http://pages.cs.wisc.edu/~thodrek/).  
-My research studies the scalability and robustness of distributed machine learning applications e.g. [Federated Learning](https://en.wikipedia.org/wiki/Federated_learning). I also spend time in industry serving as interns at [Microsoft Research](https://www.microsoft.com/en-us/research/) and [IBM Research](https://www.research.ibm.com/labs/cambridge/).
+I obtained my Ph.D. degree from the [Computer Sciences Department](https://www.cs.wisc.edu/) at University of Wisconsin - Madison, advised by [Dimitris Papailiopoulos](http://papail.io/). In Madison, I worked closely with [Shivaram Venkataraman](http://shivaram.org/), [Kangwook Lee](http://kangwooklee.com/), and [Theodoros Rekatsinas](http://pages.cs.wisc.edu/~thodrek/).
+
+My research studies machine learning systems. I also spend time in industry serving as interns at [Microsoft Research](https://www.microsoft.com/en-us/research/) and [IBM Research](https://www.research.ibm.com/labs/cambridge/).
 
 You can find a copy of my CV [here](http://pages.cs.wisc.edu/~hongyiwang/cv/hwang_cv.pdf).
 
