@@ -11,6 +11,13 @@ author_profile: true
 
 {% include base_path %}
 
+<h3 style="margin: 0; line-height:50px;">2022</h3>
+{% for post in site.publications reversed %}
+  {% if post.pubtype == '2022' %}
+      {% include archive-single.html %}
+  {% endif %}
+{% endfor %}
+
 <h3 style="margin: 0; line-height:50px;">2021</h3>
 {% for post in site.publications reversed %}
   {% if post.pubtype == '2021' %}
