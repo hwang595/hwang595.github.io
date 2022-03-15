@@ -21,11 +21,12 @@ You can find a copy of my CV [here](http://pages.cs.wisc.edu/~hongyiwang/cv/hwan
 
 I serve as reviewer/PC member for:  
 Conference:  
-[ICML 2019, 20, 21](https://icml.cc/) (top 33% reviewer of ICML 2020)  
-[NeurIPS 2019, 20, 21](https://nips.cc/) (50% highest-scoring reviewer)  
-[CVPR 2021, 22](http://cvpr2021.thecvf.com/)
+[ICML 2019-2022](https://icml.cc/) (top 33% reviewer, ICML 2020)  
+[NeurIPS 2019-2022](https://nips.cc/) (top 50% reviewer, NeurIPS 2019)  
+[CVPR 2021-2022](http://cvpr2021.thecvf.com/)
 [ICCV 2021](http://iccv2021.thecvf.com/home)
-[ICLR 2021, 22](https://www.iclr.cc/Conferences/2021)  
-[AAAI 2021, 22](https://aaai.org/Conferences/AAAI-21/)  
+[ICLR 2021-2022](https://www.iclr.cc/Conferences/2021)  
+[AAAI 2021-2022](https://aaai.org/Conferences/AAAI-21/)
+[MLSys 2022 AE Committee Member](https://mlsys.org/)
 Journal:  
-[IEEE TNNLS](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385).
+JMLR, TMLR, IEEE TNNLS, IEEE IoT-J.
