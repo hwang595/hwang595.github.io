@@ -19,17 +19,9 @@ My research studies the efficiency of machine learning algorithms and systems. I
 
 You can find a copy of my CV [here](http://pages.cs.wisc.edu/~hongyiwang/cv/hwang_cv.pdf).
 
-I serve as reviewer/PC member for:  
-
+I serve as reviewer/PC member for:
 Conference:  
-ICML 2019-2022 (top 33% reviewer, ICML 2020)  
-NeurIPS 2019-2022 (top 50% reviewer, NeurIPS 2019)  
-CVPR 2021-2022
-ICCV 2021
-ICLR 2021-2022
-AAAI 2021-2022
-MLSys 2022 AE Committee Member
-SIGKDD 2022
+ICML 2019-22 (top 33% reviewer, ICML 2020), NeurIPS 2019-22 (top 50% reviewer, NeurIPS 2019), CVPR 2021-22, ICCV 2021, ICLR 2021-22, AAAI 2021-22,MLSys 2022 AE Committee Member, SIGKDD 2022
 
 Journal:  
 JMLR, TMLR, IEEE TNNLS, IEEE IoT-J.
