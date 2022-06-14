@@ -19,10 +19,8 @@ My research studies the efficiency of machine learning algorithms and systems. I
 
 You can find a copy of my CV [here](https://drive.google.com/file/d/1-E39TSBWRJPg6zEDzNKH9GTGJeph0USb/view?usp=sharing).
 
-I serve as reviewer/PC member for:
-
+I serve as reviewer/PC member for:  
 Journal:  
-JMLR, TMLR, IEEE TNNLS, IEEE IoT-J.
-
+JMLR, TMLR, IEEE TNNLS, IEEE IoT-J.  
 Conference:  
 ICML 2019-22 (top 33% reviewer, ICML 2020), NeurIPS 2019-22 (top 50% reviewer, NeurIPS 2019), CVPR 2021-22, ICCV 2021, ICLR 2021-22, AAAI 2021-22,MLSys 2022 AE Committee Member, SIGKDD 2022
