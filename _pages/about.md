@@ -19,10 +19,10 @@ My research studies the scalability and efficiency of parallel machine learning 
 
 You can find a copy of my CV [here](https://drive.google.com/file/d/1-E39TSBWRJPg6zEDzNKH9GTGJeph0USb/view?usp=sharing).
 
-### Services:  
-#### PC Member:  
+## Services:
+### PC Member:
 MLSys 2022 (Artifact Evaluation Committee), AAAI 2021-2022  
-#### Reviewer:  
+### Reviewer:
 Journal:  
 JMLR, TMLR, IEEE TNNLS, IEEE IoT-J.  
 Conference:  
