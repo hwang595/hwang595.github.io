@@ -17,7 +17,7 @@ I obtained my Ph.D. degree from the [Computer Sciences Department](https://www.c
 
 My research studies the scalability and efficiency of parallel machine learning systems.
 
-You can find a copy of my CV [here](https://drive.google.com/file/d/1-E39TSBWRJPg6zEDzNKH9GTGJeph0USb/view?usp=sharing).
+You can find a copy of my CV [here](https://github.com/hwang595/hwang595.github.io/cv/hwang_cv.pdf).
 
 ## Services
 **PC Member:**  
