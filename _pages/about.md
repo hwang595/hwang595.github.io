@@ -17,11 +17,11 @@ I obtained my Ph.D. degree from the [Computer Sciences Department](https://www.c
 
 My research studies the scalability and efficiency of parallel machine learning systems.
 
-You can find a copy of my CV [here](https://github.com/hwang595/hwang595.github.io/cv/hwang_cv.pdf).
+You can find a copy of my CV [here](https://drive.google.com/file/d/1mVhrFB50WuH49AnoXfmnFNkt0scTJcuJ/view?usp=sharing).
 
 ## Services
 **PC Member:**  
-MLSys 2022 (Artifact Evaluation Committee), AAAI 2021-2022  
+MLSys 2022 (Artifact Evaluation Committee), SIGKDD 2022, AAAI 2021-2022  
 **Reviewer:**  
 Journal:  
 JMLR, TMLR, IEEE TNNLS, IEEE IoT-J.  
