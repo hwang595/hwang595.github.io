@@ -21,7 +21,7 @@ You can find a copy of my CV [here](https://drive.google.com/file/d/1mVhrFB50WuH
 
 ## Services
 **PC Member:**  
-MLSys 2022 (Artifact Evaluation Committee), SIGKDD 2022, AAAI 2021-2022  
+SOSP 2023 (light PC), MLSys 2023, MLSys 2022 (Artifact Evaluation Committee), SIGKDD 2022, AAAI 2021-2022  
 **Reviewer:**  
 Journal:  
 JMLR, TMLR, IEEE TNNLS, IEEE IoT-J.  
