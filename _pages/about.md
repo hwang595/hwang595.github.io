@@ -10,14 +10,13 @@ redirect_from:
 
 Biography
 ======
-I am a Postdoctoral Fellow at [the Machine Learning Department at CMU](https://www.ml.cmu.edu/) and a member of [the SAILING Lab](https://sailing-lab.github.io/) working with [Eric Xing](http://www.cs.cmu.edu/~epxing/) on machine learning and systems.
+I am a Senior Researcher at [the Machine Learning Department at CMU](https://www.ml.cmu.edu/) and a member of [the SAILING Lab](https://sailing-lab.github.io/) working with [Eric Xing](http://www.cs.cmu.edu/~epxing/) on machine learning and systems.  
 
+I obtained my Ph.D. degree from the [Computer Sciences Department](https://www.cs.wisc.edu/) at University of Wisconsin - Madison, advised by [Dimitris Papailiopoulos](http://papail.io/). In Madison, I worked closely with [Shivaram Venkataraman](http://shivaram.org/), [Kangwook Lee](http://kangwooklee.com/), and [Theodoros Rekatsinas](https://thodrek.github.io/).  
 
-I obtained my Ph.D. degree from the [Computer Sciences Department](https://www.cs.wisc.edu/) at University of Wisconsin - Madison, advised by [Dimitris Papailiopoulos](http://papail.io/). In Madison, I worked closely with [Shivaram Venkataraman](http://shivaram.org/), [Kangwook Lee](http://kangwooklee.com/), and [Theodoros Rekatsinas](https://thodrek.github.io/).
+My research studies the scalability and efficiency of parallel machine learning systems.  
 
-My research studies the scalability and efficiency of parallel machine learning systems.
-
-You can find a copy of my CV [here](https://drive.google.com/file/d/1mVhrFB50WuH49AnoXfmnFNkt0scTJcuJ/view?usp=sharing).
+You can find a copy of my CV [here](https://drive.google.com/file/d/1mVhrFB50WuH49AnoXfmnFNkt0scTJcuJ/view?usp=sharing).  
 
 ## Services
 **PC Member:**  
