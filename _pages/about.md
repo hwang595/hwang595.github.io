@@ -12,9 +12,9 @@ Biography
 ======
 I am a Senior Researcher at [the Machine Learning Department at CMU](https://www.ml.cmu.edu/) and a member of [the SAILING Lab](https://sailing-lab.github.io/) working with [Eric Xing](http://www.cs.cmu.edu/~epxing/) on machine learning and systems.  
 
-I obtained my Ph.D. degree from the [Computer Sciences Department](https://www.cs.wisc.edu/) at University of Wisconsin - Madison, advised by [Dimitris Papailiopoulos](http://papail.io/). In Madison, I worked closely with [Shivaram Venkataraman](http://shivaram.org/), [Kangwook Lee](http://kangwooklee.com/), and [Theodoros Rekatsinas](https://thodrek.github.io/).  
+I obtained my Ph.D. degree from the [Computer Sciences Department](https://www.cs.wisc.edu/) at University of Wisconsin - Madison, advised by [Dimitris Papailiopoulos](http://papail.io/).
 
-My research studies the scalability and efficiency of parallel machine learning systems.  
+My research studies the scalability and efficiency of machine learning algorithms and systems.  
 
 You can find a copy of my CV [here](https://drive.google.com/file/d/1mVhrFB50WuH49AnoXfmnFNkt0scTJcuJ/view?usp=sharing).  
 
@@ -25,4 +25,4 @@ SOSP 2023 (light PC), MLSys 2023, MLSys 2022 (Artifact Evaluation Committee), SI
 Journal:  
 JMLR, TMLR, IEEE TNNLS, IEEE IoT-J.  
 Conference:  
-ICML 2019-22 (top reviewer of ICML 2020), NeurIPS 2019-22 (top reviewer of NeurIPS 2019), CVPR 2021-22, ICCV 2021, ICLR 2021-22, AAAI 2021-22, SIGKDD 2022
+ICML 2019-23 (top reviewer of ICML 2020), NeurIPS 2019-23 (top reviewer of NeurIPS 2019), CVPR 2021-23, ICCV 2021-22, ICLR 2021-24, AAAI 2021-24, SIGKDD 2022-23
