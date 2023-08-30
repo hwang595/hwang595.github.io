@@ -18,6 +18,10 @@ My research studies the scalability and efficiency of machine learning algorithm
 
 You can find a copy of my CV [here](https://drive.google.com/file/d/1mVhrFB50WuH49AnoXfmnFNkt0scTJcuJ/view?usp=sharing).  
 
+## Funding
+NSF IIS2311990 (Senior Personnel/Co-Investigator, PI: Eric P. Xing) "III: Small: Multiple Device Collaborative Learning in Real Heterogeneous and Dynamic Environments", 09/01/2023-08/31/2026.  
+
+
 ## Services
 **PC Member:**  
 SOSP 2023 (light PC), MLSys 2023, MLSys 2022 (Artifact Evaluation Committee), SIGKDD 2022, AAAI 2021-2022  
