@@ -16,7 +16,7 @@ I obtained my Ph.D. degree from the [Computer Sciences Department](https://www.c
 
 My research studies the scalability and efficiency of machine learning algorithms and systems.  
 
-You can find a copy of my CV [here](hwang595.github.io/cv/hwang_cv.pdf).  
+You can find a copy of my CV [here](https://hwang595.github.io/cv/hwang_cv.pdf).  
 
 ## Funding
 * NSF IIS2311990 (Senior Personnel/Co-Investigator, PI: Eric P. Xing) "III: Small: Multiple Device Collaborative Learning in Real Heterogeneous and Dynamic Environments", 09/01/2023-08/31/2026.  
