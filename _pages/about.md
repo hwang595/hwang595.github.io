@@ -18,7 +18,10 @@ My research studies the scalability and efficiency of machine learning algorithm
 
 You can find a copy of my CV [here](https://hwang595.github.io/cv/hwang_cv.pdf).  
 
-## Funding
+<span style="color:darkblue;"> I am currently on the academic job market, applying for Assistant Professor positions in CS, ECE, and Data/Information Science. My statements are here: text</span>
+\[[Research Statement]\](https://hwang595.github.io/statements/research_statement.pdf), \[[Teaching Statement]\](https://hwang595.github.io/statements/teaching_statement.pdf), \[[Diversity Statement]\](https://hwang595.github.io/statements/diversity_statement.pdf)
+
+## Grants
 * NSF IIS2311990 (Senior Personnel/Co-Investigator, PI: Eric P. Xing) "III: Small: Multiple Device Collaborative Learning in Real Heterogeneous and Dynamic Environments", 09/01/2023-08/31/2026.  
 * Semiconductor Research Corp. Artificial Intelligence Hardware Program (Project Co-lead, PI: Eric P. Xing) "Co-designing Distributed ML Systems and Algorithms for Foundation Models for AI-for-Science", 01/01/2024-12/31/2026.  
 
