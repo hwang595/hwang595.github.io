@@ -10,11 +10,11 @@ redirect_from:
 
 Biography
 ======
-I am a Senior Project Scientist at [the Machine Learning Department at CMU](https://www.ml.cmu.edu/) working with [Eric Xing](http://www.cs.cmu.edu/~epxing/). I obtained my Ph.D. from [CS at the University of Wisconsin - Madison](https://www.cs.wisc.edu/), advised by [Dimitris Papailiopoulos](http://papail.io/).    
+I am a Senior Project Scientist at [the Machine Learning Department at CMU](https://www.ml.cmu.edu/) working with [Eric Xing](http://www.cs.cmu.edu/~epxing/). I obtained my Ph.D. from [CS at the UWisconsin-Madison](https://www.cs.wisc.edu/), advised by [Dimitris Papailiopoulos](http://papail.io/).    
 
 My research studies the scalability and efficiency of machine learning algorithms and systems (especially for LLMs now). Here a copy of my [CV](https://hwang595.github.io/cv/hwang_cv.pdf).   
 
-I received the the [Rising Star Award of the CPAL Conference](https://cpal.cc/rising_stars_awardees/) of 2024! 
+I received the the [Rising Star Award of the 2024 CPAL Conference](https://cpal.cc/rising_stars_awardees/)! 
 
 <span style="color:darkmagenta;"> I am currently on the academic job market, applying for Assistant Professor positions in CS, ECE, and Data/Information Science. My statements are here: </span>  
 \[[Research Statement](https://hwang595.github.io/statements/research_statement.pdf)\], \[[Teaching Statement](https://hwang595.github.io/statements/teaching_statement.pdf)\], \[[Diversity Statement](https://hwang595.github.io/statements/diversity_statement.pdf)\]  
