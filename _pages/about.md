@@ -14,13 +14,16 @@ I am a Senior Project Scientist at [the Machine Learning Department at CMU](http
 
 I obtained my Ph.D. degree from the [Computer Sciences Department](https://www.cs.wisc.edu/) at University of Wisconsin - Madison, advised by [Dimitris Papailiopoulos](http://papail.io/).
 
-My research studies the scalability and efficiency of machine learning algorithms and systems.  
+My research studies the scalability and efficiency of machine learning algorithms and systems (especially for LLMs now). Here a copy of my [CV](https://hwang595.github.io/cv/hwang_cv.pdf).   
 
-You can find a copy of my CV [here](https://hwang595.github.io/cv/hwang_cv.pdf).  
+I received the the [Rising Star Award of the CPAL Conference](https://cpal.cc/rising_stars_awardees/) of 2024! 
 
 <span style="color:darkmagenta;"> I am currently on the academic job market, applying for Assistant Professor positions in CS, ECE, and Data/Information Science. My statements are here: </span>  
 \[[Research Statement](https://hwang595.github.io/statements/research_statement.pdf)\], \[[Teaching Statement](https://hwang595.github.io/statements/teaching_statement.pdf)\], \[[Diversity Statement](https://hwang595.github.io/statements/diversity_statement.pdf)\]  
 <span style="color:darkmagenta;"> Please feel free to reach out! </span> 
+
+## Open-source Projects
+* [LLM360](https://www.llm360.ai/): An initiative to fully open-source LLMs, which advocates for all training code and data, model checkpoints, and intermediate results to be made available.
 
 ## Grants
 * NSF IIS2311990 (Senior Personnel/Co-Investigator, PI: Eric P. Xing) "III: Small: Multiple Device Collaborative Learning in Real Heterogeneous and Dynamic Environments", 09/01/2023-08/31/2026.  
@@ -28,9 +31,9 @@ You can find a copy of my CV [here](https://hwang595.github.io/cv/hwang_cv.pdf).
 
 ## Services
 **PC Member:**  
-EuroSys 2024, SOSP 2023 (light PC), MLSys 2023-24, MLSys 2022 (Artifact Evaluation Committee), SIGKDD 2022, AAAI 2021-2022  
+DAC 2024, EuroSys 2024, SOSP 2023 (light PC), MLSys 2023-24, MLSys 2022 (Artifact Evaluation Committee), SIGKDD 2022, AAAI 2021-2022.  
 **Reviewer:**  
 Journal:  
 JMLR, TMLR, IEEE TNNLS, IEEE IoT-J.  
 Conference:  
-ICML 2019-23 (top reviewer of ICML 2020), NeurIPS 2019-23 (top reviewer of NeurIPS 2019), CVPR 2021-23, ICCV 2021-22, ICLR 2021-24, AAAI 2021-24, SIGKDD 2022-23
+ICML 2019-23 (top reviewer of ICML 2020), NeurIPS 2019-23 (top reviewer of NeurIPS 2019), CVPR 2021-23, ICCV 2021-22, ICLR 2021-24, AAAI 2021-24, SIGKDD 2022-23.  
