@@ -10,9 +10,7 @@ redirect_from:
 
 Biography
 ======
-I am a Senior Project Scientist at [the Machine Learning Department at CMU](https://www.ml.cmu.edu/) and a member of [the SAILING Lab](https://sailing-lab.github.io/) working with [Eric Xing](http://www.cs.cmu.edu/~epxing/) on machine learning and systems.  
-
-I obtained my Ph.D. degree from the [Computer Sciences Department](https://www.cs.wisc.edu/) at University of Wisconsin - Madison, advised by [Dimitris Papailiopoulos](http://papail.io/).
+I am a Senior Project Scientist at [the Machine Learning Department at CMU](https://www.ml.cmu.edu/) working with [Eric Xing](http://www.cs.cmu.edu/~epxing/). I obtained my Ph.D. from [CS at the University of Wisconsin - Madison](https://www.cs.wisc.edu/), advised by [Dimitris Papailiopoulos](http://papail.io/).    
 
 My research studies the scalability and efficiency of machine learning algorithms and systems (especially for LLMs now). Here a copy of my [CV](https://hwang595.github.io/cv/hwang_cv.pdf).   
 
