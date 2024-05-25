@@ -10,7 +10,7 @@ redirect_from:
 
 Biography
 ======
-*I will join [Rutgers CS Department](https://www.cs.rutgers.edu/) in summer 2025 as a tenure-track Assistant Professor. And I'm actively looking for highly self-motivated Ph.D. students and postdocs!*  
+**I will join** [Rutgers CS Department](https://www.cs.rutgers.edu/) **in summer 2025 as a tenure-track Assistant Professor**. **And I'm actively looking for highly self-motivated Ph.D. students and postdocs!** 
 
 I am a Senior Project Scientist at [the Machine Learning Department at CMU](https://www.ml.cmu.edu/) working with [Eric Xing](http://www.cs.cmu.edu/~epxing/). I obtained my Ph.D. from [CS at the UWisconsin-Madison](https://www.cs.wisc.edu/), advised by [Dimitris Papailiopoulos](http://papail.io/).   
 
