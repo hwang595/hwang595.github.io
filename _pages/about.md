@@ -31,6 +31,6 @@ My research studies the scalability and efficiency of machine learning algorithm
 DAC 2024, EuroSys 2024, SOSP 2023 (light PC), MLSys 2023-24, MLSys 2022 (Artifact Evaluation Committee), SIGKDD 2022, AAAI 2021-2022.  
 **Reviewer:**  
 Journal:  
-JMLR, TMLR, IEEE TNNLS, IEEE IoT-J.  
+JMLR, TMLR, IEEE TNNLS, IEEE IoT-J, IEEE/ACM Trans on Networking.  
 Conference:  
 ICML 2019-23 (top reviewer of ICML 2020), NeurIPS 2019-24 (top reviewer of NeurIPS 2019), CVPR 2021-23, ICCV 2021-22, ICLR 2021-24, AAAI 2021-24, SIGKDD 2022-23.  
