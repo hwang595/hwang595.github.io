@@ -17,6 +17,7 @@ I am a Senior Project Scientist at [the Machine Learning Department at CMU](http
 My research studies the scalability and efficiency of machine learning algorithms and systems (especially for LLMs now). Here a copy of my [CV](https://hwang595.github.io/cv/hwang_cv.pdf).   
 
 ## News
+* Our work [RedCoast](https://aclanthology.org/2024.naacl-demo.14/) won the NAACL 2024 Best Demo Paper Runner Up!
 * I received the the [Rising Star Award of the 2024 CPAL Conference](https://cpal.cc/rising_stars_awardees/)!  
 
 ## Open-source Projects
