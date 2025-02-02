@@ -12,7 +12,9 @@ Biography
 ======
 **I will join** [Rutgers CS Department](https://www.cs.rutgers.edu/) **in summer 2025 as a tenure-track Assistant Professor**. **And I'm actively looking for highly self-motivated Ph.D. students and postdocs!** 
 
-I am currently inventing something new (stay tuned)! I was a Senior Project Scientist at the [ML Department at CMU](https://www.ml.cmu.edu/) working with [Eric Xing](http://www.cs.cmu.edu/~epxing/). I obtained my PhD from [CS at the UW-Madison](https://www.cs.wisc.edu/), advised by [Dimitris Papailiopoulos](http://papail.io/).  
+I am the Head of Infrastructure at [GenBio AI](https://genbio.ai/), a startup building the world's first AI-Driven Digital Organism (AIDO)! AIDO is a system of multiscale foundation models for predicting, simulating, and programming biology at all levels. GenBio AI is hiring—please check out our openings [here](https://jobs.lever.co/genbio)!
+
+I was a Senior Project Scientist at the [ML Department at CMU](https://www.ml.cmu.edu/) working with [Eric Xing](http://www.cs.cmu.edu/~epxing/). I obtained my PhD from [CS at the UW-Madison](https://www.cs.wisc.edu/), advised by [Dimitris Papailiopoulos](http://papail.io/).  
 
 My research studies the scalability and efficiency of machine learning algorithms and systems (especially for LLMs now). Here a copy of my [CV](https://hwang595.github.io/cv/hwang_cv.pdf).   
 
@@ -22,14 +24,17 @@ My research studies the scalability and efficiency of machine learning algorithm
 
 ## Open-source Projects
 * [LLM360](https://www.llm360.ai/): An initiative to fully open-source LLMs, which advocates for all training code and data, model checkpoints, and intermediate results to be made available.
+* [AIDO](https://huggingface.co/genbio-ai): A system of multiscale foundation models for predicting, simulating, and programming biology at all levels.
 
 <!-- ## Grants
 * NSF IIS2311990 (Senior Personnel/Co-Investigator, PI: Eric P. Xing) "III: Small: Multiple Device Collaborative Learning in Real Heterogeneous and Dynamic Environments", 09/01/2023-08/31/2026.  
 * Semiconductor Research Corp. Artificial Intelligence Hardware Program (Project Co-lead, PI: Eric P. Xing) "Co-designing Distributed ML Systems and Algorithms for Foundation Models for AI-for-Science", 01/01/2024-12/31/2026.  --> 
 
 ## Services
+**Area Chair:**
+MLSys 2025.    
 **PC Member:**  
-DAC 2024, EuroSys 2024, SOSP 2023 (light PC), MLSys 2023-24, MLSys 2022 (Artifact Evaluation Committee), SIGKDD 2022, AAAI 2021-2022.  
+DAC 2024, EuroSys 2024, SOSP 2023 (light PC), MLSys 2023-25, MLSys 2022 (Artifact Evaluation Committee), SIGKDD 2022, AAAI 2021-2022.  
 **Reviewer:**  
 Journal:  
 JMLR, TMLR, IEEE TNNLS, IEEE IoT-J, IEEE/ACM Trans on Networking.  
