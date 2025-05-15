@@ -12,7 +12,7 @@ Biography
 ======
 **I will join** [Rutgers CS Department](https://www.cs.rutgers.edu/) **in summer 2025 as a tenure-track Assistant Professor**. **And I'm actively looking for highly self-motivated Ph.D. students and postdocs!** 
 
-I am the Head of Infrastructure at [GenBio AI](https://genbio.ai/), a startup building the world's first AI-Driven Digital Organism (AIDO)! AIDO is a system of multiscale foundation models for predicting, simulating, and programming biology at all levels. GenBio AI is hiring—please check out our openings [here](https://jobs.lever.co/genbio)!
+<!-- I am the Head of Infrastructure at [GenBio AI](https://genbio.ai/), a startup building the world's first AI-Driven Digital Organism (AIDO)! AIDO is a system of multiscale foundation models for predicting, simulating, and programming biology at all levels. GenBio AI is hiring—please check out our openings [here](https://jobs.lever.co/genbio)! -->
 
 I was a Senior Project Scientist at the [ML Department at CMU](https://www.ml.cmu.edu/) working with [Eric Xing](http://www.cs.cmu.edu/~epxing/). I obtained my PhD from [CS at the UW-Madison](https://www.cs.wisc.edu/), advised by [Dimitris Papailiopoulos](http://papail.io/).  
 
@@ -22,9 +22,9 @@ My research studies the scalability and efficiency of machine learning algorithm
 * Our work [RedCoast](https://aclanthology.org/2024.naacl-demo.14/) won the NAACL 2024 Best Demo Paper Runner Up!
 * I received the the [Rising Star Award of the 2024 CPAL Conference](https://cpal.cc/rising_stars_awardees/)!  
 
-## Open-source Projects
+<!-- ## Open-source Projects
 * [LLM360](https://www.llm360.ai/): An initiative to fully open-source LLMs, which advocates for all training code and data, model checkpoints, and intermediate results to be made available.
-* [AIDO](https://huggingface.co/genbio-ai): A system of multiscale foundation models for predicting, simulating, and programming biology at all levels.
+* [AIDO](https://huggingface.co/genbio-ai): A system of multiscale foundation models for predicting, simulating, and programming biology at all levels. -->
 
 <!-- ## Grants
 * NSF IIS2311990 (Senior Personnel/Co-Investigator, PI: Eric P. Xing) "III: Small: Multiple Device Collaborative Learning in Real Heterogeneous and Dynamic Environments", 09/01/2023-08/31/2026.  
