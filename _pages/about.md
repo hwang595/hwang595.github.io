@@ -10,9 +10,7 @@ redirect_from:
 
 Biography
 ======
-I a tenure-track Assistant Professor at [Rutgers CS Department](https://www.cs.rutgers.edu/). I also lead the Infrastructure team at [GenBio AI](https://genbio.ai/).
-
-**I'm actively looking for highly self-motivated Ph.D. students and postdocs!**
+I a tenure-track Assistant Professor at [The CS Department at Rutgers University](https://www.cs.rutgers.edu/). 
 
 I was a Senior Project Scientist at the [ML Department at CMU](https://www.ml.cmu.edu/) working with [Eric Xing](http://www.cs.cmu.edu/~epxing/). I obtained my PhD from [CS at the UW-Madison](https://www.cs.wisc.edu/), advised by [Dimitris Papailiopoulos](http://papail.io/).  
 
