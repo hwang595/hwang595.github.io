@@ -28,6 +28,13 @@ My research studies the scalability and efficiency of machine learning algorithm
 * NSF IIS2311990 (Senior Personnel/Co-Investigator, PI: Eric P. Xing) "III: Small: Multiple Device Collaborative Learning in Real Heterogeneous and Dynamic Environments", 09/01/2023-08/31/2026.  
 * Semiconductor Research Corp. Artificial Intelligence Hardware Program (Project Co-lead, PI: Eric P. Xing) "Co-designing Distributed ML Systems and Algorithms for Foundation Models for AI-for-Science", 01/01/2024-12/31/2026.  --> 
 
+## Research Group
+* [Daize Dong (PhD at Rutgers CS)](https://daizedong.github.io/)
+* [Haolong Jia (PhD at Rutgers CS)](https://www.linkedin.com/in/haolong-jia-274a3823a/)
+* Jiawei Wu (PhD at Rutgers CS)
+* [Ryan Cheng (Undergrad at Rutgers)](https://www.linkedin.com/in/ryancheng44/)
+
+
 ## Teaching
 * Fall 2025 [RU CS 671, Recent Advances in Large Language Models](https://hwang595.github.io/RU-CS-671-Fall2025/)
 
