@@ -17,6 +17,7 @@ I was a Senior Project Scientist at the [ML Department at CMU](https://www.ml.cm
 My research studies the scalability and efficiency of machine learning algorithms and systems (especially for LLMs now). Here a copy of my [CV](https://hwang595.github.io/cv/hwang_cv.pdf).   
 
 ## News
+* Our lab has received an AMD University Program AI & HPC Cluster Allocation Award. Thank you to AMD for the generous support!
 * Our work [RedCoast](https://aclanthology.org/2024.naacl-demo.14/) won the NAACL 2024 Best Demo Paper Runner Up!
 * I received the the [Rising Star Award of the 2024 CPAL Conference](https://cpal.cc/rising_stars_awardees/)!  
 
@@ -32,19 +33,21 @@ My research studies the scalability and efficiency of machine learning algorithm
 * [Daize Dong (PhD at Rutgers CS)](https://daizedong.github.io/)
 * [Haolong Jia (PhD at Rutgers CS)](https://www.linkedin.com/in/haolong-jia-274a3823a/)
 * Jiawei Wu (PhD at Rutgers CS)
+* [Junlin Chen (Undergrad at Rutgers)](https://www.linkedin.com/in/junlin110/)
 * [Ryan Cheng (Undergrad at Rutgers)](https://www.linkedin.com/in/ryancheng44/)
 
 
 ## Teaching
+* Spring 2026 [CS 439, Intro to Data Science]
 * Fall 2025 [RU CS 671, Recent Advances in Large Language Models](https://hwang595.github.io/RU-CS-671-Fall2025/)
 
 ## Services
 **Area Chair:**
-MLSys 2025.    
+MLSys 2025, CPAL 2026.    
 **PC Member:**
-DAC 2024, EuroSys 2024, SOSP 2023 (light PC), MLSys 2023-25, MLSys 2022 (Artifact Evaluation Committee), SIGKDD 2022, AAAI 2021-2022.  
+DAC 2024, EuroSys 2024, SOSP 2023 (light PC), MLSys 2023-26, SIGKDD 2022, AAAI 2021-2022.  
 **Reviewer:**  
 Journal:  
 JMLR, TMLR, IEEE TNNLS, IEEE IoT-J, IEEE/ACM Trans on Networking.  
 Conference:  
-ICML 2019-23 (top reviewer of ICML 2020), NeurIPS 2019-24 (top reviewer of NeurIPS 2019), CVPR 2021-23, ICCV 2021-22, ICLR 2021-25, AAAI 2021-24, SIGKDD 2022-23.  
+COLM 2026, ICML 2019-26 (top reviewer of ICML 2020), NeurIPS 2019-25 (top reviewer of NeurIPS 2019), CVPR 2021-23, ICCV 2021-22, ICLR 2021-25, AAAI 2021-24, SIGKDD 2022-23.  
