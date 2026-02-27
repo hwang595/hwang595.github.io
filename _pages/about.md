@@ -54,7 +54,7 @@ redirect_from:
 - [FLoRA: Federated Fine-Tuning Large Language Models with Heterogeneous Low-Rank Architectures](https://openreview.net/forum?id=TcCorXxNJQ), NeurIPS 2024
 - [TrustLLM: Trustworthiness in Large Language Models](https://openreview.net/forum?id=rxk6y9fRzX), ICML 2024
 
-For the complete list, see the [Publications](/publications/) page.
+For the complete list, see my [Google Scholar profile](https://scholar.google.com/citations?user=zYdZORsAAAAJ&hl=en&citsig=AMstHGSDd6LPeGN0xKe4jqF6gPRY_1K2Pw).
 
 ## News
 - Our lab received an AMD University Program AI and HPC Cluster Allocation Award.
