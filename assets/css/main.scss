@@ -35,6 +35,39 @@
 @import "sidebar";
 
 @import "vendor/font-awesome/font-awesome";
-@import "fa5-compat";
+
+/* Compatibility shim: allow FA5-style classes to render with FA4 assets. */
+.fas,
+.fab,
+.far {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Alias newer icon names to FA4 glyph codes used by this site. */
+.fa-map-marker-alt:before {
+  content: "\f041";
+}
+
+.fa-linkedin-in:before {
+  content: "\f0e1";
+}
+
+.fa-medium-m:before {
+  content: "\f23a";
+}
+
+.fa-patreon:before {
+  content: "\f0d6";
+}
+
+.fa-telegram:before {
+  content: "\f1d8";
+}
+
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
