@@ -26,18 +26,27 @@
       </div>
     {% endif %}
 
-    <p style="margin: 0 !important; padding:0; line-height:20px;" class="archive__item-title" itemprop="description">
+    {% if post.collection == "publications" and post.venue %}
+      <p class="archive__item-meta">
+        <span class="pub-badge pub-badge--venue">{{ post.venue }}</span>
+      </p>
+    {% endif %}
+
+    <h3 class="archive__item-title" itemprop="headline">
       {% if post.link %}
         <a href="{{ post.link }}">{{ title }}</a>
       {% else %}
         <b>{{ title }}</b>
       {% endif %}
-    </p>
+    </h3>
 
     {% if post.excerpt and site.read_more != 'enabled' %}
-    <p style="margin:0 !important; padding:0; line-height:20px;" class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+    <div class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</div>
     {% elsif post.excerpt and site.read_more == 'enabled' %}
-    <p style="margin:0 !important; padding:0; line-height:20px;" class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
+    <div class="archive__item-excerpt" itemprop="description">
+      {{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}
+      <strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong>
+    </div>
     {% endif %}
 
   </article>
