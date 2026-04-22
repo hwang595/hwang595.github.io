@@ -69,7 +69,7 @@ For the complete list, see my [Google Scholar profile](https://scholar.google.co
 - Jiawei Wu (PhD at Rutgers CS)
 - [Junlin Chen (Undergraduate at Rutgers)](https://www.linkedin.com/in/junlin110/)
 - [Ryan Cheng (Undergraduate at Rutgers)](https://www.linkedin.com/in/ryancheng44/)
-- [Shawn Cui (Middle School Student)]
+- Shawn Cui (Middle School Student)
 
 ## Teaching
 - Spring 2026: CS 439, Intro to Data Science
