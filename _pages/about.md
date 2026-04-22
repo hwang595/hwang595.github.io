@@ -49,10 +49,12 @@ redirect_from:
 </div>
 
 ## Selected Publications {#selected-publications}
-- [SHED: Shapley-Based Automated Dataset Refinement](https://proceedings.neurips.cc/paper_files/paper/2024/hash/2298e37bd014f16d2ce8f3fc4c058f84-Abstract-Conference.html), NeurIPS 2024
-- [Model-GLUE: Democratized LLM Scaling for A Large Model Zoo in the Wild](https://neurips.cc/virtual/2024/poster/97737), NeurIPS 2024 Datasets and Benchmarks
-- [FLoRA: Federated Fine-Tuning Large Language Models with Heterogeneous Low-Rank Architectures](https://openreview.net/forum?id=TcCorXxNJQ), NeurIPS 2024
-- [TrustLLM: Trustworthiness in Large Language Models](https://openreview.net/forum?id=rxk6y9fRzX), ICML 2024
+- [K2-V2: A 360-Open, Reasoning-Enhanced LLM](https://arxiv.org/abs/2512.06201), arXiv 2025
+- [LLM360: Towards Fully Transparent Open-Source LLMs
+](https://openreview.net/pdf?id=QdWhj0QZFw), COLM 2024
+- [Cuttlefish: Low-Rank Model Training without All the Tuning](https://openreview.net/forum?id=TcCorXxNJQ), MLSys 2023
+- [Federated Learning with Matched Averaging
+](https://openreview.net/forum?id=BkluqlSFDS), ICLR 2020 (Oral)
 
 For the complete list, see my [Google Scholar profile](https://scholar.google.com/citations?user=zYdZORsAAAAJ&hl=en&citsig=AMstHGSDd6LPeGN0xKe4jqF6gPRY_1K2Pw).
 
@@ -67,6 +69,7 @@ For the complete list, see my [Google Scholar profile](https://scholar.google.co
 - Jiawei Wu (PhD at Rutgers CS)
 - [Junlin Chen (Undergraduate at Rutgers)](https://www.linkedin.com/in/junlin110/)
 - [Ryan Cheng (Undergraduate at Rutgers)](https://www.linkedin.com/in/ryancheng44/)
+- [Shawn Cui (Middle School Student)]
 
 ## Teaching
 - Spring 2026: CS 439, Intro to Data Science
