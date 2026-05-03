@@ -76,7 +76,7 @@ For the complete list, see my [Google Scholar profile](https://scholar.google.co
 - Fall 2025: [RU CS 671, Recent Advances in Large Language Models](https://hwang595.github.io/RU-CS-671-Fall2025/)
 
 ## Services
-**Area Chair:** MLSys 2025, CPAL 2026  
+**Area Chair:** NeurIPS 2026, MLSys 2025, CPAL 2026  
 **PC Member:** DAC 2024, EuroSys 2024, SOSP 2023 (light PC), MLSys 2023-2026, SIGKDD 2022, AAAI 2021-2022  
 **Reviewer (Journals):** JMLR, TMLR, IEEE TNNLS, IEEE IoT-J, IEEE/ACM Transactions on Networking  
-**Reviewer (Conferences):** COLM 2026, ICML 2019-2026 (top reviewer 2020), NeurIPS 2019-2025 (top reviewer 2019), CVPR 2021-2023, ICCV 2021-2022, ICLR 2021-2025, AAAI 2021-2024, SIGKDD 2022-2023
+**Reviewer (Conferences):** SC 2026, COLM 2026, ICML 2019-2026 (top reviewer 2020), NeurIPS 2019-2025 (top reviewer 2019), CVPR 2021-2023, ICCV 2021-2022, ICLR 2021-2025, AAAI 2021-2024, SIGKDD 2022-2023
