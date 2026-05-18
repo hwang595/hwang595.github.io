@@ -1,0 +1,53 @@
+{% include base_path %}
+
+{% if include.publication %}
+  {% assign pub = include.publication %}
+{% else %}
+  {% assign pub = post %}
+{% endif %}
+
+{% assign pub_key = pub.path | split: "/" | last | replace: ".md", "" %}
+{% assign pub_topics = site.data.publication_topics[pub_key] %}
+{% if pub.pubtype %}
+  {% assign pub_year = pub.pubtype %}
+{% else %}
+  {% assign pub_year = pub.date | date: "%Y" %}
+{% endif %}
+{% assign pub_venue = pub.venue | default: "Preprint" %}
+{% assign pub_search = pub.title | append: " " | append: pub_venue | append: " " | append: pub.excerpt | strip_html | downcase %}
+{% capture topic_slugs %}{% for topic in pub_topics %}{{ topic | slugify }} {% endfor %}{% endcapture %}
+
+<div class="publication-card{% if include.featured %} publication-card--featured{% endif %}"
+  data-publication-card
+  data-year="{{ pub_year }}"
+  data-venue="{{ pub_venue | slugify }}"
+  data-topics="{{ topic_slugs | strip }}"
+  data-search="{{ pub_search | escape }}">
+  <div class="publication-card__meta">
+    <span class="pub-badge pub-badge--venue">{{ pub_venue }}</span>
+    <span class="pub-badge">{{ pub_year }}</span>
+    {% if include.featured %}<span class="pub-badge pub-badge--selected">Selected</span>{% endif %}
+  </div>
+
+  <h3 class="publication-card__title">
+    {% if pub.link %}
+      <a href="{{ pub.link }}">{{ pub.title }}</a>
+    {% elsif pub.paperurl %}
+      <a href="{{ pub.paperurl }}">{{ pub.title }}</a>
+    {% else %}
+      {{ pub.title }}
+    {% endif %}
+  </h3>
+
+  {% if pub.excerpt %}
+    <div class="publication-card__excerpt">{{ pub.excerpt | markdownify }}</div>
+  {% endif %}
+
+  {% if pub_topics %}
+    <div class="publication-card__topics" aria-label="Publication topics">
+      {% for topic in pub_topics %}
+        <span>{{ topic }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

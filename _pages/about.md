@@ -54,25 +54,17 @@ redirect_from:
   <div class="home-section__header">
     <p class="home-section__eyebrow">Selected work</p>
     <h2>Selected Publications</h2>
-    <a href="https://scholar.google.com/citations?user=zYdZORsAAAAJ&amp;hl=en&amp;citsig=AMstHGSDd6LPeGN0xKe4jqF6gPRY_1K2Pw">Full publication list</a>
+    <a href="/publications/">Full publication list</a>
   </div>
   <div class="selected-work">
-    <a class="paper-card" href="https://arxiv.org/abs/2512.06201">
-      <span class="paper-card__venue">arXiv 2025</span>
-      <strong>K2-V2: A 360-Open, Reasoning-Enhanced LLM</strong>
-    </a>
-    <a class="paper-card" href="https://openreview.net/pdf?id=QdWhj0QZFw">
-      <span class="paper-card__venue">COLM 2024</span>
-      <strong>LLM360: Towards Fully Transparent Open-Source LLMs</strong>
-    </a>
-    <a class="paper-card" href="https://openreview.net/forum?id=TcCorXxNJQ">
-      <span class="paper-card__venue">MLSys 2023</span>
-      <strong>Cuttlefish: Low-Rank Model Training without All the Tuning</strong>
-    </a>
-    <a class="paper-card" href="https://openreview.net/forum?id=BkluqlSFDS">
-      <span class="paper-card__venue">ICLR 2020 Oral</span>
-      <strong>Federated Learning with Matched Averaging</strong>
-    </a>
+    {% for featured_slug in site.data.featured_publications %}
+      {% for publication in site.publications %}
+        {% assign publication_slug = publication.path | split: "/" | last | replace: ".md", "" %}
+        {% if publication_slug == featured_slug %}
+          {% include publication-card.html publication=publication featured=true %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
   </div>
 </section>
 
