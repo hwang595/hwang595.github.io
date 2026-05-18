@@ -1,0 +1,127 @@
+k2_v2_arxiv_2025:
+  - LLM Systems
+  - Open Models
+
+llm360_colm_2024:
+  - LLM Systems
+  - Open Models
+
+crystal_colm_2024:
+  - LLM Systems
+  - Data & Evaluation
+
+turstllm_icml_2024:
+  - LLM Systems
+  - Data & Evaluation
+
+model_glue_neurips_2024:
+  - LLM Systems
+  - Open Models
+
+shed_neurips_2024:
+  - LLM Systems
+  - Data & Evaluation
+
+redco_naacl_demo_2024:
+  - LLM Systems
+  - Distributed Training
+
+flora_neurips_2024:
+  - LLM Systems
+  - Federated Learning
+
+maestro_icml_2024:
+  - Optimization
+  - Model Compression
+
+foe_iclr_2024:
+  - Optimization
+  - Model Fusion
+
+act_compr_mlsys2024:
+  - Distributed Training
+  - Model Compression
+
+amp_neurips_2022:
+  - Distributed Training
+  - Model Parallelism
+
+cuttlefish_mlsys_2023:
+  - Efficient Training
+  - Optimization
+
+grad_utility_mlsys_2022:
+  - Distributed Training
+  - Optimization
+
+accordion_mlsys_2021:
+  - Distributed Training
+  - Optimization
+
+pufferfish_mlsys_2021:
+  - Efficient Training
+  - Model Compression
+
+rare_gems_neurips_2022:
+  - Optimization
+  - Deep Learning
+
+psgd_nips_2018:
+  - Optimization
+  - Deep Learning
+
+atomo_nips_2018:
+  - Distributed Training
+  - Optimization
+
+draco_icml_2018:
+  - Distributed Training
+  - Robustness
+
+sysml2018:
+  - Distributed Training
+  - Robustness
+
+detox_neurips_2019:
+  - Distributed Training
+  - Robustness
+
+erasurehead_2019:
+  - Distributed Training
+  - Gradient Coding
+
+fedma_iclr_2019:
+  - Federated Learning
+  - Model Fusion
+
+fedep_iclr_2023:
+  - Federated Learning
+  - Optimization
+
+fednar_neurips_2023:
+  - Federated Learning
+  - Optimization
+
+fedml_spicyfl_2019:
+  - Federated Learning
+  - ML Systems
+
+flrea_emnlp2022:
+  - Federated Learning
+  - Privacy & Security
+
+edge_case_attack_neurips_2020:
+  - Federated Learning
+  - Privacy & Security
+
+mpcformer_iclr_2023:
+  - Privacy & Security
+  - Efficient Inference
+
+sigmod_demo_2019:
+  - ML Systems
+  - Data Markets
+
+iros2017:
+  - Robotics
+  - Sensing

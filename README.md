@@ -14,12 +14,20 @@ I think I've got things running smoothly and fixed some major bugs, but feel fre
 
 See more info at https://academicpages.github.io/
 
-## To run locally (not on GitHub Pages, to serve on your own computer)
-1. Clone the repository and made updates as detailed above
-1. Make sure you have ruby-dev, bundler, and nodejs installed: `sudo apt install ruby-dev ruby-bundler nodejs`
-1. Run `bundle clean` to clean up the directory (no need to run `--force`)
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-1. Run `bundle exec jekyll serve` to generate the HTML and serve it from localhost:4000
+## Local development
+
+This site targets the current GitHub Pages Ruby runtime in `.ruby-version`.
+
+1. Install Ruby 3.3.4 with your Ruby manager of choice.
+1. Run `gem install bundler`.
+1. Run `bundle install`.
+1. Run `bundle exec jekyll serve --livereload` to preview the site at `http://localhost:4000`.
+
+## Deployment
+
+The repository includes a GitHub Actions workflow in `.github/workflows/pages.yml`.
+To use it, set the repository's GitHub Pages source to **GitHub Actions** in the repository settings.
+The workflow builds the Jekyll site with Bundler and deploys the generated `_site` artifact.
 
 # Changelog -- bugfixes and enhancements
 
