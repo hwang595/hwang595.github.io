@@ -8,24 +8,44 @@ redirect_from:
   - /about.html
 ---
 
+{% assign home_publications = site.publications | sort: "date" | reverse %}
+{% assign home_publication_years = home_publications | map: "pubtype" | uniq | sort | reverse %}
+{% assign home_publication_venues = home_publications | map: "venue" | uniq | sort %}
+
 <div class="home-hero">
-  <p class="home-hero__eyebrow">Efficient ML Systems and LLM Infrastructure</p>
-  <h1 class="home-hero__title">Building scalable, practical, and trustworthy machine learning systems.</h1>
-  <p class="home-hero__subtitle">
-    I am an Assistant Professor in the
-    <a href="https://www.cs.rutgers.edu/">Department of Computer Science at Rutgers University</a>.
-    My research focuses on scalable and efficient machine learning algorithms and systems, with a current emphasis on LLMs.
-  </p>
-  <div class="home-hero__actions">
-    <a class="btn btn--large" href="#selected-publications">Selected Papers</a>
-    <a class="btn btn--inverse btn--large" href="#research-group">Research Group</a>
-    <a class="btn btn--inverse btn--large" href="/cv/hwang_cv.pdf">CV</a>
+  <div class="home-hero__content">
+    <p class="home-hero__eyebrow">Efficient ML Systems and LLM Infrastructure</p>
+    <h1 class="home-hero__title">Building scalable, practical, and trustworthy machine learning systems.</h1>
+    <p class="home-hero__subtitle">
+      I am an Assistant Professor in the
+      <a href="https://www.cs.rutgers.edu/">Department of Computer Science at Rutgers University</a>.
+      My research focuses on scalable and efficient machine learning algorithms and systems, with a current emphasis on LLMs.
+    </p>
+    <div class="home-hero__actions">
+      <a class="btn btn--large" href="#selected-publications">Selected Papers</a>
+      <a class="btn btn--inverse btn--large" href="#research-group">Research Group</a>
+      <a class="btn btn--inverse btn--large" href="/cv/hwang_cv.pdf">CV</a>
+    </div>
+    <div class="home-hero__chips">
+      <span class="home-chip">Rutgers CS</span>
+      <span class="home-chip">Distributed ML</span>
+      <span class="home-chip">LLM Systems</span>
+      <span class="home-chip">Federated Learning</span>
+    </div>
   </div>
-  <div class="home-hero__chips">
-    <span class="home-chip">Rutgers CS</span>
-    <span class="home-chip">Distributed ML</span>
-    <span class="home-chip">LLM Systems</span>
-    <span class="home-chip">Federated Learning</span>
+  <div class="home-hero__stats" aria-label="Research snapshot">
+    <a class="home-stat" href="/publications/">
+      <strong>{{ home_publications | size }}</strong>
+      <span>publications</span>
+    </a>
+    <a class="home-stat" href="/publications/">
+      <strong>{{ home_publication_venues | size }}</strong>
+      <span>venues</span>
+    </a>
+    <a class="home-stat" href="/publications/">
+      <strong>{{ home_publication_years | size }}</strong>
+      <span>years</span>
+    </a>
   </div>
 </div>
 
@@ -49,6 +69,30 @@ redirect_from:
     </p>
   </div>
 </div>
+
+<section class="home-section home-section--focus" id="research-focus">
+  <div class="home-section__header">
+    <p class="home-section__eyebrow">Research focus</p>
+    <h2>Systems for Useful ML</h2>
+  </div>
+  <div class="focus-grid">
+    <article class="focus-card">
+      <span>01</span>
+      <h3>LLM infrastructure</h3>
+      <p>Training, serving, evaluation, and transparency for large models under real system constraints.</p>
+    </article>
+    <article class="focus-card">
+      <span>02</span>
+      <h3>Federated and private ML</h3>
+      <p>Algorithms and systems that let models learn across distributed, sensitive, and heterogeneous data.</p>
+    </article>
+    <article class="focus-card">
+      <span>03</span>
+      <h3>Efficient optimization</h3>
+      <p>Compression, low-rank methods, model fusion, and communication-efficient distributed training.</p>
+    </article>
+  </div>
+</section>
 
 <section class="home-section" id="selected-publications">
   <div class="home-section__header">
@@ -74,9 +118,18 @@ redirect_from:
     <h2>News</h2>
   </div>
   <ul class="home-timeline">
-    <li>Our lab received an AMD University Program AI and HPC Cluster Allocation Award.</li>
-    <li>Our work <a href="https://aclanthology.org/2024.naacl-demo.14/">RedCoast</a> won the NAACL 2024 Best Demo Paper Runner-Up.</li>
-    <li>I received the <a href="https://cpal.cc/rising_stars_awardees/">Rising Star Award at CPAL 2024</a>.</li>
+    <li>
+      <span>2026</span>
+      <p>Our lab received an AMD University Program AI and HPC Cluster Allocation Award.</p>
+    </li>
+    <li>
+      <span>2024</span>
+      <p>Our work <a href="https://aclanthology.org/2024.naacl-demo.14/">RedCoast</a> won the NAACL 2024 Best Demo Paper Runner-Up.</p>
+    </li>
+    <li>
+      <span>2024</span>
+      <p>I received the <a href="https://cpal.cc/rising_stars_awardees/">Rising Star Award at CPAL 2024</a>.</p>
+    </li>
   </ul>
 </section>
 

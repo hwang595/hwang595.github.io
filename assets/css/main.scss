@@ -238,19 +238,31 @@ td > code:after,
 
 .home-hero {
   position: relative;
+  display: grid;
+  gap: 1.1rem 1.4rem;
   margin: 0.25rem 0 1.45rem;
   padding-bottom: 1.35rem;
   border-bottom: 1px solid rgba(#94a3b8, 0.32);
+
+  @include breakpoint($medium) {
+    grid-template-columns: minmax(0, 1fr) minmax(10.8rem, 14.5rem);
+    align-items: center;
+  }
 }
 
 .home-hero:before {
   display: block;
+  grid-column: 1 / -1;
   width: 4.5rem;
   height: 0.28rem;
-  margin-bottom: 1.05rem;
+  margin-bottom: 0.2rem;
   border-radius: 999px;
   background: linear-gradient(90deg, $primary-color, #b45309);
   content: "";
+}
+
+.home-hero__content {
+  min-width: 0;
 }
 
 .home-hero__eyebrow,
@@ -304,6 +316,51 @@ td > code:after,
   margin-top: 0.95rem;
 }
 
+.home-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+
+  @include breakpoint($medium) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.home-stat {
+  display: grid;
+  gap: 0.08rem;
+  min-width: 0;
+  padding: 0.72rem 0.78rem;
+  border: 1px solid rgba(#94a3b8, 0.28);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(#ffffff, 0.94), rgba(#f8fafc, 0.9));
+  box-shadow: 0 12px 26px rgba(#0f172a, 0.07);
+  color: #334155;
+  font-family: $header-font-family;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+  strong {
+    color: #1f2937;
+    font-size: 1.35rem;
+    line-height: 1;
+  }
+
+  span {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+}
+
+.home-stat:hover {
+  border-color: rgba($primary-color, 0.42);
+  color: mix(#000, $primary-color, 18%);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
 .home-chip {
   display: inline-flex;
   align-items: center;
@@ -320,6 +377,7 @@ td > code:after,
 
 .home-highlights,
 .selected-work,
+.focus-grid,
 .people-grid,
 .teaching-list {
   display: grid;
@@ -335,6 +393,7 @@ td > code:after,
 }
 
 .home-highlight,
+.focus-card,
 .publication-card,
 .person-card,
 .teaching-item,
@@ -358,6 +417,43 @@ td > code:after,
 
   p:last-child {
     margin-bottom: 0;
+  }
+}
+
+.focus-grid {
+  @include breakpoint($medium) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.focus-card {
+  position: relative;
+  min-height: 100%;
+  padding: 0.98rem 1rem;
+  overflow: hidden;
+
+  span {
+    display: inline-flex;
+    margin-bottom: 0.55rem;
+    padding: 0.18rem 0.46rem;
+    border-radius: 999px;
+    background: rgba($primary-color, 0.1);
+    color: mix(#000, $primary-color, 22%);
+    font-family: $header-font-family;
+    font-size: 0.66rem;
+    font-weight: 800;
+  }
+
+  h3 {
+    margin: 0 0 0.42rem;
+    color: #1f2937;
+    font-size: 0.98rem;
+  }
+
+  p {
+    margin: 0;
+    color: #334155;
+    font-size: 0.92rem;
   }
 }
 
@@ -472,6 +568,16 @@ td > code:after,
 
 .selected-work .publication-card__excerpt {
   display: none;
+}
+
+.selected-work .publication-card {
+  background: linear-gradient(180deg, rgba(#ffffff, 0.94), rgba(#f8fafc, 0.9));
+}
+
+.selected-work .publication-card:first-child {
+  @include breakpoint($medium) {
+    grid-column: 1 / -1;
+  }
 }
 
 .publication-card__topics {
@@ -589,26 +695,33 @@ td > code:after,
 }
 
 .home-timeline {
+  display: grid;
+  gap: 0.58rem;
   margin: 0;
   padding: 0;
   list-style: none;
 
   li {
-    position: relative;
-    margin: 0.68rem 0;
-    padding-left: 1.3rem;
+    display: grid;
+    grid-template-columns: 4.15rem minmax(0, 1fr);
+    gap: 0.72rem;
+    align-items: start;
+    margin: 0;
+    padding: 0.72rem 0.85rem;
+    border: 1px solid rgba(#94a3b8, 0.24);
+    border-radius: 8px;
+    background: rgba(#ffffff, 0.78);
   }
 
-  li:before {
-    position: absolute;
-    top: 0.58rem;
-    left: 0;
-    width: 0.46rem;
-    height: 0.46rem;
-    border-radius: 50%;
-    background: #b45309;
-    box-shadow: 0 0 0 4px rgba(#b45309, 0.12);
-    content: "";
+  span {
+    color: #b45309;
+    font-family: $header-font-family;
+    font-size: 0.74rem;
+    font-weight: 800;
+  }
+
+  p {
+    margin: 0;
   }
 }
 
@@ -843,10 +956,16 @@ td > code:after,
   .home-hero__actions .btn {
     width: 100%;
   }
+
+  .home-hero__stats,
+  .home-timeline li {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .btn,
+  .home-stat,
   .publication-card,
   .person-card,
   .teaching-item,
@@ -855,6 +974,7 @@ td > code:after,
   }
 
   .btn:hover,
+  .home-stat:hover,
   .publication-card:hover,
   .person-card:hover,
   .teaching-item:hover,
