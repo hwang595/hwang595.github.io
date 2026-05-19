@@ -239,9 +239,9 @@ td > code:after,
 .home-hero {
   position: relative;
   display: grid;
-  gap: 1.1rem 1.4rem;
-  margin: 0.25rem 0 1.45rem;
-  padding-bottom: 1.35rem;
+  gap: 1rem 1.4rem;
+  margin: 0.15rem 0 1.35rem;
+  padding-bottom: 1.25rem;
   border-bottom: 1px solid rgba(#94a3b8, 0.32);
 
   @include breakpoint($medium) {
@@ -277,35 +277,37 @@ td > code:after,
 }
 
 .home-hero__title {
-  max-width: 14em;
+  max-width: 15em;
   margin: 0;
   color: #1f2937;
   font-family: $header-font-family;
-  font-size: 1.85rem;
-  line-height: 1.08;
+  font-size: 1.55rem;
+  line-height: 1.14;
 
   @include breakpoint($medium) {
-    font-size: 2.25rem;
+    font-size: 1.85rem;
+    line-height: 1.12;
   }
 }
 
 .home-hero__subtitle {
   max-width: 44rem;
-  margin-top: 0.85rem;
+  margin-top: 0.72rem;
   margin-bottom: 0;
   color: #243044;
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 .home-hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.58rem;
-  margin-top: 1.15rem;
+  gap: 0.5rem;
+  margin-top: 1rem;
 
   .btn {
     margin: 0;
-    padding: 0.62rem 0.95rem;
+    padding: 0.5rem 0.72rem;
+    font-size: 0.88rem;
   }
 }
 
