@@ -574,12 +574,6 @@ td > code:after,
   background: linear-gradient(180deg, rgba(#ffffff, 0.94), rgba(#f8fafc, 0.9));
 }
 
-.selected-work .publication-card:first-child {
-  @include breakpoint($medium) {
-    grid-column: 1 / -1;
-  }
-}
-
 .publication-card__topics {
   display: flex;
   flex-wrap: wrap;
