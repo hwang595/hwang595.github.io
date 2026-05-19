@@ -8,15 +8,24 @@
 
 {% assign pub_key = pub.path | split: "/" | last | replace: ".md", "" %}
 {% assign pub_topics = site.data.publication_topics[pub_key] %}
+{% assign pub_links = site.data.publication_links[pub_key] %}
+{% assign pub_highlights = site.data.publication_highlights[pub_key] %}
 {% if pub.pubtype %}
   {% assign pub_year = pub.pubtype %}
 {% else %}
   {% assign pub_year = pub.date | date: "%Y" %}
 {% endif %}
 {% assign pub_venue = pub.venue | default: "Preprint" %}
-{% assign pub_search = pub.title | append: " " | append: pub_venue | append: " " | append: pub.excerpt | strip_html | downcase %}
+{% capture action_search %}{% for action in pub_links %} {{ action.label }}{% endfor %}{% for highlight in pub_highlights %} {{ highlight }}{% endfor %}{% endcapture %}
+{% assign pub_search = pub.title | append: " " | append: pub_venue | append: " " | append: pub.excerpt | append: " " | append: action_search | strip_html | downcase %}
 {% capture topic_slugs %}{% for topic in pub_topics %}{{ topic | slugify }} {% endfor %}{% endcapture %}
 {% assign primary_link = pub.link | default: pub.paperurl %}
+{% assign title_link = primary_link %}
+{% if title_link == nil and pub_links %}
+  {% for action in pub_links limit:1 %}
+    {% assign title_link = action.url %}
+  {% endfor %}
+{% endif %}
 
 <div class="publication-card{% if include.featured %} publication-card--featured{% endif %}"
   data-publication-card
@@ -28,13 +37,14 @@
     <span class="pub-badge pub-badge--venue">{{ pub_venue }}</span>
     <span class="pub-badge">{{ pub_year }}</span>
     {% if include.featured %}<span class="pub-badge pub-badge--selected">Selected</span>{% endif %}
+    {% for highlight in pub_highlights %}
+      <span class="pub-badge pub-badge--highlight">{{ highlight }}</span>
+    {% endfor %}
   </div>
 
   <h3 class="publication-card__title">
-    {% if pub.link %}
-      <a href="{{ pub.link }}">{{ pub.title }}</a>
-    {% elsif pub.paperurl %}
-      <a href="{{ pub.paperurl }}">{{ pub.title }}</a>
+    {% if title_link %}
+      <a href="{{ title_link }}">{{ pub.title }}</a>
     {% else %}
       {{ pub.title }}
     {% endif %}
@@ -44,12 +54,18 @@
     <div class="publication-card__excerpt">{{ pub.excerpt | markdownify }}</div>
   {% endif %}
 
-  {% if primary_link or pub.arxiv or pub.code or pub.project %}
+  {% if pub_links or primary_link or pub.arxiv or pub.code or pub.project %}
     <div class="publication-card__actions">
-      {% if primary_link %}<a href="{{ primary_link }}">{{ pub.link_label | default: "Paper" }}</a>{% endif %}
-      {% if pub.arxiv %}<a href="{{ pub.arxiv }}">arXiv</a>{% endif %}
-      {% if pub.code %}<a href="{{ pub.code }}">Code</a>{% endif %}
-      {% if pub.project %}<a href="{{ pub.project }}">Project</a>{% endif %}
+      {% if pub_links %}
+        {% for action in pub_links %}
+          <a href="{{ action.url }}">{{ action.label }}</a>
+        {% endfor %}
+      {% else %}
+        {% if primary_link %}<a href="{{ primary_link }}">{{ pub.link_label | default: "Paper" }}</a>{% endif %}
+        {% if pub.arxiv %}<a href="{{ pub.arxiv }}">arXiv</a>{% endif %}
+        {% if pub.code %}<a href="{{ pub.code }}">Code</a>{% endif %}
+        {% if pub.project %}<a href="{{ pub.project }}">Project</a>{% endif %}
+      {% endif %}
     </div>
   {% endif %}
 
@@ -64,6 +80,7 @@
   {% if pub.bibtex %}
     <details class="publication-card__bibtex">
       <summary>BibTeX</summary>
+      <button type="button" class="publication-card__copy" data-copy-bibtex>Copy BibTeX</button>
       <pre><code>{{ pub.bibtex | escape }}</code></pre>
     </details>
   {% endif %}
