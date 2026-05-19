@@ -561,6 +561,27 @@ td > code:after,
   }
 }
 
+.publication-card__copy {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.75rem;
+  margin: 0.58rem 0 0;
+  padding: 0.28rem 0.58rem;
+  border: 1px solid rgba($primary-color, 0.28);
+  border-radius: 999px;
+  background: rgba($primary-color, 0.08);
+  color: mix(#000, $primary-color, 18%);
+  cursor: pointer;
+  font-family: $header-font-family;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.pub-badge--highlight {
+  background: rgba($primary-color, 0.1);
+  color: mix(#000, $primary-color, 22%);
+}
+
 .person-card span {
   margin-top: 0.28rem;
   color: #64748b;

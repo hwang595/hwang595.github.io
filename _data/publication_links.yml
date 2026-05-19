@@ -1,0 +1,163 @@
+accordion_mlsys_2021:
+  - label: arXiv
+    url: "https://arxiv.org/abs/2010.16248"
+  - label: Paper
+    url: "https://proceedings.mlsys.org/paper/2021/hash/1d7f7abc18fcb43975065399b0d1e48e-Abstract.html"
+  - label: Talk
+    url: "https://mlsys.org/virtual/2021/oral/1539"
+
+act_compr_mlsys2024:
+  - label: arXiv
+    url: "https://arxiv.org/abs/2301.02654"
+
+amp_neurips_2022:
+  - label: arXiv
+    url: "https://arxiv.org/abs/2210.07297"
+
+atomo_nips_2018:
+  - label: Paper
+    url: "https://papers.nips.cc/paper/8191-atomo-communication-efficient-learning-via-atomic-sparsification"
+
+crystal_colm_2024:
+  - label: arXiv
+    url: "https://arxiv.org/abs/2312.06550"
+
+cuttlefish_mlsys_2023:
+  - label: Paper
+    url: "https://mlsys.org/Conferences/2023/Schedule?showEvent=2470"
+  - label: arXiv
+    url: "https://arxiv.org/abs/2103.00543"
+
+detox_neurips_2019:
+  - label: Paper
+    url: "http://papers.nips.cc/paper/9220-detox-a-redundancy-based-framework-for-faster-and-more-robust-gradient-aggregation"
+
+draco_icml_2018:
+  - label: Paper
+    url: "http://proceedings.mlr.press/v80/chen18l"
+
+edge_case_attack_neurips_2020:
+  - label: Paper
+    url: "https://papers.nips.cc/paper/2020/file/b8ffa41d4e492f0fad2f13e29e1762eb-Paper.pdf"
+
+eduvisagent_iclr_2026:
+  - label: OpenReview
+    url: "https://openreview.net/forum?id=FVCpV04ZRe"
+
+erasurehead_2019:
+  - label: arXiv
+    url: "https://arxiv.org/abs/1901.09671"
+
+fedep_iclr_2023:
+  - label: OpenReview
+    url: "https://openreview.net/forum?id=dZrQR7OR11"
+
+fedma_iclr_2019:
+  - label: OpenReview
+    url: "https://openreview.net/forum?id=BkluqlSFDS"
+  - label: Blog
+    url: "https://mitibmwatsonailab.mit.edu/research/blog/fedma-layer-wise-federated-learning-with-the-potential-to-fight-ai-bias/"
+  - label: Talk
+    url: "https://iclr.cc/virtual/poster_BkluqlSFDS.html"
+
+fedml_spicyfl_2019:
+  - label: Award
+    url: "https://chaoyanghe.com/wp-content/uploads/2021/02/NeurIPS-SpicyFL-2020-Baidu-best-paper-award-He-v2.pdf"
+  - label: arXiv
+    url: "https://arxiv.org/abs/2007.13518"
+
+fednar_neurips_2023:
+  - label: OpenReview
+    url: "https://openreview.net/forum?id=x5fs7TXKDc"
+  - label: arXiv
+    url: "https://arxiv.org/abs/2310.03163"
+
+flrea_emnlp2022:
+  - label: ACL
+    url: "https://aclanthology.org/2022.findings-emnlp.43/"
+  - label: PDF
+    url: "https://aclanthology.org/2022.findings-emnlp.43.pdf"
+  - label: arXiv
+    url: "https://arxiv.org/abs/2203.09553"
+
+flora_neurips_2024:
+  - label: arXiv
+    url: "https://arxiv.org/abs/2409.05976"
+
+foe_iclr_2024:
+  - label: OpenReview
+    url: "https://openreview.net/forum?id=PhMrGCMIRL"
+  - label: arXiv
+    url: "https://arxiv.org/abs/2310.01542"
+
+grad_utility_mlsys_2022:
+  - label: Paper
+    url: "https://proceedings.mlsys.org/paper/2022/hash/cedebb6e872f539bef8c3f919874e9d7-Abstract.html"
+  - label: arXiv
+    url: "https://arxiv.org/abs/2103.00543"
+
+iros2017:
+  - label: Paper
+    url: "https://ieeexplore.ieee.org/document/8206302/"
+
+k2_v2_arxiv_2025:
+  - label: arXiv
+    url: "https://arxiv.org/abs/2512.06201"
+
+llm360_colm_2024:
+  - label: arXiv
+    url: "https://arxiv.org/abs/2312.06550"
+
+maestro_icml_2024:
+  - label: OpenReview
+    url: "https://openreview.net/forum?id=3mdCet7vVv"
+  - label: arXiv
+    url: "https://arxiv.org/abs/2308.14929"
+
+model_glue_neurips_2024:
+  - label: Paper
+    url: "https://neurips.cc/virtual/2024/poster/97737"
+
+mpcformer_iclr_2023:
+  - label: OpenReview
+    url: "https://openreview.net/forum?id=CWmvjOEhgH-"
+
+psgd_nips_2018:
+  - label: Paper
+    url: "https://papers.nips.cc/paper/8142-the-effect-of-network-width-on-the-performance-of-large-batch-training"
+
+pufferfish_mlsys_2021:
+  - label: arXiv
+    url: "https://arxiv.org/abs/2103.03936"
+  - label: Paper
+    url: "https://proceedings.mlsys.org/paper/2021/hash/84d9ee44e457ddef7f2c4f25dc8fa865-Abstract.html"
+  - label: Talk
+    url: "https://mlsys.org/virtual/2021/oral/1630"
+
+rare_gems_neurips_2022:
+  - label: arXiv
+    url: "https://arxiv.org/abs/2202.12002"
+
+redco_naacl_demo_2024:
+  - label: OpenReview
+    url: "https://openreview.net/forum?id=rvImVPQRq0"
+  - label: arXiv
+    url: "https://arxiv.org/abs/2310.16355"
+
+shed_neurips_2024:
+  - label: arXiv
+    url: "https://arxiv.org/abs/2405.00705"
+
+sigmod_demo_2019:
+  - label: Paper
+    url: "https://dl.acm.org/citation.cfm?id=3320231&dl=ACM&coll=DL"
+
+sysml2018:
+  - label: Paper
+    url: "http://www.sysml.cc/doc/2018/199.pdf"
+
+turstllm_icml_2024:
+  - label: Hugging Face
+    url: "https://huggingface.co/papers/2401.05561"
+  - label: arXiv
+    url: "https://arxiv.org/abs/2401.05561"

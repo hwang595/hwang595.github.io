@@ -65,7 +65,55 @@
     }
   }
 
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+
+    return new Promise(function (resolve, reject) {
+      var textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.top = "-9999px";
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      try {
+        document.execCommand("copy");
+        resolve();
+      } catch (error) {
+        reject(error);
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    });
+  }
+
+  function setCopyState(button, label) {
+    button.textContent = label;
+    window.setTimeout(function () {
+      button.textContent = "Copy BibTeX";
+    }, 1800);
+  }
+
   browser.addEventListener("click", function (event) {
+    var copyButton = event.target.closest("[data-copy-bibtex]");
+    if (copyButton && browser.contains(copyButton)) {
+      var details = copyButton.closest(".publication-card__bibtex");
+      var code = details ? details.querySelector("code") : null;
+      if (!code) {
+        return;
+      }
+
+      copyText(code.textContent).then(function () {
+        setCopyState(copyButton, "Copied");
+      }).catch(function () {
+        setCopyState(copyButton, "Copy failed");
+      });
+      return;
+    }
+
     var button = event.target.closest("[data-publication-filter]");
     if (!button || !browser.contains(button)) {
       return;
