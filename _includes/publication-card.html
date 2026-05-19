@@ -16,6 +16,7 @@
 {% assign pub_venue = pub.venue | default: "Preprint" %}
 {% assign pub_search = pub.title | append: " " | append: pub_venue | append: " " | append: pub.excerpt | strip_html | downcase %}
 {% capture topic_slugs %}{% for topic in pub_topics %}{{ topic | slugify }} {% endfor %}{% endcapture %}
+{% assign primary_link = pub.link | default: pub.paperurl %}
 
 <div class="publication-card{% if include.featured %} publication-card--featured{% endif %}"
   data-publication-card
@@ -43,11 +44,27 @@
     <div class="publication-card__excerpt">{{ pub.excerpt | markdownify }}</div>
   {% endif %}
 
+  {% if primary_link or pub.arxiv or pub.code or pub.project %}
+    <div class="publication-card__actions">
+      {% if primary_link %}<a href="{{ primary_link }}">{{ pub.link_label | default: "Paper" }}</a>{% endif %}
+      {% if pub.arxiv %}<a href="{{ pub.arxiv }}">arXiv</a>{% endif %}
+      {% if pub.code %}<a href="{{ pub.code }}">Code</a>{% endif %}
+      {% if pub.project %}<a href="{{ pub.project }}">Project</a>{% endif %}
+    </div>
+  {% endif %}
+
   {% if pub_topics %}
     <div class="publication-card__topics" aria-label="Publication topics">
       {% for topic in pub_topics %}
         <span>{{ topic }}</span>
       {% endfor %}
     </div>
+  {% endif %}
+
+  {% if pub.bibtex %}
+    <details class="publication-card__bibtex">
+      <summary>BibTeX</summary>
+      <pre><code>{{ pub.bibtex | escape }}</code></pre>
+    </details>
   {% endif %}
 </div>

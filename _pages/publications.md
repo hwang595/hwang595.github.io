@@ -10,13 +10,14 @@ author_profile: true
 {% assign publications = site.publications | sort: "date" | reverse %}
 {% assign publication_years = publications | map: "pubtype" | uniq | sort | reverse %}
 {% assign publication_venues = publications | map: "venue" | uniq | sort %}
-{% assign filter_topics = "LLM Systems|Federated Learning|Distributed Training|Optimization|Model Compression|Privacy & Security|Open Models|Data & Evaluation|ML Systems|Robotics" | split: "|" %}
+{% capture topic_pool %}{% for topic_entry in site.data.publication_topics %}{% for topic in topic_entry[1] %}{{ topic | strip }}|{% endfor %}{% endfor %}{% endcapture %}
+{% assign filter_topics = topic_pool | split: "|" | uniq | sort %}
 
 <div class="publication-browser" data-publication-browser>
   <div class="publication-browser__intro">
     <p class="publications-intro">
       Selected and recent work across efficient ML systems, LLM infrastructure, federated learning,
-      optimization, and trustworthy machine learning.
+      optimization, pedagogical visualization, and trustworthy machine learning.
     </p>
     <div class="publication-browser__stats">
       <span><strong>{{ publications | size }}</strong> papers</span>
@@ -51,7 +52,9 @@ author_profile: true
       <span>Topic</span>
       <button type="button" class="is-active" data-publication-filter="topic" data-value="all">All</button>
       {% for topic in filter_topics %}
-        <button type="button" data-publication-filter="topic" data-value="{{ topic | slugify }}">{{ topic }}</button>
+        {% unless topic == "" %}
+          <button type="button" data-publication-filter="topic" data-value="{{ topic | slugify }}">{{ topic }}</button>
+        {% endunless %}
       {% endfor %}
     </div>
   </div>
