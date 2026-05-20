@@ -1,0 +1,40 @@
+{% assign item = include.item %}
+{% assign news_type = item.type | default: "Update" %}
+{% if item.display_date %}
+  {% assign display_date = item.display_date %}
+{% else %}
+  {% assign display_date = item.date | date: "%b %-d, %Y" %}
+{% endif %}
+{% assign link_url = item.link %}
+{% capture news_search %}{{ item.title }} {{ item.summary }} {{ news_type }} {{ display_date }}{% endcapture %}
+
+<article class="news-card{% if include.compact %} news-card--compact{% endif %}"
+  data-news-item
+  data-news-type="{{ news_type | slugify }}"
+  data-news-year="{{ item.date | date: "%Y" }}"
+  data-news-search="{{ news_search | strip | downcase | escape }}">
+  <div class="news-card__date">
+    <time datetime="{{ item.date | date_to_xmlschema }}">{{ display_date }}</time>
+  </div>
+  <div class="news-card__content">
+    <div class="news-card__meta">
+      <span class="news-card__type">{{ news_type }}</span>
+      {% if item.highlight %}
+        <span class="news-card__highlight">{{ item.highlight }}</span>
+      {% endif %}
+    </div>
+    <h3>
+      {% if link_url %}
+        <a href="{{ link_url }}">{{ item.title }}</a>
+      {% else %}
+        {{ item.title }}
+      {% endif %}
+    </h3>
+    {% if item.summary %}
+      <div class="news-card__summary">{{ item.summary | markdownify }}</div>
+    {% endif %}
+    {% if item.link and item.link_label and include.compact != true %}
+      <a class="news-card__link" href="{{ item.link }}">{{ item.link_label }}</a>
+    {% endif %}
+  </div>
+</article>
