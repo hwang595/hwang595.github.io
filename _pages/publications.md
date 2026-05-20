@@ -127,4 +127,4 @@ author_profile: true
   {% endif %}
 </div>
 
-<script src="{{ base_path }}/assets/js/publications.js"></script>
+<script src="{{ '/assets/js/publications.js' | relative_url }}"></script>

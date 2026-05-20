@@ -1,0 +1,54 @@
+{% assign action_label = include.label | default: "Link" %}
+{% assign action_url = include.url %}
+{% assign action_label_down = action_label | downcase %}
+{% assign action_url_down = action_url | downcase %}
+{% assign action_kind = action_label | slugify %}
+{% assign icon_class = "fa fa-external-link" %}
+{% assign icon_text = "" %}
+
+{% if action_label_down contains "arxiv" or action_url_down contains "arxiv.org" %}
+  {% assign action_kind = "arxiv" %}
+  {% assign icon_class = "ai ai-arxiv" %}
+{% elsif action_label_down contains "google scholar" or action_url_down contains "scholar.google" %}
+  {% assign action_kind = "google-scholar" %}
+  {% assign icon_class = "ai ai-google-scholar" %}
+{% elsif action_label_down contains "openreview" or action_url_down contains "openreview.net" %}
+  {% assign action_kind = "openreview" %}
+  {% assign icon_text = "OR" %}
+{% elsif action_label_down contains "biorxiv" or action_url_down contains "biorxiv.org" %}
+  {% assign action_kind = "biorxiv" %}
+  {% assign icon_text = "bio" %}
+{% elsif action_label_down contains "hugging face" or action_url_down contains "huggingface.co" %}
+  {% assign action_kind = "hugging-face" %}
+  {% assign icon_text = "HF" %}
+{% elsif action_label_down contains "pdf" %}
+  {% assign action_kind = "pdf" %}
+  {% assign icon_class = "fa fa-file-pdf-o" %}
+{% elsif action_label_down contains "paper" %}
+  {% assign action_kind = "paper" %}
+  {% assign icon_class = "fa fa-file-text-o" %}
+{% elsif action_label_down contains "code" or action_url_down contains "github.com" %}
+  {% assign action_kind = "code" %}
+  {% assign icon_class = "fa fa-code" %}
+{% elsif action_label_down contains "blog" %}
+  {% assign action_kind = "blog" %}
+  {% assign icon_class = "fa fa-pencil-square-o" %}
+{% elsif action_label_down contains "talk" %}
+  {% assign action_kind = "talk" %}
+  {% assign icon_class = "fa fa-video-camera" %}
+{% elsif action_label_down contains "award" %}
+  {% assign action_kind = "award" %}
+  {% assign icon_class = "fa fa-star-o" %}
+{% elsif action_label_down contains "acl" %}
+  {% assign action_kind = "acl" %}
+  {% assign icon_text = "ACL" %}
+{% endif %}
+
+{% if action_url %}
+  <a class="publication-link publication-link--{{ action_kind }}" href="{{ action_url }}" aria-label="{{ action_label }}{% if include.title %} for {{ include.title | strip_html | escape }}{% endif %}">
+    <span class="publication-link__icon" aria-hidden="true">
+      {% if icon_text != "" %}{{ icon_text }}{% else %}<i class="{{ icon_class }}"></i>{% endif %}
+    </span>
+    <span class="publication-link__label">{{ action_label }}</span>
+  </a>
+{% endif %}
