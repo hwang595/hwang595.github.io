@@ -14,6 +14,7 @@
 {% if include.filterable == false or include.filterable == "false" %}
   {% assign is_filterable = false %}
 {% endif %}
+{% assign pub_era = include.era | default: "recent" %}
 {% if pub.pubtype %}
   {% assign pub_year = pub.pubtype %}
 {% else %}
@@ -35,6 +36,7 @@
   {% if is_filterable %}
     data-publication-card
     data-year="{{ pub_year }}"
+    data-era="{{ pub_era }}"
     data-venue="{{ pub_venue | slugify }}"
     data-topics="{{ topic_slugs | strip }}"
     data-search="{{ pub_search | escape }}"
