@@ -104,9 +104,31 @@ k2_v2_arxiv_2025:
   - label: arXiv
     url: "https://arxiv.org/abs/2512.06201"
 
+llm360_k2_arxiv_2025:
+  - label: arXiv
+    url: "https://arxiv.org/abs/2501.07124"
+
 llm360_colm_2024:
   - label: arXiv
     url: "https://arxiv.org/abs/2312.06550"
+
+aido_dna_biorxiv_2024:
+  - label: bioRxiv
+    url: "https://www.biorxiv.org/content/10.1101/2024.12.01.625444v2.abstract"
+  - label: OpenReview
+    url: "https://openreview.net/forum?id=Kis8tVUeNi"
+
+aido_cell_biorxiv_2024:
+  - label: bioRxiv
+    url: "https://www.biorxiv.org/content/10.1101/2024.11.28.625303v1.abstract"
+
+aido_protein_biorxiv_2024:
+  - label: bioRxiv
+    url: "https://www.biorxiv.org/content/10.1101/2024.11.29.625425v1.abstract"
+
+aido_rna_biorxiv_2024:
+  - label: bioRxiv
+    url: "https://www.biorxiv.org/content/10.1101/2024.11.28.625345v1.abstract"
 
 maestro_icml_2024:
   - label: OpenReview

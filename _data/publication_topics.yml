@@ -2,6 +2,30 @@ k2_v2_arxiv_2025:
   - LLM Systems
   - Open Models
 
+llm360_k2_arxiv_2025:
+  - LLM Systems
+  - Open Models
+
+aido_dna_biorxiv_2024:
+  - Biological Foundation Models
+  - Genomics
+  - Life Science AI
+
+aido_cell_biorxiv_2024:
+  - Biological Foundation Models
+  - Single Cell
+  - Life Science AI
+
+aido_protein_biorxiv_2024:
+  - Biological Foundation Models
+  - Protein Models
+  - Life Science AI
+
+aido_rna_biorxiv_2024:
+  - Biological Foundation Models
+  - RNA Models
+  - Life Science AI
+
 eduvisagent_iclr_2026:
   - AI Agents
   - Data & Evaluation

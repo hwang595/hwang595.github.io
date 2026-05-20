@@ -8,9 +8,10 @@ author_profile: true
 {% include base_path %}
 
 {% assign publications = site.publications | sort: "date" | reverse %}
+{% assign technical_reports = site.technical_reports | sort: "date" | reverse %}
 {% assign publication_years = publications | map: "pubtype" | uniq | sort | reverse %}
 {% assign publication_venues = publications | map: "venue" | uniq | sort %}
-{% capture topic_pool %}{% for topic_entry in site.data.publication_topics %}{% for topic in topic_entry[1] %}{{ topic | strip }}|{% endfor %}{% endfor %}{% endcapture %}
+{% capture topic_pool %}{% for pub in publications %}{% assign pub_key = pub.path | split: "/" | last | replace: ".md", "" %}{% assign pub_topics = site.data.publication_topics[pub_key] %}{% for topic in pub_topics %}{{ topic | strip }}|{% endfor %}{% endfor %}{% endcapture %}
 {% assign filter_topics = topic_pool | split: "|" | uniq | sort %}
 
 <div class="publication-browser" data-publication-browser>
@@ -23,6 +24,7 @@ author_profile: true
       <span><strong>{{ publications | size }}</strong> papers</span>
       <span><strong>{{ publication_years | size }}</strong> years</span>
       <span><strong>{{ publication_venues | size }}</strong> venues</span>
+      <span><strong>{{ technical_reports | size }}</strong> technical reports</span>
     </div>
   </div>
 
@@ -81,6 +83,21 @@ author_profile: true
       </section>
     {% endfor %}
   </div>
+
+  {% if technical_reports.size > 0 %}
+    <section class="technical-reports" id="technical-reports">
+      <div class="technical-reports__header">
+        <p class="home-section__eyebrow">Technical reports</p>
+        <h2>Technical Reports</h2>
+        <p>Solid preprints, technical reports, and workshop manuscripts that complement the peer-reviewed publication list above.</p>
+      </div>
+      <div class="technical-report-list">
+        {% for report in technical_reports %}
+          {% include publication-card.html publication=report filterable=false %}
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
 </div>
 
 <script src="{{ base_path }}/assets/js/publications.js"></script>

@@ -10,6 +10,10 @@
 {% assign pub_topics = site.data.publication_topics[pub_key] %}
 {% assign pub_links = site.data.publication_links[pub_key] %}
 {% assign pub_highlights = site.data.publication_highlights[pub_key] %}
+{% assign is_filterable = true %}
+{% if include.filterable == false or include.filterable == "false" %}
+  {% assign is_filterable = false %}
+{% endif %}
 {% if pub.pubtype %}
   {% assign pub_year = pub.pubtype %}
 {% else %}
@@ -28,11 +32,13 @@
 {% endif %}
 
 <div class="publication-card{% if include.featured %} publication-card--featured{% endif %}"
-  data-publication-card
-  data-year="{{ pub_year }}"
-  data-venue="{{ pub_venue | slugify }}"
-  data-topics="{{ topic_slugs | strip }}"
-  data-search="{{ pub_search | escape }}">
+  {% if is_filterable %}
+    data-publication-card
+    data-year="{{ pub_year }}"
+    data-venue="{{ pub_venue | slugify }}"
+    data-topics="{{ topic_slugs | strip }}"
+    data-search="{{ pub_search | escape }}"
+  {% endif %}>
   <div class="publication-card__meta">
     <span class="pub-badge pub-badge--venue">{{ pub_venue }}</span>
     <span class="pub-badge">{{ pub_year }}</span>
