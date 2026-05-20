@@ -9,6 +9,7 @@
   var search = browser.querySelector("[data-publication-search]");
   var count = browser.querySelector("[data-publication-count]");
   var empty = browser.querySelector("[data-publication-empty]");
+  var earlier = browser.querySelector("[data-publication-earlier]");
   var filters = {
     topic: "all",
     venue: "all",
@@ -21,6 +22,18 @@
     }
 
     return (" " + (card.getAttribute("data-topics") || "") + " ").indexOf(" " + topic + " ") !== -1;
+  }
+
+  function yearMatches(card, year) {
+    if (year === "all") {
+      return true;
+    }
+
+    if (year === "earlier") {
+      return card.getAttribute("data-era") === "earlier";
+    }
+
+    return card.getAttribute("data-year") === year;
   }
 
   function updateFilterButtons(filterName, value) {
@@ -39,10 +52,11 @@
 
   function update() {
     var query = search ? search.value.trim().toLowerCase() : "";
+    var hasActiveFilter = !!query || filters.year !== "all" || filters.venue !== "all" || filters.topic !== "all";
     var visibleCount = 0;
 
     cards.forEach(function (card) {
-      var matchesYear = filters.year === "all" || card.getAttribute("data-year") === filters.year;
+      var matchesYear = yearMatches(card, filters.year);
       var matchesVenue = filters.venue === "all" || card.getAttribute("data-venue") === filters.venue;
       var matchesTopic = topicMatches(card, filters.topic);
       var matchesSearch = !query || (card.getAttribute("data-search") || "").indexOf(query) !== -1;
@@ -55,6 +69,11 @@
     });
 
     updateGroups();
+
+    if (earlier) {
+      var visibleEarlierCards = earlier.querySelectorAll("[data-publication-card]:not(.is-hidden)");
+      earlier.open = filters.year === "earlier" || (hasActiveFilter && visibleEarlierCards.length > 0);
+    }
 
     if (count) {
       count.textContent = visibleCount;

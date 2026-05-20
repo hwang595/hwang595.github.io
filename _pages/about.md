@@ -9,6 +9,7 @@ redirect_from:
 ---
 
 {% assign home_publications = site.publications | sort: "date" | reverse %}
+{% assign home_technical_reports = site.technical_reports | sort: "date" | reverse %}
 {% assign home_publication_years = home_publications | map: "pubtype" | uniq | sort | reverse %}
 {% assign home_publication_venues = home_publications | map: "venue" | uniq | sort %}
 
@@ -106,6 +107,12 @@ redirect_from:
         {% assign publication_slug = publication.path | split: "/" | last | replace: ".md", "" %}
         {% if publication_slug == featured_slug %}
           {% include publication-card.html publication=publication featured=true %}
+        {% endif %}
+      {% endfor %}
+      {% for report in home_technical_reports %}
+        {% assign report_slug = report.path | split: "/" | last | replace: ".md", "" %}
+        {% if report_slug == featured_slug %}
+          {% include publication-card.html publication=report featured=true %}
         {% endif %}
       {% endfor %}
     {% endfor %}
