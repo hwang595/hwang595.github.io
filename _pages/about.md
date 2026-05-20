@@ -10,6 +10,7 @@ redirect_from:
 
 {% assign home_publications = site.publications | sort: "date" | reverse %}
 {% assign home_technical_reports = site.technical_reports | sort: "date" | reverse %}
+{% assign home_news = site.news | sort: "date" | reverse %}
 {% assign home_publication_years = home_publications | map: "pubtype" | uniq | sort | reverse %}
 {% assign home_publication_venues = home_publications | map: "venue" | uniq | sort %}
 
@@ -123,21 +124,13 @@ redirect_from:
   <div class="home-section__header">
     <p class="home-section__eyebrow">Recent notes</p>
     <h2>News</h2>
+    <a href="/news/">All updates</a>
   </div>
-  <ul class="home-timeline">
-    <li>
-      <span>2026</span>
-      <p>Our lab received an AMD University Program AI and HPC Cluster Allocation Award.</p>
-    </li>
-    <li>
-      <span>2024</span>
-      <p>Our work <a href="https://aclanthology.org/2024.naacl-demo.14/">RedCoast</a> won the NAACL 2024 Best Demo Paper Runner-Up.</p>
-    </li>
-    <li>
-      <span>2024</span>
-      <p>I received the <a href="https://cpal.cc/rising_stars_awardees/">Rising Star Award at CPAL 2024</a>.</p>
-    </li>
-  </ul>
+  <div class="home-timeline">
+    {% for item in home_news limit:4 %}
+      {% include news-item.html item=item compact=true %}
+    {% endfor %}
+  </div>
 </section>
 
 <section class="home-section" id="research-group">

@@ -179,6 +179,8 @@ collections:
   technical_reports:
     output: true
     permalink: /technical-reports/:path/
+  news:
+    output: false
   portfolio:
     output: true
     permalink: /:collection/:path/
