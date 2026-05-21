@@ -1,6 +1,7 @@
 ---
 layout: archive
 title: "CV"
+description: "Curriculum vitae for Hongyi Wang, Assistant Professor at Rutgers Computer Science."
 permalink: /cv/
 author_profile: true
 redirect_from:

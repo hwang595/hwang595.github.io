@@ -1,6 +1,7 @@
 ---
 permalink: /news/
 title: "News"
+description: "Recent research updates, awards, teaching notes, technical reports, and group milestones from Hongyi Wang's research group."
 excerpt: "Recent updates from Hongyi Wang's research group."
 author_profile: true
 ---

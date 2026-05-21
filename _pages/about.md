@@ -1,7 +1,9 @@
 ---
 permalink: /
 title: ""
-excerpt: "About me"
+seo_title: "Hongyi Wang | Rutgers CS"
+description: "Hongyi Wang is an Assistant Professor at Rutgers Computer Science working on efficient machine learning systems, LLM infrastructure, federated learning, and distributed optimization."
+excerpt: "Hongyi Wang is an Assistant Professor at Rutgers CS working on efficient machine learning systems and LLM infrastructure."
 author_profile: true
 redirect_from: 
   - /about/

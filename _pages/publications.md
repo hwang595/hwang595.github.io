@@ -1,6 +1,7 @@
 ---
 layout: archive
 title: "Publications"
+description: "Selected and recent publications by Hongyi Wang across efficient ML systems, LLM infrastructure, federated learning, optimization, trustworthy ML, and technical reports."
 permalink: /publications/
 author_profile: true
 ---
