@@ -1,0 +1,29 @@
+slug: example_iclr_2026
+collection: publications
+title: Example Paper Title
+authors:
+  - First Author
+  - Hongyi Wang
+  - Senior Collaborator
+venue: ICLR
+date: 2026-05-01
+year: 2026
+excerpt: First Author, Hongyi Wang, and Senior Collaborator, ICLR 2026.
+links:
+  - label: OpenReview
+    url: https://openreview.net/forum?id=example
+topics:
+  - LLM Systems
+  - Data & Evaluation
+highlights:
+  - Selected
+abstract: |
+  Optional abstract text for the expandable publication details.
+bibtex: |
+  @inproceedings{example2026paper,
+    title={Example Paper Title},
+    author={First Author and Hongyi Wang and Senior Collaborator},
+    booktitle={International Conference on Learning Representations},
+    year={2026},
+    url={https://openreview.net/forum?id=example}
+  }
