@@ -80,6 +80,7 @@ redirect_from:
   <div class="home-section__header">
     <p class="home-section__eyebrow">Research focus</p>
     <h2>Systems for Useful ML</h2>
+    <a href="/research/">Research themes</a>
   </div>
   <div class="focus-grid">
     <article class="focus-card">

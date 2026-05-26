@@ -18,7 +18,8 @@ module PublicationTools
     topics: "_data/publication_topics.yml",
     links: "_data/publication_links.yml",
     highlights: "_data/publication_highlights.yml",
-    featured: "_data/featured_publications.yml"
+    featured: "_data/featured_publications.yml",
+    research_themes: "_data/research_themes.yml"
   }.freeze
 
   module_function
@@ -83,6 +84,7 @@ module PublicationTools
     links = load_yaml(data_path(:links), {})
     highlights = load_yaml(data_path(:highlights), {})
     featured = load_yaml(data_path(:featured), [])
+    research_themes = load_yaml(data_path(:research_themes), {})
 
     documents.each do |doc|
       front_matter = doc.front_matter
@@ -145,6 +147,8 @@ module PublicationTools
       end
     end
 
+    validate_research_themes(research_themes, active_slug_set, errors)
+
     if errors.any?
       warn "Publication metadata validation failed:"
       errors.each { |error| warn "  - #{error}" }
@@ -152,6 +156,48 @@ module PublicationTools
     end
 
     puts "Publication metadata OK: #{documents.size} documents, #{topics.size} topic entries, #{links.size} link entries."
+  end
+
+  def validate_research_themes(data, active_slug_set, errors)
+    return if data.nil? || data.empty?
+
+    unless data.is_a?(Hash)
+      errors << "#{DATA_FILES[:research_themes]}: expected a mapping"
+      return
+    end
+
+    Array(data["selected_projects"]).each_with_index do |project, index|
+      unless project.is_a?(Hash)
+        errors << "#{DATA_FILES[:research_themes]}: selected_projects[#{index}] must be a mapping"
+        next
+      end
+
+      slug = project["slug"].to_s
+      if blank?(slug)
+        errors << "#{DATA_FILES[:research_themes]}: selected_projects[#{index}] missing `slug`"
+      elsif !active_slug_set[slug]
+        errors << "#{DATA_FILES[:research_themes]}: selected_projects[#{index}] unknown publication slug `#{slug}`"
+      end
+    end
+
+    Array(data["themes"]).each_with_index do |theme, index|
+      unless theme.is_a?(Hash)
+        errors << "#{DATA_FILES[:research_themes]}: themes[#{index}] must be a mapping"
+        next
+      end
+
+      errors << "#{DATA_FILES[:research_themes]}: themes[#{index}] missing `id`" if blank?(theme["id"])
+      errors << "#{DATA_FILES[:research_themes]}: themes[#{index}] missing `title`" if blank?(theme["title"])
+
+      slugs = Array(theme["project_slugs"])
+      if slugs.empty?
+        errors << "#{DATA_FILES[:research_themes]}: themes[#{index}] missing `project_slugs`"
+      end
+
+      slugs.each do |slug|
+        errors << "#{DATA_FILES[:research_themes]}: #{theme["id"] || "theme #{index}"} unknown publication slug `#{slug}`" unless active_slug_set[slug.to_s]
+      end
+    end
   end
 
   def validate_known_keys(label, keys, active_slug_set, errors)
