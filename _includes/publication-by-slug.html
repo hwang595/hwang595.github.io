@@ -1,0 +1,22 @@
+{% assign target_slug = include.slug %}
+{% assign found_publication = nil %}
+
+{% for publication in site.publications %}
+  {% assign publication_slug = publication.path | split: "/" | last | replace: ".md", "" %}
+  {% if publication_slug == target_slug %}
+    {% assign found_publication = publication %}
+  {% endif %}
+{% endfor %}
+
+{% if found_publication == nil %}
+  {% for report in site.technical_reports %}
+    {% assign report_slug = report.path | split: "/" | last | replace: ".md", "" %}
+    {% if report_slug == target_slug %}
+      {% assign found_publication = report %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if found_publication %}
+  {% include publication-card.html publication=found_publication filterable=include.filterable featured=include.featured %}
+{% endif %}

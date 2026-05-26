@@ -1,0 +1,122 @@
+hero:
+  eyebrow: "Research themes"
+  title: "Selected projects across efficient, open, and trustworthy machine learning systems."
+  description: "RAISL studies the systems, algorithms, and data workflows needed to make modern machine learning practical at scale. This page organizes representative projects by research theme rather than by publication year."
+
+selected_projects:
+  - title: "360-Open LLMs"
+    theme: "LLM Infrastructure"
+    theme_id: "llm-infrastructure"
+    slug: "k2_v2_arxiv_2025"
+    summary: "Building transparent large language models with open artifacts across data, training, evaluation, and reasoning behavior."
+  - title: "Fully Transparent Open-Source LLMs"
+    theme: "Open Models"
+    theme_id: "llm-infrastructure"
+    slug: "llm360_colm_2024"
+    summary: "Making the full lifecycle of large model development inspectable and reproducible for the research community."
+  - title: "Low-Rank Efficient Training"
+    theme: "Efficient ML Systems"
+    theme_id: "efficient-ml-systems"
+    slug: "cuttlefish_mlsys_2023"
+    summary: "Reducing training cost through practical low-rank methods that avoid brittle hand-tuning."
+  - title: "Layer-Wise Federated Learning"
+    theme: "Federated Learning"
+    theme_id: "federated-private-ml"
+    slug: "fedma_iclr_2019"
+    summary: "Matching and merging neural components across clients to support personalized and communication-efficient federation."
+
+themes:
+  - id: "llm-infrastructure"
+    title: "LLM Infrastructure and Open Models"
+    summary: "We build infrastructure for training, evaluating, serving, and opening large language models. The goal is not only larger models, but models whose development process can be inspected, reproduced, and improved."
+    questions:
+      - "How can open models expose enough artifacts to support real scientific scrutiny?"
+      - "How should model training, evaluation, and serving systems adapt to reasoning-heavy workloads?"
+      - "What tooling makes distributed LLM development usable across heterogeneous compute?"
+    tags:
+      - "Open Models"
+      - "LLM Systems"
+      - "Evaluation"
+      - "Distributed Training"
+    project_slugs:
+      - "k2_v2_arxiv_2025"
+      - "llm360_k2_arxiv_2025"
+      - "llm360_colm_2024"
+      - "model_glue_neurips_2024"
+      - "redco_naacl_demo_2024"
+
+  - id: "efficient-ml-systems"
+    title: "Efficient ML Systems and Optimization"
+    summary: "We design methods that reduce the cost of training and deploying machine learning models while preserving practical performance. This includes compression, low-rank training, communication efficiency, and model fusion."
+    questions:
+      - "When do compression and low-rank structure help real training systems rather than just benchmarks?"
+      - "How can distributed training communicate less while preserving convergence and utility?"
+      - "How can independently trained models be fused or reused instead of retrained from scratch?"
+    tags:
+      - "Optimization"
+      - "Compression"
+      - "Low-Rank Training"
+      - "Model Fusion"
+    project_slugs:
+      - "cuttlefish_mlsys_2023"
+      - "maestro_icml_2024"
+      - "foe_iclr_2024"
+      - "act_compr_mlsys2024"
+      - "grad_utility_mlsys_2022"
+      - "pufferfish_mlsys_2021"
+
+  - id: "federated-private-ml"
+    title: "Federated, Private, and Distributed ML"
+    summary: "We study learning systems that operate across distributed and sensitive data. The focus is on algorithms that are scalable, robust, privacy-aware, and compatible with heterogeneous real-world deployments."
+    questions:
+      - "How should models be aggregated when client data and architectures are heterogeneous?"
+      - "What optimization principles make federated learning stable at scale?"
+      - "How can privacy-preserving and secure inference systems remain usable?"
+    tags:
+      - "Federated Learning"
+      - "Privacy"
+      - "Robustness"
+      - "Secure Inference"
+    project_slugs:
+      - "flora_neurips_2024"
+      - "fedma_iclr_2019"
+      - "fedep_iclr_2023"
+      - "fednar_neurips_2023"
+      - "edge_case_attack_neurips_2020"
+      - "mpcformer_iclr_2023"
+
+  - id: "trustworthy-data-evaluation"
+    title: "Trustworthy Data, Evaluation, and Agents"
+    summary: "We develop benchmarks, datasets, and workflows that make model behavior easier to evaluate and improve. This includes trustworthiness, data refinement, educational visualization, and agentic evaluation frameworks."
+    questions:
+      - "How do we evaluate reasoning, pedagogy, and trustworthiness beyond static leaderboards?"
+      - "What data refinement workflows improve instruction tuning without obscuring failure modes?"
+      - "How can agents help with visualization and evaluation while remaining inspectable?"
+    tags:
+      - "Trustworthiness"
+      - "Data & Evaluation"
+      - "AI Agents"
+      - "Visualization"
+    project_slugs:
+      - "eduvisagent_iclr_2026"
+      - "turstllm_icml_2024"
+      - "crystal_colm_2024"
+      - "shed_neurips_2024"
+
+  - id: "foundation-models-for-science"
+    title: "Foundation Models for Science"
+    summary: "We also explore foundation-model systems for scientific data, especially biological sequences and single-cell data, through technical reports and collaborations that connect representation learning with domain-specific evaluation."
+    questions:
+      - "How should dense representations scale for DNA, RNA, protein, and single-cell modalities?"
+      - "What evaluation signals show whether scientific foundation models are useful beyond pretraining metrics?"
+      - "How can systems methods support foundation models with specialized scientific constraints?"
+    tags:
+      - "Life Science AI"
+      - "Biological Foundation Models"
+      - "Representation Learning"
+      - "Technical Reports"
+    project_slugs:
+      - "aido_dna_biorxiv_2024"
+      - "aido_cell_biorxiv_2024"
+      - "aido_protein_biorxiv_2024"
+      - "aido_rna_biorxiv_2024"
