@@ -1,0 +1,112 @@
+identity:
+  name: "RAISL"
+  label: "RAISL at Rutgers CS"
+  logo: "/images/raisl-logo.png"
+  tagline: "Research systems for capable, efficient, and trustworthy machine learning."
+  description: "RAISL is Hongyi Wang's research group at Rutgers Computer Science. We build practical machine learning systems across LLM infrastructure, distributed training, federated learning, optimization, and trustworthy evaluation."
+  institution: "Department of Computer Science, Rutgers University"
+  office: "CBIM 009"
+  email: "hw689@cs.rutgers.edu"
+
+themes:
+  - title: "LLM Infrastructure"
+    summary: "Training, serving, transparency, and evaluation infrastructure for large language models under real system constraints."
+    tags:
+      - "Open Models"
+      - "Evaluation"
+      - "Serving"
+  - title: "Efficient ML Systems"
+    summary: "Algorithms and systems for efficient model training, compression, low-rank adaptation, and distributed optimization."
+    tags:
+      - "Optimization"
+      - "Compression"
+      - "Training"
+  - title: "Federated and Private ML"
+    summary: "Learning systems that work across distributed, heterogeneous, and sensitive data while respecting privacy and deployment limits."
+    tags:
+      - "Federated Learning"
+      - "Privacy"
+      - "Robustness"
+  - title: "Trustworthy ML Workflows"
+    summary: "Data, benchmarks, and agentic workflows that make machine learning systems more inspectable, useful, and reliable."
+    tags:
+      - "Benchmarks"
+      - "Agents"
+      - "Reliability"
+
+people_categories:
+  - id: "pi"
+    label: "Principal Investigator"
+  - id: "phd"
+    label: "PhD Students"
+  - id: "undergraduate"
+    label: "Undergraduate Researchers"
+  - id: "student"
+    label: "Student Researchers"
+
+people:
+  - name: "Hongyi Wang"
+    role: "Assistant Professor, Rutgers CS"
+    group: "pi"
+    url: "/"
+    interests:
+      - "Efficient ML Systems"
+      - "LLM Infrastructure"
+    show_on_home: false
+  - name: "Daize Dong"
+    role: "PhD Student, Rutgers CS"
+    group: "phd"
+    url: "https://daizedong.github.io/"
+    interests:
+      - "Distributed ML"
+      - "LLM Systems"
+    show_on_home: true
+  - name: "Haolong Jia"
+    role: "PhD Student, Rutgers CS"
+    group: "phd"
+    url: "https://www.linkedin.com/in/haolong-jia-274a3823a/"
+    interests:
+      - "ML Systems"
+      - "Efficient Training"
+    show_on_home: true
+  - name: "Jiawei Wu"
+    role: "PhD Student, Rutgers CS"
+    group: "phd"
+    interests:
+      - "Federated Learning"
+      - "Optimization"
+    show_on_home: true
+  - name: "Junlin Chen"
+    role: "Undergraduate Researcher, Rutgers"
+    group: "undergraduate"
+    url: "https://www.linkedin.com/in/junlin110/"
+    interests:
+      - "LLM Systems"
+      - "Evaluation"
+    show_on_home: true
+  - name: "Ryan Cheng"
+    role: "Undergraduate Researcher, Rutgers"
+    group: "undergraduate"
+    url: "https://www.linkedin.com/in/ryancheng44/"
+    interests:
+      - "ML Systems"
+      - "Applications"
+    show_on_home: true
+  - name: "Shawn Cui"
+    role: "Student Researcher"
+    group: "student"
+    interests:
+      - "Machine Learning"
+      - "Research Projects"
+    show_on_home: true
+
+joining:
+  intro: "We welcome students who enjoy building real systems, asking careful research questions, and turning ideas into working artifacts."
+  paths:
+    - title: "Prospective PhD Students"
+      text: "Apply through Rutgers Computer Science and mention RAISL or Hongyi Wang in your application when your interests align with our research areas."
+    - title: "Rutgers MS and Undergraduate Students"
+      text: "Email a short note with your research interests, relevant coursework or projects, and a CV or resume."
+    - title: "Collaborators"
+      text: "We are interested in collaborations around efficient training, LLM infrastructure, open models, federated learning, and trustworthy evaluation."
+  email_subject: "Prospective RAISL Researcher"

@@ -7,7 +7,7 @@ main:
     url: "/news/"
 
   - title: "Group"
-    url: "/#research-group"
+    url: "/group/"
 
   - title: "Teaching"
     url: "/#teaching"

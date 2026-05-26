@@ -13,6 +13,8 @@ redirect_from:
 {% assign home_publications = site.publications | sort: "date" | reverse %}
 {% assign home_technical_reports = site.technical_reports | sort: "date" | reverse %}
 {% assign home_news = site.news | sort: "date" | reverse %}
+{% assign group = site.data.group %}
+{% assign group_home_people = group.people | where: "show_on_home", true %}
 {% assign home_publication_years = home_publications | map: "pubtype" | uniq | sort | reverse %}
 {% assign home_publication_venues = home_publications | map: "venue" | uniq | sort %}
 
@@ -27,7 +29,7 @@ redirect_from:
     </p>
     <div class="home-hero__actions">
       <a class="btn btn--large" href="#selected-publications">Selected Papers</a>
-      <a class="btn btn--inverse btn--large" href="#research-group">Research Group</a>
+      <a class="btn btn--inverse btn--large" href="/group/">Research Group</a>
       <a class="btn btn--inverse btn--large" href="/cv/hwang_cv.pdf">CV</a>
     </div>
     <div class="home-hero__chips">
@@ -138,15 +140,24 @@ redirect_from:
 <section class="home-section" id="research-group">
   <div class="home-section__header">
     <p class="home-section__eyebrow">People</p>
-    <h2>Research Group</h2>
+    <h2>RAISL Group</h2>
+    <a href="/group/">Full group page</a>
+  </div>
+  <div class="group-preview">
+    <img src="{{ group.identity.logo }}" alt="{{ group.identity.name }} logo">
+    <div>
+      <strong>{{ group.identity.label }}</strong>
+      <p>{{ group.identity.tagline }}</p>
+    </div>
   </div>
   <div class="people-grid">
-    <a class="person-card" href="https://daizedong.github.io/"><strong>Daize Dong</strong><span>PhD at Rutgers CS</span></a>
-    <a class="person-card" href="https://www.linkedin.com/in/haolong-jia-274a3823a/"><strong>Haolong Jia</strong><span>PhD at Rutgers CS</span></a>
-    <div class="person-card"><strong>Jiawei Wu</strong><span>PhD at Rutgers CS</span></div>
-    <a class="person-card" href="https://www.linkedin.com/in/junlin110/"><strong>Junlin Chen</strong><span>Undergraduate at Rutgers</span></a>
-    <a class="person-card" href="https://www.linkedin.com/in/ryancheng44/"><strong>Ryan Cheng</strong><span>Undergraduate at Rutgers</span></a>
-    <div class="person-card"><strong>Shawn Cui</strong><span>Middle School Student</span></div>
+    {% for person in group_home_people %}
+      {% if person.url %}
+        <a class="person-card" href="{{ person.url }}"><strong>{{ person.name }}</strong><span>{{ person.role }}</span></a>
+      {% else %}
+        <div class="person-card"><strong>{{ person.name }}</strong><span>{{ person.role }}</span></div>
+      {% endif %}
+    {% endfor %}
   </div>
 </section>
 
