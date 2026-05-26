@@ -27,6 +27,9 @@ jobs:
       - name: Validate publication metadata
         run: ruby scripts/publication_tools.rb validate
 
+      - name: List publication links
+        run: ruby scripts/publication_tools.rb check-links --dry-run
+
       - name: Build with Jekyll
         run: bundle exec jekyll build --trace
         env:
