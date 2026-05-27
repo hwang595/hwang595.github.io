@@ -1,5 +1,6 @@
 ---
 title: "Draco: Robust Distributed Training against Adversaries"
+excerpt: "Talk on robust distributed training against adversaries at SysML 2018."
 collection: talks
 type: "Talk"
 permalink: /talks/sysml2018

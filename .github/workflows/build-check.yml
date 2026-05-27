@@ -34,3 +34,6 @@ jobs:
         run: bundle exec jekyll build --trace
         env:
           JEKYLL_ENV: production
+
+      - name: Audit generated site quality
+        run: bundle exec ruby scripts/quality_tools.rb audit

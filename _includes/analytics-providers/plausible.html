@@ -1,0 +1,3 @@
+{% if site.analytics.plausible.domain %}
+<script defer data-domain="{{ site.analytics.plausible.domain }}" src="{{ site.analytics.plausible.script_src | default: "https://plausible.io/js/script.js" }}"></script>
+{% endif %}

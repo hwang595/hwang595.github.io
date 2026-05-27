@@ -195,10 +195,15 @@
     right: 0;
     padding: 0 0.5rem;
     border: 0;
-    outline: none;
+    border-radius: 0;
     background-color: $primary-color;
     color: #fff;
     cursor: pointer;
+
+    &:focus-visible {
+      outline: 3px solid mix(#fff, $primary-color, 70%);
+      outline-offset: -3px;
+    }
   }
 
   .visible-links {
@@ -253,6 +258,9 @@
     position: absolute;
     top: 100%;
     right: 0;
+    z-index: 50;
+    min-width: 14rem;
+    max-width: calc(100vw - 2rem);
     margin-top: 15px;
     padding: 5px;
     border: 1px solid $border-color;
@@ -264,10 +272,17 @@
       margin: 0;
       padding: 10px 20px;
       font-size: $type-size-5;
+      line-height: 1.25;
+      white-space: nowrap;
 
       &:hover {
         color: $masthead-link-color-hover;
         background: mix(#fff, $primary-color, 75%);
+      }
+
+      &:focus-visible {
+        outline: 3px solid mix(#fff, $primary-color, 70%);
+        outline-offset: -3px;
       }
     }
 
