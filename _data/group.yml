@@ -1,7 +1,7 @@
 identity:
   name: "RAISL"
   label: "RAISL at Rutgers CS"
-  logo: "/images/raisl-logo.png"
+  logo: "/images/raisl-logo-display.png"
   tagline: "Research systems for capable, efficient, and trustworthy machine learning."
   description: "RAISL is Hongyi Wang's research group at Rutgers Computer Science. We build practical machine learning systems across LLM infrastructure, distributed training, federated learning, optimization, and trustworthy evaluation."
   institution: "Department of Computer Science, Rutgers University"

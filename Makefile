@@ -5,7 +5,7 @@ PUBLICATION ?= scripts/templates/publication.yml
 TOPICS ?=
 TOPIC_OPTIONS := $(if $(TOPICS),--topics "$(TOPICS)",)
 
-.PHONY: validate build serve preview-publication new-publication link-list check-links
+.PHONY: validate build serve preview-publication new-publication link-list check-links quality-audit quality lighthouse
 
 validate:
 	$(RUBY) scripts/publication_tools.rb validate
@@ -27,3 +27,12 @@ link-list:
 
 check-links:
 	$(RUBY) scripts/publication_tools.rb check-links
+
+quality-audit:
+	$(BUNDLE) exec ruby scripts/quality_tools.rb audit
+
+quality: build quality-audit
+
+lighthouse:
+	@command -v npx >/dev/null || (echo "npx is required for Lighthouse CI. Install Node.js or run in an environment with npx."; exit 1)
+	npx --yes @lhci/cli autorun

@@ -42,6 +42,9 @@ jobs:
         env:
           JEKYLL_ENV: production
 
+      - name: Audit generated site quality
+        run: bundle exec ruby scripts/quality_tools.rb audit
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:

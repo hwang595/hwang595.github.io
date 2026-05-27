@@ -77,15 +77,19 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "google-universal" # false (default), "google", "google-universal", "custom"
+  provider               : false # false, "plausible", "google-gtag", "google", "google-universal", "custom"
+  plausible:
+    domain               :
+    script_src           : "https://plausible.io/js/script.js"
   google:
     tracking_id          :
+    measurement_id       :
 
 
 # Site Author
 author:
   name             : "Hongyi Wang"
-  avatar           : "profile.jpg"
+  avatar           : "profile-display.jpg"
   bio              : "Assistant Professor at Rutgers CS"
   location         : "CBIM 009"
   employer         :

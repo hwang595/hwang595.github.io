@@ -1,6 +1,10 @@
 {% if site.analytics.provider and page.analytics != false %}
 
 {% case site.analytics.provider %}
+{% when "plausible" %}
+  {% include /analytics-providers/plausible.html %}
+{% when "google-gtag" %}
+  {% include /analytics-providers/google-gtag.html %}
 {% when "google" %}
   {% include /analytics-providers/google.html %}
 {% when "google-universal" %}
