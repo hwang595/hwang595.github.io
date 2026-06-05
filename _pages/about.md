@@ -2,8 +2,8 @@
 permalink: /
 title: ""
 seo_title: "Hongyi Wang | Rutgers CS"
-description: "Hongyi Wang is an Assistant Professor at Rutgers Computer Science working on efficient machine learning systems, LLM infrastructure, federated learning, and distributed optimization."
-excerpt: "Hongyi Wang is an Assistant Professor at Rutgers CS working on efficient machine learning systems and LLM infrastructure."
+description: "Hongyi Wang is an Assistant Professor at Rutgers Computer Science working on efficient machine learning systems, LLM infrastructure, MoE/RL post-training, federated learning, and distributed optimization."
+excerpt: "Hongyi Wang is an Assistant Professor at Rutgers CS working on efficient machine learning systems, LLM infrastructure, and MoE/RL post-training."
 author_profile: true
 redirect_from: 
   - /about/
@@ -25,7 +25,7 @@ redirect_from:
     <p class="home-hero__subtitle">
       I am an Assistant Professor in the
       <a href="https://www.cs.rutgers.edu/">Department of Computer Science at Rutgers University</a>.
-      My research focuses on scalable and efficient machine learning algorithms and systems, with a current emphasis on LLMs.
+      My research focuses on scalable and efficient machine learning algorithms and systems, with a current emphasis on LLM infrastructure, MoE/RL post-training, and trustworthy evaluation.
     </p>
     <div class="home-hero__actions">
       <a class="btn btn--large" href="#selected-publications">Selected Papers</a>
@@ -36,6 +36,7 @@ redirect_from:
       <span class="home-chip">Rutgers CS</span>
       <span class="home-chip">Distributed ML</span>
       <span class="home-chip">LLM Systems</span>
+      <span class="home-chip">MoE/RL</span>
       <span class="home-chip">Federated Learning</span>
     </div>
   </div>
@@ -71,7 +72,7 @@ redirect_from:
     <h3>Research Direction</h3>
     <p>
       I study efficient training and serving of large-scale machine learning models,
-      especially large language models under real system constraints.
+      especially large language models and MoE-based reasoning systems under real system constraints.
     </p>
   </div>
 </div>
@@ -86,7 +87,7 @@ redirect_from:
     <article class="focus-card">
       <span>01</span>
       <h3>LLM infrastructure</h3>
-      <p>Training, serving, evaluation, and transparency for large models under real system constraints.</p>
+      <p>Training, post-training, serving, evaluation, and transparency for large models under real system constraints.</p>
     </article>
     <article class="focus-card">
       <span>02</span>

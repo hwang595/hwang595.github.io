@@ -1,9 +1,14 @@
 hero:
   eyebrow: "Research themes"
   title: "Selected projects across efficient, open, and trustworthy machine learning systems."
-  description: "RAISL studies the systems, algorithms, and data workflows needed to make modern machine learning practical at scale. This page organizes representative projects by research theme rather than by publication year."
+  description: "RAISL studies the systems, algorithms, and data workflows needed to make modern machine learning practical at scale, from open LLM infrastructure to MoE/RL post-training and evaluation. This page organizes representative projects by research theme rather than by publication year."
 
 selected_projects:
+  - title: "Predictive Routing Replay"
+    theme: "MoE and LLM RL"
+    theme_id: "llm-infrastructure"
+    slug: "pr2_arxiv_2026"
+    summary: "Stabilizing MoE-based LLM reinforcement learning by predicting router evolution and replaying consistent expert routes."
   - title: "360-Open LLMs"
     theme: "LLM Infrastructure"
     theme_id: "llm-infrastructure"
@@ -28,17 +33,21 @@ selected_projects:
 themes:
   - id: "llm-infrastructure"
     title: "LLM Infrastructure and Open Models"
-    summary: "We build infrastructure for training, evaluating, serving, and opening large language models. The goal is not only larger models, but models whose development process can be inspected, reproduced, and improved."
+    summary: "We build infrastructure for training, post-training, evaluating, serving, and opening large language models. The goal is not only larger models, but systems whose routing behavior, reasoning behavior, and development process can be inspected, reproduced, and improved."
     questions:
       - "How can open models expose enough artifacts to support real scientific scrutiny?"
-      - "How should model training, evaluation, and serving systems adapt to reasoning-heavy workloads?"
+      - "How should model training, RL post-training, evaluation, and serving systems adapt to reasoning-heavy workloads?"
+      - "How can MoE routing remain stable when rollout and training phases drift?"
       - "What tooling makes distributed LLM development usable across heterogeneous compute?"
     tags:
       - "Open Models"
       - "LLM Systems"
+      - "MoE Routing"
+      - "RL Post-Training"
       - "Evaluation"
       - "Distributed Training"
     project_slugs:
+      - "pr2_arxiv_2026"
       - "k2_v2_arxiv_2025"
       - "llm360_k2_arxiv_2025"
       - "llm360_colm_2024"

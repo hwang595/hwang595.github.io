@@ -1,3 +1,7 @@
+pr2_arxiv_2026:
+  - label: arXiv
+    url: "https://arxiv.org/abs/2606.00395"
+
 accordion_mlsys_2021:
   - label: arXiv
     url: "https://arxiv.org/abs/2010.16248"
