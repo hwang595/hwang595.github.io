@@ -2,7 +2,7 @@
 permalink: /group/
 title: ""
 seo_title: "RAISL Group | Rutgers CS"
-description: "RAISL is Hongyi Wang's research group at Rutgers Computer Science, working on efficient ML systems, LLM infrastructure, federated learning, optimization, and trustworthy machine learning."
+description: "RAISL is Hongyi Wang's research group at Rutgers Computer Science, working on efficient ML systems, LLM infrastructure, MoE/RL post-training, federated learning, optimization, and trustworthy machine learning."
 excerpt: "RAISL is Hongyi Wang's research group at Rutgers Computer Science."
 author_profile: false
 og_image: "social-card.png"

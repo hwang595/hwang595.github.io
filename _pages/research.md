@@ -2,7 +2,7 @@
 permalink: /research/
 title: ""
 seo_title: "Research Themes | Hongyi Wang"
-description: "Selected projects and research themes from Hongyi Wang and RAISL, covering LLM infrastructure, efficient ML systems, federated learning, trustworthy evaluation, and scientific foundation models."
+description: "Selected projects and research themes from Hongyi Wang and RAISL, covering LLM infrastructure, MoE/RL post-training, efficient ML systems, federated learning, trustworthy evaluation, and scientific foundation models."
 excerpt: "Selected projects and research themes from Hongyi Wang and RAISL."
 author_profile: false
 og_image: "social-card.png"

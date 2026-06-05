@@ -3,18 +3,19 @@ identity:
   label: "RAISL at Rutgers CS"
   logo: "/images/raisl-logo-display.png"
   tagline: "Research systems for capable, efficient, and trustworthy machine learning."
-  description: "RAISL is Hongyi Wang's research group at Rutgers Computer Science. We build practical machine learning systems across LLM infrastructure, distributed training, federated learning, optimization, and trustworthy evaluation."
+  description: "RAISL is Hongyi Wang's research group at Rutgers Computer Science. We build practical machine learning systems across LLM infrastructure, MoE and RL post-training, distributed training, federated learning, optimization, and trustworthy evaluation."
   institution: "Department of Computer Science, Rutgers University"
   office: "CBIM 009"
   email: "hw689@cs.rutgers.edu"
 
 themes:
   - title: "LLM Infrastructure"
-    summary: "Training, serving, transparency, and evaluation infrastructure for large language models under real system constraints."
+    summary: "Training, serving, transparency, MoE routing, RL post-training, and evaluation infrastructure for large language models under real system constraints."
     tags:
       - "Open Models"
+      - "MoE Routing"
+      - "RL Post-Training"
       - "Evaluation"
-      - "Serving"
   - title: "Efficient ML Systems"
     summary: "Algorithms and systems for efficient model training, compression, low-rank adaptation, and distributed optimization."
     tags:
@@ -52,6 +53,7 @@ people:
     interests:
       - "Efficient ML Systems"
       - "LLM Infrastructure"
+      - "MoE/RL Systems"
     show_on_home: false
   - name: "Daize Dong"
     role: "PhD Student, Rutgers CS"
@@ -59,7 +61,7 @@ people:
     url: "https://daizedong.github.io/"
     interests:
       - "Distributed ML"
-      - "LLM Systems"
+      - "LLM RL"
     show_on_home: true
   - name: "Haolong Jia"
     role: "PhD Student, Rutgers CS"
@@ -68,6 +70,7 @@ people:
     interests:
       - "ML Systems"
       - "Efficient Training"
+      - "MoE Systems"
     show_on_home: true
   - name: "Jiawei Wu"
     role: "PhD Student, Rutgers CS"
@@ -108,5 +111,5 @@ joining:
     - title: "Rutgers MS and Undergraduate Students"
       text: "Email a short note with your research interests, relevant coursework or projects, and a CV or resume."
     - title: "Collaborators"
-      text: "We are interested in collaborations around efficient training, LLM infrastructure, open models, federated learning, and trustworthy evaluation."
+      text: "We are interested in collaborations around efficient training, LLM infrastructure, MoE/RL post-training, open models, federated learning, and trustworthy evaluation."
   email_subject: "Prospective RAISL Researcher"
