@@ -180,7 +180,7 @@ redirect_from:
     <h2>Services</h2>
   </div>
   <div class="service-panel">
-    <p><strong>Area Chair:</strong> NeurIPS 2026, MLSys 2025, CPAL 2026</p>
+    <p><strong>Area Chair:</strong> NeurIPS 2026, ACL ARR 2026 May, CPAL 2026, MLSys 2025</p>
     <p><strong>PC Member:</strong> DAC 2024, EuroSys 2024, SOSP 2023 (light PC), MLSys 2023-2026, SIGKDD 2022, AAAI 2021-2022</p>
     <p><strong>Reviewer (Journals):</strong> JMLR, TMLR, IEEE TNNLS, IEEE IoT-J, IEEE/ACM Transactions on Networking</p>
     <p><strong>Reviewer (Conferences):</strong> SC 2026, COLM 2026, ICML 2019-2026, NeurIPS 2019-2025, CVPR 2021-2023, ICCV 2021-2022, ICLR 2021-2025, AAAI 2021-2024, SIGKDD 2022-2023</p>
