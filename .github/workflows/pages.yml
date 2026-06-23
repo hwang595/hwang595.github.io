@@ -37,6 +37,9 @@ jobs:
       - name: Validate publication metadata
         run: ruby scripts/publication_tools.rb validate
 
+      - name: Audit auto-updater config
+        run: ruby scripts/auto_updater.rb audit
+
       - name: Build with Jekyll
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" --trace
         env:

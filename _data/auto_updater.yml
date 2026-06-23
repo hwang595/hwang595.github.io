@@ -1,0 +1,48 @@
+version: 2
+
+policy:
+  dry_run_by_default: true
+  google_scholar_mode: "manual_bibtex_export_only"
+  primary_deploy_target: "github_pages"
+
+publication_sync:
+  # Add entries here when you want `make sync-publications` to preview imports.
+  # Run with APPLY=1 only after reviewing the dry-run output.
+  #
+  # Supported kinds:
+  # - arxiv
+  # - bibtex
+  # - dblp_bibtex
+  # - semantic_scholar_bibtex
+  # - google_scholar_manual
+  sources: []
+
+selected_publications:
+  limit: 4
+  pinned:
+    - k2_v2_arxiv_2025
+    - llm360_colm_2024
+    - cuttlefish_mlsys_2023
+    - fedma_iclr_2019
+  exclude: []
+  preferred_topics:
+    - LLM Systems
+    - Open Models
+    - Efficient Training
+    - Optimization
+    - Federated Learning
+
+content_workflows:
+  group_data: "_data/group.yml"
+  research_theme_data: "_data/research_themes.yml"
+  news_collection: "_news"
+  publication_topics: "_data/publication_topics.yml"
+  publication_links: "_data/publication_links.yml"
+
+deployment:
+  github_pages:
+    workflow: ".github/workflows/pages.yml"
+    branch: "master"
+  vercel:
+    enabled: false
+    config: "vercel.json"

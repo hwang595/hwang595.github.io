@@ -27,6 +27,9 @@ jobs:
       - name: Validate publication metadata
         run: ruby scripts/publication_tools.rb validate
 
+      - name: Audit auto-updater config
+        run: ruby scripts/auto_updater.rb audit
+
       - name: List publication links
         run: ruby scripts/publication_tools.rb check-links --dry-run
 

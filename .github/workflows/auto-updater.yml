@@ -1,0 +1,37 @@
+name: Academic Auto-Updater
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 14 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.4
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Audit auto-updater config
+        run: ruby scripts/auto_updater.rb audit
+
+      - name: Show auto-updater plan
+        run: ruby scripts/auto_updater.rb plan
+
+      - name: Validate publication metadata
+        run: ruby scripts/publication_tools.rb validate
+
+      - name: List publication links
+        run: ruby scripts/publication_tools.rb check-links --dry-run
