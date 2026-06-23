@@ -955,15 +955,17 @@ module PublicationTools
   end
 end
 
-command = ARGV.shift
+if $PROGRAM_NAME == __FILE__
+  command = ARGV.shift
 
-case command
-when "validate"
-  PublicationTools.validate!
-when "check-links"
-  PublicationTools.check_links!(ARGV)
-when "new"
-  PublicationTools::Generator.new(ARGV).run
-else
-  PublicationTools.usage!
+  case command
+  when "validate"
+    PublicationTools.validate!
+  when "check-links"
+    PublicationTools.check_links!(ARGV)
+  when "new"
+    PublicationTools::Generator.new(ARGV).run
+  else
+    PublicationTools.usage!
+  end
 end

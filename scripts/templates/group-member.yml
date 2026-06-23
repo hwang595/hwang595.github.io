@@ -1,0 +1,8 @@
+name: "Student Name"
+role: "PhD Student, Rutgers CS"
+group: "phd"
+url:
+interests:
+  - "LLM Systems"
+  - "Efficient Training"
+show_on_home: true
