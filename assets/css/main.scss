@@ -113,11 +113,21 @@ body {
   }
 
   button {
-    top: 0.12rem;
+    top: 50%;
     right: 0;
-    height: 2.2rem;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
     border-radius: 999px;
     background: #243044;
+    transform: translateY(-50%);
+    touch-action: manipulation;
+  }
+
+  button:not(.hidden) {
+    display: flex;
   }
 
   .visible-links a:before {
@@ -128,6 +138,58 @@ body {
     border-color: rgba(#94a3b8, 0.35);
     border-radius: 8px;
     box-shadow: 0 18px 42px rgba(#0f172a, 0.16);
+  }
+}
+
+@include breakpoint(max-width $medium) {
+  body.nav-menu-open {
+    overflow: hidden;
+  }
+
+  .masthead__inner-wrap {
+    padding-left: calc(1rem + env(safe-area-inset-left));
+    padding-right: calc(1rem + env(safe-area-inset-right));
+  }
+
+  .greedy-nav {
+    min-height: 2.75rem;
+
+    button {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+
+    .visible-links {
+      max-width: calc(100% - 3.25rem);
+      overflow: hidden;
+    }
+
+    .hidden-links {
+      top: calc(100% + 0.55rem);
+      right: 0;
+      box-sizing: border-box;
+      width: calc(100vw - 2rem - env(safe-area-inset-left) - env(safe-area-inset-right));
+      max-width: 20rem;
+      max-height: calc(100vh - 5rem);
+      margin-top: 0;
+      padding: 0.4rem;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+
+      a {
+        display: flex;
+        align-items: center;
+        min-height: 2.75rem;
+        padding: 0.65rem 0.75rem;
+        font-size: 0.88rem;
+        white-space: normal;
+      }
+
+      &:before,
+      &:after {
+        right: 0.75rem;
+      }
+    }
   }
 }
 
