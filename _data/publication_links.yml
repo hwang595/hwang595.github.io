@@ -2,6 +2,10 @@ pr2_arxiv_2026:
   - label: arXiv
     url: "https://arxiv.org/abs/2606.00395"
 
+spectral_principal_paths_colm_2026:
+  - label: OpenReview
+    url: "https://openreview.net/forum?id=6Of8apEPMF"
+
 accordion_mlsys_2021:
   - label: arXiv
     url: "https://arxiv.org/abs/2010.16248"
