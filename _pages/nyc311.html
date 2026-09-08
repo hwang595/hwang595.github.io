@@ -1,0 +1,217 @@
+---
+layout: default
+title: "NYC 311 Civic Response Challenge"
+seo_title: "NYC 311 Challenge | CS 439 · Rutgers"
+description: "A practical data science challenge for Rutgers CS 439: investigate NYC service requests, build honest probability models, and explain the evidence. Includes milestones, requirements, FAQs, and starter tools."
+permalink: /teaching/cs439-nyc311/
+author_profile: false
+custom_css: /assets/css/nyc311.css
+---
+
+<main id="main" class="c311">
+  <a class="c311-skip" href="#overview">Skip to the project description</a>
+  <div class="c311-breadcrumb"><a href="{{ '/teaching/' | relative_url }}">Teaching</a><span aria-hidden="true">/</span><span>CS 439 · Fall 2026</span></div>
+
+  <header class="c311-hero">
+    <div class="c311-hero__copy">
+      <p class="c311-eyebrow">Rutgers Computer Science · CS 439</p>
+      <h1>NYC 311<br><span>Civic Response Challenge</span></h1>
+      <p class="c311-lead">Real requests. Imperfect data. Decisions you can defend.</p>
+      <p>Investigate how New York City service requests move toward recorded closure. Build a probability model, test it on later data, and explain what the evidence can tell us.</p>
+      <div class="c311-actions">
+        <a class="c311-button" href="#get-started">Get started <span aria-hidden="true">↗</span></a>
+        <a class="c311-button c311-button--secondary" href="#milestones">Explore the milestones</a>
+      </div>
+    </div>
+    <aside class="c311-hero__brief" aria-label="Challenge at a glance">
+      <p class="c311-eyebrow">The brief</p>
+      <div class="c311-seven"><strong>07</strong><span>days<br>one prediction horizon</span></div>
+      <p>How likely is a request to lack recorded closure within seven days of creation?</p>
+      <dl class="c311-facts">
+        <div><dt>Course weight</dt><dd>35%</dd></div>
+        <div><dt>Team size</dt><dd>3 students*</dd></div>
+        <div><dt>Environment</dt><dd>CodeBench</dd></div>
+        <div><dt>Approach</dt><dd>AI-assisted, verified</dd></div>
+      </dl>
+      <small>*Staff may adjust team sizes to fit enrollment.</small>
+    </aside>
+  </header>
+
+  <div class="c311-status" role="note">
+    <span class="c311-status__dot" aria-hidden="true"></span>
+    <div><strong>Planning guide · Course data release pending</strong><p>The timeline below is proposed. Canvas will confirm deadlines, dataset releases, team assignments, and submission links. The public practice tools on this page are available now.</p></div>
+  </div>
+
+  <div class="c311-layout">
+    <aside class="c311-sidebar">
+      <nav aria-label="Project sections">
+        <p class="c311-eyebrow">In this guide</p>
+        <a href="#overview">01 <span>The question</span></a>
+        <a href="#data">02 <span>Know your data</span></a>
+        <a href="#milestones">03 <span>Your milestones</span></a>
+        <a href="#requirements">04 <span>Requirements</span></a>
+        <a href="#get-started">05 <span>Starter toolkit</span></a>
+        <a href="#grading">06 <span>How you're assessed</span></a>
+        <a href="#faq">07 <span>FAQs</span></a>
+        <a href="#help">08 <span>Help &amp; resources</span></a>
+      </nav>
+      <div class="c311-sidebar__note"><strong>Build understanding as you build the model.</strong><p>Your choices, experiments, and explanations are the core of this challenge.</p></div>
+      <a class="c311-text-link" href="https://rutgers.instructure.com/courses/405053">Open course Canvas ↗</a>
+    </aside>
+
+    <div class="c311-content">
+      <section id="overview" class="c311-section" aria-labelledby="overview-title">
+        <p class="c311-eyebrow">01 / The question</p>
+        <h2 id="overview-title">What can a service request tell us?</h2>
+        <p>NYC 311 connects residents with non-emergency services and information. Its public service-request records cover concerns such as noise, sanitation, housing, and streets. Different agencies and complaint categories follow different processes. Missing values, changing categories, and uneven workloads are part of the problem.</p>
+        <blockquote class="c311-task">For each request, estimate the probability that it lacks a recorded closure timestamp within seven calendar days of creation, using only the approved features in the frozen course dataset.</blockquote>
+        <p>Return one <code>p_slow_7d</code> probability between 0 and 1 for every supplied <code>row_id</code>. Then assess whether these estimates could support <strong>aggregate workload monitoring</strong>, and where they might fail.</p>
+        <div class="c311-callout"><strong>Understand the measurement.</strong><p>Recorded closure is an administrative event. It does not prove that a resident's problem was solved. Seven days is our course horizon, not a universal city service deadline. Historical fields may have changed after intake, so this is a retrospective benchmark.</p></div>
+        <h3>What you will practice</h3>
+        <div class="c311-outcomes">
+          <div><span aria-hidden="true">01</span><h4>Investigate</h4><p>Audit data, ask useful questions, and make informative figures.</p></div>
+          <div><span aria-hidden="true">02</span><h4>Experiment</h4><p>Compare baselines and models using a credible temporal split.</p></div>
+          <div><span aria-hidden="true">03</span><h4>Explain</h4><p>Connect results to a decision, with evidence and limitations.</p></div>
+        </div>
+      </section>
+
+      <section id="data" class="c311-section" aria-labelledby="data-title">
+        <p class="c311-eyebrow">02 / Know your data</p>
+        <h2 id="data-title">One row. One request.</h2>
+        <p>The source is <a href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9">NYC's official 311 Service Requests dataset</a>. Your graded work uses a frozen, staff-prepared extract released through CodeBench.</p>
+        <div class="c311-release-grid">
+          <article><span class="c311-tag">First release</span><h3>Start small</h3><p>A data-forensics exercise and a small labeled onboarding sample. Learn the schema and investigate data-quality problems.</p></article>
+          <article><span class="c311-tag">Main release</span><h3>Build &amp; validate</h3><p>Labeled training and visible development data. Use these to fit models, diagnose errors, and compare approaches.</p></article>
+          <article><span class="c311-tag">Staff evaluation</span><h3>Generalize</h3><p>Your submitted pipeline runs on unseen requests. Evaluation records and labels remain with the teaching staff.</p></article>
+        </div>
+        <h3>How the label works</h3>
+        <div class="c311-labels">
+          <div><span class="c311-label c311-label--zero">0</span><p>Recorded closure is <strong>at or before</strong> the seven-day boundary.</p></div>
+          <div><span class="c311-label c311-label--one">1</span><p>Recorded closure is <strong>later</strong>, or the closure timestamp is missing for a sufficiently mature record.</p></div>
+        </div>
+        <p class="c311-small">Staff require 14 days of maturity: the seven-day outcome window plus a reporting buffer. Immature records and invalid required timestamps are excluded. The course uses New York local wall-clock values and seven calendar days; labels are frozen with the release. The buffer does not eliminate every later data revision.</p>
+        <div class="c311-feature-grid">
+          <div><h3>Approved feature families</h3><ul><li>Creation day, hour, and derived calendar features</li><li>Agency, problem, and reviewed problem detail</li><li>Location type, borough, and community board</li><li>Submission channel</li></ul><p class="c311-small">The released data dictionary is the final feature contract. <code>row_id</code> is a join key, never a predictor.</p></div>
+          <div><h3>Keep outcome information out</h3><ul><li>Closure timestamps and current status</li><li>Due dates, resolution text, and update timestamps</li><li>Original IDs, addresses, and exact coordinates</li><li>External outcomes or lookup tables</li></ul><p class="c311-small">Outcome fields may appear in the separate forensics exercise to teach auditing. That does not make them legal model inputs.</p></div>
+        </div>
+      </section>
+
+      <section id="milestones" class="c311-section" aria-labelledby="milestones-title">
+        <p class="c311-eyebrow">03 / Your milestones</p>
+        <h2 id="milestones-title">One evolving project, six checkpoints.</h2>
+        <p>Each phase builds on the previous one. Revise your work after feedback and record important changes. All dates below are <strong>proposed for Fall 2026</strong>; the published Canvas assignments control deadlines and late-work rules.</p>
+        <div class="c311-milestones">
+          <details open><summary><span class="c311-milestone-date">Sep 18 <small>Week 3</small></span><span class="c311-milestone-name">Data forensics <small>Individual</small></span><span class="c311-points">5 points</span></summary><div class="c311-milestone-body"><p>Audit a small dataset and repair basic timestamp, duplicate, and missing-value problems. Explain the evidence and write assertions that catch the most important issues.</p><p><strong>Submit:</strong> your forensics notebook and a concise issue table. Early tasks follow the Python and data-processing material taught in class.</p></div></details>
+          <details><summary><span class="c311-milestone-date">Oct 2 <small>Week 5</small></span><span class="c311-milestone-name">Framing &amp; honest EDA <small>Team 3 + individual 2</small></span><span class="c311-points">5 points</span></summary><div class="c311-milestone-body"><p>Audit the main data and create three decision-relevant figures. State the intended use, population, assumptions, and limitations.</p><p><strong>Submit:</strong> the team's audit and figures, plus your individual critique of a figure and a proposed improvement.</p></div></details>
+          <details><summary><span class="c311-milestone-date">Oct 16 <small>Week 7</small></span><span class="c311-milestone-name">Baselines &amp; validation <small>Team 3 + individual 3</small></span><span class="c311-points">6 points</span></summary><div class="c311-milestone-body"><p>Build global-rate and smoothed agency/problem-rate baselines. State a temporal validation plan before leaderboard feedback. Explain why your split reflects prediction on later requests.</p><p><strong>Submit:</strong> baseline results and a validation plan. Complete a short supervised individual interpretation check. Keep a change log if the plan is revised.</p></div></details>
+          <p class="c311-midterm-note">Weeks 8–9: time for the midterm. No graded challenge deadline.</p>
+          <details><summary><span class="c311-milestone-date">Nov 6 <small>Week 10</small></span><span class="c311-milestone-name">Model-development sprint <small>Team 5 + individual 1</small></span><span class="c311-points">6 points</span></summary><div class="c311-milestone-body"><p>Compare justified models, including logistic regression once taught. Run a controlled feature comparison and investigate consequential errors. A useful negative result is still evidence.</p><p><strong>Submit:</strong> the team's modeling results and experiment log, plus your explanation of one experiment you owned.</p></div></details>
+          <p class="c311-midterm-note">Week 11: a formative clean-run rehearsal and team contribution check.</p>
+          <details><summary><span class="c311-milestone-date">Nov 20 <small>Week 12</small></span><span class="c311-milestone-name">Final pipeline &amp; findings <small>Team 6 + individual 2</small></span><span class="c311-points">8 points</span></summary><div class="c311-milestone-body"><p>Freeze a reproducible pipeline. Report calibration, error slices, and a defensible workload-monitoring recommendation. Explain a situation in which the model should not be used.</p><p><strong>Submit:</strong> the team package and two-page summary, plus your individually owned stress test and interpretation.</p></div></details>
+          <details><summary><span class="c311-milestone-date">Week 12 <small>Recitation</small></span><span class="c311-milestone-name">Individual verification <small>Practical 4 + record 1</small></span><span class="c311-points">5 points</span></summary><div class="c311-milestone-body"><p>Complete a supervised, approximately 50-minute practical using a small staff-provided pipeline. Diagnose, modify, evaluate, and interpret the work. This assessment is open-notes and closed-AI.</p><p><strong>Submit:</strong> your practical and concise contribution/AI verification record. The exact session will be announced through Canvas; approved accommodations apply.</p></div></details>
+        </div>
+        <p class="c311-small">“Points” above are percentage points of the course grade: 17 shared team points + 18 individual points = 35.</p>
+      </section>
+
+      <section id="requirements" class="c311-section" aria-labelledby="requirements-title">
+        <p class="c311-eyebrow">04 / Requirements</p>
+        <h2 id="requirements-title">Make every conclusion traceable.</h2>
+        <ol class="c311-requirements">
+          <li><strong>Use the approved data.</strong> Follow the feature contract. Fit learned preprocessing using training data and keep outcome information out of predictors.</li>
+          <li><strong>Validate across time.</strong> Fit on training and diagnose on visible development data. For official evaluation, refit the selected method on the combined training and development data using the course template. Preserve your earlier development results.</li>
+          <li><strong>Compare against meaningful baselines.</strong> Use Brier score, calibration, and error slices with sample counts. Inspect performance within agency/problem groups.</li>
+          <li><strong>Document experiments.</strong> Record the hypothesis, change, result, and resulting decision. Include a feature ablation and a robustness test.</li>
+          <li><strong>Make the work reproducible.</strong> Use the course environment, fixed seeds, and provided input/output interface. The submitted pipeline must run offline, without API calls or LLM inference. Final resource limits will accompany the course release.</li>
+          <li><strong>Verify AI assistance.</strong> Keep three short records of consequential suggestions: what was proposed, how you checked it, and what you accepted, modified, or rejected.</li>
+        </ol>
+        <details class="c311-package"><summary>What goes in the final submission?</summary><div><p><strong>One team coordinator submits:</strong> <code>report.ipynb</code>, a summary of at most two pages, <code>experiments.csv</code>, <code>run_submission.py</code>, supporting source files, and the required team/environment metadata.</p><p><strong>Each student submits separately:</strong> the assigned individual response, contribution/AI record, and team ID. The release will provide the exact directory template.</p><p>Staff generate official predictions by executing the frozen package. Keep shared raw data out of the submission and do not manually edit predictions. Use CodeBench and retain your submission receipt.</p></div></details>
+        <div class="c311-callout"><strong>A public guide, private coursework.</strong><p>This instructor-published description is public. Keep course datasets, solution code, reports, and student submissions in approved course channels unless the instructor authorizes publication. AI use during project work does not permit retrieving withheld outcomes or publishing course materials.</p></div>
+      </section>
+
+      <section id="get-started" class="c311-section" aria-labelledby="toolkit-title">
+        <p class="c311-eyebrow">05 / Starter toolkit</p>
+        <h2 id="toolkit-title">Try the ideas before the data arrives.</h2>
+        <p>These browser exercises use made-up examples and run locally on your device. They do not upload data, record grades, or use the hidden evaluation sets.</p>
+
+        <div class="c311-tool" id="label-lab">
+          <div class="c311-tool__header"><span class="c311-tag">Interactive 01</span><h3>Read the seven-day label</h3><p>Explore the boundary and the maturity rule.</p></div>
+          <div class="c311-tool__body">
+            <label for="c311-age">Record age at snapshot <output id="c311-age-value" for="c311-age">14 days</output></label>
+            <input id="c311-age" type="range" min="0" max="21" value="14" step="1" aria-describedby="c311-label-help">
+            <label for="c311-closure">Recorded closure</label>
+            <select id="c311-closure"><option value="3">3 days after creation</option><option value="7" selected>Exactly 7 days after creation</option><option value="10">10 days after creation</option><option value="missing">No closure timestamp</option><option value="-1">1 day before creation (invalid)</option></select>
+            <div class="c311-result" aria-live="polite" aria-atomic="true"><strong id="c311-label-result">Label 0</strong><p id="c311-label-explanation">The request is mature and closure at exactly seven days counts as within the window.</p></div>
+            <p id="c311-label-help" class="c311-small">Age and closure duration here are local calendar days. At least 14 days of maturity is required for a course label; the prediction horizon remains seven days.</p>
+          </div>
+        </div>
+
+        <div class="c311-tool" id="brier-lab">
+          <div class="c311-tool__header"><span class="c311-tag">Interactive 02</span><h3>Build intuition for Brier score</h3><p>Adjust three probabilities. Each example's loss is (probability − outcome)². Brier score is their mean.</p></div>
+          <div class="c311-tool__body">
+            <div class="c311-score-rows">
+              <div><label for="c311-p0"><span>Request A <small>Outcome 0 · closure within 7 days</small></span><output id="c311-p0-value" for="c311-p0">0.20</output></label><input id="c311-p0" data-brier-label="0" type="range" min="0" max="1" value="0.2" step="0.01"><p class="c311-small">Squared error: <span id="c311-loss0">0.0400</span></p></div>
+              <div><label for="c311-p1"><span>Request B <small>Outcome 1 · closure after 7 days</small></span><output id="c311-p1-value" for="c311-p1">0.60</output></label><input id="c311-p1" data-brier-label="1" type="range" min="0" max="1" value="0.6" step="0.01"><p class="c311-small">Squared error: <span id="c311-loss1">0.1600</span></p></div>
+              <div><label for="c311-p2"><span>Request C <small>Outcome 1 · mature, closure missing</small></span><output id="c311-p2-value" for="c311-p2">0.80</output></label><input id="c311-p2" data-brier-label="1" type="range" min="0" max="1" value="0.8" step="0.01"><p class="c311-small">Squared error: <span id="c311-loss2">0.0400</span></p></div>
+            </div>
+            <div class="c311-score" aria-live="polite" aria-atomic="true"><span>Brier score <small>Lower is better · 0 to 1</small></span><strong id="c311-brier-score">0.0800</strong></div>
+            <div class="c311-presets" aria-label="Example probability presets"><button type="button" data-brier-preset="uncertain">Try all 0.50</button><button type="button" data-brier-preset="perfect">Perfect predictions</button><button type="button" data-brier-preset="wrong">Confidently wrong</button><button type="button" data-brier-preset="reset">Reset</button></div>
+            <p class="c311-small">These labels are visible only to explain the metric. In a real evaluation, make predictions before inspecting test outcomes. Three examples cannot establish calibration or generalization.</p>
+          </div>
+        </div>
+        <noscript><p class="c311-callout">Enable JavaScript to use the sliders. The examples shown are still valid: a mature request closed exactly at day 7 has label 0; probabilities 0.20, 0.60, 0.80 against outcomes 0, 1, 1 have Brier score 0.0800.</p></noscript>
+
+        <article class="c311-starter">
+          <div><span class="c311-tag">Available now · Synthetic data</span><h3>Your first reproducible baseline</h3><p>Download a small Python example that demonstrates a temporal split, a global-rate predictor, Brier score, and the prediction-file format. It uses only Python's standard library.</p><a class="c311-button" href="{{ '/files/cs439-nyc311/starter.py' | relative_url }}" download>Download starter.py <span aria-hidden="true">↓</span></a><a class="c311-text-link" href="{{ '/files/cs439-nyc311/README.md' | relative_url }}">Read the starter guide ↗</a></div>
+          <div class="c311-code"><span>In a terminal</span><pre><code>python3 starter.py
+python3 starter.py --output predictions.csv</code></pre><p>Requires Python 3.8 or newer; no extra packages, account, or API key. This is a practice example, not the official graded submission template.</p></div>
+        </article>
+        <h3>When the course release opens</h3>
+        <ol><li>Open the assignment announced in Canvas and fetch it through CodeBench.</li><li>Read the data dictionary and run the onboarding notebook.</li><li>Run the supplied baseline before changing features or models.</li><li>Use the preflight check, submit through CodeBench, and save the receipt.</li></ol>
+      </section>
+
+      <section id="grading" class="c311-section" aria-labelledby="grading-title">
+        <p class="c311-eyebrow">06 / How you're assessed</p>
+        <h2 id="grading-title">Good analysis earns the credit.</h2>
+        <div class="c311-grade-split"><div><strong>17</strong><span>shared team points</span></div><span class="c311-plus" aria-hidden="true">+</span><div><strong>18</strong><span>individual points</span></div><span class="c311-plus" aria-hidden="true">=</span><div><strong>35%</strong><span>of the course grade</span></div></div>
+        <p>Credit emphasizes sound data reasoning, validation, controlled experiments, reproducibility, clear conclusions, and individual understanding. <strong>Leaderboard rank carries no grade points.</strong> At most one course percentage point depends on valid private predictions and comparisons with reference baselines.</p>
+        <p>A constant probability is a legitimate baseline. A complicated model that fails to improve can still produce a valuable experiment when you explain what happened. Report subgroup sample counts, uncertainty, and limitations alongside your results.</p>
+        <div class="c311-callout"><strong>Use AI thoughtfully; know your work.</strong><p>AI assistance is encouraged during project work. Verify its outputs, cite material help, and be ready to explain your decisions. The supervised individual verification practical is closed-AI. Complete chat transcripts are not a routine deliverable.</p></div>
+      </section>
+
+      <section id="faq" class="c311-section" aria-labelledby="faq-title">
+        <p class="c311-eyebrow">07 / FAQs</p>
+        <h2 id="faq-title">Questions you might be asking.</h2>
+        <div class="c311-faq">
+          <details><summary>Do I need prior machine-learning experience?</summary><div><p>No prior data-science experience is assumed. Early milestones focus on Python, data quality, and summaries. Modeling requirements follow the course material. Begin with the supplied examples and ask for help early.</p></div></details>
+          <details><summary>Where are the official dataset and starter notebooks?</summary><div><p>They will be announced through Canvas and released in CodeBench. They are not available from this public page yet. The downloadable Python starter above uses synthetic data for practice only.</p></div></details>
+          <details><summary>Can I use AI tools to write code or suggest analyses?</summary><div><p>Yes, during project work. Check consequential suggestions and document what you tested and decided. You remain responsible for the code, figures, and claims. Use course-approved tools and follow the course data-sharing rules. The individual verification practical is closed-AI.</p></div></details>
+          <details><summary>Can I download extra NYC records or use external data?</summary><div><p>Use only course-released data in the scored pipeline. Do not retrieve withheld outcomes, match evaluation records to the public portal, or embed lookup tables. Any approved extension will be made available to everyone.</p></div></details>
+          <details><summary>Why can't I download the final inference set?</summary><div><p>Staff run your executable pipeline on unseen records to evaluate generalization. The labeled training and development sets give you the material needed to build and diagnose your method. You will receive aggregate evaluation feedback.</p></div></details>
+          <details><summary>Does “slow” mean the city failed to resolve a problem?</summary><div><p>No. It describes the absence of a recorded closure timestamp within our course horizon. Administrative closure, actual resolution, and agency-specific service commitments are different measurements. Avoid claims about individual service quality that the data cannot support.</p></div></details>
+          <details><summary>Do I need a GPU, paid API, or complex model?</summary><div><p>No. The scored workflow uses the course CPU environment. Clear baselines and careful evaluation can earn strong marks. Final runtime and memory limits will be published with the course template after staff benchmarking.</p></div></details>
+          <details><summary>What do we submit as a team, and what do I submit myself?</summary><div><p>One coordinator submits the shared code and report package. Each student separately submits the assigned individual evidence and team ID. Follow the directory template in each CodeBench release and confirm that your submission was accepted.</p></div></details>
+          <details><summary>Can we change our approach after receiving feedback?</summary><div><p>Yes. The milestones develop one evolving project. Preserve the original validation plan, document substantial changes, and explain what evidence motivated them. Do not silently replace an evaluation plan after seeing a favorable score.</p></div></details>
+          <details><summary>What if a teammate contributes less?</summary><div><p>Raise concerns early using private course channels. Staff consider specific contribution evidence and individual assessments. Planning, testing, reviewing, and explaining are meaningful contributions; commit counts alone do not measure them.</p></div></details>
+          <details><summary>Can I publish my solution or put it in a public repository?</summary><div><p>This project description is instructor-published and public. Your course submissions and teaching materials remain subject to the syllabus's sharing policy. Keep them in approved private course channels unless the instructor grants permission to publish.</p></div></details>
+          <details><summary>What if I need an extension or CodeBench is unavailable?</summary><div><p>Follow the syllabus and current Canvas instructions for late work and accommodations. If the platform fails, preserve the error and timestamp and use the announced emergency Canvas submission route. Contact your TA promptly; do not assume an unsuccessful submission was accepted.</p></div></details>
+        </div>
+      </section>
+
+      <section id="help" class="c311-section" aria-labelledby="help-title">
+        <p class="c311-eyebrow">08 / Help &amp; resources</p>
+        <h2 id="help-title">A few useful places to start.</h2>
+        <div class="c311-resources">
+          <a href="https://codebench.cs.rutgers.edu/grading.html"><strong>CodeBench submission guide <span aria-hidden="true">↗</span></strong><span>Fetch assignments, submit notebooks, and check acceptance.</span></a>
+          <a href="https://docs.python.org/3/tutorial/"><strong>Python tutorial <span aria-hidden="true">↗</span></strong><span>A reference for the language behind your pipeline.</span></a>
+          <a href="https://pandas.pydata.org/docs/user_guide/10min.html"><strong>10 minutes to pandas <span aria-hidden="true">↗</span></strong><span>Load, inspect, select, and summarize tabular data.</span></a>
+          <a href="https://scikit-learn.org/stable/common_pitfalls.html"><strong>Scikit-learn: common pitfalls <span aria-hidden="true">↗</span></strong><span>Preprocessing consistency and data leakage.</span></a>
+          <a href="https://matplotlib.org/stable/tutorials/index.html"><strong>Matplotlib tutorials <span aria-hidden="true">↗</span></strong><span>Make figures that explain the evidence.</span></a>
+          <a href="https://council.nyc.gov/data/311-agency/"><strong>NYC Council's 311 analysis <span aria-hidden="true">↗</span></strong><span>Background on interpreting administrative closure.</span></a>
+        </div>
+        <div class="c311-help"><h3>Need help with the challenge?</h3><p>Start with Canvas Discussions for course questions, then contact your TA. For individual concerns, use private course channels.</p><a class="c311-button" href="https://rutgers.instructure.com/courses/405053">Go to course Canvas <span aria-hidden="true">↗</span></a><p class="c311-small">Instructor: <a href="mailto:hw689@cs.rutgers.edu">Dr. Hongyi Wang</a> · CS 439, Introduction to Data Science</p></div>
+      </section>
+      <footer class="c311-guide-footer"><p>Fall 2026 project guide · Updated September 8, 2026</p><a href="#main">Back to top ↑</a></footer>
+    </div>
+  </div>
+</main>
+<script src="{{ '/assets/js/nyc311.js' | relative_url }}" defer></script>

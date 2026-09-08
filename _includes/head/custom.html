@@ -1,6 +1,7 @@
 {% include base_path %}
 
 <!-- start custom head snippets -->
+{% if page.custom_css %}<link rel="stylesheet" href="{{ page.custom_css | relative_url }}">{% endif %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
