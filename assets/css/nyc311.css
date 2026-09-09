@@ -90,6 +90,20 @@
 .c311-feature-grid > div { border-top: 2px solid #bccfc4; padding-top: 0.7rem; }
 .c311-feature-grid h3 { font-size: 0.83rem; margin: 0 0 0.7rem; }
 .c311-feature-grid li { font-size: 0.86rem; }
+.c311-row-example { margin-top: 1.8rem; padding: 1.2rem; background: #fff; border: 1px solid var(--c311-line); border-radius: 8px; font-size: 0.88rem; }
+.c311-row-example h3 { margin: 0.5rem 0 0.8rem; }
+.c311-row-example h4 { margin: 1.5rem 0 0.7rem; font-size: 0.83rem; }
+.c311-row-table { display: table; width: 100%; table-layout: fixed; border-collapse: collapse; margin: 0.7rem 0 1rem; font-size: 0.79rem; }
+.c311-row-table caption { text-align: left; font-size: 0.78rem; color: var(--c311-muted); padding-bottom: 0.7rem; }
+.c311-row-table th, .c311-row-table td { text-align: left; vertical-align: top; padding: 0.65rem 0.55rem; border: 1px solid var(--c311-line); overflow-wrap: anywhere; }
+.c311-row-table thead th { background: #edf4ee; font: 700 0.65rem/1.5 "Sora", system-ui, sans-serif; }
+.c311-row-table th:first-child { width: 24%; }
+.c311-row-table th:nth-child(2) { width: 28%; }
+.c311-row-table code { font-size: 0.93em; }
+.c311-example-timeline li { padding-left: 0.25rem; }
+.c311-example-files { margin-bottom: 1rem; }
+.c311-example-files .c311-code { margin-top: 0.8rem; padding-top: 0; border: 0; }
+.c311-example-files pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 .c311 summary { cursor: pointer; font-family: "Sora", system-ui, sans-serif; }
 .c311 details > div { padding: 0 1rem 0.8rem; }
 .c311 summary:hover { color: var(--c311-teal); }
@@ -104,6 +118,7 @@
 .c311-points::after { content: "+"; font-size: 1.1rem; font-weight: 400; color: var(--c311-teal); }
 .c311-milestones details[open] .c311-points::after { content: "−"; }
 .c311 .c311-milestone-body { padding: 0 1rem 0.6rem; font-size: 0.88rem; }
+.c311-milestone-body h3 { font-size: 0.8rem; margin: 1.3rem 0 0.65rem; }
 .c311 .c311-midterm-note { padding: 0.85rem 1rem; margin: 0; font-size: 0.8rem; background: #edf2ec; border-bottom: 1px solid var(--c311-line); }
 .c311-requirements li { padding-left: 0.35rem; margin-bottom: 1rem; }
 .c311-package, .c311-faq details { border-bottom: 1px solid var(--c311-line); }
@@ -181,6 +196,11 @@
   .c311-sidebar__note, .c311-sidebar > .c311-text-link { display: none; }
   .c311-section { padding-bottom: 2rem; margin-bottom: 2rem; }
   .c311-feature-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .c311-row-example { padding: 1rem 0.75rem; }
+  .c311-row-table { font-size: 0.73rem; }
+  .c311-row-table th, .c311-row-table td { padding: 0.6rem 0.3rem; }
+  .c311-row-table th:first-child { width: 29%; }
+  .c311-row-table th:nth-child(2) { width: 29%; }
   .c311-outcomes { gap: 0.8rem; }
   .c311-outcomes h4 { font-size: 0.82rem; }
   .c311-outcomes p { font-size: 0.77rem; }
