@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="304" viewBox="0 0 760 304" role="img" aria-labelledby="title desc">
+  <title id="title">Seven days determines the label; fourteen days determines maturity</title>
+  <desc id="desc">Three synthetic requests are observed on day 21. A closes on day 3 and has label 0. B closes on day 9 and has label 1. C has no recorded closure at the snapshot and has label 1. All are mature. The first seven calendar days are the outcome window; days 7 to 14 provide a reporting buffer.</desc>
+  <rect width="760" height="304" fill="#fff"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#163f3a" font-size="16">
+    <rect x="156" y="55" width="184" height="176" fill="#e7f2ec"/>
+    <rect x="340" y="55" width="184" height="176" fill="#f7f0e3"/>
+    <text x="248" y="30" text-anchor="middle" font-weight="700">Outcome window</text>
+    <text x="432" y="30" text-anchor="middle">Reporting buffer</text>
+    <text x="708" y="30" text-anchor="end">Snapshot: day 21</text>
+    <path d="M340 47V248" stroke="#0c7064" stroke-width="2" stroke-dasharray="5 5"/>
+    <path d="M524 47V248" stroke="#9b4f25" stroke-width="2" stroke-dasharray="5 5"/>
+    <g stroke="#d6e1dc"><path d="M156 94H708M156 150H708M156 206H708"/></g>
+    <g fill="#163f3a"><text x="16" y="91" font-weight="700">A · day 3 closure</text><text x="16" y="113">Label 0</text><text x="16" y="147" font-weight="700">B · day 9 closure</text><text x="16" y="169">Label 1</text><text x="16" y="203" font-weight="700">C · no closure</text><text x="16" y="225">Label 1</text></g>
+    <path d="M156 94H234.857" stroke="#0c7064" stroke-width="4"/>
+    <circle cx="234.857" cy="94" r="7" fill="#0c7064"/>
+    <path d="M156 150H392.571" stroke="#9b4f25" stroke-width="4"/>
+    <circle cx="392.571" cy="150" r="7" fill="#9b4f25"/>
+    <path d="M156 206H708" stroke="#9b4f25" stroke-width="3" stroke-dasharray="7 5"/>
+    <circle cx="708" cy="206" r="7" fill="#fff" stroke="#9b4f25" stroke-width="3"/>
+    <path d="M156 243V253M340 243V253M524 243V253M708 243V253" stroke="#52666b"/>
+    <text x="156" y="273" text-anchor="middle">0</text><text x="340" y="273" text-anchor="middle">7</text><text x="524" y="273" text-anchor="middle">14</text><text x="708" y="273" text-anchor="middle">21</text>
+    <text x="432" y="298" text-anchor="middle" fill="#52666b">Calendar days since creation</text>
+  </g>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="512" viewBox="0 0 360 512" role="img" aria-labelledby="calibration-title calibration-desc">
+<title id="calibration-title">Synthetic calibration plot: probabilities versus group outcomes</title>
+<desc id="calibration-desc">Both axes run from zero to one at equal scale. The dashed diagonal is an ideal match between predicted probabilities and observed fractions. The dots summarize invented groups. Mean prediction 0.10 has 12 positive labels out of 100, an observed fraction of 0.12. Mean prediction 0.30 has 25 positive labels out of 100, an observed fraction of 0.25. Mean prediction 0.50 has 40 positive labels out of 100, an observed fraction of 0.40. Mean prediction 0.70 has 50 positive labels out of 100, an observed fraction of 0.50. Mean prediction 0.90 has 70 positive labels out of 100, an observed fraction of 0.70. The highlighted group overestimates risk. These are not measured NYC 311 results.</desc>
+<rect width="360" height="512" fill="#ffffff"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#163f3a">
+<text x="20" y="26" font-size="14" fill="#52666b" text-anchor="start" font-weight="400">Synthetic example · 100 requests per bin</text>
+<line x1="59" y1="60" x2="59" y2="336" stroke="#d6e1dc" stroke-width="1"/>
+<line x1="59" y1="336" x2="335" y2="336" stroke="#d6e1dc" stroke-width="1"/>
+<text x="59" y="359" font-size="14" fill="#52666b" text-anchor="middle" font-weight="400">0.0</text>
+<text x="48" y="341" font-size="14" fill="#52666b" text-anchor="end" font-weight="400">0.0</text>
+<line x1="114.2" y1="60" x2="114.2" y2="336" stroke="#d6e1dc" stroke-width="1"/>
+<line x1="59" y1="280.8" x2="335" y2="280.8" stroke="#d6e1dc" stroke-width="1"/>
+<text x="114.2" y="359" font-size="14" fill="#52666b" text-anchor="middle" font-weight="400">0.2</text>
+<text x="48" y="285.8" font-size="14" fill="#52666b" text-anchor="end" font-weight="400">0.2</text>
+<line x1="169.4" y1="60" x2="169.4" y2="336" stroke="#d6e1dc" stroke-width="1"/>
+<line x1="59" y1="225.6" x2="335" y2="225.6" stroke="#d6e1dc" stroke-width="1"/>
+<text x="169.4" y="359" font-size="14" fill="#52666b" text-anchor="middle" font-weight="400">0.4</text>
+<text x="48" y="230.6" font-size="14" fill="#52666b" text-anchor="end" font-weight="400">0.4</text>
+<line x1="224.6" y1="60" x2="224.6" y2="336" stroke="#d6e1dc" stroke-width="1"/>
+<line x1="59" y1="170.4" x2="335" y2="170.4" stroke="#d6e1dc" stroke-width="1"/>
+<text x="224.6" y="359" font-size="14" fill="#52666b" text-anchor="middle" font-weight="400">0.6</text>
+<text x="48" y="175.4" font-size="14" fill="#52666b" text-anchor="end" font-weight="400">0.6</text>
+<line x1="279.8" y1="60" x2="279.8" y2="336" stroke="#d6e1dc" stroke-width="1"/>
+<line x1="59" y1="115.2" x2="335" y2="115.2" stroke="#d6e1dc" stroke-width="1"/>
+<text x="279.8" y="359" font-size="14" fill="#52666b" text-anchor="middle" font-weight="400">0.8</text>
+<text x="48" y="120.2" font-size="14" fill="#52666b" text-anchor="end" font-weight="400">0.8</text>
+<line x1="335" y1="60" x2="335" y2="336" stroke="#d6e1dc" stroke-width="1"/>
+<line x1="59" y1="60" x2="335" y2="60" stroke="#d6e1dc" stroke-width="1"/>
+<text x="335" y="359" font-size="14" fill="#52666b" text-anchor="middle" font-weight="400">1.0</text>
+<text x="48" y="65" font-size="14" fill="#52666b" text-anchor="end" font-weight="400">1.0</text>
+<line x1="59" y1="336" x2="335" y2="336" stroke="#52666b" stroke-width="1.5"/>
+<line x1="59" y1="60" x2="59" y2="336" stroke="#52666b" stroke-width="1.5"/>
+<line x1="59" y1="336" x2="335" y2="60" stroke="#52666b" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="180.44" y="203.56" font-size="14" fill="#52666b" text-anchor="start" font-weight="400" transform="rotate(-45 180.44 203.56)">Ideal match</text>
+<circle cx="86.6" cy="302.88" r="6" fill="#0c7064" stroke="#ffffff" stroke-width="2"/>
+<circle cx="141.8" cy="267" r="6" fill="#0c7064" stroke="#ffffff" stroke-width="2"/>
+<circle cx="197" cy="225.6" r="6" fill="#0c7064" stroke="#ffffff" stroke-width="2"/>
+<line x1="252.2" y1="142.8" x2="252.2" y2="198" stroke="#9b4f25" stroke-width="2" stroke-dasharray="4 4"/>
+<circle cx="252.2" cy="142.8" r="4" fill="#ffffff" stroke="#9b4f25" stroke-width="1.5"/>
+<circle cx="252.2" cy="198" r="7" fill="#9b4f25" stroke="#ffffff" stroke-width="2"/>
+<circle cx="307.4" cy="142.8" r="6" fill="#0c7064" stroke="#ffffff" stroke-width="2"/>
+<text x="197" y="386" font-size="16" fill="#163f3a" text-anchor="middle" font-weight="400">Mean predicted probability</text>
+<text x="197" y="407" font-size="16" fill="#163f3a" text-anchor="middle" font-weight="400">of slow_7d = 1</text>
+<text x="17" y="198" font-size="14" fill="#163f3a" text-anchor="middle" font-weight="400" transform="rotate(-90 17 198)">Observed fraction with slow_7d = 1</text>
+<circle cx="26" cy="434" r="6" fill="#9b4f25" stroke="#9b4f25" stroke-width="2"/>
+<text x="42" y="440" font-size="16" fill="#9b4f25" text-anchor="start" font-weight="700">0.70 predicted · 0.50 observed</text>
+<text x="22" y="465" font-size="15" fill="#52666b" text-anchor="start" font-weight="400">50 of 100 labels are 1 in this bin.</text>
+<text x="22" y="488" font-size="15" fill="#52666b" text-anchor="start" font-weight="400">Risk is overestimated in this bin.</text>
+</g></svg>
