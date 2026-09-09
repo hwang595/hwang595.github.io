@@ -104,6 +104,7 @@
 .c311-points::after { content: "+"; font-size: 1.1rem; font-weight: 400; color: var(--c311-teal); }
 .c311-milestones details[open] .c311-points::after { content: "−"; }
 .c311 .c311-milestone-body { padding: 0 1rem 0.6rem; font-size: 0.88rem; }
+.c311-milestone-body h3 { font-size: 0.8rem; margin: 1.3rem 0 0.65rem; }
 .c311 .c311-midterm-note { padding: 0.85rem 1rem; margin: 0; font-size: 0.8rem; background: #edf2ec; border-bottom: 1px solid var(--c311-line); }
 .c311-requirements li { padding-left: 0.35rem; margin-bottom: 1rem; }
 .c311-package, .c311-faq details { border-bottom: 1px solid var(--c311-line); }

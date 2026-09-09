@@ -101,15 +101,116 @@ custom_css: /assets/css/nyc311.css
         <p class="c311-eyebrow">03 / Your milestones</p>
         <h2 id="milestones-title">One evolving project, six checkpoints.</h2>
         <p>The challenge spans <strong>Weeks 2–11</strong>, beginning with the onboarding release in Week 2 and finishing on November 13. Each phase builds on the previous one, with a lighter period around the midterm. All dates below are <strong>proposed for Fall 2026</strong>; the published Canvas assignments control deadlines and late-work rules.</p>
+        <div class="c311-callout"><strong>Build on your work; do not start six separate reports.</strong><p>After the individual forensics exercise, maintain one evolving team notebook and codebase. Revise earlier sections, reuse useful figures, and preserve your experiment history. One coordinator submits the shared work; each student submits their own assigned evidence with their team ID. Use the filenames and directory structure supplied in each CodeBench release. Unless a milestone says otherwise, tables and explanations belong inside the notebook, not in additional reports.</p></div>
         <div class="c311-milestones">
-          <details open><summary><span class="c311-milestone-date">Sep 18 <small>Week 3</small></span><span class="c311-milestone-name">Data forensics <small>Individual</small></span><span class="c311-points">5 points</span></summary><div class="c311-milestone-body"><p>Audit a small dataset and repair basic timestamp, duplicate, and missing-value problems. Explain the evidence and write assertions that catch the most important issues.</p><p><strong>Submit:</strong> your forensics notebook and a concise issue table. Early tasks follow the Python and data-processing material taught in class.</p></div></details>
-          <details><summary><span class="c311-milestone-date">Oct 2 <small>Week 5</small></span><span class="c311-milestone-name">Framing &amp; honest EDA <small>Team 3 + individual 2</small></span><span class="c311-points">5 points</span></summary><div class="c311-milestone-body"><p>Audit the main data and create three decision-relevant figures. State the intended use, population, assumptions, and limitations.</p><p><strong>Submit:</strong> the team's audit and figures, plus your individual critique of a figure and a proposed improvement.</p></div></details>
-          <details><summary><span class="c311-milestone-date">Oct 16 <small>Week 7</small></span><span class="c311-milestone-name">Baselines &amp; validation <small>Team 3 + individual 3</small></span><span class="c311-points">6 points</span></summary><div class="c311-milestone-body"><p>Build global-rate and smoothed agency/problem-rate baselines. State a temporal validation plan before leaderboard feedback. Explain why your split reflects prediction on later requests.</p><p><strong>Submit:</strong> baseline results and a validation plan. Complete a short supervised individual written interpretation check. Keep a change log if the plan is revised.</p></div></details>
+          <details open>
+            <summary><span class="c311-milestone-date">Sep 18 <small>Week 3</small></span><span class="c311-milestone-name">Data forensics <small>Individual</small></span><span class="c311-points">5 points</span></summary>
+            <div class="c311-milestone-body">
+              <p>Learn to establish whether data are usable before trusting an analysis. Work independently on the small, separate forensics exercise, which includes disclosed staff-injected defects. This milestone uses Python and data-processing skills taught in the opening weeks; no model training is required.</p>
+              <h3>What to do</h3>
+              <ul>
+                <li>Inspect the schema, row counts, missing values, duplicate records, and timestamp parsing. Distinguish an invalid value from a legitimate missing value.</li>
+                <li>Apply a justified repair or flag/exclude an unusable exercise row. Preserve the original input and show how your actions change the data.</li>
+                <li>Write and rerun assertions for the key rules you checked. Use the supplied worked examples to explain the seven-day boundary and maturity rule.</li>
+              </ul>
+              <h3>What to submit · Individual</h3>
+              <p>Your completed forensics notebook with code, visible outputs, and a concise issue table: <strong>issue → evidence/affected rows → action and reason → verification check</strong>. Include a short before/after summary and note anything you cannot resolve safely.</p>
+              <p><strong>What good work shows:</strong> another reader can trace each cleaning decision to evidence and rerun your checks. Do not invent missing outcomes, treat every missing closure as an error, or modify the frozen modeling files. Exercise-only outcome fields are not approved predictors.</p>
+            </div>
+          </details>
+          <details>
+            <summary><span class="c311-milestone-date">Oct 2 <small>Week 5</small></span><span class="c311-milestone-name">Framing &amp; honest EDA <small>Team 3 + individual 2</small></span><span class="c311-points">5 points</span></summary>
+            <div class="c311-milestone-body">
+              <p>Turn the main data release into a clearly framed investigation. Ask what the sample represents, which patterns matter for aggregate workload monitoring, and what the records cannot establish.</p>
+              <h3>What to do</h3>
+              <ul>
+                <li>Read the data dictionary and manifest. Record the release version, time coverage, row counts, missingness, and important category imbalances. Join features and labels by <code>row_id</code>, not file position.</li>
+                <li>Create <strong>three decision-relevant figures</strong>. Possible questions include how request mix changes over time, how recorded non-closure rates vary across agency/problem groups, or where missing data limit comparisons. These are examples, not three additional required analyses.</li>
+                <li>State the intended user and decision, the sampled population, and key assumptions. Distinguish request counts from rates and administrative closure from actual resolution.</li>
+              </ul>
+              <h3>What to submit</h3>
+              <ul>
+                <li><strong>Team · 3 points:</strong> the evolving notebook's framing and audit sections, plus the three figures and their generating code. Each figure needs readable labels, the relevant period and denominator/sample count, a takeaway, and a caveat.</li>
+                <li><strong>Individual · 2 points:</strong> a concise critique of one team figure or associated claim. Identify a specific weakness, explain why it matters, and propose an improvement. A new fourth figure or separate report is not required.</li>
+              </ul>
+              <p><strong>What good work shows:</strong> the figures answer stated questions, and the conclusions stay within the sample's limits. A difference between groups is not, by itself, evidence of service quality or a causal effect.</p>
+            </div>
+          </details>
+          <details>
+            <summary><span class="c311-milestone-date">Oct 16 <small>Week 7</small></span><span class="c311-milestone-name">Baselines &amp; validation <small>Team 3 + individual 3</small></span><span class="c311-points">6 points</span></summary>
+            <div class="c311-milestone-body">
+              <p>Establish a trustworthy comparison before trying more flexible models. A simple probability estimate with an honest evaluation is more informative than an unexplained score.</p>
+              <h3>What to do</h3>
+              <ul>
+                <li>Run and explain the two required baselines: the global training-label rate and a smoothed agency/problem rate. Explain how smoothing reduces unstable estimates for small groups and how the supplied baseline handles unseen categories.</li>
+                <li>Fit using training data and compare both methods on the same visible development rows using Brier score. Check that each input ID receives one valid probability; a constant probability is allowed.</li>
+                <li>Write your temporal validation plan <strong>before leaderboard feedback</strong>: date boundaries and counts, what is fitted on training, what development is used to choose, and how you prevent leakage. Record any earlier within-training temporal split and preserve later plan changes.</li>
+              </ul>
+              <h3>What to submit</h3>
+              <ul>
+                <li><strong>Team · 3 points:</strong> runnable baseline code, a notebook comparison table with both development scores and evaluation counts, and the validation plan. Use the provided execution interface and explain the grouped baseline's fallback behavior.</li>
+                <li><strong>Individual · 3 points:</strong> complete the short supervised written interpretation check during the announced session. Explain a supplied score comparison, split, or leakage example in your own words. There is no presentation or oral defense; exact prompts and collection instructions come through Canvas.</li>
+              </ul>
+              <p><strong>What good work shows:</strong> scores are comparable, the split reflects prediction on later requests, and no development labels were used to fit the models being evaluated. Preserve these results even though staff later refit the selected method on training plus development for official inference.</p>
+            </div>
+          </details>
           <p class="c311-midterm-note">Weeks 8–9: time for the midterm. No graded challenge deadline.</p>
-          <details><summary><span class="c311-milestone-date">Nov 6 <small>Week 10</small></span><span class="c311-milestone-name">Modeling &amp; clean-run check <small>Team 5 + individual 1</small></span><span class="c311-points">6 points</span></summary><div class="c311-milestone-body"><p>Compare logistic regression, once taught, with your two existing rate baselines. Additional model families are optional. Run one controlled feature comparison, investigate consequential errors, and begin your individually owned stress test. A useful negative result is still evidence.</p><p><strong>Submit:</strong> the team's runnable pipeline, modeling results and experiment log, plus your explanation of one experiment you owned. Complete the formative clean-run and contribution check within this submission; there is no separate rehearsal deadline.</p></div></details>
+          <details>
+            <summary><span class="c311-milestone-date">Nov 6 <small>Week 10</small></span><span class="c311-milestone-name">Modeling &amp; clean-run check <small>Team 5 + individual 1</small></span><span class="c311-points">6 points</span></summary>
+            <div class="c311-milestone-body">
+              <p>Test whether a taught model adds useful information, and make sure the analysis works outside your current notebook session. Apply logistic regression once it has been taught; additional model families are optional.</p>
+              <h3>What to do</h3>
+              <ul>
+                <li>Compare logistic regression with both rate baselines under the same validation plan. Fit preprocessing on training data only and handle missing or unseen categories consistently.</li>
+                <li>Run one controlled feature comparison: add or remove a feature family while keeping the split and other settings fixed. State the hypothesis, record the result, and decide what to retain. Investigate a consequential error slice with its sample count.</li>
+                <li>Run the supplied command and preflight checks from a fresh process using visible data. Record the command, environment, result, and any unresolved problem. Begin the individually owned stress test you will interpret in Week 11.</li>
+              </ul>
+              <h3>What to submit</h3>
+              <ul>
+                <li><strong>Team · 5 points:</strong> the runnable pipeline and supporting source, updated notebook with comparison and error-analysis results, and <code>experiments.csv</code>. Log the hypothesis, change, evaluation split, score/result, and resulting decision; put clean-run evidence in the notebook.</li>
+                <li><strong>Individual · 1 point:</strong> identify one experiment you owned, point to its code/results, and explain what you tested, found, and decided. This may be an early version of your final stress test.</li>
+              </ul>
+              <p><strong>What good work shows:</strong> the comparison isolates a change and the submitted code reproduces the evidence. A model that does not improve can still support a strong conclusion. The formative clean-run and contribution check are included here; there is no separate rehearsal deadline or report.</p>
+            </div>
+          </details>
           <p class="c311-midterm-note">Week 11 is for focused revisions, interpretation, and packaging. Use the preflight results and staff feedback to correct problems; no new model family is required.</p>
-          <details><summary><span class="c311-milestone-date">Nov 13 <small>Week 11</small></span><span class="c311-milestone-name">Final pipeline &amp; findings <small>Team 6 + individual 2</small></span><span class="c311-points">8 points</span></summary><div class="c311-milestone-body"><p>Revise and freeze your existing pipeline and report. Include calibration, error slices, and a defensible workload-monitoring recommendation. Explain a situation in which the model should not be used.</p><p><strong>Submit:</strong> the team package and two-page summary, plus your individually owned stress test and interpretation. The stress test may extend your Week-10 experiment; focus on what it reveals and what you changed.</p></div></details>
-          <details><summary><span class="c311-milestone-date">Week 11 <small>Recitation</small></span><span class="c311-milestone-name">Individual written/code check <small>Check 4 + record 1</small></span><span class="c311-points">5 points</span></summary><div class="c311-milestone-body"><p>During your assigned recitation, students work independently at the same time on an approximately 50-minute, supervised notebook assessment. Everyone uses a small staff-provided dataset and starter pipeline, with equivalent versions across sections. <strong>There is no oral defense, individual interview, or presentation.</strong></p><p>Identify a leakage or validation issue, make one or two small code fixes, compute or interpret an evaluation result, and answer two short written questions. The assessment uses previously taught skills and does not require demonstrating your team's full project. It is open-notes and closed-AI, with an advance practice example.</p><p><strong>Grading:</strong> common checks for code and numerical results, plus a shared rubric for the short explanations. You do not need to meet individually with a TA to be assessed.</p><p><strong>Submit:</strong> your completed notebook during the session and your concise contribution/AI verification record by November 13. No separate assessment report is required. The exact session and submission instructions will be announced through Canvas; approved accommodations apply.</p></div></details>
+          <details>
+            <summary><span class="c311-milestone-date">Nov 13 <small>Week 11</small></span><span class="c311-milestone-name">Final pipeline &amp; findings <small>Team 6 + individual 2</small></span><span class="c311-points">8 points</span></summary>
+            <div class="c311-milestone-body">
+              <p>Revise, select, and freeze the work you have already developed. Use Week-10 feedback to correct problems and explain your findings; no new model family or open-ended model search is required.</p>
+              <h3>What to do</h3>
+              <ul>
+                <li>Select the final method using your documented evidence. Preserve the original train-only/development evaluation and rerun the final package's preflight checks. Staff will execute your code on unseen records; you do not download or analyze the hidden sets.</li>
+                <li>Include a development calibration view (predicted probabilities versus observed frequencies) and error slices with sample counts. Explain uncertainty and why a small or differently composed group may not support a strong comparison.</li>
+                <li>Make a supported recommendation about aggregate workload monitoring, including a concrete situation in which the model should not be used. A recommendation against use is acceptable when the evidence supports it.</li>
+              </ul>
+              <h3>What to submit</h3>
+              <ul>
+                <li><strong>Team · 6 points:</strong> the frozen <code>run_submission.py</code>, supporting source and metadata, <code>experiments.csv</code>, and revised <code>report.ipynb</code>. The notebook should connect framing and data audit, validation, model comparisons, calibration/error analysis, limitations, and reproducibility.</li>
+                <li><strong>Team summary (part of the same 6 points):</strong> at most two pages presenting the question, key evidence, recommendation, and limitations for a nontechnical reader. Summarize existing findings; this is not another analysis. The final package checklist in Requirements below summarizes the files.</li>
+                <li><strong>Individual · 2 points:</strong> your own stress-test code/results and interpretation. Choose a focused test, such as missing-feature sensitivity, unseen-category handling, or performance in a later visible time slice. Explain the setup, comparison, sample size where relevant, result, limitation, and what you would change or monitor. These are alternatives, not three required tests; you may extend your Week-10 experiment.</li>
+              </ul>
+              <p><strong>What good work shows:</strong> the frozen package runs, claims are traceable to results, and limitations affect the recommendation. Leaderboard rank is not a grading criterion. Reuse and improve earlier work rather than rewriting it for this deadline.</p>
+            </div>
+          </details>
+          <details>
+            <summary><span class="c311-milestone-date">Week 11 <small>Recitation</small></span><span class="c311-milestone-name">Individual written/code check <small>Check 4 + record 1</small></span><span class="c311-points">5 points</span></summary>
+            <div class="c311-milestone-body">
+              <p>Demonstrate your own understanding on a small, unfamiliar example. During your assigned recitation, students work independently at the same time on an approximately 50-minute supervised notebook assessment, with equivalent versions across sections. <strong>There is no oral defense, individual interview, or presentation.</strong></p>
+              <h3>What to do</h3>
+              <ul>
+                <li>Use the staff-provided dataset and starter pipeline to identify a leakage or validation issue, make one or two small code fixes, and compute or interpret an evaluation result.</li>
+                <li>Answer two short written questions explaining your reasoning and what the result does or does not establish. You do not need to demonstrate your team's full project.</li>
+                <li>Prepare using the advance practice example and previously taught skills. The session is open-notes and closed-AI; exact session and submission instructions will be announced through Canvas, and approved accommodations apply.</li>
+              </ul>
+              <h3>What to submit · Individual</h3>
+              <ul>
+                <li><strong>Notebook check · 4 points:</strong> submit the completed assessment notebook, including code, results, and the two written answers, during the session. No separate assessment report is required.</li>
+                <li><strong>Contribution/AI record · 1 point, due November 13:</strong> identify your contributions and point to specific notebook sections, experiments, tests, or source files. Consolidate your three short records of consequential AI suggestions across the project: what was proposed, how you verified it, and what you accepted, modified, or rejected. Include your team ID. Full chat transcripts and a fabricated story about an AI mistake are not required; if you did not use AI, state that honestly and document your own checks.</li>
+              </ul>
+              <p><strong>What good work shows:</strong> you can diagnose a familiar kind of problem and justify a small correction independently. Staff use common checks for code/numerical results and a shared rubric for explanations. You do not need an individual TA appointment to be assessed.</p>
+            </div>
+          </details>
         </div>
         <p class="c311-small">“Points” above are percentage points of the course grade: 17 shared team points + 18 individual points = 35.</p>
         <div class="c311-callout"><strong>Then switch to your individual project.</strong><p>Weeks 12–15 are reserved for a separate, short individual research project. Topic selection and a brief proposal begin in Week 12; the project will have its own instructions and rubric. There is no additional scheduled NYC 311 challenge submission after Week 11.</p></div>
@@ -124,9 +225,9 @@ custom_css: /assets/css/nyc311.css
           <li><strong>Compare against meaningful baselines.</strong> Use Brier score, calibration, and error slices with sample counts. Inspect performance within agency/problem groups.</li>
           <li><strong>Document experiments.</strong> Record the hypothesis, change, result, and resulting decision. Include a feature ablation and a robustness test.</li>
           <li><strong>Make the work reproducible.</strong> Use the course environment, fixed seeds, and provided input/output interface. The submitted pipeline must run offline, without API calls or LLM inference. Final resource limits will accompany the course release.</li>
-          <li><strong>Verify AI assistance.</strong> Keep three short records of consequential suggestions: what was proposed, how you checked it, and what you accepted, modified, or rejected.</li>
+          <li><strong>Verify AI assistance.</strong> If you use AI, keep three short records of consequential suggestions: what was proposed, how you checked it, and what you accepted, modified, or rejected. If you do not use AI, state that and document your own verification checks instead.</li>
         </ol>
-        <details class="c311-package"><summary>What goes in the final submission?</summary><div><p><strong>One team coordinator submits:</strong> <code>report.ipynb</code>, a summary of at most two pages, <code>experiments.csv</code>, <code>run_submission.py</code>, supporting source files, and the required team/environment metadata.</p><p><strong>Each student submits separately:</strong> the assigned individual response, contribution/AI record, and team ID. The release will provide the exact directory template.</p><p>Staff generate official predictions by executing the frozen package. Keep shared raw data out of the submission and do not manually edit predictions. Use CodeBench and retain your submission receipt.</p></div></details>
+        <details class="c311-package"><summary>What goes in the final submission?</summary><div><p><strong>One team coordinator submits:</strong> <code>report.ipynb</code>, a summary of at most two pages, <code>experiments.csv</code>, <code>run_submission.py</code>, supporting source files, and the required team/environment metadata. The notebook contains the evidence; the summary communicates the main findings. You do not need separate model-card and stakeholder-memo documents.</p><p><strong>Each student submits separately:</strong> the assigned individual response, contribution/AI record, and team ID. The in-session written/code notebook is collected separately during recitation. The release will provide the exact directory template and submission slots.</p><p><strong>Before submitting:</strong> rerun the notebook from a clean kernel, check the executable pipeline with the supplied preflight tool, and make sure referenced source files are included. Staff generate official predictions by executing the frozen package. Keep shared raw data out of the submission and do not manually edit predictions. Use CodeBench and retain the accepted submission receipt for both shared and individual work.</p></div></details>
         <div class="c311-callout"><strong>A public guide, private coursework.</strong><p>This instructor-published description is public. Keep course datasets, solution code, reports, and student submissions in approved course channels unless the instructor authorizes publication. AI use during project work does not permit retrieving withheld outcomes or publishing course materials.</p></div>
       </section>
 
