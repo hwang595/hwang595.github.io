@@ -169,6 +169,7 @@ redirect_from:
     <h2>Teaching</h2>
   </div>
   <div class="teaching-list">
+    <a class="teaching-item" href="{{ '/teaching/cs439-nyc311/' | relative_url }}"><span>Fall 2026</span><strong>CS 439 · NYC 311 Civic Response Challenge</strong></a>
     <div class="teaching-item"><span>Spring 2026</span><strong>CS 439, Intro to Data Science</strong></div>
     <a class="teaching-item" href="https://hwang595.github.io/RU-CS-671-Fall2025/"><span>Fall 2025</span><strong>RU CS 671, Recent Advances in Large Language Models</strong></a>
   </div>
