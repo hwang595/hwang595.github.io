@@ -1,0 +1,12 @@
+{
+  "description": "Entirely invented calibration example for teaching; not measured NYC 311 results.",
+  "target": "slow_7d",
+  "bins": [
+    {"mean_predicted_probability": 0.1, "requests": 100, "positive_labels": 12},
+    {"mean_predicted_probability": 0.3, "requests": 100, "positive_labels": 25},
+    {"mean_predicted_probability": 0.5, "requests": 100, "positive_labels": 40},
+    {"mean_predicted_probability": 0.7, "requests": 100, "positive_labels": 50},
+    {"mean_predicted_probability": 0.9, "requests": 100, "positive_labels": 70}
+  ],
+  "highlight_mean_predicted_probability": 0.7
+}

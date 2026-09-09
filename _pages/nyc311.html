@@ -91,6 +91,15 @@ custom_css: /assets/css/nyc311.css
           <div><span class="c311-label c311-label--one">1</span><p>Recorded closure is <strong>later</strong>, or the closure timestamp is missing for a sufficiently mature record.</p></div>
         </div>
         <p class="c311-small">Staff require 14 days of maturity: the seven-day outcome window plus a reporting buffer. Immature records and invalid required timestamps are excluded. The course uses New York local wall-clock values and seven calendar days; labels are frozen with the release. The buffer does not eliminate every later data revision.</p>
+        <figure class="c311-figure" id="closure-figure" aria-labelledby="closure-figure-title">
+          <span class="c311-tag">Illustration 01 · Synthetic requests</span>
+          <h3 id="closure-figure-title">The outcome window is not the maturity window.</h3>
+          <picture>
+            <source media="(max-width: 900px)" srcset="{{ '/files/cs439-nyc311/figures/closure-timeline-mobile.svg' | relative_url }}" width="320" height="320">
+            <img src="{{ '/files/cs439-nyc311/figures/closure-timeline.svg' | relative_url }}" width="760" height="304" loading="lazy" decoding="async" alt="Three synthetic requests checked on day 21: closure on day 3 gives label 0, closure on day 9 gives label 1, and no recorded closure gives label 1. Day 7 ends the outcome window; day 14 is the minimum maturity.">
+          </picture>
+          <figcaption><p><strong>All three requests are checked on day 21, so all are mature.</strong> Filled dots mark recorded closures; the open dot means no closure is recorded by the snapshot. The seven-day boundary decides the label. The extra reporting buffer does not turn the target into “closure within 14 days.” Closure exactly at day 7 counts as label 0.</p></figcaption>
+        </figure>
         <div class="c311-feature-grid">
           <div><h3>Approved feature families</h3><ul><li>Creation day, hour, and derived calendar features</li><li>Agency and problem</li><li>Location type, borough, and community board</li><li>Submission channel</li></ul><p class="c311-small">The released data dictionary is the final feature contract. Version 1 omits <code>problem_detail</code>. <code>row_id</code> is a join key, never a predictor.</p></div>
           <div><h3>Keep outcome information out</h3><ul><li>Closure timestamps and current status</li><li>Due dates, resolution text, and update timestamps</li><li>Original IDs, addresses, and exact coordinates</li><li>External outcomes or lookup tables</li></ul><p class="c311-small">Outcome fields may appear in the separate forensics exercise to teach auditing. That does not make them legal model inputs.</p></div>
@@ -129,6 +138,18 @@ custom_css: /assets/css/nyc311.css
 
           <h4>3. Connect features, label, and prediction</h4>
           <p>For training and visible development, the label is in a separate CSV. Join it to the feature row by <code>row_id</code>, not by row position. The target <code>slow_7d</code> is used to learn and evaluate; it is never an input feature. The smaller onboarding CSV combines features and label for convenience.</p>
+          <figure class="c311-figure c311-flow-figure" id="feature-flow-figure" aria-labelledby="feature-flow-title">
+            <span class="c311-tag">Illustration 02 · Synthetic prediction and score</span>
+            <h4 id="feature-flow-title">How a separate held-out request is evaluated.</h4>
+            <div class="c311-fit-note"><strong>First, fit:</strong> training features + training labels <span aria-hidden="true">→</span> learned preprocessing and model.</div>
+            <ol class="c311-prediction-flow">
+              <li><span class="c311-flow-step">01 / Input</span><strong>Held-out features</strong><span>Approved fields only.<br>No label for this row.</span></li>
+              <li><span class="c311-flow-step">02 / Predict</span><strong>Fitted pipeline</strong><span>Apply what was learned<br>from training data.</span></li>
+              <li><span class="c311-flow-step">03 / Output</span><strong>Probability 0.70</strong><span>Return <code>row_id</code><br>and <code>p_slow_7d</code>.</span></li>
+              <li><span class="c311-flow-step">04 / Score</span><strong>Compare with label 1</strong><span>The scorer joins the label;<br>this row's loss is 0.09.</span></li>
+            </ol>
+            <figcaption><p><strong>Labels help fit the model; they do not accompany a row being predicted.</strong> For your honest development evaluation, fit on training and score on development. For hidden evaluation, staff refit on the allowed training + development data and keep hidden labels in a separate scorer, outside the submitted program.</p></figcaption>
+          </figure>
           <div class="c311-example-files">
             <div class="c311-code"><span>Known target · Example from train_labels.csv</span><pre><code>row_id,slow_7d
 00000000000000000000000000000001,1</code></pre></div>
@@ -305,6 +326,20 @@ custom_css: /assets/css/nyc311.css
           </div>
         </div>
         <noscript><p class="c311-callout">Enable JavaScript to use the sliders. The examples shown are still valid: a mature request closed exactly at day 7 has label 0; probabilities 0.20, 0.60, 0.80 against outcomes 0, 1, 1 have Brier score 0.0800.</p></noscript>
+
+        <figure class="c311-figure" id="calibration-figure" aria-labelledby="calibration-figure-title">
+          <span class="c311-tag">Illustration 03 · Invented groups, not NYC results</span>
+          <h3 id="calibration-figure-title">Does a 70% prediction behave like 70%?</h3>
+          <p class="c311-small">A calibration plot compares average predicted probabilities with observed label-1 rates for groups of held-out requests. The dashed diagonal is the agreement reference; each dot below summarizes 100 synthetic requests.</p>
+          <picture>
+            <source media="(max-width: 900px)" srcset="{{ '/files/cs439-nyc311/figures/calibration-mobile.svg' | relative_url }}" width="360" height="512">
+            <img src="{{ '/files/cs439-nyc311/figures/calibration.svg' | relative_url }}" width="720" height="562" loading="lazy" decoding="async" alt="Synthetic calibration plot with five groups of 100 requests. Mean probabilities 0.10, 0.30, 0.50, 0.70, and 0.90 have observed label-1 rates 0.12, 0.25, 0.40, 0.50, and 0.70. The highlighted 0.70 group has 50 of 100 positive labels, below the ideal 0.70 rate.">
+          </picture>
+          <figcaption><p><strong>Read the highlighted dot:</strong> the group averages a prediction of 0.70, but only 50 of its 100 requests have label 1. The model overestimates the seven-day recorded non-closure rate in this illustrative group. Calibration describes groups, not whether an individual request must have outcome 0 or 1.</p><p>These invented values demonstrate how to read a plot, not how any course model performs. In your own analysis, include group counts, consider uncertainty and bin choices, and use held-out predictions. Five dots alone cannot establish reliable calibration or generalization.</p></figcaption>
+          <details class="c311-figure-data"><summary>See the synthetic numbers behind the plot</summary><div>
+            <table><caption>Five invented groups; each contains 100 requests.</caption><thead><tr><th scope="col">Mean prediction</th><th scope="col">Label-1 count</th><th scope="col">Observed rate</th></tr></thead><tbody><tr><th scope="row">0.10</th><td>12 / 100</td><td>0.12</td></tr><tr><th scope="row">0.30</th><td>25 / 100</td><td>0.25</td></tr><tr><th scope="row">0.50</th><td>40 / 100</td><td>0.40</td></tr><tr><th scope="row">0.70</th><td>50 / 100</td><td>0.50</td></tr><tr><th scope="row">0.90</th><td>70 / 100</td><td>0.70</td></tr></tbody></table>
+          </div></details>
+        </figure>
 
         <article class="c311-starter">
           <div><span class="c311-tag">Available now · Synthetic data</span><h3>Your first reproducible baseline</h3><p>Download a small Python example that demonstrates a temporal split, a global-rate predictor, Brier score, and the prediction-file format. It uses only Python's standard library.</p><a class="c311-button" href="{{ '/files/cs439-nyc311/starter.py' | relative_url }}" download>Download starter.py <span aria-hidden="true">↓</span></a><a class="c311-text-link" href="{{ '/files/cs439-nyc311/README.md' | relative_url }}">Read the starter guide ↗</a></div>
