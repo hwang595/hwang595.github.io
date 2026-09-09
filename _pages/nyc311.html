@@ -92,9 +92,52 @@ custom_css: /assets/css/nyc311.css
         </div>
         <p class="c311-small">Staff require 14 days of maturity: the seven-day outcome window plus a reporting buffer. Immature records and invalid required timestamps are excluded. The course uses New York local wall-clock values and seven calendar days; labels are frozen with the release. The buffer does not eliminate every later data revision.</p>
         <div class="c311-feature-grid">
-          <div><h3>Approved feature families</h3><ul><li>Creation day, hour, and derived calendar features</li><li>Agency, problem, and reviewed problem detail</li><li>Location type, borough, and community board</li><li>Submission channel</li></ul><p class="c311-small">The released data dictionary is the final feature contract. <code>row_id</code> is a join key, never a predictor.</p></div>
+          <div><h3>Approved feature families</h3><ul><li>Creation day, hour, and derived calendar features</li><li>Agency and problem</li><li>Location type, borough, and community board</li><li>Submission channel</li></ul><p class="c311-small">The released data dictionary is the final feature contract. Version 1 omits <code>problem_detail</code>. <code>row_id</code> is a join key, never a predictor.</p></div>
           <div><h3>Keep outcome information out</h3><ul><li>Closure timestamps and current status</li><li>Due dates, resolution text, and update timestamps</li><li>Original IDs, addresses, and exact coordinates</li><li>External outcomes or lookup tables</li></ul><p class="c311-small">Outcome fields may appear in the separate forensics exercise to teach auditing. That does not make them legal model inputs.</p></div>
         </div>
+        <article class="c311-row-example" aria-labelledby="row-example-title">
+          <span class="c311-tag">Worked example · Entirely synthetic</span>
+          <h3 id="row-example-title">Follow one request from row to prediction.</h3>
+          <p>Imagine a street-condition request with the attributes below. This invented example follows the version-1 schema; it is not a real resident's request, a course data row, or a hidden test record. Its timestamps and prediction are illustrative too.</p>
+
+          <h4>1. Read the model inputs</h4>
+          <table class="c311-row-table">
+            <caption>One row of <code>train_features.parquet</code>, displayed vertically for readability. The file has these nine columns.</caption>
+            <thead><tr><th scope="col">Column</th><th scope="col">Example value</th><th scope="col">How to read it</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><code>row_id</code></th><td><code>00000000000000000000000000000001</code></td><td>32-character course join key. Keep it as text, including leading zeros; never use it as a predictor.</td></tr>
+              <tr><th scope="row"><code>created_day</code></th><td><code>2025-10-01</code></td><td>New York local creation date. You may derive calendar features such as day of week.</td></tr>
+              <tr><th scope="row"><code>created_hour</code></th><td><code>10</code></td><td>The 10 a.m. hour. Source minutes and seconds are not supplied as features.</td></tr>
+              <tr><th scope="row"><code>agency</code></th><td><code>DOT</code></td><td>Agency category as represented in the snapshot.</td></tr>
+              <tr><th scope="row"><code>problem</code></th><td><code>Street Condition</code></td><td>Problem category, not a free-text description of the outcome.</td></tr>
+              <tr><th scope="row"><code>location_type</code></th><td><em>missing</em></td><td>A Parquet null, not the literal word “missing.” Handle it explicitly; do not invent a location.</td></tr>
+              <tr><th scope="row"><code>borough</code></th><td><code>BROOKLYN</code></td><td>A coarse location category, not an address.</td></tr>
+              <tr><th scope="row"><code>community_board</code></th><td><code>01 BROOKLYN</code></td><td>Categorical text. Do not treat the “01” as a continuous numeric measurement.</td></tr>
+              <tr><th scope="row"><code>channel</code></th><td><code>ONLINE</code></td><td>The request's submission channel.</td></tr>
+            </tbody>
+          </table>
+
+          <h4>2. Understand how staff assign the label</h4>
+          <p>The following <strong>fictional staff-side timestamps are shown only to explain the target</strong>. They are not columns in the modeling feature file and must not be added to your predictors. All times below are New York local wall-clock values.</p>
+          <ol class="c311-example-timeline">
+            <li><strong>Created: October 1, 2025, at 10:30.</strong> Staff use the full source timestamp to calculate the label, before reducing the released features to day and hour.</li>
+            <li><strong>Seven-day boundary: October 8 at 10:30.</strong> A recorded closure at or before this moment would give label 0.</li>
+            <li><strong>Recorded closure: October 10 at 09:00.</strong> This is after the boundary, so the request did not have a recorded closure within seven days.</li>
+            <li><strong>Example snapshot: October 20 at 12:00.</strong> The request is more than 14 days old, so it meets the maturity rule.</li>
+          </ol>
+          <p><strong>Result: <code>slow_7d = 1</code>.</strong> The later closure does not turn this label into 0. If the closure timestamp were still missing at this mature snapshot, the label would also be 1. Neither case proves when the resident's underlying problem was actually solved.</p>
+
+          <h4>3. Connect features, label, and prediction</h4>
+          <p>For training and visible development, the label is in a separate CSV. Join it to the feature row by <code>row_id</code>, not by row position. The target <code>slow_7d</code> is used to learn and evaluate; it is never an input feature. The smaller onboarding CSV combines features and label for convenience.</p>
+          <div class="c311-example-files">
+            <div class="c311-code"><span>Known target · Example from train_labels.csv</span><pre><code>row_id,slow_7d
+00000000000000000000000000000001,1</code></pre></div>
+            <div class="c311-code"><span>Model output · Example predictions.csv</span><pre><code>row_id,p_slow_7d
+00000000000000000000000000000001,0.70</code></pre></div>
+          </div>
+          <p>Suppose a model fitted on training data returns <code>p_slow_7d = 0.70</code> for this request. It estimates a <strong>70% probability of lacking recorded closure within seven days</strong>—not a 70% chance that the problem is still physically unresolved, and not a prediction of how many days closure will take. The 0.70 is made up for this walkthrough, not calculated from these timestamps or produced by a trained course model.</p>
+          <p><strong>This row's squared error:</strong> <code>(0.70 − 1)² = 0.09</code>. The dataset's Brier score is the average of this quantity across all evaluated rows. This single-row calculation illustrates the formula, not a valid model comparison: compare models on held-out development predictions, not their training scores. Submit probabilities, not thresholded 0/1 class decisions. In hidden evaluation, staff run your pipeline on approved features without giving it the corresponding labels, then score its outputs separately.</p>
+        </article>
       </section>
 
       <section id="milestones" class="c311-section" aria-labelledby="milestones-title">
