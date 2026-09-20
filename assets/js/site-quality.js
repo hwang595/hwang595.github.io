@@ -96,3 +96,44 @@
   window.addEventListener("resize", queueNavigationLayout);
   layoutNavigation();
 }());
+
+(function () {
+  var wrapper = document.querySelector(".author__urls-wrapper");
+  if (!wrapper) {
+    return;
+  }
+  var button = wrapper.querySelector("button");
+  var links = wrapper.querySelector(".author__urls");
+  if (!button || !links) {
+    return;
+  }
+
+  function syncContactState() {
+    var open = window.getComputedStyle(links).display !== "none";
+    button.setAttribute("aria-expanded", String(open));
+    button.setAttribute("aria-label", open ? "Hide contact links" : "Show contact links");
+  }
+
+  function isOpenDropdown() {
+    return window.getComputedStyle(button).display !== "none" && button.getAttribute("aria-expanded") === "true";
+  }
+
+  // The theme controls visibility with jQuery; mirror it without a second toggle handler.
+  new MutationObserver(syncContactState).observe(links, {
+    attributes: true,
+    attributeFilter: ["style", "class"]
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && isOpenDropdown()) {
+      button.click();
+      button.focus();
+    }
+  });
+  document.addEventListener("click", function (event) {
+    if (!wrapper.contains(event.target) && isOpenDropdown()) {
+      button.click();
+    }
+  });
+  syncContactState();
+}());

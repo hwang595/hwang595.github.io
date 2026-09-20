@@ -20,8 +20,8 @@
   </div>
 
   <div class="author__urls-wrapper">
-    <button class="btn btn--inverse">More</button>
-    <ul class="author__urls social-icons">
+    <button type="button" class="btn btn--inverse" aria-label="Show contact links" aria-expanded="false" aria-controls="author-contact-links">More</button>
+    <ul class="author__urls social-icons" id="author-contact-links">
       {% if author.location %}
         <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{ author.location }}</li>
       {% endif %}
@@ -62,13 +62,13 @@
         <li><a href="https://bitbucket.org/{{ author.bitbucket }}" target="_blank" rel="noopener"><i class="fa fa-fw fa-bitbucket" aria-hidden="true"></i> Bitbucket</a></li>
       {% endif %}
       {% if author.twitter %}
-        <li><a href="https://twitter.com/{{ author.twitter }}" target="_blank" rel="noopener"><i class="fa fa-twitter" style="color:inherit"></i> Twitter</a></li>
+        <li><a href="https://twitter.com/{{ author.twitter }}" target="_blank" rel="noopener"><i class="fa fa-twitter" aria-hidden="true" style="color:inherit"></i> Twitter</a></li>
       {% endif %}
       {% if author.blog %}
       <li><a href="https://{{ author.blog }}"><i class="fa fa-link" aria-hidden="true"></i> Blog</a></li>
       {% endif %}
       {% if author.github %}
-        <li><a href="https://github.com/{{ author.github }}" target="_blank" rel="noopener"><i class="fa fa-github"></i> GitHub</a></li>
+        <li><a href="https://github.com/{{ author.github }}" target="_blank" rel="noopener"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a></li>
       {% endif %}
       {% if author.stackoverflow %}
         <li><a href="https://www.stackoverflow.com/users/{{ author.stackoverflow }}" target="_blank" rel="noopener"><i class="fa fa-fw fa-stack-overflow" aria-hidden="true"></i> Stackoverflow</a></li>
@@ -107,7 +107,7 @@
         <li><a href="https://vine.co/u/{{ author.vine }}" target="_blank" rel="noopener"><i class="fa fa-fw fa-vine" aria-hidden="true"></i> Vine</a></li>
       {% endif %}
       {% if author.googlescholar %}
-        <li><a href="https://scholar.google.com/citations?user={{ author.googlescholar }}" target="_blank" rel="noopener"><i class="fa fa-fw fa-graduation-cap"></i> Google Scholar</a></li>
+        <li><a href="https://scholar.google.com/citations?user={{ author.googlescholar }}" target="_blank" rel="noopener"><i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i> Google Scholar</a></li>
       {% endif %}
       {% if author.pubmed %}
         <li><a href="{{ author.pubmed }}" target="_blank" rel="noopener"><i class="ai ai-pubmed-square ai-fw"></i> PubMed</a></li>

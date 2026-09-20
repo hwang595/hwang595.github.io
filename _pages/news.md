@@ -12,7 +12,6 @@ author_profile: true
 <div class="news-browser" data-news-browser>
   <div class="news-browser__intro">
     <div>
-      <h1>News</h1>
       <p class="news-intro">
         Research updates, awards, teaching notes, and group milestones.
       </p>
@@ -31,14 +30,14 @@ author_profile: true
 
     <div class="news-filter-group" data-news-filter-group="type">
       <span>Category</span>
-      <button type="button" class="is-active" data-news-filter="type" data-value="all">All</button>
+      <button type="button" class="is-active" aria-pressed="true" data-news-filter="type" data-value="all">All</button>
       {% for type in news_types %}
-        <button type="button" data-news-filter="type" data-value="{{ type | slugify }}">{{ type }}</button>
+        <button type="button" aria-pressed="false" data-news-filter="type" data-value="{{ type | slugify }}">{{ type }}</button>
       {% endfor %}
     </div>
   </div>
 
-  <p class="news-result-count">Showing <span data-news-count>{{ news_items | size }}</span> updates</p>
+  <p class="news-result-count" aria-live="polite">Showing <span data-news-count>{{ news_items | size }}</span> updates</p>
   <p class="news-no-results is-hidden" data-news-empty>No updates match the current filters.</p>
 
   <div class="news-timeline">

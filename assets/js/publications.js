@@ -39,7 +39,9 @@
   function updateFilterButtons(filterName, value) {
     var buttons = browser.querySelectorAll('[data-publication-filter="' + filterName + '"]');
     Array.prototype.forEach.call(buttons, function (button) {
-      button.classList.toggle("is-active", button.getAttribute("data-value") === value);
+      var active = button.getAttribute("data-value") === value;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
     });
   }
 
@@ -72,6 +74,7 @@
 
     if (earlier) {
       var visibleEarlierCards = earlier.querySelectorAll("[data-publication-card]:not(.is-hidden)");
+      earlier.hidden = visibleEarlierCards.length === 0;
       earlier.open = filters.year === "earlier" || (hasActiveFilter && visibleEarlierCards.length > 0);
     }
 
@@ -84,105 +87,7 @@
     }
   }
 
-  function copyText(text) {
-    return new Promise(function (resolve, reject) {
-      var textarea = document.createElement("textarea");
-      textarea.value = text;
-      textarea.setAttribute("readonly", "");
-      textarea.style.position = "fixed";
-      textarea.style.top = "-9999px";
-      document.body.appendChild(textarea);
-      textarea.focus();
-      textarea.select();
-
-      try {
-        if (document.execCommand("copy")) {
-          resolve();
-        } else {
-          reject(new Error("Copy command was not accepted."));
-        }
-      } catch (error) {
-        reject(error);
-      } finally {
-        document.body.removeChild(textarea);
-      }
-    });
-  }
-
-  function copyBibtex(text) {
-    return copyText(text).catch(function () {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        return navigator.clipboard.writeText(text);
-      }
-
-      throw new Error("No clipboard method available.");
-    });
-  }
-
-  function setCopyState(button, label) {
-    var labelNode = button.querySelector(".publication-link__label");
-    var defaultLabel = button.getAttribute("data-copy-default");
-
-    if (!defaultLabel) {
-      defaultLabel = labelNode ? labelNode.textContent : button.textContent;
-      button.setAttribute("data-copy-default", defaultLabel);
-    }
-
-    if (labelNode) {
-      labelNode.textContent = label;
-    } else {
-      button.textContent = label;
-    }
-
-    window.setTimeout(function () {
-      if (labelNode) {
-        labelNode.textContent = defaultLabel;
-      } else {
-        button.textContent = defaultLabel;
-      }
-    }, 1800);
-  }
-
-  function findBibtexCode(button) {
-    var card = button.closest(".publication-card");
-    if (!card) {
-      return null;
-    }
-
-    return card.querySelector("[data-bibtex-code]");
-  }
-
-  function selectBibtex(code) {
-    var details = code.closest(".publication-card__details");
-    var selection = window.getSelection();
-    var range = document.createRange();
-
-    if (details) {
-      details.open = true;
-    }
-
-    range.selectNodeContents(code);
-    selection.removeAllRanges();
-    selection.addRange(range);
-  }
-
   browser.addEventListener("click", function (event) {
-    var copyButton = event.target.closest("[data-copy-bibtex]");
-    if (copyButton && browser.contains(copyButton)) {
-      var code = findBibtexCode(copyButton);
-      if (!code) {
-        return;
-      }
-
-      copyBibtex(code.textContent).then(function () {
-        setCopyState(copyButton, "Copied");
-      }).catch(function () {
-        selectBibtex(code);
-        setCopyState(copyButton, "Selected");
-      });
-      return;
-    }
-
     var button = event.target.closest("[data-publication-filter]");
     if (!button || !browser.contains(button)) {
       return;

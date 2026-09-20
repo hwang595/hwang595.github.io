@@ -1,0 +1,11 @@
+<div class="teaching-list">
+  {% for course in site.data.teaching %}
+    {% if course.url %}
+      {% assign course_url = course.url %}
+      {% unless course_url contains "://" %}{% assign course_url = course_url | relative_url %}{% endunless %}
+      <a class="teaching-item" href="{{ course_url | escape }}"><span>{{ course.term }}</span><strong>{{ course.title }}</strong></a>
+    {% else %}
+      <div class="teaching-item"><span>{{ course.term }}</span><strong>{{ course.title }}</strong></div>
+    {% endif %}
+  {% endfor %}
+</div>

@@ -16,7 +16,9 @@
   function updateFilterButtons(filterName, value) {
     var buttons = browser.querySelectorAll('[data-news-filter="' + filterName + '"]');
     Array.prototype.forEach.call(buttons, function (button) {
-      button.classList.toggle("is-active", button.getAttribute("data-value") === value);
+      var active = button.getAttribute("data-value") === value;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
     });
   }
 

@@ -151,6 +151,32 @@ exclude:
   - package.json
   - tmp
   - vendor
+  # Keep template examples and development utilities out of the public site.
+  - _posts/2012-08-14-blog-post-1.md
+  - _posts/2013-08-14-blog-post-2.md
+  - _posts/2014-08-14-blog-post-3.md
+  - _posts/2015-08-14-blog-post-4.md
+  - _teaching/2014-spring-teaching-1.md
+  - _teaching/2015-spring-teaching-2.md
+  - _portfolio/portfolio-1.md
+  - _portfolio/portfolio-2.html
+  - _pages/portfolio.html
+  - _pages/archive-layout-with-content.md
+  - _pages/markdown.md
+  - _pages/non-menu-page.md
+  - _pages/category-archive.html
+  - _pages/tag-archive.html
+  - _pages/year-archive.html
+  - _pages/page-archive.html
+  - _pages/collection-archive.html
+  - scripts
+  - docs
+  - markdown_generator
+  - Makefile
+  - CONTRIBUTING.md
+  - talkmap.py
+  - talkmap.ipynb
+  - vercel.json
 keep_files:
   - .git
   - .svn
@@ -278,6 +304,10 @@ timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database
 
 
 # Plugins
+# Inferred Markdown headings are rendered as page titles by the single layout.
+titles_from_headings:
+  strip_title: true
+
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
