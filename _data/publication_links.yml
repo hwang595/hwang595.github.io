@@ -14,7 +14,7 @@ accordion_mlsys_2021:
   - label: arXiv
     url: "https://arxiv.org/abs/2010.16248"
   - label: Paper
-    url: "https://proceedings.mlsys.org/paper/2021/hash/1d7f7abc18fcb43975065399b0d1e48e-Abstract.html"
+    url: "https://proceedings.mlsys.org/paper_files/paper/2021/hash/acd593d2db87a799a8d3da5a860c028e-Abstract.html"
   - label: Talk
     url: "https://mlsys.org/virtual/2021/oral/1539"
 
@@ -32,13 +32,13 @@ atomo_nips_2018:
 
 crystal_colm_2024:
   - label: arXiv
-    url: "https://arxiv.org/abs/2312.06550"
+    url: "https://arxiv.org/abs/2411.04156"
 
 cuttlefish_mlsys_2023:
   - label: Paper
     url: "https://mlsys.org/Conferences/2023/Schedule?showEvent=2470"
   - label: arXiv
-    url: "https://arxiv.org/abs/2103.00543"
+    url: "https://arxiv.org/abs/2305.02538"
 
 detox_neurips_2019:
   - label: Paper
@@ -70,7 +70,7 @@ fedma_iclr_2019:
   - label: Blog
     url: "https://mitibmwatsonailab.mit.edu/research/blog/fedma-layer-wise-federated-learning-with-the-potential-to-fight-ai-bias/"
   - label: Talk
-    url: "https://iclr.cc/virtual/poster_BkluqlSFDS.html"
+    url: "https://iclr.cc/virtual_2020/poster_BkluqlSFDS.html"
 
 fedml_spicyfl_2019:
   - label: Award
@@ -104,7 +104,7 @@ foe_iclr_2024:
 
 grad_utility_mlsys_2022:
   - label: Paper
-    url: "https://proceedings.mlsys.org/paper/2022/hash/cedebb6e872f539bef8c3f919874e9d7-Abstract.html"
+    url: "https://proceedings.mlsys.org/paper_files/paper/2022/hash/773862fcc2e29f650d68960ba5bd1101-Abstract.html"
   - label: arXiv
     url: "https://arxiv.org/abs/2103.00543"
 
@@ -164,7 +164,7 @@ pufferfish_mlsys_2021:
   - label: arXiv
     url: "https://arxiv.org/abs/2103.03936"
   - label: Paper
-    url: "https://proceedings.mlsys.org/paper/2021/hash/84d9ee44e457ddef7f2c4f25dc8fa865-Abstract.html"
+    url: "https://proceedings.mlsys.org/paper_files/paper/2021/hash/94cb28874a503f34b3c4a41bddcea2bd-Abstract.html"
   - label: Talk
     url: "https://mlsys.org/virtual/2021/oral/1630"
 

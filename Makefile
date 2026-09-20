@@ -45,7 +45,7 @@ suggest-selected:
 quality-audit:
 	$(BUNDLE) exec ruby scripts/quality_tools.rb audit
 
-quality: auto-audit build quality-audit
+quality: validate auto-audit build quality-audit
 
 lighthouse:
 	@command -v npx >/dev/null || (echo "npx is required for Lighthouse CI. Install Node.js or run in an environment with npx."; exit 1)

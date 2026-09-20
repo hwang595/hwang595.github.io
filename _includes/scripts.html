@@ -1,5 +1,6 @@
 <script src="{{ base_path }}/assets/js/main.min.js"></script>
-<script src="{{ base_path }}/assets/js/site-quality.js"></script>
+<script src="{{ base_path }}/assets/js/site-quality.js?v={{ site.time | date: '%Y%m%d%H%M%S' }}"></script>
+<script src="{{ '/assets/js/publication-citations.js' | relative_url }}"></script>
 
 {% include analytics.html %}
 {% include /comments-providers/scripts.html %}

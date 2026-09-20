@@ -7,6 +7,8 @@
    ========================================================================== */
 
 .sidebar {
+  position: relative;
+  z-index: 10;
   -webkit-transform: translate3d(0, 0 , 0);
           transform: translate3d(0, 0 , 0);
 
@@ -168,7 +170,7 @@
   border: 1px solid $border-color;
   border-radius: $border-radius;
   background: #fff;
-  z-index: -1;
+  z-index: 1;
   box-shadow: 0 0 10px rgba(#000, 0.25);
   cursor: default;
 

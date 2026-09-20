@@ -10,12 +10,15 @@ make link-list
 make quality
 ```
 
-`make quality` runs a full Jekyll build and then audits the generated `_site` output for:
+`make quality` validates publication metadata and auto-updater configuration, runs a full Jekyll build, and then audits the generated `_site` output for:
 
 - Missing titles, descriptions, canonical URLs, and language attributes
 - Images without alt text
 - Buttons and links without accessible names
 - Duplicate IDs and unlabeled form controls
+- A single primary heading and accessible filter selection states
+- Missing local scripts/stylesheets and citation-copy scripts
+- Publication topics missing from the search index
 - Broken internal links and missing hash fragments
 - Generated `robots.txt` and `sitemap.xml`
 - Rendered image weight budgets

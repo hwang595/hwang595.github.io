@@ -40,7 +40,8 @@
   {% assign pub_kind_class = "preprint" %}
 {% endif %}
 {% capture action_search %}{% for action in pub_links %} {{ action.label }}{% endfor %}{% for highlight in pub_highlights %} {{ highlight }}{% endfor %}{% endcapture %}
-{% assign pub_search = pub.title | append: " " | append: pub_venue | append: " " | append: pub.excerpt | append: " " | append: action_search | strip_html | downcase %}
+{% assign topic_search = pub_topics | join: " " %}
+{% assign pub_search = pub.title | append: " " | append: pub_venue | append: " " | append: pub.excerpt | append: " " | append: action_search | append: " " | append: topic_search | strip_html | downcase %}
 {% capture topic_slugs %}{% for topic in pub_topics %}{{ topic | slugify }} {% endfor %}{% endcapture %}
 {% assign primary_link = pub.link | default: pub.paperurl %}
 {% assign primary_link_label = pub.link_label | default: "Paper" %}

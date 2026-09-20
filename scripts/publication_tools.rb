@@ -197,6 +197,7 @@ module PublicationTools
   end
 
   def validate_duplicate_link_urls(links, warnings)
+    paper_url_index = Hash.new { |hash, key| hash[key] = [] }
     links.each do |slug, entries|
       url_index = Hash.new { |hash, key| hash[key] = [] }
       Array(entries).each do |entry|
@@ -206,6 +207,9 @@ module PublicationTools
         next if blank?(normalized)
 
         url_index[normalized] << entry["label"].to_s
+        if normalized.match?(%r{\Ahttps?://(?:www\.)?(?:arxiv\.org/abs/|openreview\.net/forum\?)})
+          paper_url_index[normalized] << slug
+        end
       end
 
       url_index.each do |url, labels|
@@ -213,6 +217,12 @@ module PublicationTools
 
         warnings << "#{DATA_FILES[:links]}: #{slug} repeats #{url} across labels #{labels.join(", ")}"
       end
+    end
+
+    paper_url_index.each do |url, slugs|
+      next if slugs.uniq.size < 2
+
+      warnings << "#{DATA_FILES[:links]}: #{url} is shared by #{slugs.uniq.join(", ")}; verify that these are the same paper"
     end
   end
 

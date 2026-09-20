@@ -168,11 +168,7 @@ redirect_from:
     <p class="home-section__eyebrow">Courses</p>
     <h2>Teaching</h2>
   </div>
-  <div class="teaching-list">
-    <a class="teaching-item" href="{{ '/teaching/cs439-nyc311/' | relative_url }}"><span>Fall 2026</span><strong>CS 439 · NYC 311 Civic Response Challenge</strong></a>
-    <div class="teaching-item"><span>Spring 2026</span><strong>CS 439, Intro to Data Science</strong></div>
-    <a class="teaching-item" href="https://hwang595.github.io/RU-CS-671-Fall2025/"><span>Fall 2025</span><strong>RU CS 671, Recent Advances in Large Language Models</strong></a>
-  </div>
+  {% include teaching-list.html %}
 </section>
 
 <section class="home-section" id="service">
@@ -181,7 +177,7 @@ redirect_from:
     <h2>Services</h2>
   </div>
   <div class="service-panel">
-    <p><strong>Area Chair:</strong> NeurIPS 2026, ACL ARR 2026 May, CPAL 2026, MLSys 2025</p>
+    <p><strong>Area Chair:</strong> ICLR 2027, NeurIPS 2026, ACL ARR 2026 May, CPAL 2026, MLSys 2025</p>
     <p><strong>PC Member:</strong> DAC 2024, EuroSys 2024, SOSP 2023 (light PC), MLSys 2023-2026, SIGKDD 2022, AAAI 2021-2022</p>
     <p><strong>Reviewer (Journals):</strong> JMLR, TMLR, IEEE TNNLS, IEEE IoT-J, IEEE/ACM Transactions on Networking</p>
     <p><strong>Reviewer (Conferences):</strong> SC 2026, COLM 2026, ICML 2019-2026, NeurIPS 2019-2025, CVPR 2021-2023, ICCV 2021-2022, ICLR 2021-2025, AAAI 2021-2024, SIGKDD 2022-2023</p>

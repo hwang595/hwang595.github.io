@@ -38,36 +38,36 @@ author_profile: true
 
     <div class="publication-filter-group" data-filter-group="year">
       <span>Year</span>
-      <button type="button" class="is-active" data-publication-filter="year" data-value="all">All</button>
+      <button type="button" class="is-active" aria-pressed="true" data-publication-filter="year" data-value="all">All</button>
       {% for year in publication_years limit:recent_year_limit %}
-        <button type="button" data-publication-filter="year" data-value="{{ year }}">{{ year }}</button>
+        <button type="button" aria-pressed="false" data-publication-filter="year" data-value="{{ year }}">{{ year }}</button>
       {% endfor %}
       {% if publication_years.size > recent_year_limit %}
-        <button type="button" data-publication-filter="year" data-value="earlier">Earlier</button>
+        <button type="button" aria-pressed="false" data-publication-filter="year" data-value="earlier">Earlier</button>
       {% endif %}
     </div>
 
     <div class="publication-filter-group" data-filter-group="venue">
       <span>Venue</span>
-      <button type="button" class="is-active" data-publication-filter="venue" data-value="all">All</button>
+      <button type="button" class="is-active" aria-pressed="true" data-publication-filter="venue" data-value="all">All</button>
       {% for venue in publication_venues %}
-        <button type="button" data-publication-filter="venue" data-value="{{ venue | slugify }}">{{ venue }}</button>
+        <button type="button" aria-pressed="false" data-publication-filter="venue" data-value="{{ venue | slugify }}">{{ venue }}</button>
       {% endfor %}
     </div>
 
     <div class="publication-filter-group" data-filter-group="topic">
       <span>Topic</span>
-      <button type="button" class="is-active" data-publication-filter="topic" data-value="all">All</button>
+      <button type="button" class="is-active" aria-pressed="true" data-publication-filter="topic" data-value="all">All</button>
       {% for topic in filter_topics %}
         {% unless topic == "" %}
-          <button type="button" data-publication-filter="topic" data-value="{{ topic | slugify }}">{{ topic }}</button>
+          <button type="button" aria-pressed="false" data-publication-filter="topic" data-value="{{ topic | slugify }}">{{ topic }}</button>
         {% endunless %}
       {% endfor %}
     </div>
   </div>
 
   <p class="publication-result-count" aria-live="polite">
-    Showing <strong data-publication-count>{{ publications | size }}</strong> publications
+    Showing <strong data-publication-count>{{ publications | size }}</strong> peer-reviewed publications. Technical reports are listed separately below and are not filtered.
   </p>
 
   <div class="publication-no-results" data-publication-empty hidden>

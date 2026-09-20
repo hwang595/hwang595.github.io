@@ -108,6 +108,26 @@ module QualityTools
 
       canonical = doc.at('link[rel="canonical"]')
       @errors << "#{label(path)}: missing canonical link" if canonical.nil? || QualityTools.blank?(canonical["href"])
+
+      @errors << "#{label(path)}: expected one primary h1 heading" unless doc.css("h1").size == 1
+
+      doc.css('script[src], link[rel="stylesheet"][href]').each do |asset|
+        src = asset["src"] || asset["href"]
+        asset_path = local_asset_path(src, path)
+        @errors << "#{label(path)}: missing script or stylesheet `#{src}`" if asset_path && !File.file?(asset_path)
+      end
+
+      if doc.at("[data-copy-bibtex]") && !doc.at('script[src$="/assets/js/publication-citations.js"]')
+        @errors << "#{label(path)}: citation buttons are missing their shared script"
+      end
+
+      doc.css("[data-publication-card]").each do |card|
+        card.css(".publication-card__topics span").each do |topic|
+          unless card["data-search"].to_s.include?(topic.text.strip.downcase)
+            @errors << "#{label(path)}: publication search omits topic `#{topic.text.strip}`"
+          end
+        end
+      end
     end
 
     def check_accessibility(path, doc)
@@ -144,9 +164,13 @@ module QualityTools
 
     def check_buttons(path, doc)
       doc.css("button").each do |button|
-        next unless accessible_name(button).empty?
+        if button["data-publication-filter"] || button["data-news-filter"]
+          unless %w[true false].include?(button["aria-pressed"])
+            @errors << "#{label(path)}: filter button is missing aria-pressed"
+          end
+        end
 
-        @errors << "#{label(path)}: button is missing an accessible name"
+        @errors << "#{label(path)}: button is missing an accessible name" if accessible_name(button).empty?
       end
     end
 
