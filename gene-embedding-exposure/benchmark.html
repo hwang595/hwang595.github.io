@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GeneProv Benchmark Design</title>
+<meta name="description" content="Design of the GeneProv benchmark: gene universe, literature-exposure strata, the four tasks, the GeneProv Index, Track O and Track F, eligibility and rules.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+<script>try{var t=localStorage.getItem("geneprov-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script src="assets/site.js"></script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="./" aria-label="GeneProv home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><rect x="7" y="8" width="18" height="4" rx="2" fill="#2a78d6"/><rect x="7" y="14" width="13" height="4" rx="2" fill="#1baf7a"/><rect x="7" y="20" width="8" height="4" rx="2" fill="#eb6834"/></svg>GeneProv <span class="ver">v1.1</span></a>
+  <nav class="main" aria-label="Site">
+    <a href="./">Overview</a><a href="leaderboard.html">Leaderboard</a><a href="benchmark.html">Benchmark</a><a href="submit.html">Submit</a><a href="data.html">Data</a><a href="changelog.html">Changelog</a><a href="index.html#paper">Paper</a>
+  </nav>
+  <button class="theme-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+</div></header>
+<main class="wrap">
+  <section class="hero" style="padding-bottom:4px">
+    <div class="eyebrow">GeneProv v1.1 &middot; design</div>
+    <h1>Benchmark design</h1>
+    <p class="lead">GeneProv packages a provenance audit and four evaluation tasks as one reusable resource. Its purpose is to make input dependencies and task choices visible, not to certify that any representation is free of annotation information. Everything below is fixed for v1; the task files are byte-identical to v0.</p>
+  </section>
+
+  <h2>Universe and strata</h2>
+  <p>19,256 HGNC protein-coding genes with Ensembl identifiers. Literature exposure is the number of distinct PubMed articles linked to the gene in NCBI gene2pubmed, counting only articles linked to at most 20 human genes, so that large screens do not count as study. The headline stratum pools the bins 0 and 1&ndash;10; the all-gene score is always reported beside it. Five GO folds (shuffled, seed 0) are shared by every representation; T2 folds are grouped by HGNC gene family.</p>
+  <div class="tbl-wrap"><table class="data" id="strata"><thead><tr><th class="l">Exposure bin (publications)</th><th>Genes</th><th>With a GO-generated summary</th><th>Share</th></tr></thead><tbody></tbody></table></div>
+
+  <h2 id="tasks">Tasks</h2>
+  <div class="tbl-wrap"><table class="prose">
+    <thead><tr><th style="width:12%">Task</th><th style="width:34%">Labels</th><th style="width:30%">Protocol</th><th>Cell</th></tr></thead>
+    <tbody>
+      <tr><td><b>T1</b> GO recovery</td><td>GO (GOA human, 2026 release), no IEA or ND evidence, propagated, terms with 20&ndash;1,000 genes: 4,949 terms. Track F removes generated summaries from the text; Track O scores each declared input as released.</td><td>Multi-label linear (300-epoch logistic) and MLP-512 probes, five-fold out-of-fold predictions on the shared GO folds.</td><td>Mean per-gene AUROC (the gene's terms against the terms it lacks) over the stratum.</td></tr>
+      <tr><td><b>T2</b> non-GO labels</td><td>Eleven binary endpoints spanning assays, population variation and clinical curation: DepMap 24Q4 common essential; gnomAD v4.1 LOEUF &lt; 0.6; ClinGen haploinsufficiency; six HPA main subcellular locations; GTEx tissue specificity; HPA tissue enrichment.</td><td>One binary probe per label; folds grouped by HGNC gene family (ungrouped genes are singletons).</td><td>Per label, AUROC over the stratum's genes; mean over the labels with at least five genes of each class in the stratum (ClinGen drops out of the 0&ndash;10 stratum).</td></tr>
+      <tr><td><b>T3</b> annotation holdout</td><td>Train on GO as of 1 January 2023; targets are experimental annotations present in 2026 but absent in 2023, for genes with no experimental annotation in 2023 (347 genes; they may carry inferred annotations); negatives are terms never annotated. The novel-pair variant excludes targets with a prior non-IEA annotation for the same gene and term. A separate family-restricted analysis excludes targets already annotated to another family member.</td><td>Probe trained on the 2023 labels; per-gene AUROC of targets against negatives. Eligibility is a declared annotation-access rule. Sequence/expression inputs are admitted by assumption, and summary tag dates are used as a proxy for historical text; neither verifies the absence of post-cutoff information.</td><td>Mean per-gene AUROC for genes with 0&ndash;5 publications at the cutoff (137) and over all evaluation genes. Reported beside the index, not in it.</td></tr>
+      <tr><td><b>T4</b> co-essentiality</td><td>Each gene's ten most correlated genes by DepMap 24Q4 CRISPR gene effect.</td><td>No probe: cosine similarity of the standardised embedding; AUROC of the ten partners against all other genes.</td><td>Mean per-gene AUROC over the stratum.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="footnote">T1 is the literature-curated task and carries the paper's caveat: GO labels remain coupled to UniProt-curated function text, so T1 rewards proximity to the label pipeline even without generated summaries. T2 has heterogeneous dependencies: ClinGen involves clinical curation, while other endpoints derive from population or assay data. T3 still uses GO curation; T4 derives from DepMap measurements. These tasks are not uniformly independent of text or homology, and T2 essentiality and T4 share DepMap data. Family grouping and the T3 novel-pair variant address specific dependencies without establishing independence.</p>
+
+  <h2>The GeneProv Index</h2>
+  <div class="card">
+    <p style="margin-top:0">For a representation and a stratum, each task score is converted to a chance-corrected skill on a 0&ndash;100 scale,</p>
+    <pre>skill = 100 &times; (2 &times; AUROC &minus; 1)          index = (skill_T1 + skill_T2 + skill_T4) / 3</pre>
+    <p>Chance maps to 0 and perfect discrimination to 100; below-chance performance is negative. The transform is fixed and independent of the other rows (no min&ndash;max or z-scoring across submissions), so a row's score never changes when rows are added. T3 is the retrospective annotation-holdout sub-score, reported beside the index for eligible representations; Index-4 (the mean over the four) is listed for them. Intervals are paired bootstraps over genes (1,000 resamples, seed 0) that recompute all three task means per resample; rank intervals come from the same resamples over the original 20 Track O v1 rows. Appended v1.1 rows have no comparable rank intervals.</p>
+    <p>The index is a declared summary of these tasks with equal weights, not a general measure of biological knowledge. The ranking is robust to the probe and to the mean rank but not to dropping T1; the leaderboard offers T1 weights of 0, &frac14; and &frac12; beside the index so that this dependence is visible. The main comparison is the task-level profile.</p>
+  </div>
+
+  <h2>Tracks</h2>
+  <div class="grid c2">
+    <div class="card"><h3 style="margin-top:0">Track O, open representation</h3><p>Any gene representation: sequence, expression, network, text, or a mixture. The submission declares the provenance of any text it embeds; the benchmark records the share of genes whose embedded text is generated from GO (NCBI's <i>provided by Alliance of Genome Resources</i> tag, or the template detector for untagged copies), text used in training the encoder (for example UniProt function text in text-aligned protein models) and declared mixtures. Rows that embed no text and were trained without text, text-aligned encoders and mixtures are flagged so that readers compare like with like. Track O retains as-released embeddings that contain generated summaries, so its T1 scores do not all represent summary-filtered inputs.</p></div>
+    <div class="card"><h3 style="margin-top:0">Track F, fixed text</h3><p>The benchmark supplies the text and the submission is a text embedder. Corpus A is GenePT's October-2023 NCBI text as released; corpus L is the same text with every generated summary removed (the line <code>Gene Symbol X</code> is left for those genes). Scores are computed on L; the provenance-sensitivity score <b>S</b> is the per-gene GO AUROC on A minus L for genes with 1&ndash;10 publications, and measures sensitivity to removing generated summaries after refitting both probes. It is not a causal estimate of the fraction of knowledge copied: summary removal also changes text length, factual content, and training inputs. The corpus builder derives both corpora from GenePT's Zenodo record 10833191; the text is not redistributed.</p></div>
+  </div>
+
+  <h2>What a useful evaluation reports</h2>
+  <ol>
+    <li>The provenance of every text input: remove or flag generated summaries (in model organisms, expect that to be nearly every summary), flag database statements inferred from sequence similarity, and report the fraction removed per exposure bin.</li>
+    <li>Text curated by the project that curates the labels (UniProt function text for GOA-derived labels) treated as part of the label pipeline: results with and without it.</li>
+    <li>Symbol-only and name-masked controls (Track O rows exist for both).</li>
+    <li>Stratification by literature exposure, with the 0&ndash;10 stratum as the headline.</li>
+    <li>Temporal tests that state whether prior annotations are allowed, with an annotation-vector baseline when they are, and text snapshots older than the labels with generated summaries removed even then.</li>
+    <li>Linear and non-linear probes.</li>
+    <li>Literature-curated labels (T1) separated from assay- and population-derived labels (T2&ndash;T4), even when a composite score is given.</li>
+    <li>Folds grouped by gene family for understudied genes (T2).</li>
+  </ol>
+
+  <h2>What GeneProv does not control</h2>
+  <div class="callout warn">
+    <p style="margin-top:0">Removing generated summaries changes both training and evaluation inputs and removes real information; replacement texts were not matched on length or factual coverage, so Track F ablations are not pure estimates of test-time label copying. Shared UniProt curation is a plausible dependency, not a causal decomposition of biological content versus circularity. T3 is a retrospective annotation holdout under a declared access rule, not a historical prediction exercise. Unannotated GO pairs are not verified negatives, and per-gene AUROC can be high for a frequency-only predictor. Literature exposure is a database-link proxy. The 137-gene T3 stratum limits precision, gene bootstraps condition on fitted predictions, and family clustering materially widens index intervals. A movement from a GO-only rank to an index rank is evidence of task dependence, not a causal estimate of decontamination.</p>
+  </div>
+
+  <h2>Versions</h2>
+  <p>v0 (round 10) fixed the rows, tasks and strata under four pre-registered gates. v1 (round 11) added the index, seven Track O rows, T2 and T4 for Track F, bootstrap intervals and the leaderboard, under four further gates committed before the new cells were computed. v1.1 (round 14) appended six control rows, a reproduction gate from regenerated arrays (350 of 366 cells within 0.002; the exceptions are documented), family-clustered intervals and weight, coverage and metric sensitivity. Frozen rows never change; later representations are appended with the version in which they entered. See the <a href="changelog.html">changelog</a>.</p>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <div>GeneProv is the benchmark resource of <a href="index.html#paper">Wu, Wang, Chen and Wang (2026)</a>. Derived labels retain the source-specific terms listed on the <a href="data.html">data page</a>; no NCBI, UniProt or GenePT text is redistributed.</div>
+  <div><a href="data.html#downloads">Download leaderboard tables</a> &middot; <a href="changelog.html">Version history</a></div>
+</div></footer>
+<script src="data/leaderboard.js"></script>
+<script>
+(function () {
+  const D = window.GENEPROV, S = window.GeneProvSite, el = S.el, F = D.facts.generated_by_bin;
+  const names = { zero: "0", "1-10": "1–10", "11-100": "11–100", "101-1000": "101–1,000", ">1000": "more than 1,000" };
+  const tb = document.querySelector("#strata tbody");
+  Object.entries(F).forEach(([b, v]) => tb.appendChild(el("tr", {}, [el("td", { class: "l", text: names[b] || b }), el("td", { class: "num", text: S.int(v.n) }), el("td", { class: "num", text: S.int(v.generated) }), el("td", { class: "num", text: S.pct(v.generated / v.n, 1) })])));
+  tb.appendChild(el("tr", {}, [el("td", { class: "l" }, [el("b", { text: "All genes" })]), el("td", { class: "num" }, [el("b", { text: S.int(D.facts.universe) })]), el("td", { class: "num" }, [el("b", { text: S.int(D.facts.generated_summaries) })]), el("td", { class: "num" }, [el("b", { text: S.pct(D.facts.generated_share, 1) })])]));
+})();
+</script>
+</body>
+</html>

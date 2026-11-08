@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Submit to GeneProv</title>
+<meta name="description" content="How to evaluate a gene representation on GeneProv and submit a row: embedding format, provenance declaration, Track O and Track F, review policy.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+<script>try{var t=localStorage.getItem("geneprov-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script src="assets/site.js"></script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="./" aria-label="GeneProv home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><rect x="7" y="8" width="18" height="4" rx="2" fill="#2a78d6"/><rect x="7" y="14" width="13" height="4" rx="2" fill="#1baf7a"/><rect x="7" y="20" width="8" height="4" rx="2" fill="#eb6834"/></svg>GeneProv <span class="ver">v1.1</span></a>
+  <nav class="main" aria-label="Site">
+    <a href="./">Overview</a><a href="leaderboard.html">Leaderboard</a><a href="benchmark.html">Benchmark</a><a href="submit.html">Submit</a><a href="data.html">Data</a><a href="changelog.html">Changelog</a><a href="index.html#paper">Paper</a>
+  </nav>
+  <button class="theme-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+</div></header>
+<main class="wrap">
+  <section class="hero" style="padding-bottom:4px">
+    <div class="eyebrow">GeneProv v1.1 &middot; submissions</div>
+    <h1>Submit a representation</h1>
+    <p class="lead">Rows are added by declaration and review. You supply an embedding of the gene universe (or, for Track F, a text embedder) together with a provenance declaration; the maintainers score it with the frozen harness, post the task profile with its intervals, and append the row with the version in which it entered. Frozen rows never change.</p>
+  </section>
+
+  <div class="callout"><p style="margin:0"><b>Request access.</b> The task package and submission form are in the private research repository. <a href="mailto:hw689@cs.rutgers.edu?subject=GeneProv%20benchmark%20access">Contact the corresponding author</a> to ask about access. The steps below are for contributors with repository access.</p><p> Embedding evaluation and probe fitting still require the research pipeline and source data. The released package now supports offline aggregation of prepared prediction arrays through <code>score_predictions.py</code>: it validates identifiers and folds, aggregates supplied T1/T4 AUROCs, and recomputes T2 from out-of-fold scores. It does not fit probes, replay raw GO logits, certify provenance or compute uncertainty. There is no automated submission service; maintainers review new embeddings and declarations in the issue thread.</p></div>
+
+  <h2 id="open-track">Track O: any representation</h2>
+  <ol class="steps">
+    <li><b>Get the gene universe.</b> Clone the research repository and locate <code>genes_v1.tsv</code>. It lists the 19,256 genes in a fixed order with HGNC symbol, Entrez and Ensembl identifiers, exposure bin, family and fold.
+<pre>git clone https://github.com/hwang595/gene-embedding-exposure.git
+cd gene-embedding-exposure
+head -3 round4/release/benchmark_v1/genes_v1.tsv</pre></li>
+    <li><b>Embed every gene you can.</b> Produce a float32 matrix of shape (19,256, d), one row per gene in <code>genes_v1.tsv</code> order, saved as a NumPy <code>.npy</code> file. If some genes cannot be embedded, fill their rows with zeros and supply a boolean mask of shape (19,256,) that is true where the row is valid; the harness substitutes the mean embedding for missing genes and reports coverage per exposure bin. Mixtures concatenate standardised components (the released mixture rows standardise each component over the universe before concatenation). Do not tune anything on the task labels: the folds are fixed and the probes are the only trained components.</li>
+    <li><b>Audit your text.</b> If the representation embeds any gene text, run the template detector over it and report the share of genes whose text contains a generated summary, overall and in the 0&ndash;10 stratum. The detector reads NCBI's provenance tag when present and otherwise recognises the Alliance sentence templates; what it cannot see (paraphrased generated text, other pipelines) is your statement, not a verified field.
+<pre>python3 - &lt;&lt;'PY'
+import sys; sys.path.insert(0, "round4/scripts")
+from gene_text_audit import is_generated, strip_generated
+texts = {...}                       # your gene -> text mapping
+flags = {g: is_generated(t) for g, t in texts.items()}
+print(sum(flags.values()), "of", len(flags), "texts contain a generated summary")
+filtered = {g: strip_generated(t) for g, t in texts.items()}   # summary-filtered variant, if you want one
+PY</pre></li>
+    <li><b>Write the declaration.</b> Copy the template below, fill every field, and keep it with the embedding. The fields are what the leaderboard shows in the row detail; nothing else is inferred.
+<pre id="decl">representation: <i>display name</i>
+tag: <i>short identifier, lowercase, no spaces</i>
+modality: <i>protein | rna | dna | single-cell | text | text-aligned protein | network | mixture</i>
+embedding:
+  url: <i>where the .npy (and mask) can be downloaded</i>
+  shape: [19256, <i>d</i>]
+  coverage: <i>number of genes with a valid row</i>
+  standardised_components: <i>for mixtures, list the components and how they were scaled</i>
+text_embedded:
+  any: <i>yes | no</i>
+  source_and_date: <i>e.g. NCBI Gene summaries, snapshot 2026-10-06; UniProt function text 2026_04</i>
+  generated_summary_share: <i>share of embedded genes with a GO-generated summary (detector or tag), all genes and 0-10 stratum</i>
+  summary_filtered: <i>yes | no (generated summaries removed before embedding?)</i>
+  curated_text_from_label_pipeline: <i>e.g. UniProt function text included | excluded</i>
+text_in_training:
+  any: <i>yes | no (e.g. UniProt function text in a text-aligned protein model)</i>
+  source_and_date: <i>...</i>
+encoder: <i>model and version used to embed text, if any</i>
+training_data_and_date: <i>as stated by the model's authors</i>
+t3_eligibility:
+  claim: <i>eligible | not eligible</i>
+  reason: <i>no input can contain functional annotation or text newer than 2023-01-01 because ...</i>
+code_or_weights: <i>URL</i>
+licence: <i>of the embedding file</i>
+contact: <i>name and e-mail</i></pre>
+<button class="btn" type="button" data-copy="decl">Copy template</button></li>
+    <li><b>Open a submission issue.</b> Use the GeneProv submission form in the repository's issue tracker and attach or link the embedding, the mask and the declaration. The maintainers run the frozen harness (linear and MLP probes on T1, T2 and T4; T3 when eligible), reply with the task profile and bootstrap intervals, and append the row to the next version of the table and to this site. Rows with an undeclared text source, or with text that fails the audit, are listed with that flag rather than rejected.
+<div class="actions"><a class="btn primary" href="https://github.com/hwang595/gene-embedding-exposure/issues/new?template=geneprov_submission.yml" target="_blank" rel="noopener">Open the form (repository access required)</a><a class="btn" href="https://github.com/hwang595/gene-embedding-exposure/issues" target="_blank" rel="noopener">Browse issues (repository access required)</a></div></li>
+  </ol>
+
+  <h2 id="fixed-track">Track F: a text embedder</h2>
+  <ol class="steps">
+    <li><b>Build the two corpora.</b> Track F fixes the text, so the only input is the embedder. Download GenePT's text release (Zenodo record 10833191, <code>NCBI_summary_of_genes.json</code>) and run the corpus builder; it writes corpus A (as released) and corpus L (every generated summary removed, leaving <code>Gene Symbol X</code>).
+<pre>python3 round4/release/benchmark_v1/build_corpus.py /path/to/NCBI_summary_of_genes.json round4/release/benchmark_v1/genes_v1.tsv
+# Ambiguous historical aliases require review; see the builder help.
+# Use --allow-ambiguous-keys only to reproduce the historical mapping.
+# -> corpus_A.tsv, corpus_L.tsv (19,256 rows each, columns symbol, text)</pre></li>
+    <li><b>Embed both corpora.</b> One float32 <code>.npy</code> per corpus, rows in <code>genes_v1.tsv</code> order. Report the embedder name, version, pooling and any instruction prompt; do not fine-tune on the corpora or on the labels.</li>
+    <li><b>Submit.</b> Open the submission form with both files. The row is scored on corpus L (index, T1, T2, T4) and receives <b>S</b>, the paired per-gene GO AUROC difference between corpus A and corpus L for genes with 1&ndash;10 publications. Track F rows have no rank intervals.</li>
+  </ol>
+
+  <h2>Aggregate prepared predictions locally</h2>
+  <p>Install the package dependencies and prepare the keyed NPZ described in <a href="https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v1/PREDICTION_SCHEMA.md">PREDICTION_SCHEMA.md</a>. The schema requires the released gene order and fold identifiers, per-gene T1/T4 AUROCs and per-label T2 out-of-fold scores. The scorer validates these declarations, but cannot prove that fitting was out of fold. Declare whether the supplied AUROCs use the historical or corrected average-tie definition; corrected scores require a separate version rather than replacing historical cells.</p>
+<pre>python3 -m pip install -r round4/release/benchmark_v1/requirements.txt
+python3 round4/release/benchmark_v1/score_predictions.py predictions.npz \
+  --metric-definition average-ties --output scores.json</pre>
+  <p class="footnote">T3 is optional and requires <code>--t3-eligible</code> plus a separate input-provenance declaration. This flag cannot verify historical dates. The result includes task denominators and hashes of the predictions and release files; it does not supply index or rank intervals.</p>
+
+  <h2>Review and versioning</h2>
+  <ul>
+    <li><b>Frozen rows never change.</b> The v1 table is the record evaluated in the paper. New rows are appended with their version label (v1.1 rows entered in round 14); the chance-corrected transform does not depend on other rows, so appending never moves an existing score.</li>
+    <li><b>Reproduction.</b> Each round that regenerates arrays runs a reproduction gate against the frozen cells and documents every exception. The round-14 gate reproduced 350 of 366 cells within 0.002 AUROC; the sixteen exceptions comprise twelve ESM2-650M cells from re-embedding under a different library version and four MLP T2 cells from regenerated text rows. They are listed rather than substituted into the frozen record.</li>
+    <li><b>Provenance flags are displayed, not enforced.</b> A representation with generated summaries in its text is listed with its share, as the GenePT releases are. A representation whose declaration is incomplete is listed as such.</li>
+    <li><b>Compute.</b> Runtime depends on the embedding size, hardware and tasks. The repository records the probe settings; agree on compute availability with the maintainers through the submission issue.</li>
+  </ul>
+
+  <h2>Questions</h2>
+  <dl class="spec">
+    <dt>Which genes?</dt><dd>The 19,256 HGNC protein-coding genes in <code>genes_v1.tsv</code>; use the Entrez or Ensembl identifier to align, not the symbol alone.</dd>
+    <dt>What if coverage is low?</dt><dd>Missing genes receive the mean embedding and the coverage column says so; the row detail lists the missing genes by exposure bin. Report coverage for each exposure stratum, because universe-wide coverage can hide missingness among less-studied genes.</dd>
+    <dt>Can I submit an updated version of a model?</dt><dd>Yes, as a new row with its own tag and date; the earlier row stays.</dd>
+    <dt>Can I evaluate locally?</dt><dd>Prepared predictions can be aggregated locally using only the released package; see the command above. End-to-end evaluation from a new embedding still requires rebuilding the research pipeline. The driver <code>round4/scripts/r7_10_eval.py</code> records its probe protocol, and <code>geneprov_index.py</code> computes the index from three AUROCs.</dd>
+  </dl>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <div>GeneProv is the benchmark resource of <a href="index.html#paper">Wu, Wang, Chen and Wang (2026)</a>. Derived labels retain the source-specific terms listed on the <a href="data.html">data page</a>; no NCBI, UniProt or GenePT text is redistributed.</div>
+  <div><a href="data.html#downloads">Download leaderboard tables</a> &middot; <a href="changelog.html">Version history</a></div>
+</div></footer>
+</body>
+</html>

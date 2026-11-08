@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GeneProv Changelog</title>
+<meta name="description" content="Version history of the GeneProv benchmark: v0, v1, v1.1, metadata correction and website.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+<script>try{var t=localStorage.getItem("geneprov-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script src="assets/site.js"></script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="./" aria-label="GeneProv home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><rect x="7" y="8" width="18" height="4" rx="2" fill="#2a78d6"/><rect x="7" y="14" width="13" height="4" rx="2" fill="#1baf7a"/><rect x="7" y="20" width="8" height="4" rx="2" fill="#eb6834"/></svg>GeneProv <span class="ver">v1.1</span></a>
+  <nav class="main" aria-label="Site">
+    <a href="./">Overview</a><a href="leaderboard.html">Leaderboard</a><a href="benchmark.html">Benchmark</a><a href="submit.html">Submit</a><a href="data.html">Data</a><a href="changelog.html">Changelog</a><a href="index.html#paper">Paper</a>
+  </nav>
+  <button class="theme-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+</div></header>
+<main class="wrap">
+  <section class="hero" style="padding-bottom:4px">
+    <div class="eyebrow">GeneProv &middot; versions</div>
+    <h1>Changelog</h1>
+    <p class="lead">Each version has a dated analysis record and a report with its gate log. The timing evidence for analysis plans varies by round; the manuscript distinguishes planned analyses from exploratory controls. Frozen rows never change; later rows carry the version in which they entered.</p>
+  </section>
+  <section id="review-corrections">
+    <h2>Major review corrections</h2>
+    <p>These changes repair the released metadata, tools and presentation while preserving the historical score record. They are not a new benchmark evaluation.</p>
+    <ul>
+      <li><b>T3 exposure metadata.</b> The released <code>time_travel_v1.npz</code> field <code>exposure_2023</code> held a Boolean prior-annotation flag instead of publication counts. Applying <code>&lt;= 5</code> to that field selected all 347 evaluation genes rather than the intended 137. The field now agrees with the released gene table; labels and stored scores are unchanged. v0 receives the same correction.</li>
+      <li><b>GO AUROC ties.</b> The original GO scoring helper assigned ordered ranks to tied scores. The corrected helper uses average ranks, so a constant predictor scores 0.5. Historical prediction arrays are absent from this checkout: the effect on published model scores and contrasts cannot yet be quantified. Recomputed values must be released separately with the corrected metric.</li>
+      <li><b>Corpus aliases.</b> Seven reused GenePT aliases map to multiple current genes. Corpus construction now rejects ambiguous keys by default; reproducing the historical mapping requires an explicit legacy option. A future corrected-corpus experiment is needed to measure its effect.</li>
+      <li><b>Uncertainty and ranks.</b> Family-clustered intervals now appear with their own round-14 regenerated points and ranks in a separate sensitivity table, rather than over frozen v1 scores. Chart positions distinguish current sorting from historical rank intervals over the original 20 Track O rows.</li>
+      <li><b>Website fidelity.</b> Track F details resolve by track and tag; downloads record stratum, probe, task weight, score source and rank population. T2/T3 curation dependencies, summary-removal estimands, missing artifacts and proxy temporal eligibility are stated explicitly. Generated records carry source and download SHA-256 checksums.</li>
+    </ul>
+    <p>The saved numerical records and accompanying review are in <code>round4/review_major_2026-10-25/</code>. This review does not publish the paper or Zenodo deposit.</p>
+  </section>
+
+  <div class="card">
+    <h3 style="margin-top:0">26 October 2026 &middot; website</h3>
+    <p>This site: the leaderboard with task profiles, intervals, family-clustered intervals, T1-weight views and row declarations, built from the frozen record by <code>round4/scripts/r16_site_data.py</code>; design, submission and data pages; a submission issue form. No score changed.</p>
+    <h3>25 October 2026 &middot; metadata correction</h3>
+    <p>The <code>exposure</code> column in <code>genes_v0.tsv</code> and <code>genes_v1.tsv</code> now holds the filtered publication count that defines the exposure bins (19,141 values changed; 8,081 had contradicted their bin). Gene order, bins, folds, labels and every stored score are unchanged. Manuscript revised to v1.1 (author-review draft).</p>
+    <h3>17 October 2026 &middot; v1.1 (round 14)</h3>
+    <p>Six rows appended in response to external comments: rich summary-filtered text without UniProt function text; GB.Protein-16B concatenated with that text; ESM2-650M concatenated with rich text with and without UniProt function text; the GO annotation vector at the 2023 cutoff and its concatenation with GB.Protein-16B (T3-only references). Every embedding lost with the scratch disk was re-made and every out-of-fold array regenerated under a reproduction gate: 350 of 366 v1 cells within 0.002 AUROC; the twelve ESM2-650M cells (re-embedded under a different library version) and four MLP T2 cells are listed as exceptions and the v1 values stand. Added: family-clustered bootstrap intervals, T1-weight sensitivity, coverage by exposure bin, recall at 10 for T4, the zero-publication bin under three label sets, a term-frequency baseline.</p>
+    <h3>11 October 2026 &middot; v1 (round 11)</h3>
+    <p>The GeneProv Index (mean chance-corrected skill over T1, T2 and T4; T3 beside it), seven new Track O rows (GB.DNA-300M, GB.RNA-1.6B, ESM1b, ProtST-ESM1b, ProTrek-650M, UniProt function text only, GB.Protein-16B &oplus; rich summary-filtered text), T2 and T4 for the six Track F embedders, paired bootstrap index and rank intervals for Track O (Track F index and rank intervals were not recorded), the leaderboard figure and the first static leaderboard page. Four pre-registered gates committed before computation; all passed, including that every v0 cell reproduces (218 of 218).</p>
+    <h3>10 October 2026 &middot; v0 (round 10)</h3>
+    <p>The frozen first table: thirteen Track O rows and six Track F embedders on the four tasks, the universe, strata, folds and rules; four pre-registered gates, all passed. Task labels and stored scores are retained; later metadata corrections are recorded above.</p>
+  </div>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <div>GeneProv is the benchmark resource of <a href="index.html#paper">Wu, Wang, Chen and Wang (2026)</a>. Derived labels retain the source-specific terms listed on the <a href="data.html">data page</a>; no NCBI, UniProt or GenePT text is redistributed.</div>
+  <div><a href="data.html#downloads">Download leaderboard tables</a> &middot; <a href="changelog.html">Version history</a></div>
+</div></footer>
+</body>
+</html>

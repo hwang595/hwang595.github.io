@@ -1,0 +1,6115 @@
+{
+ "benchmark": "GeneProv",
+ "version": "v1.1",
+ "frozen": {
+  "v0": "2026-10-10",
+  "v1": "2026-10-11",
+  "v1.1": "2026-10-17"
+ },
+ "generated": "2026-10-25",
+ "universe": 19256,
+ "strata": {
+  "0-10": 7120,
+  "all": 19256,
+  "zero": 1262,
+  "1-10": 5858,
+  "11-100": 8421,
+  "101-1000": 3301,
+  ">1000": 414
+ },
+ "labels_T2": [
+  "depmap_essential",
+  "hpa_loc_nucleoplasm",
+  "hpa_loc_cytosol",
+  "hpa_loc_plasma_membrane",
+  "hpa_loc_vesicles",
+  "hpa_loc_mitochondria",
+  "hpa_loc_golgi_apparatus",
+  "gtex_tissue_specific",
+  "hpa_tissue_enriched",
+  "clingen_hi",
+  "constraint"
+ ],
+ "index_definition": "mean over T1, T2, T4 of 100*(2*AUROC-1); T3 beside for eligible rows; index4 = mean over the four for eligible rows",
+ "T3_reference": {
+  "linear": {
+   "T3_0-5": 0.7324,
+   "T3_all": 0.7996,
+   "name": "literature-only 2023 text, MPNet"
+  },
+  "mlp": {
+   "T3_0-5": 0.8774,
+   "T3_all": 0.9029,
+   "name": "literature-only 2023 text, MPNet"
+  }
+ },
+ "gates": {
+  "R-gate": "PASS",
+  "I-gate1": "PASS",
+  "I-gate2": "PASS",
+  "I-gate3": "PASS"
+ },
+ "robustness": {
+  "mean_rank": 0.8465,
+  "T2_T4_only": 0.4271,
+  "mlp": 0.9564,
+  "all_genes": 0.8707
+ },
+ "weights_spearman": {
+  "0": 0.4436,
+  "1/4": 0.9805,
+  "1/3": 1.0,
+  "1/2": 0.9353
+ },
+ "n_families": 3018,
+ "facts": {
+  "universe": 19256,
+  "generated_summaries": 6172,
+  "generated_share": 0.320523,
+  "generated_share_0-10": 0.574438,
+  "generated_by_bin": {
+   "zero": {
+    "n": 1262,
+    "generated": 702
+   },
+   "1-10": {
+    "n": 5858,
+    "generated": 3388
+   },
+   "11-100": {
+    "n": 8421,
+    "generated": 1864
+   },
+   "101-1000": {
+    "n": 3301,
+    "generated": 212
+   },
+   ">1000": {
+    "n": 414,
+    "generated": 6
+   }
+  },
+  "removal_effect_1-10": {
+   "linear": {
+    "delta": 0.0777,
+    "ci": [
+     0.0717,
+     0.0839
+    ],
+    "ci_family": [
+     0.0705,
+     0.0857
+    ],
+    "n": 4310
+   },
+   "mlp": {
+    "delta": 0.0334,
+    "ci": [
+     0.0302,
+     0.0364
+    ],
+    "ci_family": [
+     0.0298,
+     0.0372
+    ],
+    "n": 4310
+   }
+  },
+  "snapshot": "NCBI Gene, 6 October 2026",
+  "n_rows_O_v1": 20,
+  "n_rows_O_v11": 6,
+  "n_rows_F": 6
+ },
+ "rows": [
+  {
+   "track": "O",
+   "tag": "protein16b",
+   "name": "GB.Protein-16B",
+   "short": "GB.Protein-16B",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "protein",
+   "cls": "bio",
+   "text": null,
+   "train_text": null,
+   "encoder": null,
+   "text_label": "No text embedded; trained without text",
+   "gen_share": null,
+   "n_genes": 19133,
+   "meta": {
+    "training": "1.2 trillion amino acids from UniRef90 and ColabFoldDB; masked language modelling",
+    "date": "released Nov 2024; database releases not stated",
+    "signal": "none (sequences only)",
+    "t3": "yes",
+    "t3_why": "sequence rule: no functional annotation or text among its inputs",
+    "source": "https://huggingface.co/genbio-ai/AIDO.Protein-16B",
+    "cite": "Sun et al., 2024"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 45.26,
+      "ci": [
+       44.51,
+       46.04
+      ],
+      "rank": 4,
+      "rank_ci": [
+       4,
+       4
+      ],
+      "index4": 47.96,
+      "T1": 0.8753,
+      "T2": 0.6763,
+      "T2_labels": 10,
+      "T4": 0.6274,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.7804,
+      "T3_n": 137,
+      "T3_novel": 0.7429,
+      "skills": {
+       "T1": 75.06,
+       "T2": 35.25,
+       "T4": 25.47,
+       "T3": 56.07
+      },
+      "T1_bins": {
+       "zero": 0.9508,
+       "1-10": 0.8654,
+       "11-100": 0.8588,
+       "101-1000": 0.8351,
+       ">1000": 0.796
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.811,
+       "hpa_loc_nucleoplasm": 0.6563,
+       "hpa_loc_cytosol": 0.5792,
+       "hpa_loc_plasma_membrane": 0.5682,
+       "hpa_loc_vesicles": 0.5374,
+       "hpa_loc_mitochondria": 0.6974,
+       "hpa_loc_golgi_apparatus": 0.5578,
+       "gtex_tissue_specific": 0.7916,
+       "hpa_tissue_enriched": 0.784,
+       "constraint": 0.7797
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "ci_family": [
+       40.05,
+       49.9
+      ],
+      "rank_ci_family": [
+       3,
+       4
+      ],
+      "index_r14": 45.26,
+      "rank_r14": 4,
+      "T4_recall10": 0.0173
+     },
+     "all": {
+      "index": 46.19,
+      "ci": [
+       45.76,
+       46.63
+      ],
+      "rank": 7,
+      "rank_ci": [
+       6,
+       8
+      ],
+      "index4": 51.29,
+      "T1": 0.8574,
+      "T2": 0.7192,
+      "T2_labels": 11,
+      "T4": 0.6163,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.8329,
+      "T3_n": 347,
+      "T3_novel": 0.7652,
+      "skills": {
+       "T1": 71.48,
+       "T2": 43.83,
+       "T4": 23.25,
+       "T3": 66.59
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.8461,
+       "hpa_loc_nucleoplasm": 0.7236,
+       "hpa_loc_cytosol": 0.6231,
+       "hpa_loc_plasma_membrane": 0.6915,
+       "hpa_loc_vesicles": 0.6071,
+       "hpa_loc_mitochondria": 0.7691,
+       "hpa_loc_golgi_apparatus": 0.6166,
+       "gtex_tissue_specific": 0.8416,
+       "hpa_tissue_enriched": 0.8166,
+       "clingen_hi": 0.5577,
+       "constraint": 0.8178
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0165
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 54.32,
+      "ci": [
+       53.67,
+       54.94
+      ],
+      "rank": 2,
+      "rank_ci": [
+       2,
+       3
+      ],
+      "index4": 61.61,
+      "T1": 0.9446,
+      "T2": 0.7428,
+      "T2_labels": 10,
+      "T4": 0.6274,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.9174,
+      "T3_n": 137,
+      "T3_novel": 0.8949,
+      "skills": {
+       "T1": 88.92,
+       "T2": 48.56,
+       "T4": 25.47,
+       "T3": 83.49
+      },
+      "T1_bins": {
+       "zero": 0.9786,
+       "1-10": 0.9401,
+       "11-100": 0.9261,
+       "101-1000": 0.9034,
+       ">1000": 0.8735
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.9422,
+       "hpa_loc_nucleoplasm": 0.6363,
+       "hpa_loc_cytosol": 0.6342,
+       "hpa_loc_plasma_membrane": 0.6665,
+       "hpa_loc_vesicles": 0.6248,
+       "hpa_loc_mitochondria": 0.7579,
+       "hpa_loc_golgi_apparatus": 0.6457,
+       "gtex_tissue_specific": 0.8418,
+       "hpa_tissue_enriched": 0.8117,
+       "constraint": 0.8668
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0173
+     },
+     "all": {
+      "index": 53.64,
+      "ci": [
+       53.25,
+       54.06
+      ],
+      "rank": 5,
+      "rank_ci": [
+       4,
+       6
+      ],
+      "index4": 61.63,
+      "T1": 0.9258,
+      "T2": 0.7626,
+      "T2_labels": 11,
+      "T4": 0.6163,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.928,
+      "T3_n": 347,
+      "T3_novel": 0.8936,
+      "skills": {
+       "T1": 85.15,
+       "T2": 52.52,
+       "T4": 23.25,
+       "T3": 85.6
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.9407,
+       "hpa_loc_nucleoplasm": 0.7265,
+       "hpa_loc_cytosol": 0.648,
+       "hpa_loc_plasma_membrane": 0.7457,
+       "hpa_loc_vesicles": 0.6603,
+       "hpa_loc_mitochondria": 0.8152,
+       "hpa_loc_golgi_apparatus": 0.6689,
+       "gtex_tissue_specific": 0.8732,
+       "hpa_tissue_enriched": 0.8363,
+       "clingen_hi": 0.6033,
+       "constraint": 0.8704
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0165
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19133,
+    "share_missing": 0.0064,
+    "missing_by_bin": {
+     "zero": 16,
+     "1-10": 59,
+     "11-100": 42,
+     "101-1000": 6,
+     ">1000": 0
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "esm2_650m",
+   "name": "ESM2-650M",
+   "short": "ESM2-650M",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "protein",
+   "cls": "bio",
+   "text": null,
+   "train_text": null,
+   "encoder": null,
+   "text_label": "No text embedded; trained without text",
+   "gen_share": null,
+   "n_genes": 19133,
+   "meta": {
+    "training": "UniRef50 clusters sampled from UniRef90 (UniRef release 2021_04), masked language modelling",
+    "date": "2021",
+    "signal": "none",
+    "t3": "yes",
+    "t3_why": "sequence rule",
+    "source": "https://huggingface.co/facebook/esm2_t33_650M_UR50D",
+    "cite": "Lin et al., 2023"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 44.42,
+      "ci": [
+       43.66,
+       45.12
+      ],
+      "rank": 5,
+      "rank_ci": [
+       5,
+       6
+      ],
+      "index4": 47.17,
+      "T1": 0.8792,
+      "T2": 0.6905,
+      "T2_labels": 10,
+      "T4": 0.5967,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.7771,
+      "T3_n": 137,
+      "T3_novel": 0.7424,
+      "skills": {
+       "T1": 75.83,
+       "T2": 38.1,
+       "T4": 19.33,
+       "T3": 55.42
+      },
+      "T1_bins": {
+       "zero": 0.9595,
+       "1-10": 0.8686,
+       "11-100": 0.8604,
+       "101-1000": 0.8381,
+       ">1000": 0.8053
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.8412,
+       "hpa_loc_nucleoplasm": 0.6728,
+       "hpa_loc_cytosol": 0.5826,
+       "hpa_loc_plasma_membrane": 0.6136,
+       "hpa_loc_vesicles": 0.5814,
+       "hpa_loc_mitochondria": 0.7103,
+       "hpa_loc_golgi_apparatus": 0.5658,
+       "gtex_tissue_specific": 0.7844,
+       "hpa_tissue_enriched": 0.7858,
+       "constraint": 0.7669
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "ci_family": [
+       38.93,
+       47.97
+      ],
+      "rank_ci_family": [
+       5,
+       8
+      ],
+      "index_r14": 43.65,
+      "rank_r14": 6,
+      "T4_recall10": 0.015
+     },
+     "all": {
+      "index": 44.94,
+      "ci": [
+       44.48,
+       45.37
+      ],
+      "rank": 9,
+      "rank_ci": [
+       9,
+       10
+      ],
+      "index4": 50.66,
+      "T1": 0.8601,
+      "T2": 0.7288,
+      "T2_labels": 11,
+      "T4": 0.5851,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.8391,
+      "T3_n": 347,
+      "T3_novel": 0.7698,
+      "skills": {
+       "T1": 72.03,
+       "T2": 45.75,
+       "T4": 17.03,
+       "T3": 67.82
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.864,
+       "hpa_loc_nucleoplasm": 0.7411,
+       "hpa_loc_cytosol": 0.6426,
+       "hpa_loc_plasma_membrane": 0.718,
+       "hpa_loc_vesicles": 0.6467,
+       "hpa_loc_mitochondria": 0.7825,
+       "hpa_loc_golgi_apparatus": 0.6229,
+       "gtex_tissue_specific": 0.8264,
+       "hpa_tissue_enriched": 0.8083,
+       "clingen_hi": 0.5572,
+       "constraint": 0.794
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0129
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 52.15,
+      "ci": [
+       51.51,
+       52.79
+      ],
+      "rank": 5,
+      "rank_ci": [
+       5,
+       7
+      ],
+      "index4": 59.82,
+      "T1": 0.9465,
+      "T2": 0.7391,
+      "T2_labels": 10,
+      "T4": 0.5967,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.9142,
+      "T3_n": 137,
+      "T3_novel": 0.8947,
+      "skills": {
+       "T1": 89.3,
+       "T2": 47.82,
+       "T4": 19.33,
+       "T3": 82.85
+      },
+      "T1_bins": {
+       "zero": 0.9816,
+       "1-10": 0.9419,
+       "11-100": 0.9291,
+       "101-1000": 0.9092,
+       ">1000": 0.8779
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.924,
+       "hpa_loc_nucleoplasm": 0.6642,
+       "hpa_loc_cytosol": 0.6028,
+       "hpa_loc_plasma_membrane": 0.6628,
+       "hpa_loc_vesicles": 0.6305,
+       "hpa_loc_mitochondria": 0.7611,
+       "hpa_loc_golgi_apparatus": 0.6451,
+       "gtex_tissue_specific": 0.8014,
+       "hpa_tissue_enriched": 0.8156,
+       "constraint": 0.8328
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.015
+     },
+     "all": {
+      "index": 51.39,
+      "ci": [
+       50.99,
+       51.76
+      ],
+      "rank": 11,
+      "rank_ci": [
+       10,
+       11
+      ],
+      "index4": 60.05,
+      "T1": 0.929,
+      "T2": 0.7567,
+      "T2_labels": 11,
+      "T4": 0.5851,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.9301,
+      "T3_n": 347,
+      "T3_novel": 0.8972,
+      "skills": {
+       "T1": 85.8,
+       "T2": 51.33,
+       "T4": 17.03,
+       "T3": 86.02
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.9183,
+       "hpa_loc_nucleoplasm": 0.7293,
+       "hpa_loc_cytosol": 0.633,
+       "hpa_loc_plasma_membrane": 0.7368,
+       "hpa_loc_vesicles": 0.6601,
+       "hpa_loc_mitochondria": 0.8053,
+       "hpa_loc_golgi_apparatus": 0.6688,
+       "gtex_tissue_specific": 0.8381,
+       "hpa_tissue_enriched": 0.8154,
+       "clingen_hi": 0.5715,
+       "constraint": 0.8224
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0129
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19133,
+    "share_missing": 0.0064,
+    "missing_by_bin": {
+     "zero": 16,
+     "1-10": 59,
+     "11-100": 42,
+     "101-1000": 6,
+     ">1000": 0
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "cell_base",
+   "name": "GB.Cell-100M",
+   "short": "GB.Cell-100M",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "single-cell",
+   "cls": "bio",
+   "text": null,
+   "train_text": null,
+   "encoder": null,
+   "text_label": "No text embedded; trained without text",
+   "gen_share": null,
+   "n_genes": 18593,
+   "meta": {
+    "training": "50 million single-cell transcriptomes from over 100 tissue types, read-depth-aware masked modelling",
+    "date": "released Nov 2024",
+    "signal": "none (expression counts)",
+    "t3": "yes",
+    "t3_why": "expression rule",
+    "source": "https://huggingface.co/genbio-ai/AIDO.Cell-100M",
+    "cite": "Ho et al., 2024"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 34.7,
+      "ci": [
+       33.91,
+       35.47
+      ],
+      "rank": 17,
+      "rank_ci": [
+       16,
+       18
+      ],
+      "index4": 34.98,
+      "T1": 0.7079,
+      "T2": 0.7327,
+      "T2_labels": 10,
+      "T4": 0.5798,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.6791,
+      "T3_n": 137,
+      "T3_novel": null,
+      "skills": {
+       "T1": 41.59,
+       "T2": 46.54,
+       "T4": 15.96,
+       "T3": 35.82
+      },
+      "T1_bins": {
+       "zero": 0.7733,
+       "1-10": 0.6993,
+       "11-100": 0.7341,
+       "101-1000": 0.7483,
+       ">1000": 0.7396
+      },
+      "ci_family": [
+       32.81,
+       36.97
+      ],
+      "rank_ci_family": [
+       15,
+       18
+      ],
+      "index_r14": 34.7,
+      "rank_r14": 17,
+      "T4_recall10": 0.0052
+     },
+     "all": {
+      "index": 37.62,
+      "ci": [
+       37.18,
+       38.05
+      ],
+      "rank": 18,
+      "rank_ci": [
+       17,
+       18
+      ],
+      "index4": 39.14,
+      "T1": 0.7294,
+      "T2": 0.7567,
+      "T2_labels": 11,
+      "T4": 0.5781,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.7185,
+      "T3_n": 347,
+      "T3_novel": null,
+      "skills": {
+       "T1": 45.88,
+       "T2": 51.35,
+       "T4": 15.62,
+       "T3": 43.7
+      },
+      "T4_recall10": 0.0078
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 44.85,
+      "ci": [
+       44.24,
+       45.5
+      ],
+      "rank": 16,
+      "rank_ci": [
+       16,
+       17
+      ],
+      "index4": 51.5,
+      "T1": 0.8659,
+      "T2": 0.727,
+      "T2_labels": 10,
+      "T4": 0.5798,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.8573,
+      "T3_n": 137,
+      "T3_novel": null,
+      "skills": {
+       "T1": 73.18,
+       "T2": 45.41,
+       "T4": 15.96,
+       "T3": 71.46
+      },
+      "T1_bins": {
+       "zero": 0.9204,
+       "1-10": 0.8587,
+       "11-100": 0.8528,
+       "101-1000": 0.8422,
+       ">1000": 0.8188
+      },
+      "T4_recall10": 0.0052
+     },
+     "all": {
+      "index": 45.61,
+      "ci": [
+       45.21,
+       45.99
+      ],
+      "rank": 17,
+      "rank_ci": [
+       16,
+       18
+      ],
+      "index4": 51.6,
+      "T1": 0.8537,
+      "T2": 0.7523,
+      "T2_labels": 11,
+      "T4": 0.5781,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.8479,
+      "T3_n": 347,
+      "T3_novel": null,
+      "skills": {
+       "T1": 70.74,
+       "T2": 50.46,
+       "T4": 15.62,
+       "T3": 69.59
+      },
+      "T4_recall10": 0.0078
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 18593,
+    "share_missing": 0.0344,
+    "missing_by_bin": {
+     "zero": 295,
+     "1-10": 277,
+     "11-100": 71,
+     "101-1000": 19,
+     ">1000": 1
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "geneformer",
+   "name": "Geneformer V2-316M",
+   "short": "Geneformer V2-316M",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "single-cell",
+   "cls": "bio",
+   "text": null,
+   "train_text": null,
+   "encoder": null,
+   "text_label": "No text embedded; trained without text",
+   "gen_share": null,
+   "n_genes": 19229,
+   "meta": {
+    "training": "about 104 million human single-cell transcriptomes (Genecorpus-104M), rank-value encoding",
+    "date": "trained Dec 2024",
+    "signal": "none",
+    "t3": "yes",
+    "t3_why": "expression rule",
+    "source": "https://huggingface.co/ctheodoris/Geneformer",
+    "cite": "Chen et al., 2024"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 36.59,
+      "ci": [
+       35.75,
+       37.34
+      ],
+      "rank": 14,
+      "rank_ci": [
+       14,
+       15
+      ],
+      "index4": 35.76,
+      "T1": 0.7275,
+      "T2": 0.7333,
+      "T2_labels": 10,
+      "T4": 0.5879,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.6664,
+      "T3_n": 137,
+      "T3_novel": null,
+      "skills": {
+       "T1": 45.51,
+       "T2": 46.67,
+       "T4": 17.59,
+       "T3": 33.28
+      },
+      "T1_bins": {
+       "zero": 0.819,
+       "1-10": 0.7155,
+       "11-100": 0.7307,
+       "101-1000": 0.7388,
+       ">1000": 0.7106
+      },
+      "ci_family": [
+       34.31,
+       39.21
+      ],
+      "rank_ci_family": [
+       13,
+       16
+      ],
+      "index_r14": 36.59,
+      "rank_r14": 14,
+      "T4_recall10": 0.0038
+     },
+     "all": {
+      "index": 37.73,
+      "ci": [
+       37.29,
+       38.14
+      ],
+      "rank": 17,
+      "rank_ci": [
+       17,
+       18
+      ],
+      "index4": 37.79,
+      "T1": 0.7309,
+      "T2": 0.7455,
+      "T2_labels": 11,
+      "T4": 0.5896,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.6898,
+      "T3_n": 347,
+      "T3_novel": null,
+      "skills": {
+       "T1": 46.17,
+       "T2": 49.11,
+       "T4": 17.91,
+       "T3": 37.97
+      },
+      "T4_recall10": 0.0042
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 45.94,
+      "ci": [
+       45.27,
+       46.58
+      ],
+      "rank": 14,
+      "rank_ci": [
+       14,
+       15
+      ],
+      "index4": 52.16,
+      "T1": 0.8636,
+      "T2": 0.7375,
+      "T2_labels": 10,
+      "T4": 0.5879,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.8541,
+      "T3_n": 137,
+      "T3_novel": null,
+      "skills": {
+       "T1": 72.73,
+       "T2": 47.5,
+       "T4": 17.59,
+       "T3": 70.82
+      },
+      "T1_bins": {
+       "zero": 0.9353,
+       "1-10": 0.8542,
+       "11-100": 0.8387,
+       "101-1000": 0.8274,
+       ">1000": 0.7929
+      },
+      "T4_recall10": 0.0038
+     },
+     "all": {
+      "index": 45.37,
+      "ci": [
+       44.98,
+       45.77
+      ],
+      "rank": 18,
+      "rank_ci": [
+       17,
+       18
+      ],
+      "index4": 51.37,
+      "T1": 0.8426,
+      "T2": 0.7484,
+      "T2_labels": 11,
+      "T4": 0.5896,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.8468,
+      "T3_n": 347,
+      "T3_novel": null,
+      "skills": {
+       "T1": 68.52,
+       "T2": 49.69,
+       "T4": 17.91,
+       "T3": 69.37
+      },
+      "T4_recall10": 0.0042
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19229,
+    "share_missing": 0.0014,
+    "missing_by_bin": {
+     "zero": 4,
+     "1-10": 11,
+     "11-100": 10,
+     "101-1000": 2,
+     ">1000": 0
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "genept_ada",
+   "name": "GenePT ada-002 (NCBI text, as released)",
+   "short": "GenePT ada-002",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "text",
+   "cls": "gen",
+   "text": "genept",
+   "train_text": null,
+   "encoder": "text-embedding-ada-002",
+   "text_label": "31% of the embedded genes carry a GO-generated summary",
+   "gen_share": 0.3089,
+   "n_genes": 18942,
+   "meta": {
+    "training": "NCBI Gene summaries (October 2023 snapshot) embedded with OpenAI text-embedding-ada-002",
+    "date": "text Oct 2023; encoder 2022",
+    "signal": "31% of the embedded summaries are generated from GO",
+    "t3": "yes",
+    "t3_why": "admitted under the tag-date proxy; a pre-2023 tag is not a verified pre-cutoff text snapshot",
+    "source": "https://github.com/yiqunchen/GenePT",
+    "cite": "Chen et al., 2024"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 41.44,
+      "ci": [
+       40.66,
+       42.19
+      ],
+      "rank": 11,
+      "rank_ci": [
+       10,
+       11
+      ],
+      "index4": 41.09,
+      "T1": 0.8992,
+      "T2": 0.6606,
+      "T2_labels": 10,
+      "T4": 0.5618,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.7001,
+      "T3_n": 137,
+      "T3_novel": 0.6409,
+      "skills": {
+       "T1": 79.84,
+       "T2": 32.12,
+       "T4": 12.37,
+       "T3": 40.02
+      },
+      "T1_bins": {
+       "zero": 0.9435,
+       "1-10": 0.8933,
+       "11-100": 0.8678,
+       "101-1000": 0.847,
+       ">1000": 0.8245
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.8214,
+       "hpa_loc_nucleoplasm": 0.6571,
+       "hpa_loc_cytosol": 0.5631,
+       "hpa_loc_plasma_membrane": 0.6266,
+       "hpa_loc_vesicles": 0.5822,
+       "hpa_loc_mitochondria": 0.6968,
+       "hpa_loc_golgi_apparatus": 0.5979,
+       "gtex_tissue_specific": 0.7232,
+       "hpa_tissue_enriched": 0.6971,
+       "constraint": 0.641
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "ci_family": [
+       37.89,
+       44.88
+      ],
+      "rank_ci_family": [
+       9,
+       12
+      ],
+      "index_r14": 41.44,
+      "rank_r14": 11,
+      "T4_recall10": 0.0167
+     },
+     "all": {
+      "index": 42.54,
+      "ci": [
+       42.08,
+       43.02
+      ],
+      "rank": 12,
+      "rank_ci": [
+       12,
+       13
+      ],
+      "index4": 46.11,
+      "T1": 0.8718,
+      "T2": 0.701,
+      "T2_labels": 11,
+      "T4": 0.5653,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.784,
+      "T3_n": 347,
+      "T3_novel": 0.7059,
+      "skills": {
+       "T1": 74.36,
+       "T2": 40.21,
+       "T4": 13.05,
+       "T3": 56.8
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.8267,
+       "hpa_loc_nucleoplasm": 0.7109,
+       "hpa_loc_cytosol": 0.6012,
+       "hpa_loc_plasma_membrane": 0.6962,
+       "hpa_loc_vesicles": 0.6197,
+       "hpa_loc_mitochondria": 0.7589,
+       "hpa_loc_golgi_apparatus": 0.6436,
+       "gtex_tissue_specific": 0.792,
+       "hpa_tissue_enriched": 0.7633,
+       "clingen_hi": 0.5995,
+       "constraint": 0.6995
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0217
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 47.31,
+      "ci": [
+       46.58,
+       48.0
+      ],
+      "rank": 12,
+      "rank_ci": [
+       11,
+       13
+      ],
+      "index4": 55.76,
+      "T1": 0.9536,
+      "T2": 0.6943,
+      "T2_labels": 10,
+      "T4": 0.5618,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.9054,
+      "T3_n": 137,
+      "T3_novel": 0.8795,
+      "skills": {
+       "T1": 90.71,
+       "T2": 38.86,
+       "T4": 12.37,
+       "T3": 81.09
+      },
+      "T1_bins": {
+       "zero": 0.9775,
+       "1-10": 0.9504,
+       "11-100": 0.9272,
+       "101-1000": 0.9019,
+       ">1000": 0.8705
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.8893,
+       "hpa_loc_nucleoplasm": 0.6267,
+       "hpa_loc_cytosol": 0.5631,
+       "hpa_loc_plasma_membrane": 0.6774,
+       "hpa_loc_vesicles": 0.6378,
+       "hpa_loc_mitochondria": 0.7201,
+       "hpa_loc_golgi_apparatus": 0.654,
+       "gtex_tissue_specific": 0.7635,
+       "hpa_tissue_enriched": 0.7638,
+       "constraint": 0.6471
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0167
+     },
+     "all": {
+      "index": 47.9,
+      "ci": [
+       47.49,
+       48.31
+      ],
+      "rank": 15,
+      "rank_ci": [
+       15,
+       15
+      ],
+      "index4": 56.72,
+      "T1": 0.9285,
+      "T2": 0.7246,
+      "T2_labels": 11,
+      "T4": 0.5653,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.9159,
+      "T3_n": 347,
+      "T3_novel": 0.8831,
+      "skills": {
+       "T1": 85.71,
+       "T2": 44.93,
+       "T4": 13.05,
+       "T3": 83.18
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.8802,
+       "hpa_loc_nucleoplasm": 0.6965,
+       "hpa_loc_cytosol": 0.6113,
+       "hpa_loc_plasma_membrane": 0.7258,
+       "hpa_loc_vesicles": 0.6535,
+       "hpa_loc_mitochondria": 0.7852,
+       "hpa_loc_golgi_apparatus": 0.6765,
+       "gtex_tissue_specific": 0.8065,
+       "hpa_tissue_enriched": 0.786,
+       "clingen_hi": 0.6372,
+       "constraint": 0.7123
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0217
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 18942,
+    "share_missing": 0.0163,
+    "missing_by_bin": {
+     "zero": 85,
+     "1-10": 168,
+     "11-100": 46,
+     "101-1000": 13,
+     ">1000": 2
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "genept_3large",
+   "name": "GenePT text-embedding-3-large (as released)",
+   "short": "GenePT 3-large",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "text",
+   "cls": "gen",
+   "text": "genept",
+   "train_text": null,
+   "encoder": "text-embedding-3-large",
+   "text_label": "31% of the embedded genes carry a GO-generated summary",
+   "gen_share": 0.3088,
+   "n_genes": 18945,
+   "meta": {
+    "training": "the same NCBI text plus UniProt summaries, text-embedding-3-large",
+    "date": "text 2024; encoder 2024",
+    "signal": "generated summaries and UniProt text",
+    "t3": "no",
+    "t3_why": "text and encoder after the cutoff",
+    "source": "https://github.com/yiqunchen/GenePT",
+    "cite": "Chen et al., 2024"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 43.04,
+      "ci": [
+       42.28,
+       43.76
+      ],
+      "rank": 7,
+      "rank_ci": [
+       7,
+       9
+      ],
+      "index4": null,
+      "T1": 0.9187,
+      "T2": 0.6557,
+      "T2_labels": 10,
+      "T4": 0.5713,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 83.74,
+       "T2": 31.13,
+       "T4": 14.26,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9457,
+       "1-10": 0.9151,
+       "11-100": 0.8985,
+       "101-1000": 0.8711,
+       ">1000": 0.8538
+      },
+      "ci_family": [
+       38.6,
+       46.9
+      ],
+      "rank_ci_family": [
+       5,
+       9
+      ],
+      "index_r14": 43.04,
+      "rank_r14": 7,
+      "T4_recall10": 0.0192
+     },
+     "all": {
+      "index": 46.01,
+      "ci": [
+       45.55,
+       46.46
+      ],
+      "rank": 8,
+      "rank_ci": [
+       7,
+       8
+      ],
+      "index4": null,
+      "T1": 0.8979,
+      "T2": 0.7126,
+      "T2_labels": 11,
+      "T4": 0.5796,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 79.58,
+       "T2": 42.52,
+       "T4": 15.91,
+       "T3": null
+      },
+      "T4_recall10": 0.0269
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 50.87,
+      "ci": [
+       50.23,
+       51.56
+      ],
+      "rank": 9,
+      "rank_ci": [
+       9,
+       9
+      ],
+      "index4": null,
+      "T1": 0.9641,
+      "T2": 0.7277,
+      "T2_labels": 10,
+      "T4": 0.5713,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 92.82,
+       "T2": 45.55,
+       "T4": 14.26,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9803,
+       "1-10": 0.9619,
+       "11-100": 0.9428,
+       "101-1000": 0.9159,
+       ">1000": 0.8867
+      },
+      "T4_recall10": 0.0192
+     },
+     "all": {
+      "index": 52.57,
+      "ci": [
+       52.14,
+       52.98
+      ],
+      "rank": 7,
+      "rank_ci": [
+       7,
+       8
+      ],
+      "index4": null,
+      "T1": 0.9423,
+      "T2": 0.7666,
+      "T2_labels": 11,
+      "T4": 0.5796,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 88.47,
+       "T2": 53.32,
+       "T4": 15.91,
+       "T3": null
+      },
+      "T4_recall10": 0.0269
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 18945,
+    "share_missing": 0.0162,
+    "missing_by_bin": {
+     "zero": 85,
+     "1-10": 166,
+     "11-100": 45,
+     "101-1000": 13,
+     ">1000": 2
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "scelmo_gpt35",
+   "name": "scELMo (GPT-3.5-written descriptions)",
+   "short": "scELMo (GPT-3.5 text)",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "text",
+   "cls": "clean",
+   "text": "llm",
+   "train_text": null,
+   "encoder": "text-embedding-ada-002",
+   "text_label": "LLM-written descriptions; no NCBI or UniProt text",
+   "gen_share": 0.0,
+   "n_genes": 19231,
+   "meta": {
+    "training": "descriptions written by GPT-3.5 from its own memory, embedded with ada-002",
+    "date": "GPT-3.5 training data to 2021",
+    "signal": "LLM memory of the literature and databases",
+    "t3": "yes",
+    "t3_why": "admitted under the reported pre-2022 training-data assumption; not a verified historical corpus",
+    "source": "https://github.com/HelloWorldLTY/scELMo",
+    "cite": "Liu et al., 2023"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 36.08,
+      "ci": [
+       35.23,
+       36.95
+      ],
+      "rank": 15,
+      "rank_ci": [
+       14,
+       16
+      ],
+      "index4": 38.72,
+      "T1": 0.8393,
+      "T2": 0.6428,
+      "T2_labels": 10,
+      "T4": 0.5591,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.7332,
+      "T3_n": 137,
+      "T3_novel": null,
+      "skills": {
+       "T1": 67.87,
+       "T2": 28.56,
+       "T4": 11.81,
+       "T3": 46.64
+      },
+      "T1_bins": {
+       "zero": 0.9274,
+       "1-10": 0.8277,
+       "11-100": 0.8618,
+       "101-1000": 0.8633,
+       ">1000": 0.8468
+      },
+      "ci_family": [
+       32.62,
+       39.65
+      ],
+      "rank_ci_family": [
+       14,
+       16
+      ],
+      "index_r14": 36.08,
+      "rank_r14": 15,
+      "T4_recall10": 0.0165
+     },
+     "all": {
+      "index": 42.28,
+      "ci": [
+       41.79,
+       42.72
+      ],
+      "rank": 13,
+      "rank_ci": [
+       12,
+       13
+      ],
+      "index4": 47.57,
+      "T1": 0.8552,
+      "T2": 0.7072,
+      "T2_labels": 11,
+      "T4": 0.5718,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.8172,
+      "T3_n": 347,
+      "T3_novel": null,
+      "skills": {
+       "T1": 71.03,
+       "T2": 41.45,
+       "T4": 14.36,
+       "T3": 63.44
+      },
+      "T4_recall10": 0.0238
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 44.76,
+      "ci": [
+       44.02,
+       45.51
+      ],
+      "rank": 17,
+      "rank_ci": [
+       16,
+       17
+      ],
+      "index4": 53.56,
+      "T1": 0.9322,
+      "T2": 0.6802,
+      "T2_labels": 10,
+      "T4": 0.5591,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.8998,
+      "T3_n": 137,
+      "T3_novel": null,
+      "skills": {
+       "T1": 86.44,
+       "T2": 36.04,
+       "T4": 11.81,
+       "T3": 79.96
+      },
+      "T1_bins": {
+       "zero": 0.9746,
+       "1-10": 0.9266,
+       "11-100": 0.9292,
+       "101-1000": 0.9142,
+       ">1000": 0.8865
+      },
+      "T4_recall10": 0.0165
+     },
+     "all": {
+      "index": 48.58,
+      "ci": [
+       48.15,
+       48.98
+      ],
+      "rank": 13,
+      "rank_ci": [
+       12,
+       14
+      ],
+      "index4": 57.61,
+      "T1": 0.9261,
+      "T2": 0.7308,
+      "T2_labels": 11,
+      "T4": 0.5718,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.9235,
+      "T3_n": 347,
+      "T3_novel": null,
+      "skills": {
+       "T1": 85.22,
+       "T2": 46.16,
+       "T4": 14.36,
+       "T3": 84.7
+      },
+      "T4_recall10": 0.0238
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19231,
+    "share_missing": 0.0013,
+    "missing_by_bin": {
+     "zero": 10,
+     "1-10": 13,
+     "11-100": 2,
+     "101-1000": 0,
+     ">1000": 0
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "llm_qwen25",
+   "name": "Qwen2.5-7B-written descriptions",
+   "short": "Qwen2.5-written text",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "text",
+   "cls": "clean",
+   "text": "llm",
+   "train_text": null,
+   "encoder": "Qwen3-Embedding-8B",
+   "text_label": "LLM-written descriptions; no NCBI or UniProt text",
+   "gen_share": 0.0,
+   "n_genes": 19256,
+   "meta": {
+    "training": "descriptions written by Qwen2.5-7B-Instruct, embedded with Qwen3-Embedding-8B",
+    "date": "LLM 2024; encoder 2025",
+    "signal": "LLM memory",
+    "t3": "no",
+    "t3_why": "LLM and encoder after the cutoff",
+    "source": "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct",
+    "cite": "Qwen, 2024"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 31.19,
+      "ci": [
+       30.35,
+       32.05
+      ],
+      "rank": 19,
+      "rank_ci": [
+       19,
+       20
+      ],
+      "index4": null,
+      "T1": 0.8188,
+      "T2": 0.5997,
+      "T2_labels": 10,
+      "T4": 0.5493,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 63.77,
+       "T2": 19.94,
+       "T4": 9.87,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9366,
+       "1-10": 0.8033,
+       "11-100": 0.8136,
+       "101-1000": 0.8357,
+       ">1000": 0.8412
+      },
+      "ci_family": [
+       27.52,
+       34.84
+      ],
+      "rank_ci_family": [
+       19,
+       20
+      ],
+      "index_r14": 31.19,
+      "rank_r14": 19,
+      "T4_recall10": 0.0164
+     },
+     "all": {
+      "index": 35.74,
+      "ci": [
+       35.25,
+       36.21
+      ],
+      "rank": 19,
+      "rank_ci": [
+       19,
+       19
+      ],
+      "index4": null,
+      "T1": 0.8202,
+      "T2": 0.6585,
+      "T2_labels": 11,
+      "T4": 0.5574,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 64.03,
+       "T2": 31.7,
+       "T4": 11.47,
+       "T3": null
+      },
+      "T4_recall10": 0.0208
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 40.36,
+      "ci": [
+       39.59,
+       41.09
+      ],
+      "rank": 19,
+      "rank_ci": [
+       19,
+       19
+      ],
+      "index4": null,
+      "T1": 0.9063,
+      "T2": 0.6498,
+      "T2_labels": 10,
+      "T4": 0.5493,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 81.26,
+       "T2": 29.95,
+       "T4": 9.87,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.971,
+       "1-10": 0.8978,
+       "11-100": 0.8896,
+       "101-1000": 0.8858,
+       ">1000": 0.8686
+      },
+      "T4_recall10": 0.0164
+     },
+     "all": {
+      "index": 44.04,
+      "ci": [
+       43.59,
+       44.48
+      ],
+      "rank": 19,
+      "rank_ci": [
+       19,
+       19
+      ],
+      "index4": null,
+      "T1": 0.8932,
+      "T2": 0.71,
+      "T2_labels": 11,
+      "T4": 0.5574,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 78.64,
+       "T2": 42.01,
+       "T4": 11.47,
+       "T3": null
+      },
+      "T4_recall10": 0.0208
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19256,
+    "share_missing": 0.0,
+    "missing_by_bin": {
+     "zero": 0,
+     "1-10": 0,
+     "11-100": 0,
+     "101-1000": 0,
+     ">1000": 0
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "text_refseq",
+   "name": "Rich summary-filtered text",
+   "short": "Rich summary-filtered text",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "text",
+   "cls": "clean",
+   "text": "leakfree",
+   "train_text": null,
+   "encoder": "Qwen3-Embedding-8B",
+   "text_label": "Summary-filtered text (generated summaries removed); includes UniProt function text",
+   "gen_share": 0.0,
+   "n_genes": 19256,
+   "meta": {
+    "training": "NCBI RefSeq summaries and UniProt function text of October 2026, embedded with Qwen3-Embedding-8B",
+    "date": "text 2026; encoder 2025",
+    "signal": "UniProt text (co-curated); encoder memory may hold NCBI pages newer than the cutoff",
+    "t3": "no",
+    "t3_why": "text after the cutoff",
+    "source": "https://huggingface.co/Qwen/Qwen3-Embedding-8B",
+    "cite": "this work"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 42.81,
+      "ci": [
+       42.01,
+       43.59
+      ],
+      "rank": 8,
+      "rank_ci": [
+       7,
+       9
+      ],
+      "index4": null,
+      "T1": 0.9153,
+      "T2": 0.6509,
+      "T2_labels": 10,
+      "T4": 0.5759,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 83.06,
+       "T2": 30.18,
+       "T4": 15.19,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9411,
+       "1-10": 0.9119,
+       "11-100": 0.9126,
+       "101-1000": 0.8905,
+       ">1000": 0.8653
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.819,
+       "hpa_loc_nucleoplasm": 0.6353,
+       "hpa_loc_cytosol": 0.5329,
+       "hpa_loc_plasma_membrane": 0.5812,
+       "hpa_loc_vesicles": 0.5254,
+       "hpa_loc_mitochondria": 0.692,
+       "hpa_loc_golgi_apparatus": 0.5581,
+       "gtex_tissue_specific": 0.7707,
+       "hpa_tissue_enriched": 0.7726,
+       "constraint": 0.622
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "ci_family": [
+       38.73,
+       46.4
+      ],
+      "rank_ci_family": [
+       6,
+       9
+      ],
+      "index_r14": 42.81,
+      "rank_r14": 8,
+      "T4_recall10": 0.0203
+     },
+     "all": {
+      "index": 47.81,
+      "ci": [
+       47.39,
+       48.26
+      ],
+      "rank": 4,
+      "rank_ci": [
+       3,
+       4
+      ],
+      "index4": null,
+      "T1": 0.9079,
+      "T2": 0.7221,
+      "T2_labels": 11,
+      "T4": 0.5872,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 81.58,
+       "T2": 44.42,
+       "T4": 17.43,
+       "T3": null
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.864,
+       "hpa_loc_nucleoplasm": 0.6998,
+       "hpa_loc_cytosol": 0.6046,
+       "hpa_loc_plasma_membrane": 0.6801,
+       "hpa_loc_vesicles": 0.6089,
+       "hpa_loc_mitochondria": 0.7757,
+       "hpa_loc_golgi_apparatus": 0.6225,
+       "gtex_tissue_specific": 0.8404,
+       "hpa_tissue_enriched": 0.8229,
+       "clingen_hi": 0.7111,
+       "constraint": 0.7133
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0306
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 52.14,
+      "ci": [
+       51.45,
+       52.84
+      ],
+      "rank": 6,
+      "rank_ci": [
+       5,
+       7
+      ],
+      "index4": null,
+      "T1": 0.9674,
+      "T2": 0.7388,
+      "T2_labels": 10,
+      "T4": 0.5759,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 93.47,
+       "T2": 47.76,
+       "T4": 15.19,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9822,
+       "1-10": 0.9654,
+       "11-100": 0.952,
+       "101-1000": 0.9263,
+       ">1000": 0.8944
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.9346,
+       "hpa_loc_nucleoplasm": 0.6668,
+       "hpa_loc_cytosol": 0.6199,
+       "hpa_loc_plasma_membrane": 0.6923,
+       "hpa_loc_vesicles": 0.6459,
+       "hpa_loc_mitochondria": 0.7669,
+       "hpa_loc_golgi_apparatus": 0.7039,
+       "gtex_tissue_specific": 0.8333,
+       "hpa_tissue_enriched": 0.8348,
+       "constraint": 0.6899
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0203
+     },
+     "all": {
+      "index": 55.12,
+      "ci": [
+       54.72,
+       55.51
+      ],
+      "rank": 2,
+      "rank_ci": [
+       2,
+       2
+      ],
+      "index4": null,
+      "T1": 0.95,
+      "T2": 0.7896,
+      "T2_labels": 11,
+      "T4": 0.5872,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 90.0,
+       "T2": 57.91,
+       "T4": 17.43,
+       "T3": null
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.9568,
+       "hpa_loc_nucleoplasm": 0.7492,
+       "hpa_loc_cytosol": 0.665,
+       "hpa_loc_plasma_membrane": 0.7755,
+       "hpa_loc_vesicles": 0.7003,
+       "hpa_loc_mitochondria": 0.8431,
+       "hpa_loc_golgi_apparatus": 0.7432,
+       "gtex_tissue_specific": 0.885,
+       "hpa_tissue_enriched": 0.8689,
+       "clingen_hi": 0.7252,
+       "constraint": 0.773
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0306
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19256,
+    "share_missing": 0.0,
+    "missing_by_bin": {
+     "zero": 0,
+     "1-10": 0,
+     "11-100": 0,
+     "101-1000": 0,
+     ">1000": 0
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "text_refseq_nomenfree",
+   "name": "Rich summary-filtered text, names masked",
+   "short": "Summary-filtered, names masked",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "text",
+   "cls": "clean",
+   "text": "leakfree",
+   "train_text": null,
+   "encoder": "Qwen3-Embedding-8B",
+   "text_label": "Summary-filtered text (generated summaries removed); includes UniProt function text",
+   "gen_share": 0.0,
+   "n_genes": 19256,
+   "meta": {
+    "training": "NCBI RefSeq summaries and UniProt function text of October 2026, embedded with Qwen3-Embedding-8B; gene names and symbols masked",
+    "date": "text 2026; encoder 2025",
+    "signal": "UniProt text (co-curated)",
+    "t3": "no",
+    "t3_why": "text after the cutoff",
+    "source": "https://huggingface.co/Qwen/Qwen3-Embedding-8B",
+    "cite": "this work"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 39.22,
+      "ci": [
+       38.36,
+       40.11
+      ],
+      "rank": 13,
+      "rank_ci": [
+       12,
+       13
+      ],
+      "index4": null,
+      "T1": 0.8588,
+      "T2": 0.6549,
+      "T2_labels": 10,
+      "T4": 0.5746,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 71.76,
+       "T2": 30.99,
+       "T4": 14.91,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.8136,
+       "1-10": 0.8647,
+       "11-100": 0.9067,
+       "101-1000": 0.8857,
+       ">1000": 0.864
+      },
+      "ci_family": [
+       36.08,
+       42.37
+      ],
+      "rank_ci_family": [
+       12,
+       13
+      ],
+      "index_r14": 39.22,
+      "rank_r14": 13,
+      "T4_recall10": 0.017
+     },
+     "all": {
+      "index": 46.9,
+      "ci": [
+       46.47,
+       47.31
+      ],
+      "rank": 5,
+      "rank_ci": [
+       5,
+       6
+      ],
+      "index4": null,
+      "T1": 0.8875,
+      "T2": 0.7292,
+      "T2_labels": 11,
+      "T4": 0.5867,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 77.51,
+       "T2": 45.84,
+       "T4": 17.34,
+       "T3": null
+      },
+      "T4_recall10": 0.0294
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 47.88,
+      "ci": [
+       47.11,
+       48.59
+      ],
+      "rank": 11,
+      "rank_ci": [
+       11,
+       12
+      ],
+      "index4": null,
+      "T1": 0.9461,
+      "T2": 0.6975,
+      "T2_labels": 10,
+      "T4": 0.5746,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 89.21,
+       "T2": 39.5,
+       "T4": 14.91,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.93,
+       "1-10": 0.9482,
+       "11-100": 0.9502,
+       "101-1000": 0.9261,
+       ">1000": 0.8922
+      },
+      "T4_recall10": 0.017
+     },
+     "all": {
+      "index": 53.51,
+      "ci": [
+       53.1,
+       53.93
+      ],
+      "rank": 6,
+      "rank_ci": [
+       5,
+       6
+      ],
+      "index4": null,
+      "T1": 0.9428,
+      "T2": 0.7732,
+      "T2_labels": 11,
+      "T4": 0.5867,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 88.57,
+       "T2": 54.63,
+       "T4": 17.34,
+       "T3": null
+      },
+      "T4_recall10": 0.0294
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19256,
+    "share_missing": 0.0,
+    "missing_by_bin": {
+     "zero": 0,
+     "1-10": 0,
+     "11-100": 0,
+     "101-1000": 0,
+     ">1000": 0
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "t23a__qwen8b",
+   "name": "GenePT text as found",
+   "short": "GenePT text as found",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "text",
+   "cls": "gen",
+   "text": "genept",
+   "train_text": null,
+   "encoder": "Qwen3-Embedding-8B",
+   "text_label": "30% of the embedded genes carry a GO-generated summary",
+   "gen_share": 0.3039,
+   "n_genes": 19256,
+   "meta": {
+    "training": "GenePT's October-2023 NCBI text as released, re-encoded with Qwen3-Embedding-8B",
+    "date": "text Oct 2023; encoder 2025",
+    "signal": "generated summaries (as found)",
+    "t3": "no",
+    "t3_why": "encoder after the cutoff",
+    "source": "https://huggingface.co/Qwen/Qwen3-Embedding-8B",
+    "cite": "this work"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 41.5,
+      "ci": [
+       40.71,
+       42.21
+      ],
+      "rank": 10,
+      "rank_ci": [
+       10,
+       11
+      ],
+      "index4": null,
+      "T1": 0.9044,
+      "T2": 0.6533,
+      "T2_labels": 10,
+      "T4": 0.5647,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 80.89,
+       "T2": 30.66,
+       "T4": 12.95,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9616,
+       "1-10": 0.8969,
+       "11-100": 0.8816,
+       "101-1000": 0.8618,
+       ">1000": 0.8374
+      },
+      "ci_family": [
+       37.2,
+       45.27
+      ],
+      "rank_ci_family": [
+       10,
+       11
+      ],
+      "index_r14": 41.53,
+      "rank_r14": 10,
+      "T4_recall10": 0.0149
+     },
+     "all": {
+      "index": 44.43,
+      "ci": [
+       43.96,
+       44.87
+      ],
+      "rank": 11,
+      "rank_ci": [
+       9,
+       11
+      ],
+      "index4": null,
+      "T1": 0.8833,
+      "T2": 0.7125,
+      "T2_labels": 11,
+      "T4": 0.5707,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 76.66,
+       "T2": 42.5,
+       "T4": 14.14,
+       "T3": null
+      },
+      "T4_recall10": 0.0228
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 50.04,
+      "ci": [
+       49.35,
+       50.73
+      ],
+      "rank": 10,
+      "rank_ci": [
+       10,
+       10
+      ],
+      "index4": null,
+      "T1": 0.9557,
+      "T2": 0.7302,
+      "T2_labels": 10,
+      "T4": 0.5647,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 91.13,
+       "T2": 46.04,
+       "T4": 12.95,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9856,
+       "1-10": 0.9517,
+       "11-100": 0.9281,
+       "101-1000": 0.9027,
+       ">1000": 0.8714
+      },
+      "T4_recall10": 0.0149
+     },
+     "all": {
+      "index": 51.77,
+      "ci": [
+       51.39,
+       52.18
+      ],
+      "rank": 9,
+      "rank_ci": [
+       8,
+       11
+      ],
+      "index4": null,
+      "T1": 0.9298,
+      "T2": 0.7761,
+      "T2_labels": 11,
+      "T4": 0.5707,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 85.95,
+       "T2": 55.21,
+       "T4": 14.14,
+       "T3": null
+      },
+      "T4_recall10": 0.0228
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19256,
+    "share_missing": 0.0,
+    "missing_by_bin": {
+     "zero": 0,
+     "1-10": 0,
+     "11-100": 0,
+     "101-1000": 0,
+     ">1000": 0
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "t23l__qwen8b",
+   "name": "GenePT text, generated summaries removed",
+   "short": "GenePT text, generated removed",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "text",
+   "cls": "clean",
+   "text": "leakfree",
+   "train_text": null,
+   "encoder": "Qwen3-Embedding-8B",
+   "text_label": "Summary-filtered text (generated summaries removed)",
+   "gen_share": 0.0,
+   "n_genes": 19256,
+   "meta": {
+    "training": "GenePT's October-2023 NCBI text with generated summaries removed (corpus L), Qwen3-Embedding-8B",
+    "date": "text Oct 2023; encoder 2025",
+    "signal": "curated prose and encoder memory remain; generated summaries removed",
+    "t3": "no",
+    "t3_why": "encoder after the cutoff",
+    "source": "https://huggingface.co/Qwen/Qwen3-Embedding-8B",
+    "cite": "this work"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 34.19,
+      "ci": [
+       33.28,
+       35.08
+      ],
+      "rank": 18,
+      "rank_ci": [
+       17,
+       18
+      ],
+      "index4": null,
+      "T1": 0.8325,
+      "T2": 0.6242,
+      "T2_labels": 10,
+      "T4": 0.5561,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 66.49,
+       "T2": 24.85,
+       "T4": 11.22,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9349,
+       "1-10": 0.819,
+       "11-100": 0.8551,
+       "101-1000": 0.8591,
+       ">1000": 0.8427
+      },
+      "ci_family": [
+       30.53,
+       37.77
+      ],
+      "rank_ci_family": [
+       17,
+       18
+      ],
+      "index_r14": 34.16,
+      "rank_r14": 18,
+      "T4_recall10": 0.0135
+     },
+     "all": {
+      "index": 40.7,
+      "ci": [
+       40.23,
+       41.19
+      ],
+      "rank": 14,
+      "rank_ci": [
+       14,
+       15
+      ],
+      "index4": null,
+      "T1": 0.849,
+      "T2": 0.7085,
+      "T2_labels": 11,
+      "T4": 0.5531,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 69.79,
+       "T2": 41.69,
+       "T4": 10.61,
+       "T3": null
+      },
+      "T4_recall10": 0.0208
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 43.95,
+      "ci": [
+       43.22,
+       44.75
+      ],
+      "rank": 18,
+      "rank_ci": [
+       17,
+       18
+      ],
+      "index4": null,
+      "T1": 0.9245,
+      "T2": 0.6786,
+      "T2_labels": 10,
+      "T4": 0.5561,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 84.91,
+       "T2": 35.72,
+       "T4": 11.22,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9721,
+       "1-10": 0.9183,
+       "11-100": 0.9231,
+       "101-1000": 0.9117,
+       ">1000": 0.8812
+      },
+      "T4_recall10": 0.0135
+     },
+     "all": {
+      "index": 48.64,
+      "ci": [
+       48.22,
+       49.06
+      ],
+      "rank": 12,
+      "rank_ci": [
+       12,
+       14
+      ],
+      "index4": null,
+      "T1": 0.9202,
+      "T2": 0.7562,
+      "T2_labels": 11,
+      "T4": 0.5531,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 84.05,
+       "T2": 51.25,
+       "T4": 10.61,
+       "T3": null
+      },
+      "T4_recall10": 0.0208
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19256,
+    "share_missing": 0.0,
+    "missing_by_bin": {
+     "zero": 0,
+     "1-10": 0,
+     "11-100": 0,
+     "101-1000": 0,
+     ">1000": 0
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "text_symbol",
+   "name": "Gene symbol only",
+   "short": "Gene symbol only",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "text",
+   "cls": "clean",
+   "text": "symbol",
+   "train_text": null,
+   "encoder": "Qwen3-Embedding-8B",
+   "text_label": "Gene symbol only",
+   "gen_share": 0.0,
+   "n_genes": 19256,
+   "meta": {
+    "training": "the HGNC symbol alone, embedded with Qwen3-Embedding-8B",
+    "date": "encoder 2025",
+    "signal": "none in the text; encoder memory",
+    "t3": "no",
+    "t3_why": "encoder after the cutoff",
+    "source": "https://huggingface.co/Qwen/Qwen3-Embedding-8B",
+    "cite": "this work"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 35.6,
+      "ci": [
+       34.71,
+       36.4
+      ],
+      "rank": 16,
+      "rank_ci": [
+       15,
+       17
+      ],
+      "index4": null,
+      "T1": 0.8539,
+      "T2": 0.6232,
+      "T2_labels": 10,
+      "T4": 0.5569,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 70.78,
+       "T2": 24.64,
+       "T4": 11.38,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9361,
+       "1-10": 0.8431,
+       "11-100": 0.8444,
+       "101-1000": 0.8479,
+       ">1000": 0.8494
+      },
+      "ci_family": [
+       31.97,
+       39.15
+      ],
+      "rank_ci_family": [
+       14,
+       17
+      ],
+      "index_r14": 35.6,
+      "rank_r14": 16,
+      "T4_recall10": 0.0181
+     },
+     "all": {
+      "index": 39.3,
+      "ci": [
+       38.82,
+       39.73
+      ],
+      "rank": 16,
+      "rank_ci": [
+       16,
+       16
+      ],
+      "index4": null,
+      "T1": 0.848,
+      "T2": 0.6758,
+      "T2_labels": 11,
+      "T4": 0.5657,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 69.6,
+       "T2": 35.16,
+       "T4": 13.14,
+       "T3": null
+      },
+      "T4_recall10": 0.0243
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 45.86,
+      "ci": [
+       45.12,
+       46.57
+      ],
+      "rank": 15,
+      "rank_ci": [
+       14,
+       15
+      ],
+      "index4": null,
+      "T1": 0.933,
+      "T2": 0.698,
+      "T2_labels": 10,
+      "T4": 0.5569,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 86.6,
+       "T2": 39.59,
+       "T4": 11.38,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9806,
+       "1-10": 0.9267,
+       "11-100": 0.9169,
+       "101-1000": 0.9019,
+       ">1000": 0.8813
+      },
+      "T4_recall10": 0.0181
+     },
+     "all": {
+      "index": 48.55,
+      "ci": [
+       48.11,
+       48.95
+      ],
+      "rank": 14,
+      "rank_ci": [
+       12,
+       14
+      ],
+      "index4": null,
+      "T1": 0.9178,
+      "T2": 0.7448,
+      "T2_labels": 11,
+      "T4": 0.5657,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 83.55,
+       "T2": 48.96,
+       "T4": 13.14,
+       "T3": null
+      },
+      "T4_recall10": 0.0243
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19256,
+    "share_missing": 0.0,
+    "missing_by_bin": {
+     "zero": 0,
+     "1-10": 0,
+     "11-100": 0,
+     "101-1000": 0,
+     ">1000": 0
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "dna300m",
+   "name": "GB.DNA-300M",
+   "short": "GB.DNA-300M",
+   "version": "v1",
+   "in_v0": false,
+   "modality": "dna",
+   "cls": "bio",
+   "text": null,
+   "train_text": null,
+   "encoder": null,
+   "text_label": "No text embedded; trained without text",
+   "gen_share": null,
+   "n_genes": 19236,
+   "meta": {
+    "training": "genomes of 796 species (10.6 billion nucleotides; NCBI assemblies)",
+    "date": "2024",
+    "signal": "none",
+    "t3": "yes",
+    "t3_why": "sequence rule",
+    "source": "https://huggingface.co/genbio-ai/AIDO.DNA-300M",
+    "cite": "GenBio AI, 2024"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 30.97,
+      "ci": [
+       30.15,
+       31.8
+      ],
+      "rank": 20,
+      "rank_ci": [
+       19,
+       20
+      ],
+      "index4": 30.49,
+      "T1": 0.7045,
+      "T2": 0.6779,
+      "T2_labels": 10,
+      "T4": 0.5823,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.6453,
+      "T3_n": 137,
+      "T3_novel": null,
+      "skills": {
+       "T1": 40.89,
+       "T2": 35.57,
+       "T4": 16.45,
+       "T3": 29.06
+      },
+      "T1_bins": {
+       "zero": 0.8506,
+       "1-10": 0.6852,
+       "11-100": 0.6758,
+       "101-1000": 0.6748,
+       ">1000": 0.6459
+      },
+      "ci_family": [
+       29.15,
+       33.06
+      ],
+      "rank_ci_family": [
+       19,
+       20
+      ],
+      "index_r14": 30.97,
+      "rank_r14": 20,
+      "T4_recall10": 0.0038
+     },
+     "all": {
+      "index": 29.3,
+      "ci": [
+       28.84,
+       29.77
+      ],
+      "rank": 20,
+      "rank_ci": [
+       20,
+       20
+      ],
+      "index4": 30.01,
+      "T1": 0.6832,
+      "T2": 0.6852,
+      "T2_labels": 11,
+      "T4": 0.5711,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.6606,
+      "T3_n": 347,
+      "T3_novel": null,
+      "skills": {
+       "T1": 36.65,
+       "T2": 37.04,
+       "T4": 14.22,
+       "T3": 32.13
+      },
+      "T4_recall10": 0.0031
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 38.92,
+      "ci": [
+       38.29,
+       39.57
+      ],
+      "rank": 20,
+      "rank_ci": [
+       20,
+       20
+      ],
+      "index4": 44.46,
+      "T1": 0.8409,
+      "T2": 0.6606,
+      "T2_labels": 10,
+      "T4": 0.5823,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.8054,
+      "T3_n": 137,
+      "T3_novel": null,
+      "skills": {
+       "T1": 68.19,
+       "T2": 32.13,
+       "T4": 16.45,
+       "T3": 61.08
+      },
+      "T1_bins": {
+       "zero": 0.9226,
+       "1-10": 0.8302,
+       "11-100": 0.8082,
+       "101-1000": 0.7924,
+       ">1000": 0.7675
+      },
+      "T4_recall10": 0.0038
+     },
+     "all": {
+      "index": 36.33,
+      "ci": [
+       35.9,
+       36.74
+      ],
+      "rank": 20,
+      "rank_ci": [
+       20,
+       20
+      ],
+      "index4": 41.53,
+      "T1": 0.8136,
+      "T2": 0.6603,
+      "T2_labels": 11,
+      "T4": 0.5711,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.7857,
+      "T3_n": 347,
+      "T3_novel": null,
+      "skills": {
+       "T1": 62.72,
+       "T2": 32.05,
+       "T4": 14.22,
+       "T3": 57.14
+      },
+      "T4_recall10": 0.0031
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19236,
+    "share_missing": 0.001,
+    "missing_by_bin": {
+     "zero": 4,
+     "1-10": 6,
+     "11-100": 5,
+     "101-1000": 4,
+     ">1000": 1
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "rna1b6",
+   "name": "GB.RNA-1.6B",
+   "short": "GB.RNA-1.6B",
+   "version": "v1",
+   "in_v0": false,
+   "modality": "rna",
+   "cls": "bio",
+   "text": null,
+   "train_text": null,
+   "encoder": null,
+   "text_label": "No text embedded; trained without text",
+   "gen_share": null,
+   "n_genes": 19228,
+   "meta": {
+    "training": "42 million non-coding RNA sequences, RNAcentral 24.0",
+    "date": "2024",
+    "signal": "none",
+    "t3": "yes",
+    "t3_why": "sequence rule",
+    "source": "https://huggingface.co/genbio-ai/AIDO.RNA-1.6B",
+    "cite": "GenBio AI, 2024"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 39.9,
+      "ci": [
+       39.2,
+       40.65
+      ],
+      "rank": 12,
+      "rank_ci": [
+       12,
+       13
+      ],
+      "index4": 42.58,
+      "T1": 0.8003,
+      "T2": 0.6707,
+      "T2_labels": 10,
+      "T4": 0.6275,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.753,
+      "T3_n": 137,
+      "T3_novel": null,
+      "skills": {
+       "T1": 60.06,
+       "T2": 34.15,
+       "T4": 25.5,
+       "T3": 50.6
+      },
+      "T1_bins": {
+       "zero": 0.8955,
+       "1-10": 0.7877,
+       "11-100": 0.7842,
+       "101-1000": 0.7706,
+       ">1000": 0.7405
+      },
+      "ci_family": [
+       35.47,
+       43.74
+      ],
+      "rank_ci_family": [
+       11,
+       14
+      ],
+      "index_r14": 39.9,
+      "rank_r14": 12,
+      "T4_recall10": 0.0077
+     },
+     "all": {
+      "index": 40.44,
+      "ci": [
+       39.99,
+       40.87
+      ],
+      "rank": 15,
+      "rank_ci": [
+       14,
+       15
+      ],
+      "index4": 44.42,
+      "T1": 0.7852,
+      "T2": 0.7085,
+      "T2_labels": 11,
+      "T4": 0.6129,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.7818,
+      "T3_n": 347,
+      "T3_novel": null,
+      "skills": {
+       "T1": 57.03,
+       "T2": 41.71,
+       "T4": 22.57,
+       "T3": 56.36
+      },
+      "T4_recall10": 0.0059
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 47.27,
+      "ci": [
+       46.6,
+       47.93
+      ],
+      "rank": 13,
+      "rank_ci": [
+       11,
+       13
+      ],
+      "index4": 54.1,
+      "T1": 0.887,
+      "T2": 0.6945,
+      "T2_labels": 10,
+      "T4": 0.6275,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.8729,
+      "T3_n": 137,
+      "T3_novel": null,
+      "skills": {
+       "T1": 77.4,
+       "T2": 38.9,
+       "T4": 25.5,
+       "T3": 74.59
+      },
+      "T1_bins": {
+       "zero": 0.9521,
+       "1-10": 0.8784,
+       "11-100": 0.8638,
+       "101-1000": 0.852,
+       ">1000": 0.824
+      },
+      "T4_recall10": 0.0077
+     },
+     "all": {
+      "index": 45.95,
+      "ci": [
+       45.51,
+       46.34
+      ],
+      "rank": 16,
+      "rank_ci": [
+       16,
+       17
+      ],
+      "index4": 52.95,
+      "T1": 0.8673,
+      "T2": 0.7091,
+      "T2_labels": 11,
+      "T4": 0.6129,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.8698,
+      "T3_n": 347,
+      "T3_novel": null,
+      "skills": {
+       "T1": 73.45,
+       "T2": 41.83,
+       "T4": 22.57,
+       "T3": 73.96
+      },
+      "T4_recall10": 0.0059
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19228,
+    "share_missing": 0.0015,
+    "missing_by_bin": {
+     "zero": 6,
+     "1-10": 8,
+     "11-100": 9,
+     "101-1000": 4,
+     ">1000": 1
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "esm1b",
+   "name": "ESM1b",
+   "short": "ESM1b",
+   "version": "v1",
+   "in_v0": false,
+   "modality": "protein",
+   "cls": "bio",
+   "text": null,
+   "train_text": null,
+   "encoder": null,
+   "text_label": "No text embedded; trained without text",
+   "gen_share": null,
+   "n_genes": 19133,
+   "meta": {
+    "training": "UniRef50 2018_03, masked language modelling",
+    "date": "2018",
+    "signal": "none",
+    "t3": "yes",
+    "t3_why": "sequence rule",
+    "source": "https://github.com/facebookresearch/esm",
+    "cite": "Rives et al., 2021"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 43.91,
+      "ci": [
+       43.15,
+       44.71
+      ],
+      "rank": 6,
+      "rank_ci": [
+       5,
+       6
+      ],
+      "index4": 46.39,
+      "T1": 0.8733,
+      "T2": 0.6736,
+      "T2_labels": 10,
+      "T4": 0.6118,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.7691,
+      "T3_n": 137,
+      "T3_novel": null,
+      "skills": {
+       "T1": 74.66,
+       "T2": 34.72,
+       "T4": 22.36,
+       "T3": 53.83
+      },
+      "T1_bins": {
+       "zero": 0.9556,
+       "1-10": 0.8624,
+       "11-100": 0.8528,
+       "101-1000": 0.8268,
+       ">1000": 0.7953
+      },
+      "ci_family": [
+       39.08,
+       48.36
+      ],
+      "rank_ci_family": [
+       5,
+       6
+      ],
+      "index_r14": 43.9,
+      "rank_r14": 5,
+      "T4_recall10": 0.0174
+     },
+     "all": {
+      "index": 44.46,
+      "ci": [
+       44.03,
+       44.9
+      ],
+      "rank": 10,
+      "rank_ci": [
+       10,
+       11
+      ],
+      "index4": 49.6,
+      "T1": 0.8523,
+      "T2": 0.7138,
+      "T2_labels": 11,
+      "T4": 0.6007,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.8252,
+      "T3_n": 347,
+      "T3_novel": null,
+      "skills": {
+       "T1": 70.45,
+       "T2": 42.77,
+       "T4": 20.15,
+       "T3": 65.04
+      },
+      "T4_recall10": 0.0166
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 53.25,
+      "ci": [
+       52.61,
+       53.91
+      ],
+      "rank": 4,
+      "rank_ci": [
+       4,
+       4
+      ],
+      "index4": 60.75,
+      "T1": 0.9449,
+      "T2": 0.742,
+      "T2_labels": 10,
+      "T4": 0.6118,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.9164,
+      "T3_n": 137,
+      "T3_novel": null,
+      "skills": {
+       "T1": 88.99,
+       "T2": 48.4,
+       "T4": 22.36,
+       "T3": 83.27
+      },
+      "T1_bins": {
+       "zero": 0.9818,
+       "1-10": 0.9401,
+       "11-100": 0.928,
+       "101-1000": 0.907,
+       ">1000": 0.8773
+      },
+      "T4_recall10": 0.0174
+     },
+     "all": {
+      "index": 52.24,
+      "ci": [
+       51.83,
+       52.64
+      ],
+      "rank": 8,
+      "rank_ci": [
+       7,
+       9
+      ],
+      "index4": 60.56,
+      "T1": 0.9276,
+      "T2": 0.7552,
+      "T2_labels": 11,
+      "T4": 0.6007,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.9276,
+      "T3_n": 347,
+      "T3_novel": null,
+      "skills": {
+       "T1": 85.51,
+       "T2": 51.05,
+       "T4": 20.15,
+       "T3": 85.51
+      },
+      "T4_recall10": 0.0166
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19133,
+    "share_missing": 0.0064,
+    "missing_by_bin": {
+     "zero": 16,
+     "1-10": 59,
+     "11-100": 42,
+     "101-1000": 6,
+     ">1000": 0
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "protst",
+   "name": "ProtST-ESM1b (text-aligned)",
+   "short": "ProtST-ESM1b",
+   "version": "v1",
+   "in_v0": false,
+   "modality": "text-aligned protein",
+   "cls": "biotext",
+   "text": null,
+   "train_text": "UniProt function text (Swiss-Prot 2022)",
+   "encoder": null,
+   "text_label": "No text embedded; UniProt function text (Swiss-Prot 2022) used in training",
+   "gen_share": null,
+   "n_genes": 19133,
+   "meta": {
+    "training": "ESM1b aligned with Swiss-Prot function text (ProtDescribe)",
+    "date": "Swiss-Prot 2022",
+    "signal": "UniProt function text (co-curated with GOA)",
+    "t3": "yes",
+    "t3_why": "training text predates the cutoff",
+    "source": "https://github.com/DeepGraphLearning/ProtST",
+    "cite": "Xu et al., 2023"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 46.33,
+      "ci": [
+       45.57,
+       47.05
+      ],
+      "rank": 3,
+      "rank_ci": [
+       2,
+       3
+      ],
+      "index4": 51.54,
+      "T1": 0.8918,
+      "T2": 0.7293,
+      "T2_labels": 10,
+      "T4": 0.5739,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.8359,
+      "T3_n": 137,
+      "T3_novel": null,
+      "skills": {
+       "T1": 78.36,
+       "T2": 45.86,
+       "T4": 14.78,
+       "T3": 67.18
+      },
+      "T1_bins": {
+       "zero": 0.9543,
+       "1-10": 0.8835,
+       "11-100": 0.8805,
+       "101-1000": 0.8567,
+       ">1000": 0.8266
+      },
+      "ci_family": [
+       42.41,
+       49.97
+      ],
+      "rank_ci_family": [
+       1,
+       4
+      ],
+      "index_r14": 46.33,
+      "rank_r14": 3,
+      "T4_recall10": 0.0139
+     },
+     "all": {
+      "index": 48.03,
+      "ci": [
+       47.59,
+       48.46
+      ],
+      "rank": 3,
+      "rank_ci": [
+       3,
+       4
+      ],
+      "index4": 54.29,
+      "T1": 0.8778,
+      "T2": 0.773,
+      "T2_labels": 11,
+      "T4": 0.5697,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.8653,
+      "T3_n": 347,
+      "T3_novel": null,
+      "skills": {
+       "T1": 75.55,
+       "T2": 54.6,
+       "T4": 13.94,
+       "T3": 73.05
+      },
+      "T4_recall10": 0.0128
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 51.57,
+      "ci": [
+       50.94,
+       52.22
+      ],
+      "rank": 8,
+      "rank_ci": [
+       6,
+       8
+      ],
+      "index4": 59.67,
+      "T1": 0.9493,
+      "T2": 0.7504,
+      "T2_labels": 10,
+      "T4": 0.5739,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": 0.9199,
+      "T3_n": 137,
+      "T3_novel": null,
+      "skills": {
+       "T1": 89.86,
+       "T2": 50.08,
+       "T4": 14.78,
+       "T3": 83.98
+      },
+      "T1_bins": {
+       "zero": 0.9804,
+       "1-10": 0.9452,
+       "11-100": 0.938,
+       "101-1000": 0.9188,
+       ">1000": 0.8965
+      },
+      "T4_recall10": 0.0139
+     },
+     "all": {
+      "index": 51.76,
+      "ci": [
+       51.33,
+       52.13
+      ],
+      "rank": 10,
+      "rank_ci": [
+       9,
+       10
+      ],
+      "index4": 60.27,
+      "T1": 0.9365,
+      "T2": 0.7702,
+      "T2_labels": 11,
+      "T4": 0.5697,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.929,
+      "T3_n": 347,
+      "T3_novel": null,
+      "skills": {
+       "T1": 87.3,
+       "T2": 54.04,
+       "T4": 13.94,
+       "T3": 85.8
+      },
+      "T4_recall10": 0.0128
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19133,
+    "share_missing": 0.0064,
+    "missing_by_bin": {
+     "zero": 16,
+     "1-10": 59,
+     "11-100": 42,
+     "101-1000": 6,
+     ">1000": 0
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "protrek",
+   "name": "ProTrek-650M (text-aligned)",
+   "short": "ProTrek-650M",
+   "version": "v1",
+   "in_v0": false,
+   "modality": "text-aligned protein",
+   "cls": "biotext",
+   "text": null,
+   "train_text": "UniProt function text (Swiss-Prot 2024)",
+   "encoder": null,
+   "text_label": "No text embedded; UniProt function text (Swiss-Prot 2024) used in training",
+   "gen_share": null,
+   "n_genes": 19133,
+   "meta": {
+    "training": "ESM2-650M aligned with Swiss-Prot text and structure, contrastive",
+    "date": "Swiss-Prot 2024",
+    "signal": "UniProt function text",
+    "t3": "no",
+    "t3_why": "training text after the cutoff",
+    "source": "https://github.com/westlake-repl/ProTrek",
+    "cite": "Su et al., 2024"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 46.96,
+      "ci": [
+       46.21,
+       47.65
+      ],
+      "rank": 2,
+      "rank_ci": [
+       1,
+       2
+      ],
+      "index4": null,
+      "T1": 0.9037,
+      "T2": 0.6979,
+      "T2_labels": 10,
+      "T4": 0.6029,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 80.74,
+       "T2": 39.57,
+       "T4": 20.58,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.952,
+       "1-10": 0.8973,
+       "11-100": 0.8908,
+       "101-1000": 0.876,
+       ">1000": 0.8597
+      },
+      "ci_family": [
+       41.29,
+       51.72
+      ],
+      "rank_ci_family": [
+       1,
+       3
+      ],
+      "index_r14": 46.96,
+      "rank_r14": 2,
+      "T4_recall10": 0.0173
+     },
+     "all": {
+      "index": 48.77,
+      "ci": [
+       48.33,
+       49.2
+      ],
+      "rank": 2,
+      "rank_ci": [
+       2,
+       2
+      ],
+      "index4": null,
+      "T1": 0.8909,
+      "T2": 0.7486,
+      "T2_labels": 11,
+      "T4": 0.5921,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 78.18,
+       "T2": 49.72,
+       "T4": 18.41,
+       "T3": null
+      },
+      "T4_recall10": 0.016
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 53.94,
+      "ci": [
+       53.29,
+       54.56
+      ],
+      "rank": 3,
+      "rank_ci": [
+       2,
+       3
+      ],
+      "index4": null,
+      "T1": 0.9596,
+      "T2": 0.7467,
+      "T2_labels": 10,
+      "T4": 0.6029,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 91.91,
+       "T2": 49.33,
+       "T4": 20.58,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9858,
+       "1-10": 0.9561,
+       "11-100": 0.9438,
+       "101-1000": 0.9219,
+       ">1000": 0.8972
+      },
+      "T4_recall10": 0.0173
+     },
+     "all": {
+      "index": 54.03,
+      "ci": [
+       53.6,
+       54.44
+      ],
+      "rank": 3,
+      "rank_ci": [
+       3,
+       4
+      ],
+      "index4": null,
+      "T1": 0.943,
+      "T2": 0.7754,
+      "T2_labels": 11,
+      "T4": 0.5921,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 88.59,
+       "T2": 55.09,
+       "T4": 18.41,
+       "T3": null
+      },
+      "T4_recall10": 0.016
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19133,
+    "share_missing": 0.0064,
+    "missing_by_bin": {
+     "zero": 16,
+     "1-10": 59,
+     "11-100": 42,
+     "101-1000": 6,
+     ">1000": 0
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "text_uniprot",
+   "name": "UniProt function text only",
+   "short": "UniProt function text",
+   "version": "v1",
+   "in_v0": false,
+   "modality": "text",
+   "cls": "clean",
+   "text": "uniprot",
+   "train_text": null,
+   "encoder": "Qwen3-Embedding-8B",
+   "text_label": "UniProt function text only (co-curated with GOA)",
+   "gen_share": 0.0,
+   "n_genes": 19256,
+   "meta": {
+    "training": "UniProt function text of October 2026, embedded with Qwen3-Embedding-8B",
+    "date": "text 2026; encoder 2025",
+    "signal": "UniProt text (co-curated with GOA)",
+    "t3": "no",
+    "t3_why": "text after the cutoff",
+    "source": "https://huggingface.co/Qwen/Qwen3-Embedding-8B",
+    "cite": "this work"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 42.46,
+      "ci": [
+       41.66,
+       43.19
+      ],
+      "rank": 9,
+      "rank_ci": [
+       8,
+       9
+      ],
+      "index4": null,
+      "T1": 0.9162,
+      "T2": 0.6466,
+      "T2_labels": 10,
+      "T4": 0.574,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 83.24,
+       "T2": 29.32,
+       "T4": 14.81,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9398,
+       "1-10": 0.9131,
+       "11-100": 0.9109,
+       "101-1000": 0.889,
+       ">1000": 0.8643
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.8151,
+       "hpa_loc_nucleoplasm": 0.6546,
+       "hpa_loc_cytosol": 0.54,
+       "hpa_loc_plasma_membrane": 0.5634,
+       "hpa_loc_vesicles": 0.5203,
+       "hpa_loc_mitochondria": 0.6872,
+       "hpa_loc_golgi_apparatus": 0.5535,
+       "gtex_tissue_specific": 0.7443,
+       "hpa_tissue_enriched": 0.7576,
+       "constraint": 0.6303
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "ci_family": [
+       38.0,
+       46.25
+      ],
+      "rank_ci_family": [
+       7,
+       10
+      ],
+      "index_r14": 42.46,
+      "rank_r14": 9,
+      "T4_recall10": 0.0204
+     },
+     "all": {
+      "index": 46.56,
+      "ci": [
+       46.13,
+       47.05
+      ],
+      "rank": 6,
+      "rank_ci": [
+       5,
+       7
+      ],
+      "index4": null,
+      "T1": 0.907,
+      "T2": 0.7064,
+      "T2_labels": 11,
+      "T4": 0.5851,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 81.4,
+       "T2": 41.28,
+       "T4": 17.02,
+       "T3": null
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.8557,
+       "hpa_loc_nucleoplasm": 0.704,
+       "hpa_loc_cytosol": 0.5986,
+       "hpa_loc_plasma_membrane": 0.6713,
+       "hpa_loc_vesicles": 0.6037,
+       "hpa_loc_mitochondria": 0.7567,
+       "hpa_loc_golgi_apparatus": 0.6074,
+       "gtex_tissue_specific": 0.8253,
+       "hpa_tissue_enriched": 0.8108,
+       "clingen_hi": 0.6294,
+       "constraint": 0.7073
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0312
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 51.61,
+      "ci": [
+       50.89,
+       52.29
+      ],
+      "rank": 7,
+      "rank_ci": [
+       6,
+       8
+      ],
+      "index4": null,
+      "T1": 0.9668,
+      "T2": 0.7333,
+      "T2_labels": 10,
+      "T4": 0.574,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 93.36,
+       "T2": 46.65,
+       "T4": 14.81,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9844,
+       "1-10": 0.9645,
+       "11-100": 0.9506,
+       "101-1000": 0.9244,
+       ">1000": 0.8938
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.9399,
+       "hpa_loc_nucleoplasm": 0.6621,
+       "hpa_loc_cytosol": 0.6215,
+       "hpa_loc_plasma_membrane": 0.6643,
+       "hpa_loc_vesicles": 0.6467,
+       "hpa_loc_mitochondria": 0.75,
+       "hpa_loc_golgi_apparatus": 0.6972,
+       "gtex_tissue_specific": 0.8293,
+       "hpa_tissue_enriched": 0.8289,
+       "constraint": 0.6927
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0204
+     },
+     "all": {
+      "index": 53.98,
+      "ci": [
+       53.55,
+       54.39
+      ],
+      "rank": 4,
+      "rank_ci": [
+       3,
+       5
+      ],
+      "index4": null,
+      "T1": 0.9488,
+      "T2": 0.7758,
+      "T2_labels": 11,
+      "T4": 0.5851,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 89.75,
+       "T2": 55.16,
+       "T4": 17.02,
+       "T3": null
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.9565,
+       "hpa_loc_nucleoplasm": 0.7386,
+       "hpa_loc_cytosol": 0.6559,
+       "hpa_loc_plasma_membrane": 0.7708,
+       "hpa_loc_vesicles": 0.7004,
+       "hpa_loc_mitochondria": 0.832,
+       "hpa_loc_golgi_apparatus": 0.7294,
+       "gtex_tissue_specific": 0.8761,
+       "hpa_tissue_enriched": 0.8605,
+       "clingen_hi": 0.6434,
+       "constraint": 0.7701
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0312
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19256,
+    "share_missing": 0.0,
+    "missing_by_bin": {
+     "zero": 0,
+     "1-10": 0,
+     "11-100": 0,
+     "101-1000": 0,
+     ">1000": 0
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "fusion_p16b_refseq",
+   "name": "GB.Protein-16B ⊕ rich summary-filtered text",
+   "short": "GB.Protein-16B ⊕ text",
+   "version": "v1",
+   "in_v0": false,
+   "modality": "mixture",
+   "cls": "biotext",
+   "text": "mixture",
+   "train_text": null,
+   "encoder": "Qwen3-Embedding-8B",
+   "text_label": "Declared mixture; the text component is summary-filtered text (contains UniProt function text)",
+   "gen_share": 0.0,
+   "n_genes": 19256,
+   "meta": {
+    "training": "concatenation of the standardised GB.Protein-16B and rich summary-filtered text embeddings",
+    "date": "mixed",
+    "signal": "UniProt text",
+    "t3": "no",
+    "t3_why": "text component after the cutoff",
+    "source": "https://github.com/hwang595/gene-embedding-exposure",
+    "cite": "this work"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 47.09,
+      "ci": [
+       46.32,
+       47.81
+      ],
+      "rank": 1,
+      "rank_ci": [
+       1,
+       2
+      ],
+      "index4": null,
+      "T1": 0.9212,
+      "T2": 0.6578,
+      "T2_labels": 10,
+      "T4": 0.6273,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 84.24,
+       "T2": 31.57,
+       "T4": 25.45,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9491,
+       "1-10": 0.9175,
+       "11-100": 0.9117,
+       "101-1000": 0.8859,
+       ">1000": 0.8603
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.8147,
+       "hpa_loc_nucleoplasm": 0.6455,
+       "hpa_loc_cytosol": 0.5316,
+       "hpa_loc_plasma_membrane": 0.5563,
+       "hpa_loc_vesicles": 0.5266,
+       "hpa_loc_mitochondria": 0.7074,
+       "hpa_loc_golgi_apparatus": 0.528,
+       "gtex_tissue_specific": 0.7938,
+       "hpa_tissue_enriched": 0.7817,
+       "constraint": 0.6929
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "ci_family": [
+       41.75,
+       51.41
+      ],
+      "rank_ci_family": [
+       1,
+       3
+      ],
+      "index_r14": 47.09,
+      "rank_r14": 1,
+      "T4_recall10": 0.0238
+     },
+     "all": {
+      "index": 50.43,
+      "ci": [
+       50.0,
+       50.87
+      ],
+      "rank": 1,
+      "rank_ci": [
+       1,
+       1
+      ],
+      "index4": null,
+      "T1": 0.9081,
+      "T2": 0.7203,
+      "T2_labels": 11,
+      "T4": 0.628,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 81.63,
+       "T2": 44.05,
+       "T4": 25.6,
+       "T3": null
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.8457,
+       "hpa_loc_nucleoplasm": 0.7083,
+       "hpa_loc_cytosol": 0.5943,
+       "hpa_loc_plasma_membrane": 0.6618,
+       "hpa_loc_vesicles": 0.6026,
+       "hpa_loc_mitochondria": 0.7749,
+       "hpa_loc_golgi_apparatus": 0.59,
+       "gtex_tissue_specific": 0.8633,
+       "hpa_tissue_enriched": 0.8351,
+       "clingen_hi": 0.6895,
+       "constraint": 0.7575
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0322
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 58.25,
+      "ci": [
+       57.57,
+       58.86
+      ],
+      "rank": 1,
+      "rank_ci": [
+       1,
+       1
+      ],
+      "index4": null,
+      "T1": 0.9696,
+      "T2": 0.7769,
+      "T2_labels": 10,
+      "T4": 0.6273,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 93.91,
+       "T2": 55.38,
+       "T4": 25.45,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.986,
+       "1-10": 0.9674,
+       "11-100": 0.9542,
+       "101-1000": 0.9293,
+       ">1000": 0.8993
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.9602,
+       "hpa_loc_nucleoplasm": 0.6625,
+       "hpa_loc_cytosol": 0.6421,
+       "hpa_loc_plasma_membrane": 0.7012,
+       "hpa_loc_vesicles": 0.6593,
+       "hpa_loc_mitochondria": 0.7844,
+       "hpa_loc_golgi_apparatus": 0.7047,
+       "gtex_tissue_specific": 0.9019,
+       "hpa_tissue_enriched": 0.8897,
+       "constraint": 0.8629
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0238
+     },
+     "all": {
+      "index": 59.51,
+      "ci": [
+       59.13,
+       59.89
+      ],
+      "rank": 1,
+      "rank_ci": [
+       1,
+       1
+      ],
+      "index4": null,
+      "T1": 0.9524,
+      "T2": 0.8122,
+      "T2_labels": 11,
+      "T4": 0.628,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 90.48,
+       "T2": 62.44,
+       "T4": 25.6,
+       "T3": null
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.9659,
+       "hpa_loc_nucleoplasm": 0.7625,
+       "hpa_loc_cytosol": 0.6882,
+       "hpa_loc_plasma_membrane": 0.7873,
+       "hpa_loc_vesicles": 0.7153,
+       "hpa_loc_mitochondria": 0.8524,
+       "hpa_loc_golgi_apparatus": 0.7409,
+       "gtex_tissue_specific": 0.9211,
+       "hpa_tissue_enriched": 0.9003,
+       "clingen_hi": 0.7221,
+       "constraint": 0.8783
+      },
+      "T2_per_label_source": "round-14 regeneration",
+      "T4_recall10": 0.0322
+     }
+    }
+   },
+   "coverage": {
+    "n_present": 19133,
+    "share_missing": 0.0064,
+    "missing_by_bin": {
+     "zero": 16,
+     "1-10": 59,
+     "11-100": 42,
+     "101-1000": 6,
+     ">1000": 0
+    }
+   }
+  },
+  {
+   "track": "O",
+   "tag": "text_refseq_nouni",
+   "name": "Rich summary-filtered text without UniProt function text",
+   "short": "Summary-filtered, no UniProt text",
+   "version": "v1.1",
+   "in_v0": false,
+   "modality": "text",
+   "cls": "clean",
+   "text": "leakfree",
+   "train_text": null,
+   "encoder": "Qwen3-Embedding-8B",
+   "text_label": "Summary-filtered text (generated summaries removed); UniProt function text removed as well",
+   "gen_share": 0.0,
+   "n_genes": 19256,
+   "meta": {
+    "training": "“Gene SYMBOL (name). RefSeq summary” without UniProt function text, Qwen3-Embedding-8B",
+    "date": "text 2026; encoder 2025",
+    "signal": "RefSeq prose; encoder memory",
+    "t3": "no",
+    "t3_why": "text after the cutoff",
+    "source": "https://huggingface.co/Qwen/Qwen3-Embedding-8B",
+    "cite": "this work (round 14)"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 37.85,
+      "ci": [
+       37.01,
+       38.64
+      ],
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.8595,
+      "T2": 0.64,
+      "T2_labels": 10,
+      "T4": 0.5683,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 71.9,
+       "T2": 28.0,
+       "T4": 13.65,
+       "T3": null
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.8143,
+       "hpa_loc_nucleoplasm": 0.6135,
+       "hpa_loc_cytosol": 0.5396,
+       "hpa_loc_plasma_membrane": 0.5544,
+       "hpa_loc_vesicles": 0.5284,
+       "hpa_loc_mitochondria": 0.695,
+       "hpa_loc_golgi_apparatus": 0.5569,
+       "gtex_tissue_specific": 0.722,
+       "hpa_tissue_enriched": 0.7462,
+       "constraint": 0.6299
+      },
+      "T1_bins": {
+       "zero": 0.9361,
+       "1-10": 0.8494,
+       "11-100": 0.8653,
+       "101-1000": 0.8587,
+       ">1000": 0.8433
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.0168
+     },
+     "all": {
+      "index": 42.56,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.8618,
+      "T2": 0.7094,
+      "T2_labels": 11,
+      "T4": 0.5673,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 72.35,
+       "T2": 41.88,
+       "T4": 13.46,
+       "T3": null
+      },
+      "T2_fixed": 0.7089,
+      "index_fixedT2": 42.53,
+      "T2_per_label": {
+       "depmap_essential": 0.8335,
+       "hpa_loc_nucleoplasm": 0.694,
+       "hpa_loc_cytosol": 0.601,
+       "hpa_loc_plasma_membrane": 0.665,
+       "hpa_loc_vesicles": 0.6091,
+       "hpa_loc_mitochondria": 0.7693,
+       "hpa_loc_golgi_apparatus": 0.6085,
+       "gtex_tissue_specific": 0.8069,
+       "hpa_tissue_enriched": 0.7934,
+       "clingen_hi": 0.7138,
+       "constraint": 0.7087
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.0239
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 46.92,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9334,
+      "T2": 0.7022,
+      "T2_labels": 10,
+      "T4": 0.5683,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 86.68,
+       "T2": 40.43,
+       "T4": 13.65,
+       "T3": null
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.8986,
+       "hpa_loc_nucleoplasm": 0.6278,
+       "hpa_loc_cytosol": 0.5846,
+       "hpa_loc_plasma_membrane": 0.6645,
+       "hpa_loc_vesicles": 0.6293,
+       "hpa_loc_mitochondria": 0.7486,
+       "hpa_loc_golgi_apparatus": 0.6433,
+       "gtex_tissue_specific": 0.7637,
+       "hpa_tissue_enriched": 0.7919,
+       "constraint": 0.6694
+      },
+      "T1_bins": {
+       "zero": 0.9751,
+       "1-10": 0.9279,
+       "11-100": 0.9238,
+       "101-1000": 0.9064,
+       ">1000": 0.8768
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.0168
+     },
+     "all": {
+      "index": 50.31,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.922,
+      "T2": 0.7653,
+      "T2_labels": 11,
+      "T4": 0.5673,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 84.4,
+       "T2": 53.06,
+       "T4": 13.46,
+       "T3": null
+      },
+      "T2_fixed": 0.7668,
+      "index_fixedT2": 50.41,
+      "T2_per_label": {
+       "depmap_essential": 0.9245,
+       "hpa_loc_nucleoplasm": 0.7223,
+       "hpa_loc_cytosol": 0.6428,
+       "hpa_loc_plasma_membrane": 0.7585,
+       "hpa_loc_vesicles": 0.6753,
+       "hpa_loc_mitochondria": 0.8193,
+       "hpa_loc_golgi_apparatus": 0.6917,
+       "gtex_tissue_specific": 0.8458,
+       "hpa_tissue_enriched": 0.8356,
+       "clingen_hi": 0.7501,
+       "constraint": 0.7524
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.0239
+     }
+    }
+   },
+   "t3_only": false
+  },
+  {
+   "track": "O",
+   "tag": "fusion_p16b_refseq_nouni",
+   "name": "GB.Protein-16B ⊕ summary-filtered text without UniProt text",
+   "short": "GB.Protein-16B ⊕ text, no UniProt",
+   "version": "v1.1",
+   "in_v0": false,
+   "modality": "mixture",
+   "cls": "biotext",
+   "text": "mixture",
+   "train_text": null,
+   "encoder": "Qwen3-Embedding-8B",
+   "text_label": "Declared mixture; the text component is summary-filtered text without UniProt function text",
+   "gen_share": 0.0,
+   "n_genes": 19133,
+   "meta": {
+    "training": "concatenation of GB.Protein-16B and the text row without UniProt function text",
+    "date": "mixed",
+    "signal": "RefSeq prose",
+    "t3": "no",
+    "t3_why": "text component after the cutoff",
+    "source": "https://github.com/hwang595/gene-embedding-exposure",
+    "cite": "this work (round 14)"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 42.88,
+      "ci": [
+       42.12,
+       43.65
+      ],
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.8741,
+      "T2": 0.6502,
+      "T2_labels": 10,
+      "T4": 0.619,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 74.81,
+       "T2": 30.04,
+       "T4": 23.8,
+       "T3": null
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.8033,
+       "hpa_loc_nucleoplasm": 0.6333,
+       "hpa_loc_cytosol": 0.5401,
+       "hpa_loc_plasma_membrane": 0.5268,
+       "hpa_loc_vesicles": 0.5146,
+       "hpa_loc_mitochondria": 0.6973,
+       "hpa_loc_golgi_apparatus": 0.5361,
+       "gtex_tissue_specific": 0.7777,
+       "hpa_tissue_enriched": 0.7657,
+       "constraint": 0.7073
+      },
+      "T1_bins": {
+       "zero": 0.9416,
+       "1-10": 0.8652,
+       "11-100": 0.8697,
+       "101-1000": 0.8536,
+       ">1000": 0.8347
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.0206
+     },
+     "all": {
+      "index": 46.08,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.8669,
+      "T2": 0.7112,
+      "T2_labels": 11,
+      "T4": 0.6131,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 73.39,
+       "T2": 42.24,
+       "T4": 22.61,
+       "T3": null
+      },
+      "T2_fixed": 0.7112,
+      "index_fixedT2": 46.08,
+      "T2_per_label": {
+       "depmap_essential": 0.8212,
+       "hpa_loc_nucleoplasm": 0.6971,
+       "hpa_loc_cytosol": 0.5962,
+       "hpa_loc_plasma_membrane": 0.6421,
+       "hpa_loc_vesicles": 0.5914,
+       "hpa_loc_mitochondria": 0.7618,
+       "hpa_loc_golgi_apparatus": 0.5779,
+       "gtex_tissue_specific": 0.8476,
+       "hpa_tissue_enriched": 0.8176,
+       "clingen_hi": 0.7114,
+       "constraint": 0.7587
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.0267
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 54.89,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9462,
+      "T2": 0.7581,
+      "T2_labels": 10,
+      "T4": 0.619,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 89.24,
+       "T2": 51.63,
+       "T4": 23.8,
+       "T3": null
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.9592,
+       "hpa_loc_nucleoplasm": 0.6286,
+       "hpa_loc_cytosol": 0.6321,
+       "hpa_loc_plasma_membrane": 0.6804,
+       "hpa_loc_vesicles": 0.648,
+       "hpa_loc_mitochondria": 0.7803,
+       "hpa_loc_golgi_apparatus": 0.6765,
+       "gtex_tissue_specific": 0.8752,
+       "hpa_tissue_enriched": 0.8452,
+       "constraint": 0.856
+      },
+      "T1_bins": {
+       "zero": 0.9805,
+       "1-10": 0.9417,
+       "11-100": 0.9329,
+       "101-1000": 0.9112,
+       ">1000": 0.883
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.0206
+     },
+     "all": {
+      "index": 56.36,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9313,
+      "T2": 0.8011,
+      "T2_labels": 11,
+      "T4": 0.6131,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 86.25,
+       "T2": 60.21,
+       "T4": 22.61,
+       "T3": null
+      },
+      "T2_fixed": 0.8066,
+      "index_fixedT2": 56.73,
+      "T2_per_label": {
+       "depmap_essential": 0.9604,
+       "hpa_loc_nucleoplasm": 0.7406,
+       "hpa_loc_cytosol": 0.6742,
+       "hpa_loc_plasma_membrane": 0.7718,
+       "hpa_loc_vesicles": 0.7018,
+       "hpa_loc_mitochondria": 0.8446,
+       "hpa_loc_golgi_apparatus": 0.7198,
+       "gtex_tissue_specific": 0.9083,
+       "hpa_tissue_enriched": 0.874,
+       "clingen_hi": 0.7462,
+       "constraint": 0.8701
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.0267
+     }
+    }
+   },
+   "t3_only": false
+  },
+  {
+   "track": "O",
+   "tag": "fusion_esm2_refseq",
+   "name": "ESM2-650M ⊕ rich summary-filtered text",
+   "short": "ESM2-650M ⊕ text",
+   "version": "v1.1",
+   "in_v0": false,
+   "modality": "mixture",
+   "cls": "biotext",
+   "text": "mixture",
+   "train_text": null,
+   "encoder": "Qwen3-Embedding-8B",
+   "text_label": "Declared mixture; the text component is summary-filtered text (contains UniProt function text)",
+   "gen_share": 0.0,
+   "n_genes": 19133,
+   "meta": {
+    "training": "concatenation of re-embedded ESM2-650M (round 14) and rich summary-filtered text",
+    "date": "mixed",
+    "signal": "UniProt text",
+    "t3": "no",
+    "t3_why": "text component after the cutoff",
+    "source": "https://github.com/hwang595/gene-embedding-exposure",
+    "cite": "this work (round 14)"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 45.49,
+      "ci": [
+       44.8,
+       46.21
+      ],
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9211,
+      "T2": 0.6611,
+      "T2_labels": 10,
+      "T4": 0.6002,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 84.21,
+       "T2": 32.22,
+       "T4": 20.04,
+       "T3": null
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.8207,
+       "hpa_loc_nucleoplasm": 0.6472,
+       "hpa_loc_cytosol": 0.5432,
+       "hpa_loc_plasma_membrane": 0.5891,
+       "hpa_loc_vesicles": 0.5231,
+       "hpa_loc_mitochondria": 0.7002,
+       "hpa_loc_golgi_apparatus": 0.5408,
+       "gtex_tissue_specific": 0.7811,
+       "hpa_tissue_enriched": 0.788,
+       "constraint": 0.6777
+      },
+      "T1_bins": {
+       "zero": 0.955,
+       "1-10": 0.9166,
+       "11-100": 0.9127,
+       "101-1000": 0.8878,
+       ">1000": 0.865
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.022
+     },
+     "all": {
+      "index": 49.28,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9091,
+      "T2": 0.723,
+      "T2_labels": 11,
+      "T4": 0.6071,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 81.81,
+       "T2": 44.61,
+       "T4": 21.41,
+       "T3": null
+      },
+      "T2_fixed": 0.7254,
+      "index_fixedT2": 49.43,
+      "T2_per_label": {
+       "depmap_essential": 0.8497,
+       "hpa_loc_nucleoplasm": 0.7076,
+       "hpa_loc_cytosol": 0.6065,
+       "hpa_loc_plasma_membrane": 0.6763,
+       "hpa_loc_vesicles": 0.6074,
+       "hpa_loc_mitochondria": 0.7781,
+       "hpa_loc_golgi_apparatus": 0.6016,
+       "gtex_tissue_specific": 0.854,
+       "hpa_tissue_enriched": 0.8316,
+       "clingen_hi": 0.6996,
+       "constraint": 0.7411
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.0305
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 55.38,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9684,
+      "T2": 0.7621,
+      "T2_labels": 10,
+      "T4": 0.6002,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 93.69,
+       "T2": 52.41,
+       "T4": 20.04,
+       "T3": null
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.9593,
+       "hpa_loc_nucleoplasm": 0.659,
+       "hpa_loc_cytosol": 0.6278,
+       "hpa_loc_plasma_membrane": 0.696,
+       "hpa_loc_vesicles": 0.6599,
+       "hpa_loc_mitochondria": 0.7943,
+       "hpa_loc_golgi_apparatus": 0.7069,
+       "gtex_tissue_specific": 0.8523,
+       "hpa_tissue_enriched": 0.8623,
+       "constraint": 0.8028
+      },
+      "T1_bins": {
+       "zero": 0.9837,
+       "1-10": 0.9664,
+       "11-100": 0.9524,
+       "101-1000": 0.9269,
+       ">1000": 0.8921
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.022
+     },
+     "all": {
+      "index": 57.64,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9506,
+      "T2": 0.807,
+      "T2_labels": 11,
+      "T4": 0.6071,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 90.12,
+       "T2": 61.39,
+       "T4": 21.41,
+       "T3": null
+      },
+      "T2_fixed": 0.8137,
+      "index_fixedT2": 58.09,
+      "T2_per_label": {
+       "depmap_essential": 0.9671,
+       "hpa_loc_nucleoplasm": 0.7581,
+       "hpa_loc_cytosol": 0.6806,
+       "hpa_loc_plasma_membrane": 0.7854,
+       "hpa_loc_vesicles": 0.7113,
+       "hpa_loc_mitochondria": 0.8554,
+       "hpa_loc_golgi_apparatus": 0.7513,
+       "gtex_tissue_specific": 0.9013,
+       "hpa_tissue_enriched": 0.8835,
+       "clingen_hi": 0.7396,
+       "constraint": 0.843
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.0305
+     }
+    }
+   },
+   "t3_only": false
+  },
+  {
+   "track": "O",
+   "tag": "fusion_esm2_refseq_nouni",
+   "name": "ESM2-650M ⊕ summary-filtered text without UniProt text",
+   "short": "ESM2-650M ⊕ text, no UniProt",
+   "version": "v1.1",
+   "in_v0": false,
+   "modality": "mixture",
+   "cls": "biotext",
+   "text": "mixture",
+   "train_text": null,
+   "encoder": "Qwen3-Embedding-8B",
+   "text_label": "Declared mixture; the text component is summary-filtered text without UniProt function text",
+   "gen_share": 0.0,
+   "n_genes": 19133,
+   "meta": {
+    "training": "concatenation of re-embedded ESM2-650M (round 14) and the text row without UniProt function text",
+    "date": "mixed",
+    "signal": "RefSeq prose",
+    "t3": "no",
+    "t3_why": "text component after the cutoff",
+    "source": "https://github.com/hwang595/gene-embedding-exposure",
+    "cite": "this work (round 14)"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 41.22,
+      "ci": [
+       40.45,
+       41.95
+      ],
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.8734,
+      "T2": 0.6526,
+      "T2_labels": 10,
+      "T4": 0.5923,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 74.68,
+       "T2": 30.51,
+       "T4": 18.46,
+       "T3": null
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.8126,
+       "hpa_loc_nucleoplasm": 0.6334,
+       "hpa_loc_cytosol": 0.5508,
+       "hpa_loc_plasma_membrane": 0.5552,
+       "hpa_loc_vesicles": 0.5316,
+       "hpa_loc_mitochondria": 0.7046,
+       "hpa_loc_golgi_apparatus": 0.5265,
+       "gtex_tissue_specific": 0.759,
+       "hpa_tissue_enriched": 0.7626,
+       "constraint": 0.6894
+      },
+      "T1_bins": {
+       "zero": 0.9481,
+       "1-10": 0.8636,
+       "11-100": 0.8701,
+       "101-1000": 0.8558,
+       ">1000": 0.8428
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.0188
+     },
+     "all": {
+      "index": 44.73,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.8676,
+      "T2": 0.7135,
+      "T2_labels": 11,
+      "T4": 0.5899,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 73.52,
+       "T2": 42.7,
+       "T4": 17.97,
+       "T3": null
+      },
+      "T2_fixed": 0.7127,
+      "index_fixedT2": 44.68,
+      "T2_per_label": {
+       "depmap_essential": 0.8194,
+       "hpa_loc_nucleoplasm": 0.7034,
+       "hpa_loc_cytosol": 0.6009,
+       "hpa_loc_plasma_membrane": 0.6534,
+       "hpa_loc_vesicles": 0.6074,
+       "hpa_loc_mitochondria": 0.7721,
+       "hpa_loc_golgi_apparatus": 0.5862,
+       "gtex_tissue_specific": 0.8364,
+       "hpa_tissue_enriched": 0.8094,
+       "clingen_hi": 0.7216,
+       "constraint": 0.7384
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.0249
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 51.72,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9425,
+      "T2": 0.741,
+      "T2_labels": 10,
+      "T4": 0.5923,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 88.5,
+       "T2": 48.2,
+       "T4": 18.46,
+       "T3": null
+      },
+      "T2_per_label": {
+       "depmap_essential": 0.9446,
+       "hpa_loc_nucleoplasm": 0.6324,
+       "hpa_loc_cytosol": 0.619,
+       "hpa_loc_plasma_membrane": 0.6807,
+       "hpa_loc_vesicles": 0.6446,
+       "hpa_loc_mitochondria": 0.7916,
+       "hpa_loc_golgi_apparatus": 0.6686,
+       "gtex_tissue_specific": 0.805,
+       "hpa_tissue_enriched": 0.8129,
+       "constraint": 0.8109
+      },
+      "T1_bins": {
+       "zero": 0.9799,
+       "1-10": 0.9376,
+       "11-100": 0.9299,
+       "101-1000": 0.9078,
+       ">1000": 0.8787
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.0188
+     },
+     "all": {
+      "index": 54.03,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.928,
+      "T2": 0.7926,
+      "T2_labels": 11,
+      "T4": 0.5899,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 85.59,
+       "T2": 58.53,
+       "T4": 17.97,
+       "T3": null
+      },
+      "T2_fixed": 0.7969,
+      "index_fixedT2": 54.31,
+      "T2_per_label": {
+       "depmap_essential": 0.9516,
+       "hpa_loc_nucleoplasm": 0.7388,
+       "hpa_loc_cytosol": 0.666,
+       "hpa_loc_plasma_membrane": 0.7734,
+       "hpa_loc_vesicles": 0.698,
+       "hpa_loc_mitochondria": 0.8439,
+       "hpa_loc_golgi_apparatus": 0.7251,
+       "gtex_tissue_specific": 0.8767,
+       "hpa_tissue_enriched": 0.8555,
+       "clingen_hi": 0.7504,
+       "constraint": 0.8396
+      },
+      "T2_per_label_source": "round 14",
+      "T4_recall10": 0.0249
+     }
+    }
+   },
+   "t3_only": false
+  },
+  {
+   "track": "O",
+   "tag": "go23vec",
+   "name": "GO annotation vector at the 2023 cutoff (non-IEA)",
+   "short": "GO annotation vector (2023)",
+   "version": "v1.1",
+   "in_v0": false,
+   "modality": "annotation vector",
+   "cls": "annot",
+   "text": null,
+   "train_text": null,
+   "encoder": null,
+   "text_label": "Sequence embedding concatenated with the gene's own 2023 GO annotations (reference baseline)",
+   "gen_share": null,
+   "n_genes": 19256,
+   "meta": {
+    "training": "binary vector of the gene's GO annotations at the 2023-01-01 cutoff (non-IEA; 4,894 terms); a T3 reference, not a representation of the gene",
+    "date": "2023",
+    "signal": "the annotations themselves",
+    "t3": "yes",
+    "t3_why": "T3-only reference baseline (annotation-access rule)",
+    "source": "https://github.com/hwang595/gene-embedding-exposure",
+    "cite": "this work (round 14)"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": null,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": null,
+      "T2": null,
+      "T2_labels": 0,
+      "T4": null,
+      "T1_n": 0,
+      "T4_n": 0,
+      "T3": 0.4928,
+      "T3_n": 137,
+      "T3_novel": 0.3504,
+      "skills": {
+       "T1": null,
+       "T2": null,
+       "T4": null,
+       "T3": -1.45
+      },
+      "T1_bins": {
+       "zero": null,
+       "1-10": null,
+       "11-100": null,
+       "101-1000": null,
+       ">1000": null
+      }
+     },
+     "all": {
+      "index": null,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": null,
+      "T2": null,
+      "T2_labels": 0,
+      "T4": null,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.6027,
+      "T3_n": 347,
+      "T3_novel": 0.3991,
+      "skills": {
+       "T1": null,
+       "T2": null,
+       "T4": null,
+       "T3": 20.54
+      }
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": null,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": null,
+      "T2": null,
+      "T2_labels": 0,
+      "T4": null,
+      "T1_n": 0,
+      "T4_n": 0,
+      "T3": 0.8892,
+      "T3_n": 137,
+      "T3_novel": 0.86,
+      "skills": {
+       "T1": null,
+       "T2": null,
+       "T4": null,
+       "T3": 77.83
+      },
+      "T1_bins": {
+       "zero": null,
+       "1-10": null,
+       "11-100": null,
+       "101-1000": null,
+       ">1000": null
+      }
+     },
+     "all": {
+      "index": null,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": null,
+      "T2": null,
+      "T2_labels": 0,
+      "T4": null,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.9105,
+      "T3_n": 347,
+      "T3_novel": 0.8601,
+      "skills": {
+       "T1": null,
+       "T2": null,
+       "T4": null,
+       "T3": 82.1
+      }
+     }
+    }
+   },
+   "t3_only": true
+  },
+  {
+   "track": "O",
+   "tag": "fusion_p16b_go23",
+   "name": "GB.Protein-16B ⊕ GO annotation vector at the cutoff",
+   "short": "GB.Protein-16B ⊕ GO vector",
+   "version": "v1.1",
+   "in_v0": false,
+   "modality": "mixture",
+   "cls": "biotext",
+   "text": "mixture",
+   "train_text": null,
+   "encoder": null,
+   "text_label": "Sequence embedding concatenated with the gene's own 2023 GO annotations (reference baseline)",
+   "gen_share": 0.0,
+   "n_genes": 19133,
+   "meta": {
+    "training": "concatenation of GB.Protein-16B and the 2023 GO annotation vector",
+    "date": "mixed",
+    "signal": "the annotations themselves",
+    "t3": "yes",
+    "t3_why": "T3-only reference",
+    "source": "https://github.com/hwang595/gene-embedding-exposure",
+    "cite": "this work (round 14)"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": null,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": null,
+      "T2": null,
+      "T2_labels": 0,
+      "T4": null,
+      "T1_n": 0,
+      "T4_n": 0,
+      "T3": 0.54,
+      "T3_n": 137,
+      "T3_novel": 0.4142,
+      "skills": {
+       "T1": null,
+       "T2": null,
+       "T4": null,
+       "T3": 7.99
+      },
+      "T1_bins": {
+       "zero": null,
+       "1-10": null,
+       "11-100": null,
+       "101-1000": null,
+       ">1000": null
+      }
+     },
+     "all": {
+      "index": null,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": null,
+      "T2": null,
+      "T2_labels": 0,
+      "T4": null,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.633,
+      "T3_n": 347,
+      "T3_novel": 0.4453,
+      "skills": {
+       "T1": null,
+       "T2": null,
+       "T4": null,
+       "T3": 26.59
+      }
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": null,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": null,
+      "T2": null,
+      "T2_labels": 0,
+      "T4": null,
+      "T1_n": 0,
+      "T4_n": 0,
+      "T3": 0.8978,
+      "T3_n": 137,
+      "T3_novel": 0.8675,
+      "skills": {
+       "T1": null,
+       "T2": null,
+       "T4": null,
+       "T3": 79.56
+      },
+      "T1_bins": {
+       "zero": null,
+       "1-10": null,
+       "11-100": null,
+       "101-1000": null,
+       ">1000": null
+      }
+     },
+     "all": {
+      "index": null,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": null,
+      "T2": null,
+      "T2_labels": 0,
+      "T4": null,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": 0.918,
+      "T3_n": 347,
+      "T3_novel": 0.8685,
+      "skills": {
+       "T1": null,
+       "T2": null,
+       "T4": null,
+       "T3": 83.6
+      }
+     }
+    }
+   },
+   "t3_only": true
+  },
+  {
+   "track": "F",
+   "tag": "t23l__qwen8b",
+   "name": "Qwen3-Embedding-8B",
+   "short": "Qwen3-Embedding-8B",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "text embedder",
+   "cls": "clean",
+   "text": "leakfree",
+   "train_text": null,
+   "encoder": "Qwen3-Embedding-8B",
+   "text_label": "Scored on corpus L (GenePT's 2023 text, generated summaries removed)",
+   "gen_share": 0.0,
+   "n_genes": 19256,
+   "meta": {
+    "training": "Qwen3 language model tuned for embedding on web-scale text pairs",
+    "date": "2025",
+    "signal": "LLM memory",
+    "source": "https://huggingface.co/Qwen/Qwen3-Embedding-8B",
+    "cite": "Zhang et al., 2025"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 34.19,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.8325,
+      "T2": 0.6242,
+      "T2_labels": 10,
+      "T4": 0.5561,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 66.49,
+       "T2": 24.85,
+       "T4": 11.22,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9349,
+       "1-10": 0.819,
+       "11-100": 0.8551,
+       "101-1000": 0.8591,
+       ">1000": 0.8427
+      },
+      "S": 0.0779,
+      "S_ci": [
+       0.0719,
+       0.0841
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.8969
+     },
+     "all": {
+      "index": 40.7,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.849,
+      "T2": 0.7085,
+      "T2_labels": 11,
+      "T4": 0.5531,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 69.79,
+       "T2": 41.69,
+       "T4": 10.61,
+       "T3": null
+      },
+      "S": 0.0779,
+      "S_ci": [
+       0.0719,
+       0.0841
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.8969
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 43.95,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9245,
+      "T2": 0.6786,
+      "T2_labels": 10,
+      "T4": 0.5561,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 84.91,
+       "T2": 35.72,
+       "T4": 11.22,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9721,
+       "1-10": 0.9183,
+       "11-100": 0.9231,
+       "101-1000": 0.9117,
+       ">1000": 0.8812
+      },
+      "S": 0.0334,
+      "S_ci": [
+       0.0301,
+       0.0366
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.9517
+     },
+     "all": {
+      "index": 48.64,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9202,
+      "T2": 0.7562,
+      "T2_labels": 11,
+      "T4": 0.5531,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 84.05,
+       "T2": 51.25,
+       "T4": 10.61,
+       "T3": null
+      },
+      "S": 0.0334,
+      "S_ci": [
+       0.0301,
+       0.0366
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.9517
+     }
+    }
+   }
+  },
+  {
+   "track": "F",
+   "tag": "t23l__qwen06b",
+   "name": "Qwen3-Embedding-0.6B",
+   "short": "Qwen3-Embedding-0.6B",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "text embedder",
+   "cls": "clean",
+   "text": "leakfree",
+   "train_text": null,
+   "encoder": "Qwen3-Embedding-0.6B",
+   "text_label": "Scored on corpus L (GenePT's 2023 text, generated summaries removed)",
+   "gen_share": 0.0,
+   "n_genes": 19256,
+   "meta": {
+    "training": "Qwen3 language model tuned for embedding on web-scale text pairs",
+    "date": "2025",
+    "signal": "LLM memory",
+    "source": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B",
+    "cite": "Zhang et al., 2025"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 32.93,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.8218,
+      "T2": 0.6206,
+      "T2_labels": 10,
+      "T4": 0.5515,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 64.36,
+       "T2": 24.11,
+       "T4": 10.3,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9122,
+       "1-10": 0.8099,
+       "11-100": 0.8441,
+       "101-1000": 0.8479,
+       ">1000": 0.8382
+      },
+      "S": 0.0875,
+      "S_ci": [
+       0.0817,
+       0.0931
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.8974
+     },
+     "all": {
+      "index": 38.71,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.8382,
+      "T2": 0.698,
+      "T2_labels": 11,
+      "T4": 0.5445,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 67.63,
+       "T2": 39.6,
+       "T4": 8.91,
+       "T3": null
+      },
+      "S": 0.0875,
+      "S_ci": [
+       0.0817,
+       0.0931
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.8974
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 41.01,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9199,
+      "T2": 0.6437,
+      "T2_labels": 10,
+      "T4": 0.5515,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 83.98,
+       "T2": 28.75,
+       "T4": 10.3,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.97,
+       "1-10": 0.9133,
+       "11-100": 0.9142,
+       "101-1000": 0.9008,
+       ">1000": 0.873
+      },
+      "S": 0.0379,
+      "S_ci": [
+       0.0351,
+       0.0408
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.9512
+     },
+     "all": {
+      "index": 44.31,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9122,
+      "T2": 0.7079,
+      "T2_labels": 11,
+      "T4": 0.5445,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 82.44,
+       "T2": 41.58,
+       "T4": 8.91,
+       "T3": null
+      },
+      "S": 0.0379,
+      "S_ci": [
+       0.0351,
+       0.0408
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.9512
+     }
+    }
+   }
+  },
+  {
+   "track": "F",
+   "tag": "t23l__mpnet",
+   "name": "all-mpnet-base-v2",
+   "short": "all-mpnet-base-v2",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "text embedder",
+   "cls": "clean",
+   "text": "leakfree",
+   "train_text": null,
+   "encoder": "all-mpnet-base-v2",
+   "text_label": "Scored on corpus L (GenePT's 2023 text, generated summaries removed)",
+   "gen_share": 0.0,
+   "n_genes": 19256,
+   "meta": {
+    "training": "MPNet fine-tuned on one billion sentence pairs",
+    "date": "2021 (base model 2020)",
+    "signal": "general text",
+    "source": "https://huggingface.co/sentence-transformers/all-mpnet-base-v2",
+    "cite": "Song et al., 2020; Reimers and Gurevych, 2019"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 33.34,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.8196,
+      "T2": 0.6258,
+      "T2_labels": 10,
+      "T4": 0.5548,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 63.91,
+       "T2": 25.16,
+       "T4": 10.95,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9112,
+       "1-10": 0.8075,
+       "11-100": 0.8405,
+       "101-1000": 0.8469,
+       ">1000": 0.828
+      },
+      "S": 0.0884,
+      "S_ci": [
+       0.0822,
+       0.0944
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.8959
+     },
+     "all": {
+      "index": 39.06,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.8353,
+      "T2": 0.6998,
+      "T2_labels": 11,
+      "T4": 0.5508,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 67.06,
+       "T2": 39.95,
+       "T4": 10.15,
+       "T3": null
+      },
+      "S": 0.0884,
+      "S_ci": [
+       0.0822,
+       0.0944
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.8959
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 41.02,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9207,
+      "T2": 0.6398,
+      "T2_labels": 10,
+      "T4": 0.5548,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 84.14,
+       "T2": 27.96,
+       "T4": 10.95,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9664,
+       "1-10": 0.9146,
+       "11-100": 0.9181,
+       "101-1000": 0.906,
+       ">1000": 0.8785
+      },
+      "S": 0.0382,
+      "S_ci": [
+       0.0354,
+       0.0411
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.9529
+     },
+     "all": {
+      "index": 44.95,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9155,
+      "T2": 0.708,
+      "T2_labels": 11,
+      "T4": 0.5508,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 83.1,
+       "T2": 41.6,
+       "T4": 10.15,
+       "T3": null
+      },
+      "S": 0.0382,
+      "S_ci": [
+       0.0354,
+       0.0411
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.9529
+     }
+    }
+   }
+  },
+  {
+   "track": "F",
+   "tag": "t23l__bge",
+   "name": "bge-large-en-v1.5",
+   "short": "bge-large-en-v1.5",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "text embedder",
+   "cls": "clean",
+   "text": "leakfree",
+   "train_text": null,
+   "encoder": "bge-large-en-v1.5",
+   "text_label": "Scored on corpus L (GenePT's 2023 text, generated summaries removed)",
+   "gen_share": 0.0,
+   "n_genes": 19256,
+   "meta": {
+    "training": "BERT-large trained on web text pairs",
+    "date": "Sep 2023",
+    "signal": "general text",
+    "source": "https://huggingface.co/BAAI/bge-large-en-v1.5",
+    "cite": "Xiao et al., 2023"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 32.31,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.8208,
+      "T2": 0.6113,
+      "T2_labels": 10,
+      "T4": 0.5525,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 64.17,
+       "T2": 22.26,
+       "T4": 10.49,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9202,
+       "1-10": 0.8077,
+       "11-100": 0.8455,
+       "101-1000": 0.8506,
+       ">1000": 0.8344
+      },
+      "S": 0.0921,
+      "S_ci": [
+       0.0859,
+       0.0983
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.8999
+     },
+     "all": {
+      "index": 39.11,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.839,
+      "T2": 0.697,
+      "T2_labels": 11,
+      "T4": 0.5506,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 67.8,
+       "T2": 39.4,
+       "T4": 10.12,
+       "T3": null
+      },
+      "S": 0.0921,
+      "S_ci": [
+       0.0859,
+       0.0983
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.8999
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 41.0,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9196,
+      "T2": 0.6429,
+      "T2_labels": 10,
+      "T4": 0.5525,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 83.93,
+       "T2": 28.58,
+       "T4": 10.49,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9677,
+       "1-10": 0.9133,
+       "11-100": 0.9177,
+       "101-1000": 0.9059,
+       ">1000": 0.8812
+      },
+      "S": 0.0402,
+      "S_ci": [
+       0.0373,
+       0.0431
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.9535
+     },
+     "all": {
+      "index": 45.51,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.915,
+      "T2": 0.717,
+      "T2_labels": 11,
+      "T4": 0.5506,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 83.0,
+       "T2": 43.41,
+       "T4": 10.12,
+       "T3": null
+      },
+      "S": 0.0402,
+      "S_ci": [
+       0.0373,
+       0.0431
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.9535
+     }
+    }
+   }
+  },
+  {
+   "track": "F",
+   "tag": "t23l__pubmedbert",
+   "name": "pubmedbert-base-embeddings",
+   "short": "pubmedbert-base-embeddings",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "text embedder",
+   "cls": "clean",
+   "text": "leakfree",
+   "train_text": null,
+   "encoder": "pubmedbert-base-embeddings",
+   "text_label": "Scored on corpus L (GenePT's 2023 text, generated summaries removed)",
+   "gen_share": 0.0,
+   "n_genes": 19256,
+   "meta": {
+    "training": "PubMedBERT (PubMed abstracts and full text) fine-tuned for sentence embeddings",
+    "date": "2023 (base model 2020)",
+    "signal": "biomedical literature",
+    "source": "https://huggingface.co/NeuML/pubmedbert-base-embeddings",
+    "cite": "Gu et al., 2021"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 34.64,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.822,
+      "T2": 0.6409,
+      "T2_labels": 10,
+      "T4": 0.5567,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 64.39,
+       "T2": 28.18,
+       "T4": 11.33,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9118,
+       "1-10": 0.8101,
+       "11-100": 0.8522,
+       "101-1000": 0.8656,
+       ">1000": 0.8573
+      },
+      "S": 0.0896,
+      "S_ci": [
+       0.0831,
+       0.0961
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.8998
+     },
+     "all": {
+      "index": 41.37,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.8461,
+      "T2": 0.7235,
+      "T2_labels": 11,
+      "T4": 0.551,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 69.23,
+       "T2": 44.69,
+       "T4": 10.2,
+       "T3": null
+      },
+      "S": 0.0896,
+      "S_ci": [
+       0.0831,
+       0.0961
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.8998
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 41.95,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9235,
+      "T2": 0.649,
+      "T2_labels": 10,
+      "T4": 0.5567,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 84.71,
+       "T2": 29.8,
+       "T4": 11.33,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9707,
+       "1-10": 0.9173,
+       "11-100": 0.9237,
+       "101-1000": 0.9153,
+       ">1000": 0.8941
+      },
+      "S": 0.0404,
+      "S_ci": [
+       0.0376,
+       0.0433
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.9578
+     },
+     "all": {
+      "index": 46.19,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9213,
+      "T2": 0.7207,
+      "T2_labels": 11,
+      "T4": 0.551,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 84.25,
+       "T2": 44.13,
+       "T4": 10.2,
+       "T3": null
+      },
+      "S": 0.0404,
+      "S_ci": [
+       0.0376,
+       0.0433
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.9578
+     }
+    }
+   }
+  },
+  {
+   "track": "F",
+   "tag": "t23l__tfidf",
+   "name": "TF-IDF (1,024-d SVD)",
+   "short": "TF-IDF (1,024-d SVD)",
+   "version": "v1",
+   "in_v0": true,
+   "modality": "text embedder",
+   "cls": "clean",
+   "text": "leakfree",
+   "train_text": null,
+   "encoder": "TF-IDF (1,024-d SVD)",
+   "text_label": "Scored on corpus L (GenePT's 2023 text, generated summaries removed)",
+   "gen_share": 0.0,
+   "n_genes": 19256,
+   "meta": {
+    "training": "fitted on the two corpora themselves (1,024-d SVD)",
+    "date": "—",
+    "signal": "none",
+    "source": "https://github.com/hwang595/gene-embedding-exposure",
+    "cite": "this work"
+   },
+   "probes": {
+    "linear": {
+     "0-10": {
+      "index": 32.47,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.83,
+      "T2": 0.6125,
+      "T2_labels": 10,
+      "T4": 0.5445,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 66.01,
+       "T2": 22.5,
+       "T4": 8.9,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9027,
+       "1-10": 0.8204,
+       "11-100": 0.8162,
+       "101-1000": 0.8107,
+       ">1000": 0.7946
+      },
+      "S": 0.0429,
+      "S_ci": [
+       0.0382,
+       0.0483
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.8634
+     },
+     "all": {
+      "index": 34.99,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.8186,
+      "T2": 0.674,
+      "T2_labels": 11,
+      "T4": 0.5323,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 63.72,
+       "T2": 34.81,
+       "T4": 6.45,
+       "T3": null
+      },
+      "S": 0.0429,
+      "S_ci": [
+       0.0382,
+       0.0483
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.8634
+     }
+    },
+    "mlp": {
+     "0-10": {
+      "index": 39.33,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9202,
+      "T2": 0.6252,
+      "T2_labels": 10,
+      "T4": 0.5445,
+      "T1_n": 4878,
+      "T4_n": 6077,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 84.04,
+       "T2": 25.04,
+       "T4": 8.9,
+       "T3": null
+      },
+      "T1_bins": {
+       "zero": 0.9594,
+       "1-10": 0.9151,
+       "11-100": 0.9017,
+       "101-1000": 0.8782,
+       ">1000": 0.8456
+      },
+      "S": 0.021,
+      "S_ci": [
+       0.0188,
+       0.0233
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.936
+     },
+     "all": {
+      "index": 39.44,
+      "ci": null,
+      "rank": null,
+      "rank_ci": null,
+      "index4": null,
+      "T1": 0.9011,
+      "T2": 0.6583,
+      "T2_labels": 11,
+      "T4": 0.5323,
+      "T1_n": null,
+      "T4_n": null,
+      "T3": null,
+      "T3_n": null,
+      "T3_novel": null,
+      "skills": {
+       "T1": 80.22,
+       "T2": 31.66,
+       "T4": 6.45,
+       "T3": null
+      },
+      "S": 0.021,
+      "S_ci": [
+       0.0188,
+       0.0233
+      ],
+      "S_n": 4310,
+      "T1_asfound_1-10": 0.936
+     }
+    }
+   }
+  }
+ ],
+ "sources": {
+  "round4/results/r11/bench_v1.json": "909d84c92617e431cd201cec037d0c4735e8167e383602a00b9f50f6eb0c15eb",
+  "round4/results/r14/rows_v11.json": "c2ffb367be03d8ece88ff4626b19310a4e2d163ad84a787a0e24351409574cbc",
+  "round4/results/r14/bench_r14.json": "7fa5c54007ab6aed811a64c7ca091d5b0ddd24b3ab7e5a5a64a11535af5dc3a9",
+  "round4/results/r14/t4_recall.json": "6efd43f51b7ea56b116048876c613a3cf47349bae528cb1b0256496861216751",
+  "round4/results/r14/coverage.json": "fcc82c2131e1d8224b4a81b3eda5835b5dd6d68ab031037e4ccbcde068efd280",
+  "round4/release/provenance_human_protein_coding.tsv": "f38c62cf601948176c88f5382ee1043d0e2d00f73c3d48a4f8b2ae007faeb6a6"
+ }
+}
