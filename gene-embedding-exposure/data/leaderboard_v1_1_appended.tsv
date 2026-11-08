@@ -1,0 +1,13 @@
+track	version	probe	representation	tag	modality	text_in_training	n_genes	index_0-10	index_0-10_lo	index_0-10_hi	index_all	T1_GO_leakfree_0-10	T1_all	T2_assay_family_grouped_0-10	T2_all	T3_time_travel_0-5	T3_all	T3_novel_0-5	T3_novel_all	T4_coessential_0-10	T4_all
+O	v1.1	linear	Rich leak-free text without UniProt function text, Qwen3-Emb-8B	text_refseq_nouni	text		19256	37.8528	37.0102	38.6443	42.5636	0.8595	0.8618	0.6400	0.7094					0.5683	0.5673
+O	v1.1	mlp	Rich leak-free text without UniProt function text, Qwen3-Emb-8B	text_refseq_nouni	text		19256	46.9234			50.3070	0.9334	0.9220	0.7022	0.7653					0.5683	0.5673
+O	v1.1	linear	GB.Protein-16B + rich leak-free text without UniProt function text	fusion_p16b_refseq_nouni	mixture		19133	42.8847	42.1198	43.6451	46.0788	0.8741	0.8669	0.6502	0.7112					0.6190	0.6131
+O	v1.1	mlp	GB.Protein-16B + rich leak-free text without UniProt function text	fusion_p16b_refseq_nouni	mixture		19133	54.8870			56.3606	0.9462	0.9313	0.7581	0.8011					0.6190	0.6131
+O	v1.1	linear	ESM2-650M + rich leak-free text (concatenation)	fusion_esm2_refseq	mixture		19133	45.4901	44.7967	46.2060	49.2783	0.9211	0.9091	0.6611	0.7230					0.6002	0.6071
+O	v1.1	mlp	ESM2-650M + rich leak-free text (concatenation)	fusion_esm2_refseq	mixture		19133	55.3793			57.6425	0.9684	0.9506	0.7621	0.8070					0.6002	0.6071
+O	v1.1	linear	ESM2-650M + rich leak-free text without UniProt function text	fusion_esm2_refseq_nouni	mixture		19133	41.2204	40.4534	41.9452	44.7312	0.8734	0.8676	0.6526	0.7135					0.5923	0.5899
+O	v1.1	mlp	ESM2-650M + rich leak-free text without UniProt function text	fusion_esm2_refseq_nouni	mixture		19133	51.7231			54.0307	0.9425	0.9280	0.7410	0.7926					0.5923	0.5899
+O	v1.1	linear	GO annotation vector at the cutoff (2023, non-IEA)	go23vec	annotation vector		19256									0.4928	0.6027	0.3504	0.3991		
+O	v1.1	mlp	GO annotation vector at the cutoff (2023, non-IEA)	go23vec	annotation vector		19256									0.8892	0.9105	0.8600	0.8601		
+O	v1.1	linear	GB.Protein-16B + GO annotation vector at the cutoff	fusion_p16b_go23	mixture		19133									0.5400	0.6330	0.4142	0.4453		
+O	v1.1	mlp	GB.Protein-16B + GO annotation vector at the cutoff	fusion_p16b_go23	mixture		19133									0.8978	0.9180	0.8675	0.8685		

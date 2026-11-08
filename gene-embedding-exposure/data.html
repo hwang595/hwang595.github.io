@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GeneProv Data and Downloads</title>
+<meta name="description" content="Download the GeneProv benchmark package: gene universe, task labels, folds, corpus builder, index script, leaderboard tables, provenance tables and the template detector.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+<script>try{var t=localStorage.getItem("geneprov-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script src="assets/site.js"></script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="./" aria-label="GeneProv home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><rect x="7" y="8" width="18" height="4" rx="2" fill="#2a78d6"/><rect x="7" y="14" width="13" height="4" rx="2" fill="#1baf7a"/><rect x="7" y="20" width="8" height="4" rx="2" fill="#eb6834"/></svg>GeneProv <span class="ver">v1.1</span></a>
+  <nav class="main" aria-label="Site">
+    <a href="./">Overview</a><a href="leaderboard.html">Leaderboard</a><a href="benchmark.html">Benchmark</a><a href="submit.html">Submit</a><a href="data.html">Data</a><a href="changelog.html">Changelog</a><a href="index.html#paper">Paper</a>
+  </nav>
+  <button class="theme-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+</div></header>
+<main class="wrap">
+  <section class="hero" style="padding-bottom:4px">
+    <div class="eyebrow">GeneProv v1.1 &middot; data</div>
+    <h1>Data and downloads</h1>
+    <p class="lead">Download the scores shown on the leaderboard, including the original v1 rows and the controls added in v1.1. The catalog below lists the task inputs and analysis files behind those scores.</p>
+  </section>
+  <section id="downloads" aria-labelledby="download-title">
+    <h2 id="download-title">Leaderboard downloads</h2>
+    <div class="actions"><a class="btn primary" href="data/leaderboard_v1.tsv" download>Original v1 scores (TSV)</a><a class="btn" href="data/leaderboard_v1_1_appended.tsv" download>Added v1.1 scores (TSV)</a><a class="btn" href="data/leaderboard.json" download>Full leaderboard (JSON)</a></div>
+  </section>
+  <h2>Benchmark file catalog</h2>
+  <p>The research repository is private. The gene-level task inputs, scripts and provenance tables listed below are not hosted on this site. A Zenodo deposit is in preparation; it has no public DOI yet. For questions about access, <a href="mailto:hw689@cs.rutgers.edu">contact the corresponding author</a>.</p>
+  <div id="files"></div>
+
+  <h2>Provenance tables</h2>
+  <p><code>provenance_human_protein_coding.tsv</code> has one row per gene: <code>symbol</code>, <code>entrez_id</code>, <code>exposure</code> (PubMed articles linked in gene2pubmed, counting articles with at most 20 genes), <code>exposure_bin</code>, <code>genept_key</code>, <code>genept_2023_source</code> and <code>genept_2023_tag_date</code> (the tag in GenePT's October-2023 text), <code>genept_2024_template_flag</code> (detector on GenePT's untagged 2024 text) and <code>ncbi_2026_source</code> (tag of the NCBI Gene summary on 6 October 2026). Source values: <code>alliance</code> (generated from GO), <code>refseq</code> (curated), <code>other</code>, <code>none</code>, <code>absent</code>. <code>provenance_genept_keys.tsv</code> carries the same flags for all 33,703 GenePT keys.</p>
+  <h3>Template detector</h3>
+  <p>Python standard library only. It reads the <i>[provided by ...]</i> tag when present and otherwise flags a summary whose first sentence starts with an Alliance template phrase; on GenePT's 2024 text against the 2023 tags: precision 1.000 and recall 0.999 for the revised detector. The original template list had recall 0.997.</p>
+<pre>from gene_text_audit import is_generated, strip_generated
+summary_filtered = {gene: strip_generated(text) for gene, text in summaries.items()}</pre>
+
+  <h2>Licences</h2>
+  <p>Derived labels and tables: GO annotations (GO Consortium, CC BY 4.0); DepMap 24Q4 (CC BY 4.0); gnomAD v4.1 (CC0); ClinGen (CC0); Human Protein Atlas (CC BY-SA 3.0); GTEx (open access). Only derived binary labels and term matrices are redistributed, with attribution. The prepared deposit declares CC BY 4.0; upstream source terms still apply, including the HPA attribution and share-alike terms. A repository-wide code licence is not supplied in this checkout. GenePT text (Zenodo 10833191) and NCBI Gene summaries are not redistributed; the corpus builder applies the provenance flags to your own copy.</p>
+  <h3>Metadata correction of 25 October 2026</h3>
+  <p>The <code>exposure</code> column of both released gene tables now contains the filtered publication count that defines <code>exposure_bin</code>; the original export had written the unfiltered count into it (19,141 values changed; bins, folds, labels and every stored score were unchanged). Before-and-after checksums and a regression check are in <code>review_2026-10-25/</code> of the repository.</p>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <div>GeneProv is the benchmark resource of <a href="index.html#paper">Wu, Wang, Chen and Wang (2026)</a>. Derived labels retain the source-specific terms listed on the <a href="data.html">data page</a>; no NCBI, UniProt or GenePT text is redistributed.</div>
+  <div><a href="data.html#downloads">Download leaderboard tables</a> &middot; <a href="changelog.html">Version history</a></div>
+</div></footer>
+<script src="data/releases.js"></script>
+<script>
+(function () {
+  const S = window.GeneProvSite, el = S.el;
+  const GROUPS = [["provenance", "Provenance tables and detector"], ["benchmark_v1", "GeneProv v1 package (release/benchmark_v1)"], ["benchmark_v0", "GeneProv v0 (release/benchmark_v0)"], ["records", "Frozen records"], ["zenodo", "Zenodo deposit (prepared)"]];
+  try {
+    const J = window.GENEPROV_RELEASES;
+    const host = document.getElementById("files");
+    GROUPS.forEach(([g, title]) => { const fs = J.files.filter(f => f.group === g); if (!fs.length) return;
+      host.append(el("h2", { text: title }), el("div", { class: "tbl-wrap" }, [el("table", { class: "data" }, [el("thead", {}, [el("tr", {}, [el("th", { class: "l", text: "File" }), el("th", { class: "l", text: "Contents" }), el("th", { text: "Size" })])]),
+        el("tbody", {}, fs.map(f => el("tr", {}, [el("td", { class: "l name", text: f.name }), el("td", { class: "l", style: "white-space:normal; max-width:560px", text: f.desc }), el("td", { class: "num dim", text: S.bytes(f.size) })])))])])); });
+    host.appendChild(el("p", { class: "footnote" }, ["Sizes and SHA-256 checksums as of " + J.generated + ": ", el("a", { href: "data/releases.json", text: "file manifest (JSON)" }), "."]));
+  } catch (e) { document.getElementById("files").appendChild(el("p", { class: "muted" }, ["The catalog could not be displayed. ", el("a", { href: "data/releases.json", text: "Download the file manifest." })])); }
+})();
+</script>
+</body>
+</html>

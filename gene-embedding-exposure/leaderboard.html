@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GeneProv Leaderboard</title>
+<meta name="description" content="Interactive GeneProv leaderboard: GeneProv Index with bootstrap intervals, task profiles, Track O and Track F, linear and MLP probes, literature-exposure strata.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+<script>try{var t=localStorage.getItem("geneprov-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script src="assets/site.js"></script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="./" aria-label="GeneProv home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><rect x="7" y="8" width="18" height="4" rx="2" fill="#2a78d6"/><rect x="7" y="14" width="13" height="4" rx="2" fill="#1baf7a"/><rect x="7" y="20" width="8" height="4" rx="2" fill="#eb6834"/></svg>GeneProv <span class="ver">v1.1</span></a>
+  <nav class="main" aria-label="Site">
+    <a href="./">Overview</a><a href="leaderboard.html">Leaderboard</a><a href="benchmark.html">Benchmark</a><a href="submit.html">Submit</a><a href="data.html">Data</a><a href="changelog.html">Changelog</a><a href="index.html#paper">Paper</a>
+  </nav>
+  <button class="theme-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+</div></header>
+<main class="wrap">
+  <section class="hero" style="padding-bottom:4px">
+    <div class="eyebrow">GeneProv v1.1 &middot; leaderboard</div>
+    <h1>Leaderboard</h1>
+    <p class="lead">One score per representation: the GeneProv Index, the mean over three tasks of the chance-corrected skill 100 &times; (2 AUROC &minus; 1), with its 95% paired bootstrap interval and rank interval. Frozen v1 rank intervals refer only to the original 20 Track O rows. Track F has no index or rank intervals; appended rows have gene-bootstrap index intervals but no joint rank intervals. Switch the stratum, probe, track and rows; click a bar or row for the full declaration and task profile. Frozen v1 rows never change; appended rows carry their version.</p>
+  </section>
+  <div class="callout warn"><p style="margin:0"><b>Review status.</b> The scores below are frozen historical results. A later code review found missing tie correction in the GO AUROC helper; its numerical impact on these scores remains unquantified because the original prediction arrays are unavailable here. The revised helper is tested, but these results have not been rerun with it. The T3 exposure metadata has also been corrected. See the <a href="changelog.html#review-corrections">correction record</a>.</p></div>
+
+  <div id="lb"></div>
+
+  <section>
+    <h2>How to read it</h2>
+    <div class="grid c2">
+      <div class="card"><h3 style="margin-top:0">Tasks</h3>
+        <p><b>T1, GO recovery.</b> 4,949 GO terms (no IEA or ND evidence, propagated, 20&ndash;1,000 genes each); multi-label probe, five shared folds, per-gene AUROC of the gene's terms against the terms it lacks. Track F scores it on summary-filtered text; Track O scores each declared input as it is.</p>
+        <p><b>T2, non-GO labels.</b> Eleven binary endpoints spanning assays, population variation and clinical curation: DepMap common essentiality, gnomAD constraint, ClinGen haploinsufficiency, six HPA subcellular locations, GTEx tissue specificity and HPA tissue enrichment; one probe per label with folds grouped by HGNC gene family; mean AUROC over the labels with at least five genes of each class in the stratum (ClinGen drops out of the 0&ndash;10 stratum).</p>
+        <p><b>T3, annotation holdout.</b> Experimental GO annotations added after 1 January 2023 to genes that had none then (347 genes; 137 with 0&ndash;5 publications at the cutoff). Representations are admitted under a declared annotation-access rule, not a verified historical training cutoff. Sequence and expression models qualify by an input-type assumption regardless of release date; GenePT uses summary tag dates as a proxy, and scELMo uses a reported training-date assumption. Reported beside the index, not in it.</p>
+        <p><b>T4, co-essentiality.</b> Each gene's ten most correlated genes by DepMap CRISPR effect, retrieved by cosine similarity of the standardised embedding; AUROC of the ten partners against all other genes; no probe.</p></div>
+      <div class="card"><h3 style="margin-top:0">Index, intervals, probes</h3>
+        <p><b>Index.</b> Mean over T1, T2 and T4 of 100 &times; (2 AUROC &minus; 1): chance is 0, perfect discrimination 100, below-chance negative. The transform does not depend on which other rows exist, so a row's score never changes when rows are added. Index-4 adds T3 for eligible rows.</p>
+        <p><b>Intervals.</b> Paired bootstrap over the genes of the stratum (1,000 resamples, seed 0), recomputing the three task means per resample; rank intervals come from the same resamples over the original 20 Track O v1 rows. Appended v1.1 rows have no comparable rank intervals. The separate family sensitivity table uses round-14 regenerated point estimates and HGNC-family bootstrap intervals, which are several-fold wider. Those intervals are not attached to the frozen v1 points: ESM2 was re-embedded, and its scores changed.</p>
+        <p><b>Probes.</b> Linear is a 300-epoch logistic probe; MLP has one hidden layer of 512 units. The headline ranking is robust to the probe (Spearman <span id="rob-mlp"></span> between the two indices) and to replacing the mean skill by the mean rank (<span id="rob-rank"></span>), but not to dropping T1 (<span id="rob-t2t4"></span> with a T2+T4-only index), under which single-cell models lead.</p>
+        <p><b>Coverage.</b> The Embedded genes column counts available embeddings across the whole universe; missing genes receive the mean embedding during evaluation. The row detail lists missingness by exposure bin and task-specific evaluated counts where recorded. Universe size, embedding coverage and the number of scored genes are different denominators.</p></div>
+    </div>
+    <p class="footnote" id="gates"></p>
+  </section>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <div>GeneProv is the benchmark resource of <a href="index.html#paper">Wu, Wang, Chen and Wang (2026)</a>. Derived labels retain the source-specific terms listed on the <a href="data.html">data page</a>; no NCBI, UniProt or GenePT text is redistributed.</div>
+  <div><a href="data.html#downloads">Download leaderboard tables</a> &middot; <a href="changelog.html">Version history</a></div>
+</div></footer>
+<script src="data/leaderboard.js"></script>
+<script src="assets/leaderboard.js"></script>
+<script>
+(function () {
+  const D = window.GENEPROV, S = window.GeneProvSite;
+  const cohort = new URLSearchParams(location.search).get("cohort");
+  const options = cohort === "all" || cohort === "0-10" ? {state: {stratum: cohort}} : {};
+  window.GeneProvLeaderboard.mount(document.getElementById("lb"), options);
+  document.getElementById("rob-mlp").textContent = "ρ = " + D.robustness.mlp.toFixed(2); document.getElementById("rob-rank").textContent = "ρ = " + D.robustness.mean_rank.toFixed(2); document.getElementById("rob-t2t4").textContent = "ρ = " + D.robustness.T2_T4_only.toFixed(2);
+  document.getElementById("gates").textContent = "Pre-registered gates of the v1 round (committed before the new cells were computed): " + Object.entries(D.gates).map(([k, v]) => k + " " + v).join(", ") + ". Round-14 regenerated sensitivity, Spearman against its own index: " + Object.entries(D.weights_spearman).map(([k, v]) => "weight " + k + " " + v.toFixed(2)).join(", ") + ". The frozen record is results/r11/bench_v1.json in the repository; round-14 records supply the separate sensitivity results. The generator round4/scripts/r16_site_data.py records their SHA-256 hashes in the downloaded JSON.";
+})();
+</script>
+</body>
+</html>

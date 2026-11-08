@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeneProv · Gene embedding benchmark</title>
+  <meta name="description" content="Explore how gene embeddings perform across four biological tasks, with their input provenance and literature exposure documented.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/overview.css">
+  <script src="assets/site.js"></script>
+  <script defer src="data/leaderboard.js"></script>
+  <script defer src="assets/leaderboard.js"></script>
+  <script defer src="assets/overview.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="./" aria-label="GeneProv home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><rect x="7" y="8" width="18" height="4" rx="2" fill="#2a78d6"/><rect x="7" y="14" width="13" height="4" rx="2" fill="#1baf7a"/><rect x="7" y="20" width="8" height="4" rx="2" fill="#eb6834"/></svg>GeneProv <span class="ver">v1.1</span></a>
+  <nav class="main" aria-label="Site">
+    <a href="./">Overview</a><a href="leaderboard.html">Leaderboard</a><a href="benchmark.html">Benchmark</a><a href="submit.html">Submit</a><a href="data.html">Data</a><a href="changelog.html">Changelog</a><a href="index.html#paper">Paper</a>
+  </nav>
+  <button class="theme-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+</div></header>
+<main id="main-content" class="wrap overview">
+  <section class="intro-grid" aria-labelledby="intro-title">
+    <div class="intro-text">
+      <h1 id="intro-title">Benchmarking gene embeddings</h1>
+      <p>How much can a gene embedding predict when its input already contains clues to the answer? GeneProv compares text, sequence and expression models across four tasks, tracking the source of each input.</p>
+      <div class="intro-actions"><a class="gp-primary" href="leaderboard.html">Explore the leaderboard <span aria-hidden="true">→</span></a><a class="gp-link" href="assets/geneprov-preprint.pdf">Read the preprint <span aria-hidden="true">↗</span></a></div>
+    </div>
+    <figure class="provenance-figure" aria-labelledby="plot-title">
+      <figcaption><div class="plot-heading"><h2 id="plot-title">GO-generated gene summaries</h2>
+        <p>Human genes with an NCBI summary generated from Gene Ontology annotations, by linked publication count.</p></div>
+        <div class="plot-switch" role="group" aria-label="Chart units"><button type="button" data-mode="share" aria-pressed="true">Share</button><button type="button" data-mode="count" aria-pressed="false">Count</button></div>
+      </figcaption>
+      <div id="provenance-bars" aria-live="polite"></div>
+      <noscript><p>Alliance-generated summaries cover 6,172 of 19,256 genes. <a href="benchmark.html">Read the benchmark design.</a></p></noscript>
+      <div class="plot-source"><span>NCBI Gene</span><span>6 October 2026</span></div>
+    </figure>
+  </section>
+
+  <dl class="scope-strip" aria-label="Benchmark coverage">
+    <div><dt>Human protein-coding genes</dt><dd id="gene-count">19,256</dd></div>
+    <div><dt>Open-track representations in v1</dt><dd id="open-count">20</dd></div>
+    <div><dt>Fixed-text encoders in v1</dt><dd id="fixed-count">6</dd></div>
+    <div><dt>Evaluation tasks</dt><dd>4</dd></div>
+  </dl>
+
+  <section class="overview-section" aria-labelledby="ranking-title">
+    <div class="section-heading"><div><h2 id="ranking-title">Open-track leaderboard</h2><p>Top five of the original 20 representations, ranked by the GeneProv Index with a linear probe.</p></div>
+    <div class="cohort-control"><label for="rank-cohort">Evaluation genes</label><select id="rank-cohort"><option value="0-10">0–10 linked publications</option><option value="all">All genes</option></select></div></div>
+    <div class="ranking-scroll"><table class="overview-ranks">
+    <caption class="sr-only" id="ranking-caption">Open-track ranking for genes with 0–10 linked publications</caption>
+    <thead><tr><th scope="col">Rank</th><th scope="col">Representation</th><th scope="col">Input or training modality</th><th scope="col">Index</th><th scope="col">95% interval</th></tr></thead><tbody id="rank-rows"></tbody>
+    </table></div>
+    <p class="rank-summary" id="rank-summary" aria-live="polite"></p>
+    <div class="ranking-foot"><p>The original GO scorer mishandled tied predictions. GO scores and indices shown here await rescoring. <a href="changelog.html#review-corrections">Correction record</a></p>
+    <a class="gp-link" id="ranking-link" href="leaderboard.html">Full leaderboard <span aria-hidden="true">→</span></a></div>
+  </section>
+
+  <section class="overview-section tracks-section" aria-labelledby="tracks-title">
+    <div class="section-heading"><div><h2 id="tracks-title">Two ways to evaluate a model</h2><p>Choose a track based on whether you can change the model’s input text.</p></div><a class="gp-link" href="benchmark.html">Benchmark design <span aria-hidden="true">→</span></a></div>
+    <div class="track-pair">
+      <article><div class="track-label">Track O</div><h3>Bring a representation</h3><p>Compare an existing embedding with other models. Report gene coverage, the origin of any text it embeds, and whether text entered its training.</p><a class="gp-link" href="submit.html#open-track">Open-track instructions <span aria-hidden="true">→</span></a></article>
+      <article><div class="track-label">Track F</div><h3>Fix the text, compare encoders</h3><p>Encode the same GenePT corpus twice. Removing Alliance-generated summaries in one version measures how much each encoder’s GO score depends on those summaries.</p><a class="gp-link" href="submit.html#fixed-track">Fixed-text instructions <span aria-hidden="true">→</span></a></article>
+    </div>
+    <p class="task-note">The index averages GO recovery, non-GO endpoints and co-essentiality retrieval. A fourth task evaluates later experimental annotations for models that meet the historical input rules. <a href="benchmark.html#tasks">Task definitions</a></p>
+  </section>
+
+  <section id="paper" class="paper-section" aria-labelledby="paper-title">
+    <div class="paper-label">Research paper <span>Preprint · 2026</span></div>
+    <div><h2 id="paper-title">When gene summaries reveal the answers: Gene Ontology circularity in gene embedding benchmarks</h2>
+    <p>Jiawei Wu, Huishu Wang, Junlin Chen and Hongyi Wang</p>
+    <div class="paper-actions"><a class="gp-primary" href="assets/geneprov-preprint.pdf">Read the paper <span aria-hidden="true">↗</span></a><a class="gp-link" href="data.html">Benchmark data <span aria-hidden="true">→</span></a></div>
+    <details class="citation"><summary>Cite this paper</summary>
+<pre id="bibtex">@misc{wu2026genesummaries,
+  title  = {When gene summaries reveal the answers: Gene Ontology circularity in gene embedding benchmarks},
+  author = {Wu, Jiawei and Wang, Huishu and Chen, Junlin and Wang, Hongyi},
+  year   = {2026},
+  note   = {Preprint},
+  url    = {https://hwang595.github.io/gene-embedding-exposure/}
+}</pre><button class="btn" type="button" data-copy="bibtex">Copy BibTeX</button></details></div>
+  </section>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <div>GeneProv is the benchmark resource of <a href="index.html#paper">Wu, Wang, Chen and Wang (2026)</a>. Derived labels retain the source-specific terms listed on the <a href="data.html">data page</a>; no NCBI, UniProt or GenePT text is redistributed.</div>
+  <div><a href="data.html#downloads">Download leaderboard tables</a> &middot; <a href="changelog.html">Version history</a></div>
+</div></footer>
+</body>
+</html>
