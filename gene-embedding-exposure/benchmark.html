@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GeneProv Benchmark Design</title>
 <meta name="description" content="Design of the GeneProv benchmark: gene universe, literature-exposure strata, the four tasks, the GeneProv Index, Track O and Track F, eligibility and rules.">
+<link rel="canonical" href="https://hwang595.github.io/gene-embedding-exposure/benchmark.html">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/site.css">
 <script>try{var t=localStorage.getItem("geneprov-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
@@ -12,7 +13,7 @@
 </head>
 <body>
 <header class="site-header"><div class="wrap">
-  <a class="brand" href="./" aria-label="GeneProv home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><rect x="7" y="8" width="18" height="4" rx="2" fill="#2a78d6"/><rect x="7" y="14" width="13" height="4" rx="2" fill="#1baf7a"/><rect x="7" y="20" width="8" height="4" rx="2" fill="#eb6834"/></svg>GeneProv <span class="ver">v1.1</span></a>
+  <a class="brand" href="./" aria-label="GeneProv home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><rect x="7" y="8" width="18" height="4" rx="2" fill="#2a78d6"/><rect x="7" y="14" width="13" height="4" rx="2" fill="#1baf7a"/><rect x="7" y="20" width="8" height="4" rx="2" fill="#eb6834"/></svg>GeneProv <span class="ver">v2</span></a>
   <nav class="main" aria-label="Site">
     <a href="./">Overview</a><a href="leaderboard.html">Leaderboard</a><a href="benchmark.html">Benchmark</a><a href="submit.html">Submit</a><a href="data.html">Data</a><a href="changelog.html">Changelog</a><a href="index.html#paper">Paper</a>
   </nav>
@@ -22,7 +23,7 @@
   <section class="hero" style="padding-bottom:4px">
     <div class="eyebrow">GeneProv v2 &middot; design</div>
     <h1>Benchmark design</h1>
-    <p class="lead">GeneProv packages a provenance audit and four evaluation tasks as one reusable resource. Its purpose is to make input dependencies and task choices visible, not to certify that any representation is free of annotation information. Everything below is fixed for v1; the task files are byte-identical to v0.</p>
+    <p class="lead">GeneProv packages a provenance audit and four evaluation tasks as one reusable resource. Its purpose is to make input dependencies and task choices visible, not to certify that any representation is free of annotation information. The tasks below have been fixed since v1, and the task files are byte-identical to v0; v2 changed how ties are scored and how gene symbols are mapped (Versions).</p>
   </section>
 
   <h2>Universe and strata</h2>
