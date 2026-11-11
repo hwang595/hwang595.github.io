@@ -20,13 +20,13 @@
 </div></header>
 <main class="wrap">
   <section class="hero" style="padding-bottom:4px">
-    <div class="eyebrow">GeneProv v1.1 &middot; data</div>
+    <div class="eyebrow">GeneProv v2 &middot; data</div>
     <h1>Data and downloads</h1>
-    <p class="lead">Download the scores shown on the leaderboard, including the original v1 rows and the controls added in v1.1. The catalog below lists the task inputs and analysis files behind those scores.</p>
+    <p class="lead">Download the scores shown on the leaderboard: the corrected v2 record with its crosswalk to v1, the original v1 rows and the controls added in v1.1. The catalog below lists the task inputs and analysis files behind those scores.</p>
   </section>
   <section id="downloads" aria-labelledby="download-title">
     <h2 id="download-title">Leaderboard downloads</h2>
-    <div class="actions"><a class="btn primary" href="data/leaderboard_v1.tsv" download>Original v1 scores (TSV)</a><a class="btn" href="data/leaderboard_v1_1_appended.tsv" download>Added v1.1 scores (TSV)</a><a class="btn" href="data/leaderboard.json" download>Full leaderboard (JSON)</a></div>
+    <div class="actions"><a class="btn primary" href="data/leaderboard_v2.tsv" download>v2 scores (TSV)</a><a class="btn" href="data/crosswalk_v1_v2.tsv" download>v1 &rarr; v2 crosswalk (TSV)</a><a class="btn" href="data/leaderboard_v1.tsv" download>Original v1 scores (TSV)</a><a class="btn" href="data/leaderboard_v1_1_appended.tsv" download>Added v1.1 scores (TSV)</a><a class="btn" href="data/leaderboard.json" download>Full leaderboard (JSON)</a></div>
   </section>
   <h2>Benchmark file catalog</h2>
   <p>The research repository is private. The gene-level task inputs, scripts and provenance tables listed below are not hosted on this site. A Zenodo deposit is in preparation; it has no public DOI yet. For questions about access, <a href="mailto:hw689@cs.rutgers.edu">contact the corresponding author</a>.</p>
@@ -52,7 +52,7 @@ summary_filtered = {gene: strip_generated(text) for gene, text in summaries.item
 <script>
 (function () {
   const S = window.GeneProvSite, el = S.el;
-  const GROUPS = [["provenance", "Provenance tables and detector"], ["benchmark_v1", "GeneProv v1 package (release/benchmark_v1)"], ["benchmark_v0", "GeneProv v0 (release/benchmark_v0)"], ["records", "Frozen records"], ["zenodo", "Zenodo deposit (prepared)"]];
+  const GROUPS = [["provenance", "Provenance tables and detector"], ["benchmark_v2", "GeneProv v2 package (release/benchmark_v2)"], ["benchmark_v1", "GeneProv v1 package (release/benchmark_v1)"], ["benchmark_v0", "GeneProv v0 (release/benchmark_v0)"], ["records", "Frozen records"], ["zenodo", "Zenodo deposit (prepared)"]];
   try {
     const J = window.GENEPROV_RELEASES;
     const host = document.getElementById("files");

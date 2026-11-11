@@ -42,20 +42,20 @@
 
   <dl class="scope-strip" aria-label="Benchmark coverage">
     <div><dt>Human protein-coding genes</dt><dd id="gene-count">19,256</dd></div>
-    <div><dt>Open-track representations in v1</dt><dd id="open-count">20</dd></div>
+    <div><dt>Open-track representations in v2</dt><dd id="open-count">20</dd></div>
     <div><dt>Fixed-text encoders in v1</dt><dd id="fixed-count">6</dd></div>
     <div><dt>Evaluation tasks</dt><dd>4</dd></div>
   </dl>
 
   <section class="overview-section" aria-labelledby="ranking-title">
-    <div class="section-heading"><div><h2 id="ranking-title">Open-track leaderboard</h2><p>Top five of the original 20 representations, ranked by the GeneProv Index with a linear probe.</p></div>
+    <div class="section-heading"><div><h2 id="ranking-title">Open-track leaderboard</h2><p>Top five of the 24 v2 representations, ranked by the GeneProv Index with a linear probe.</p></div>
     <div class="cohort-control"><label for="rank-cohort">Evaluation genes</label><select id="rank-cohort"><option value="0-10">0–10 linked publications</option><option value="all">All genes</option></select></div></div>
     <div class="ranking-scroll"><table class="overview-ranks">
     <caption class="sr-only" id="ranking-caption">Open-track ranking for genes with 0–10 linked publications</caption>
     <thead><tr><th scope="col">Rank</th><th scope="col">Representation</th><th scope="col">Input or training modality</th><th scope="col">Index</th><th scope="col">95% interval</th></tr></thead><tbody id="rank-rows"></tbody>
     </table></div>
     <p class="rank-summary" id="rank-summary" aria-live="polite"></p>
-    <div class="ranking-foot"><p>The original GO scorer mishandled tied predictions. GO scores and indices shown here await rescoring. <a href="changelog.html#review-corrections">Correction record</a></p>
+    <div class="ranking-foot"><p>v2 (round 17): T1 rescored with average ranks for ties on regenerated arrays; no index changed by more than 8.4e-6 points against the historical helper on the same logits. <a href="changelog.html#v2">Round-17 record</a></p>
     <a class="gp-link" id="ranking-link" href="leaderboard.html">Full leaderboard <span aria-hidden="true">→</span></a></div>
   </section>
 

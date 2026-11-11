@@ -66,7 +66,7 @@
   }
 
   document.getElementById("gene-count").textContent = site.int(facts.universe);
-  document.getElementById("open-count").textContent = facts.n_rows_O_v1;
+  document.getElementById("open-count").textContent = data.v2 ? data.v2.n_rows_O : facts.n_rows_O_v1;
   document.getElementById("fixed-count").textContent = facts.n_rows_F;
   document.querySelectorAll(".plot-switch button").forEach(b =>
     b.addEventListener("click", () => renderProvenance(b.dataset.mode)));
