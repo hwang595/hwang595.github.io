@@ -1,6 +1,6 @@
 {
  "repo": "https://github.com/hwang595/gene-embedding-exposure",
- "generated": "2026-11-10",
+ "generated": "2026-11-12",
  "files": [
   {
    "path": "round4/release/provenance_human_protein_coding.tsv",
@@ -371,6 +371,106 @@
    "desc": "SHA-256 and size of every v2 package file.",
    "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v2/artifact_manifest.json",
    "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v2/artifact_manifest.json"
+  },
+  {
+   "path": "round4/release/benchmark_v2.1/README.md",
+   "name": "README.md",
+   "group": "benchmark_v2.1",
+   "size": 6893,
+   "sha256": "807a571c12d7f7af9f5cdab236bf712144cf4ecac607dd71a5af43e3599513eb",
+   "desc": "GeneProv v2.1 supplement (round 18): uncertainty beside the v2 values. No v2 value changes.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v2.1/README.md",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v2.1/README.md"
+  },
+  {
+   "path": "round4/release/benchmark_v2.1/uncertainty_v2.1.tsv",
+   "name": "uncertainty_v2.1.tsv",
+   "group": "benchmark_v2.1",
+   "size": 15811,
+   "sha256": "67e07dcf7ebbfb9bbcdaa0e15008d0c5dbac7b24d64d594e5f9ae6cec1c02f93",
+   "desc": "One line per leaderboard row: the v2 index and rank with the gene-level and the family-clustered interval, the MLP index over ten probe seeds, T3 and the removal contrast with both intervals.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v2.1/uncertainty_v2.1.tsv",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v2.1/uncertainty_v2.1.tsv"
+  },
+  {
+   "path": "round4/release/benchmark_v2.1/round18/intervals.json",
+   "name": "intervals.json",
+   "group": "benchmark_v2.1",
+   "size": 66438,
+   "sha256": "1984543a3ed35669de49c17d77fb100ec5d1b58fe2ed113424c5d3b3199d09fe",
+   "desc": "Round 18: every interval (genes and HGNC families resampled), the removal contrast under both symbol mappings, fold seeds; gates B0, B1c and B2.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v2.1/round18/intervals.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v2.1/round18/intervals.json"
+  },
+  {
+   "path": "round4/release/benchmark_v2.1/round18/seed_spread.json",
+   "name": "seed_spread.json",
+   "group": "benchmark_v2.1",
+   "size": 182731,
+   "sha256": "1c05b96dd6237ad5a59cfe6710f918668ba8c97e9dceca56dec4aa783ebb8369",
+   "desc": "Round 18: the MLP cells of every row over ten probe seeds, with the validity control at the benchmark seed.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v2.1/round18/seed_spread.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v2.1/round18/seed_spread.json"
+  },
+  {
+   "path": "round4/release/benchmark_v2.1/round18/gate_D1.json",
+   "name": "gate_D1.json",
+   "group": "benchmark_v2.1",
+   "size": 35844,
+   "sha256": "689cb12b014ba2071d2145153d360b217eb1cb42cb73492a04fd28497fee02f1",
+   "desc": "Round 18, gate D1: the stable-identifier mapping measured against v2 (analysis only; no value is released from it).",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v2.1/round18/gate_D1.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v2.1/round18/gate_D1.json"
+  },
+  {
+   "path": "round4/release/benchmark_v2.1/round18/stable_id_mapping.tsv",
+   "name": "stable_id_mapping.tsv",
+   "group": "benchmark_v2.1",
+   "size": 30717,
+   "sha256": "c92c6bfcc2213526cd5bdcf56cf3f33aac1b179979bd865f131e8645b2c4aeaf",
+   "desc": "Every gene whose source record changes under the stable-identifier mapping, with the reason.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v2.1/round18/stable_id_mapping.tsv",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v2.1/round18/stable_id_mapping.tsv"
+  },
+  {
+   "path": "round4/release/benchmark_v2.1/round18/gate_summary.json",
+   "name": "gate_summary.json",
+   "group": "benchmark_v2.1",
+   "size": 2215,
+   "sha256": "9df7eec827562a390e0009fad54b52a2dbdbc742b8ef1fa37e7b6f9d2fea9a7e",
+   "desc": "Round 18: every gate with its outcome.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v2.1/round18/gate_summary.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v2.1/round18/gate_summary.json"
+  },
+  {
+   "path": "round4/release/benchmark_v2.1/artifact_manifest.json",
+   "name": "artifact_manifest.json",
+   "group": "benchmark_v2.1",
+   "size": 2519,
+   "sha256": "d3daf54c91b98ed9fe594c2d7e3c26416d9b34ee28fa5f26c6a0cc5198d91fc7",
+   "desc": "SHA-256 and size of every file of the supplement.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v2.1/artifact_manifest.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v2.1/artifact_manifest.json"
+  },
+  {
+   "path": "round4/results/ROUND18_PLAN_2026-11-12.md",
+   "name": "ROUND18_PLAN_2026-11-12.md",
+   "group": "records",
+   "size": 16120,
+   "sha256": "1f7d9b5473d20b51579e4cfd7a1db60f5b401577735b3e6a24e99ec7044ad2ef",
+   "desc": "The plan of round 18, committed before any computation, with its two amendments.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/results/ROUND18_PLAN_2026-11-12.md",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/results/ROUND18_PLAN_2026-11-12.md"
+  },
+  {
+   "path": "round4/results/ROUND18_REPORT_2026-11-12.md",
+   "name": "ROUND18_REPORT_2026-11-12.md",
+   "group": "records",
+   "size": 16210,
+   "sha256": "a341e02a0bb427b84020750ecce04e8b6003232a35523c19c255706ad957e87a",
+   "desc": "The report of round 18: archive, family-clustered intervals, probe seeds, stable-identifier mapping.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/results/ROUND18_REPORT_2026-11-12.md",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/results/ROUND18_REPORT_2026-11-12.md"
   },
   {
    "path": "round4/results/r17/bench_v2.json",
