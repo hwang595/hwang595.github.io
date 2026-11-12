@@ -93,7 +93,7 @@
    "policy_v2": "symbol-only fallback for the seven secondary genes of the GenePT-keyed rows (plan Section 4, Decision 1), extended in the audit of 2026-11-09 to the four alias collisions of GB.Cell-100M and scELMo GPT-3.5 (scripts/r17_alias_ext.py)"
   }
  },
- "generated": "2026-11-10",
+ "generated": "2026-11-12",
  "universe": 19256,
  "strata": {
   "0-10": 7120,
