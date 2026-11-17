@@ -13,7 +13,7 @@
 </head>
 <body>
 <header class="site-header"><div class="wrap">
-  <a class="brand" href="./" aria-label="GeneProv home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><rect x="7" y="8" width="18" height="4" rx="2" fill="#2a78d6"/><rect x="7" y="14" width="13" height="4" rx="2" fill="#1baf7a"/><rect x="7" y="20" width="8" height="4" rx="2" fill="#eb6834"/></svg>GeneProv <span class="ver">v2</span></a>
+  <a class="brand" href="./" aria-label="GeneProv home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><rect x="7" y="8" width="18" height="4" rx="2" fill="#2a78d6"/><rect x="7" y="14" width="13" height="4" rx="2" fill="#1baf7a"/><rect x="7" y="20" width="8" height="4" rx="2" fill="#eb6834"/></svg>GeneProv <span class="ver">v3</span></a>
   <nav class="main" aria-label="Site">
     <a href="./">Overview</a><a href="leaderboard.html">Leaderboard</a><a href="benchmark.html">Benchmark</a><a href="submit.html">Submit</a><a href="data.html">Data</a><a href="changelog.html">Changelog</a><a href="index.html#paper">Paper</a>
   </nav>
@@ -21,7 +21,7 @@
 </div></header>
 <main class="wrap">
   <section class="hero" style="padding-bottom:4px">
-    <div class="eyebrow">GeneProv v2 &middot; submissions</div>
+    <div class="eyebrow">GeneProv v3 &middot; submissions</div>
     <h1>Submit a representation</h1>
     <p class="lead">Rows are added by declaration and review. You supply an embedding of the gene universe (or, for Track F, a text embedder) together with a provenance declaration; the maintainers score it with the frozen harness, post the task profile with its intervals, and append the row with the version in which it entered. Frozen rows never change.</p>
   </section>
@@ -86,11 +86,11 @@ contact: <i>name and e-mail</i></pre>
     <li><b>Submit.</b> Open the submission form with both files. The row is scored on corpus L (index, T1, T2, T4) and receives <b>S</b>, the paired per-gene GO AUROC difference between corpus A and corpus L for genes with 1&ndash;10 publications. Track F rows have no rank intervals.</li>
   </ol>
 
-  <h2 id="score-locally">Score a new embedding locally (v2)</h2>
-  <p>The v2 package includes <code>geneprov_eval.py</code>: an embedding aligned with <code>genes_v2.tsv</code> (and an optional coverage mask) in, the full task record out, from the release files alone (NumPy and PyTorch; MLP values are comparable with the leaderboard only when computed on a CUDA GPU). It fits the frozen protocol on the released folds, writes a JSON record with every cell, the index and input hashes, and optionally the NPZ that the aggregator below accepts. Run on the 29 rows of both tracks it reproduced the v2 cells within 2.4e-16 AUROC (528/528 checks).</p>
-<pre><code>python3 round4/release/benchmark_v2/geneprov_eval.py my_embedding.npy --mask my_mask.npy --out my_row --predictions
+  <h2 id="score-locally">Score a new embedding locally (v3)</h2>
+  <p>The v3 package includes <code>geneprov_eval.py</code>: an embedding aligned with <code>genes_v3.tsv</code> (and an optional coverage mask) in, the full task record out, from the release files alone (NumPy and PyTorch; MLP values are comparable with the leaderboard only when computed on a CUDA GPU). It fits the frozen protocol on the released folds, writes a JSON record with every cell, the index and input hashes, and optionally the NPZ that the aggregator below accepts. It fits both probes at the ten probe seeds 5 to 14 and reports the mean, the standard deviation over seeds and the cells of every seed. Run on four rows it reproduced the units behind v3 (760 of 760 checks, largest difference 0.0e+00 AUROC); the v2 scorer, kept in the v2 package, reproduced the v2 cells of all 29 rows within 2.4e-16 AUROC.</p>
+<pre><code>python3 round4/release/benchmark_v3/geneprov_eval.py my_embedding.npy --mask my_mask.npy --out my_row --predictions
 # with a declaration under the annotation-access rule:
-python3 round4/release/benchmark_v2/geneprov_eval.py my_embedding.npy --tasks T1,T2,T3,T4 --t3-eligible --out my_row</code></pre>
+python3 round4/release/benchmark_v3/geneprov_eval.py my_embedding.npy --tasks T1,T2,T3,T4 --t3-eligible --out my_row</code></pre>
   <p>Attach <code>my_row.json</code> and the declaration to the submission issue; the maintainers rerun the scorer and append the row with its version.</p>
   <h2>Aggregate prepared predictions locally</h2>
   <p>Install the package dependencies and prepare the keyed NPZ described in <a href="https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v1/PREDICTION_SCHEMA.md">PREDICTION_SCHEMA.md</a>. The schema requires the released gene order and fold identifiers, per-gene T1/T4 AUROCs and per-label T2 out-of-fold scores. The scorer validates these declarations, but cannot prove that fitting was out of fold. Declare whether the supplied AUROCs use the historical or corrected average-tie definition; corrected scores require a separate version rather than replacing historical cells.</p>
@@ -112,7 +112,7 @@ python3 round4/release/benchmark_v1/score_predictions.py predictions.npz \
     <dt>Which genes?</dt><dd>The 19,256 HGNC protein-coding genes in <code>genes_v1.tsv</code>; use the Entrez or Ensembl identifier to align, not the symbol alone.</dd>
     <dt>What if coverage is low?</dt><dd>Missing genes receive the mean embedding and the coverage column says so; the row detail lists the missing genes by exposure bin. Report coverage for each exposure stratum, because universe-wide coverage can hide missingness among less-studied genes.</dd>
     <dt>Can I submit an updated version of a model?</dt><dd>Yes, as a new row with its own tag and date; the earlier row stays.</dd>
-    <dt>Can I evaluate locally?</dt><dd>Yes: the v2 scorer evaluates a new embedding end to end from the released package (see above). Prepared predictions can also be aggregated locally; see the command above. The historical research drivers still require rebuilding the research pipeline. The driver <code>round4/scripts/r7_10_eval.py</code> records its probe protocol, and <code>geneprov_index.py</code> computes the index from three AUROCs.</dd>
+    <dt>Can I evaluate locally?</dt><dd>Yes: the v3 scorer evaluates a new embedding end to end from the released package (see above). Prepared predictions can also be aggregated locally; see the command above. The historical research drivers still require rebuilding the research pipeline. The driver <code>round4/scripts/r7_10_eval.py</code> records its probe protocol, and <code>geneprov_index.py</code> computes the index from three AUROCs.</dd>
   </dl>
 </main>
 <footer class="site-footer"><div class="wrap">
