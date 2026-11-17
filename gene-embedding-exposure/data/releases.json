@@ -1,6 +1,6 @@
 {
  "repo": "https://github.com/hwang595/gene-embedding-exposure",
- "generated": "2026-11-12",
+ "generated": "2026-11-17",
  "files": [
   {
    "path": "round4/release/provenance_human_protein_coding.tsv",
@@ -261,6 +261,306 @@
    "desc": "Round 14: term-frequency baseline (no gene input) for per-gene GO AUROC.",
    "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v1/round14/freq_baseline.json",
    "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v1/round14/freq_baseline.json"
+  },
+  {
+   "path": "round4/release/benchmark_v3/README.md",
+   "name": "README.md",
+   "group": "benchmark_v3",
+   "size": 13354,
+   "sha256": "f2222d9c0f88e9c32ccd151cf0be7bd7c4c171a986d9f3f92e10bdd4516457f7",
+   "desc": "GeneProv v3 (round 19): what changed against v2, how to score a new embedding, Track P and the comparison with ProteinGym, the gates of the round.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/README.md",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/README.md"
+  },
+  {
+   "path": "round4/release/benchmark_v3/leaderboard_v3.tsv",
+   "name": "leaderboard_v3.tsv",
+   "group": "benchmark_v3",
+   "size": 20493,
+   "sha256": "8fc0a5a7b2554649004798a16b81cdb8a7a01e72588703bb2e6e27d696d74cc0",
+   "desc": "The v3 table: both tracks, both probes; index with gene-level and family-clustered intervals, the spread over the ten probe seeds, ranks with both intervals, the rank among the 24 rows of v2, task scores, the v2 index.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/leaderboard_v3.tsv",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/leaderboard_v3.tsv"
+  },
+  {
+   "path": "round4/release/benchmark_v3/panel_protein_v3.tsv",
+   "name": "panel_protein_v3.tsv",
+   "group": "benchmark_v3",
+   "size": 11272,
+   "sha256": "8003cf9f4500f9609db6a385353c4f88fbb95dc08b91b4fb61a8c96906184d6e",
+   "desc": "Track P: the protein language model panel with each model's ProteinGym score from the reference file. Not ranked with Track O.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/panel_protein_v3.tsv",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/panel_protein_v3.tsv"
+  },
+  {
+   "path": "round4/release/benchmark_v3/crosswalk_v2_v3.tsv",
+   "name": "crosswalk_v2_v3.tsv",
+   "group": "benchmark_v3",
+   "size": 64174,
+   "sha256": "0a15ea5523174ae345365cc9cfb361ebe22042de7a3b6bff1176553e8e0ce613",
+   "desc": "Every v2 cell beside its v3 value; each difference is split into the part that comes from the symbol mapping and the part that comes from seed averaging.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/crosswalk_v2_v3.tsv",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/crosswalk_v2_v3.tsv"
+  },
+  {
+   "path": "round4/release/benchmark_v3/geneprov_eval.py",
+   "name": "geneprov_eval.py",
+   "group": "benchmark_v3",
+   "size": 24228,
+   "sha256": "0001cbbe734709b5f5b2494f0cb27c17324ad98bbce9bc2e921fb9bec40636e8",
+   "desc": "Standalone scorer of v3: a seed list per probe; returns the mean, the spread and the cells of every seed (NumPy and PyTorch).",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/geneprov_eval.py",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/geneprov_eval.py"
+  },
+  {
+   "path": "round4/release/benchmark_v3/genes_v3.tsv",
+   "name": "genes_v3.tsv",
+   "group": "benchmark_v3",
+   "size": 3109248,
+   "sha256": "b8ebfedc09d42f2d040c5a6c52029d32003eba88f5f0425860d0149465d6a341",
+   "desc": "Universe as in v2 plus the key each symbol-keyed source gives a gene under the stable-identifier mapping.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/genes_v3.tsv",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/genes_v3.tsv"
+  },
+  {
+   "path": "round4/release/benchmark_v3/go_labels_L0_v3.npz",
+   "name": "go_labels_L0_v3.npz",
+   "group": "benchmark_v3",
+   "size": 762467,
+   "sha256": "8f0841d673001f6300a66692e522554bcd8886a89bc048b94514edb015ffd1a5",
+   "desc": "T1 label matrix, byte-identical to v1 and v2.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/go_labels_L0_v3.npz",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/go_labels_L0_v3.npz"
+  },
+  {
+   "path": "round4/release/benchmark_v3/go_terms_L0_v3.tsv",
+   "name": "go_terms_L0_v3.tsv",
+   "group": "benchmark_v3",
+   "size": 342325,
+   "sha256": "5951f7d394bbcfb3bb9a16ad8b0909a818731283c4d41c26ccd20eb68bf55418",
+   "desc": "The 4,949 GO terms of T1, byte-identical to v1 and v2.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/go_terms_L0_v3.tsv",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/go_terms_L0_v3.tsv"
+  },
+  {
+   "path": "round4/release/benchmark_v3/assay_labels_v3.tsv",
+   "name": "assay_labels_v3.tsv",
+   "group": "benchmark_v3",
+   "size": 971191,
+   "sha256": "86e8477ab3284ec3b45fc25594b191d44b4beff5ce3c26deade5327933da5cc6",
+   "desc": "T2 labels and family-grouped folds, byte-identical to v1 and v2.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/assay_labels_v3.tsv",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/assay_labels_v3.tsv"
+  },
+  {
+   "path": "round4/release/benchmark_v3/time_travel_v3.npz",
+   "name": "time_travel_v3.npz",
+   "group": "benchmark_v3",
+   "size": 2525557,
+   "sha256": "41331df3af963dab1315787847373449b4f95d79904a0d14fbaa338e9beb7938",
+   "desc": "T3 matrices, byte-identical to v2.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/time_travel_v3.npz",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/time_travel_v3.npz"
+  },
+  {
+   "path": "round4/release/benchmark_v3/coessential_top10_v3.tsv",
+   "name": "coessential_top10_v3.tsv",
+   "group": "benchmark_v3",
+   "size": 1248667,
+   "sha256": "4745080d32eb70087e8d36c96a5449db5e4dc9405dc6c057e9a675b0c44c9798",
+   "desc": "T4 partners, byte-identical to v1 and v2.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/coessential_top10_v3.tsv",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/coessential_top10_v3.tsv"
+  },
+  {
+   "path": "round4/release/benchmark_v3/PREDICTION_SCHEMA.md",
+   "name": "PREDICTION_SCHEMA.md",
+   "group": "benchmark_v3",
+   "size": 5718,
+   "sha256": "1011b7017bd65895e4cb99c79a8a6ba2527ed089d934f67a3b24efcebf859078",
+   "desc": "Input contract of score_predictions.py, with the seed convention of v3.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/PREDICTION_SCHEMA.md",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/PREDICTION_SCHEMA.md"
+  },
+  {
+   "path": "round4/release/benchmark_v3/round19/bench_v3.json",
+   "name": "bench_v3.json",
+   "group": "benchmark_v3",
+   "size": 585039,
+   "sha256": "23c805874f40638a0a9f791d255ab429fd7c727e59107c7c020552a3a6f30fc1",
+   "desc": "The complete v3 record: every cell with both intervals, the cells' spread over seeds, the roster of external models, the gates.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/round19/bench_v3.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/round19/bench_v3.json"
+  },
+  {
+   "path": "round4/release/benchmark_v3/round19/gate_summary.json",
+   "name": "gate_summary.json",
+   "group": "benchmark_v3",
+   "size": 3317,
+   "sha256": "205cb973ebc9ee05a14415333cb04d47716c9298facb6897160a12b1bfe10ab0",
+   "desc": "Round 19: every gate and control with its registered statement and outcome, the failed control P0 included.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/round19/gate_summary.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/round19/gate_summary.json"
+  },
+  {
+   "path": "round4/release/benchmark_v3/round19/roster_final.json",
+   "name": "roster_final.json",
+   "group": "benchmark_v3",
+   "size": 19335,
+   "sha256": "654ed37ea00651258835da3dddbf835d939582728be160e53b5bb91b3da76917",
+   "desc": "Round 19: the external models of the plan, which were run, and the reason for each model not run.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/round19/roster_final.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/round19/roster_final.json"
+  },
+  {
+   "path": "round4/release/benchmark_v3/round19/pg1.json",
+   "name": "pg1.json",
+   "group": "benchmark_v3",
+   "size": 11529,
+   "sha256": "395fce6baa0a56dfb9ef98dc06ab5c4f23b2c99ae4447153aa60992ce4f2b23f",
+   "desc": "Round 19, comparison PG1: GeneProv v3 against ProteinGym over the panel, with every secondary statistic.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/round19/pg1.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/round19/pg1.json"
+  },
+  {
+   "path": "round4/release/benchmark_v3/round19/pg1.md",
+   "name": "pg1.md",
+   "group": "benchmark_v3",
+   "size": 3243,
+   "sha256": "1e1c85d9c1b43dbbf99499575c985b68c70630598391ce656457cf44cda5440d",
+   "desc": "Comparison PG1 as a table.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/round19/pg1.md",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/round19/pg1.md"
+  },
+  {
+   "path": "round4/release/benchmark_v3/round19/control_P0.json",
+   "name": "control_P0.json",
+   "group": "benchmark_v3",
+   "size": 1326,
+   "sha256": "9b4c0f455a5f64e83117fb6300a02b50df1b980c74c74b050b0d62483d9a7561",
+   "desc": "Round 19, control P0 (failed): the panel's embedding pipeline on ESM2-650M against the Track O row.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/round19/control_P0.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/round19/control_P0.json"
+  },
+  {
+   "path": "round4/release/benchmark_v3/round19/control_P0b.json",
+   "name": "control_P0b.json",
+   "group": "benchmark_v3",
+   "size": 773,
+   "sha256": "1dfb1d69bdf1f750b598ffe34095ea4f5a770ce114307fc512cdb44a20e7b08c",
+   "desc": "Round 19, control P0b (successor of P0): the panel's embedding function in the round-14 environment, bit for bit.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/round19/control_P0b.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/round19/control_P0b.json"
+  },
+  {
+   "path": "round4/release/benchmark_v3/round19/control_P1.json",
+   "name": "control_P1.json",
+   "group": "benchmark_v3",
+   "size": 1116,
+   "sha256": "98957d7f1b73c5990bbc357bd9ade2741bcd53e3ae55e4de042f47cff5808752",
+   "desc": "Round 19, control P1: the weight tensors of the ProGen2 community port against the authors' checkpoint.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/round19/control_P1.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/round19/control_P1.json"
+  },
+  {
+   "path": "round4/release/benchmark_v3/round19/env_sensitivity.json",
+   "name": "env_sensitivity.json",
+   "group": "benchmark_v3",
+   "size": 3195,
+   "sha256": "0948434350502399827f4cc7909a6c87412c8f88a98cb2e9e012ec02fc174160",
+   "desc": "Round 19: the effect of the software environment on the linear index, measured on ESM2-650M.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/round19/env_sensitivity.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/round19/env_sensitivity.json"
+  },
+  {
+   "path": "round4/release/benchmark_v3/round19/gates_A.json",
+   "name": "gates_A.json",
+   "group": "benchmark_v3",
+   "size": 60023,
+   "sha256": "47ac8aebf5a80359ea76f58df02bda34e2d3839cf13b662792c9d792d840787f",
+   "desc": "Round 19: gates A0, A1, A2 and A3 (the compile and the scorer runs read the intended arrays) and L1 (linear probe seed; failed).",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/round19/gates_A.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/round19/gates_A.json"
+  },
+  {
+   "path": "round4/release/benchmark_v3/round19/gate_S1.json",
+   "name": "gate_S1.json",
+   "group": "benchmark_v3",
+   "size": 73408,
+   "sha256": "5143646bf31dc56452596fc41ec5d9ac3ece014d4c4694165ec27d027e323f63",
+   "desc": "Round 19, gate S1: the v3 scorer against the units behind v3, check by check.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/round19/gate_S1.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/round19/gate_S1.json"
+  },
+  {
+   "path": "round4/release/benchmark_v3/round19/gate_S1b.json",
+   "name": "gate_S1b.json",
+   "group": "benchmark_v3",
+   "size": 133874,
+   "sha256": "ee5a2b21c700f296b9730fe0b5400e6a4313805beb13a3a0798638fed3eff222",
+   "desc": "Round 19, gate S1b: the released scorer, whose default linear seeds are 5 to 14, against the same units at every seed of both probes.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/round19/gate_S1b.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/round19/gate_S1b.json"
+  },
+  {
+   "path": "round4/release/benchmark_v3/round19/scorer_edit.json",
+   "name": "scorer_edit.json",
+   "group": "benchmark_v3",
+   "size": 1484,
+   "sha256": "ffebd296c76f32bf000227724fc3b416a0b7e676ac80aef6f30bea4dc511180a",
+   "desc": "Round 19: the two scorer hashes (the file that fitted the rows, the released file) and the five lines in which they differ.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/round19/scorer_edit.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/round19/scorer_edit.json"
+  },
+  {
+   "path": "round4/release/benchmark_v3/round19/embedding_records.json",
+   "name": "embedding_records.json",
+   "group": "benchmark_v3",
+   "size": 63939,
+   "sha256": "270126616d18ea478f5d8e4adeec51a9cb27ca4c652ad230f8c5318ee9667987",
+   "desc": "Round 19: the record of every embedding made in the round: source, revision, hashes of code and weights, loading record, checks, software environment.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/round19/embedding_records.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/round19/embedding_records.json"
+  },
+  {
+   "path": "round4/release/benchmark_v3/round19/diag_L1_summary.json",
+   "name": "diag_L1_summary.json",
+   "group": "benchmark_v3",
+   "size": 6333,
+   "sha256": "ebfa771f317b3be8fca9e4f22cb206306a1ae39982d974c184dced58755b9e47",
+   "desc": "Round 19: the numbers of the exploratory diagnosis of gate L1 (why the linear probe depends on its seed).",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/round19/diag_L1_summary.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/round19/diag_L1_summary.json"
+  },
+  {
+   "path": "round4/release/benchmark_v3/artifact_manifest.json",
+   "name": "artifact_manifest.json",
+   "group": "benchmark_v3",
+   "size": 4819,
+   "sha256": "9cfb08d4e62aac06020204758b43027a73b1ac7a9b2a6790994ade4e48d50bea",
+   "desc": "SHA-256 and size of every v3 package file.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/release/benchmark_v3/artifact_manifest.json",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/release/benchmark_v3/artifact_manifest.json"
+  },
+  {
+   "path": "round4/results/ROUND19_PLAN_2026-11-12.md",
+   "name": "ROUND19_PLAN_2026-11-12.md",
+   "group": "records",
+   "size": 32155,
+   "sha256": "9bb54e7c052cc03ef7030fb92a61b7885a94d259a2d4a5fb4b73e6ae1c436f32",
+   "desc": "The plan of round 19, committed before any computation, with its amendments.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/results/ROUND19_PLAN_2026-11-12.md",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/results/ROUND19_PLAN_2026-11-12.md"
+  },
+  {
+   "path": "round4/results/ROUND19_REPORT_2026-11-17.md",
+   "name": "ROUND19_REPORT_2026-11-17.md",
+   "group": "records",
+   "size": 39362,
+   "sha256": "03afbf89d45e768200787eeffed83a14a464d0f374a1738ec9886f52fcda01d7",
+   "desc": "The report of round 19: GeneProv v3, the gates and controls, Track P, the comparison with ProteinGym.",
+   "url": "https://github.com/hwang595/gene-embedding-exposure/blob/main/round4/results/ROUND19_REPORT_2026-11-17.md",
+   "raw": "https://raw.githubusercontent.com/hwang595/gene-embedding-exposure/main/round4/results/ROUND19_REPORT_2026-11-17.md"
   },
   {
    "path": "round4/release/benchmark_v2/README.md",
