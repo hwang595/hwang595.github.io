@@ -1,3 +1,9 @@
+k2_horizon_arxiv_2026:
+  - label: arXiv
+    url: "https://arxiv.org/abs/2611.21003"
+  - label: Project
+    url: "https://ifm.ai/k2/"
+
 aido_cell_v1_2026:
   - label: PDF
     url: "https://genbio.ai/research/AIDO%20Cell%20V1%20-%20Technical%20Report%20-%2018%20Aug%202026.pdf"
