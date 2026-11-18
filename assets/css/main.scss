@@ -429,8 +429,8 @@ td > code:after,
 .home-section__header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.2rem 1rem;
-  align-items: end;
+  gap: 0.25rem 1rem;
+  align-items: baseline;
   margin-bottom: 0.85rem;
   padding-top: 1.05rem;
   border-top: 1px solid rgba(#94a3b8, 0.26);
@@ -441,6 +441,7 @@ td > code:after,
     border: 0;
     color: #1f2937;
     font-size: 1.38rem;
+    line-height: 1.25;
   }
 
   > a {
@@ -448,6 +449,8 @@ td > code:after,
     font-family: $header-font-family;
     font-size: 0.82rem;
     font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
   }
 }
 
@@ -2085,12 +2088,8 @@ a.group-person-card:hover {
 
 @include breakpoint(max-width $small) {
   .home-section__header {
-    display: block;
-
-    > a {
-      display: inline-block;
-      margin-top: 0.35rem;
-    }
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: start;
   }
 
   .home-timeline li {

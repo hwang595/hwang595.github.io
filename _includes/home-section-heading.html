@@ -1,0 +1,4 @@
+<div class="home-section__header">
+  <h2>{{ include.title | escape }}</h2>
+  {% if include.url %}<a href="{{ include.url | relative_url }}">{{ include.link_text | escape }}</a>{% endif %}
+</div>
