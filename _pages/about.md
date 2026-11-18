@@ -38,11 +38,8 @@ redirect_from:
   </details>
 </section>
 
-<section class="home-section home-section--focus" id="research-focus">
-  <div class="home-section__header">
-    <h2>Research focus</h2>
-    <a href="/research/">Research themes</a>
-  </div>
+<section class="home-section" id="research-focus">
+  {% include home-section-heading.html title="Research focus" url="/research/" link_text="Research themes" %}
   <div class="focus-grid">
     <article class="focus-card">
       <h3>LLM infrastructure</h3>
@@ -60,11 +57,7 @@ redirect_from:
 </section>
 
 <section class="home-section" id="selected-publications">
-  <div class="home-section__header">
-    <p class="home-section__eyebrow">Selected work</p>
-    <h2>Selected Publications</h2>
-    <a href="/publications/">Full publication list</a>
-  </div>
+  {% include home-section-heading.html title="Selected publications" url="/publications/" link_text="Full publication list" %}
   <div class="selected-work">
     {% for featured_slug in site.data.featured_publications %}
       {% for publication in site.publications %}
@@ -84,11 +77,7 @@ redirect_from:
 </section>
 
 <section class="home-section" id="news">
-  <div class="home-section__header">
-    <p class="home-section__eyebrow">Recent notes</p>
-    <h2>News</h2>
-    <a href="/news/">All updates</a>
-  </div>
+  {% include home-section-heading.html title="News" url="/news/" link_text="All updates" %}
   <div class="home-timeline">
     {% for item in home_news limit:4 %}
       {% include news-item.html item=item compact=true %}
@@ -97,11 +86,7 @@ redirect_from:
 </section>
 
 <section class="home-section" id="research-group">
-  <div class="home-section__header">
-    <p class="home-section__eyebrow">People</p>
-    <h2>RAISL Group</h2>
-    <a href="/group/">Full group page</a>
-  </div>
+  {% include home-section-heading.html title="RAISL group" url="/group/" link_text="Full group page" %}
   <div class="group-preview">
     <img src="{{ group.identity.logo }}" alt="{{ group.identity.name }} logo">
     <div>
@@ -121,18 +106,12 @@ redirect_from:
 </section>
 
 <section class="home-section" id="teaching">
-  <div class="home-section__header">
-    <p class="home-section__eyebrow">Courses</p>
-    <h2>Teaching</h2>
-  </div>
+  {% include home-section-heading.html title="Teaching" %}
   {% include teaching-list.html %}
 </section>
 
 <section class="home-section" id="service">
-  <div class="home-section__header">
-    <p class="home-section__eyebrow">Community</p>
-    <h2>Services</h2>
-  </div>
+  {% include home-section-heading.html title="Academic service" %}
   <div class="service-panel">
     <p><strong>Area Chair:</strong> ICML 2027 (invited), ICLR 2027, NeurIPS 2026, ACL ARR 2026 May, CPAL 2026, MLSys 2025</p>
     <p><strong>PC Member:</strong> DAC 2024, EuroSys 2024, SOSP 2023 (light PC), MLSys 2023-2026, SIGKDD 2022, AAAI 2021-2022</p>
