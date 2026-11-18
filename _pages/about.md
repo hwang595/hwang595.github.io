@@ -10,94 +10,51 @@ redirect_from:
   - /about.html
 ---
 
-{% assign home_publications = site.publications | sort: "date" | reverse %}
 {% assign home_technical_reports = site.technical_reports | sort: "date" | reverse %}
 {% assign home_news = site.news | sort: "date" | reverse %}
 {% assign group = site.data.group %}
 {% assign group_home_people = group.people | where: "show_on_home", true %}
-{% assign home_publication_years = home_publications | map: "pubtype" | uniq | sort | reverse %}
-{% assign home_publication_venues = home_publications | map: "venue" | uniq | sort %}
-
-<div class="home-hero">
-  <div class="home-hero__content">
-    <p class="home-hero__eyebrow">Efficient ML Systems and LLM Infrastructure</p>
-    <h1 class="home-hero__title">Building scalable, practical, and trustworthy machine learning systems.</h1>
-    <p class="home-hero__subtitle">
-      I am an Assistant Professor in the
-      <a href="https://www.cs.rutgers.edu/">Department of Computer Science at Rutgers University</a>.
-      My research focuses on scalable and efficient machine learning algorithms and systems, with a current emphasis on LLM infrastructure, MoE/RL post-training, and trustworthy evaluation.
-    </p>
-    <div class="home-hero__actions">
-      <a class="btn btn--large" href="#selected-publications">Selected Papers</a>
-      <a class="btn btn--inverse btn--large" href="/group/">Research Group</a>
-      <a class="btn btn--inverse btn--large" href="/cv/hwang_cv.pdf">CV</a>
-    </div>
-    <div class="home-hero__chips">
-      <span class="home-chip">Rutgers CS</span>
-      <span class="home-chip">Distributed ML</span>
-      <span class="home-chip">LLM Systems</span>
-      <span class="home-chip">MoE/RL</span>
-      <span class="home-chip">Federated Learning</span>
-    </div>
-  </div>
-  <div class="home-hero__stats" aria-label="Research snapshot">
-    <a class="home-stat" href="/publications/">
-      <strong>{{ home_publications | size }}</strong>
-      <span>publications</span>
-    </a>
-    <a class="home-stat" href="/publications/">
-      <strong>{{ home_publication_venues | size }}</strong>
-      <span>venues</span>
-    </a>
-    <a class="home-stat" href="/publications/">
-      <strong>{{ home_publication_years | size }}</strong>
-      <span>years</span>
-    </a>
-  </div>
-</div>
-
-<div class="home-highlights">
-  <div class="home-highlight">
-    <h3>Background</h3>
+<section class="home-intro" aria-labelledby="intro-heading">
+  <h1 id="intro-heading">Efficient machine learning systems</h1>
+  <p>
+    I'm an assistant professor of <a href="https://www.cs.rutgers.edu/">computer science at Rutgers University</a>.
+    My group studies how to train and serve large language models efficiently and evaluate them reliably.
+    We currently focus on mixture-of-experts models and reinforcement learning for post-training.
+  </p>
+  <nav class="home-intro__links" aria-label="Profile links">
+    <a href="#selected-publications">Selected papers</a>
+    <a href="/group/">Research group</a>
+    <a href="/cv/hwang_cv.pdf">CV</a>
+  </nav>
+  <details class="home-background">
+    <summary>Academic background</summary>
     <p>
-      I was a Senior Project Scientist at the
-      <a href="https://www.ml.cmu.edu/">Machine Learning Department at CMU</a>,
-      working with <a href="http://www.cs.cmu.edu/~epxing/">Eric Xing</a>.
-      I obtained my PhD in Computer Science from
+      Previously, I was a Senior Project Scientist in the
+      <a href="https://www.ml.cmu.edu/">Machine Learning Department at CMU</a>, working with
+      <a href="http://www.cs.cmu.edu/~epxing/">Eric Xing</a>. I earned my PhD in Computer Science from
       <a href="https://www.cs.wisc.edu/">UW-Madison</a>, advised by
       <a href="http://papail.io/">Dimitris Papailiopoulos</a>.
     </p>
-  </div>
-  <div class="home-highlight">
-    <h3>Research Direction</h3>
-    <p>
-      I study efficient training and serving of large-scale machine learning models,
-      especially large language models and MoE-based reasoning systems under real system constraints.
-    </p>
-  </div>
-</div>
+  </details>
+</section>
 
 <section class="home-section home-section--focus" id="research-focus">
   <div class="home-section__header">
-    <p class="home-section__eyebrow">Research focus</p>
-    <h2>Systems for Useful ML</h2>
+    <h2>Research focus</h2>
     <a href="/research/">Research themes</a>
   </div>
   <div class="focus-grid">
     <article class="focus-card">
-      <span>01</span>
       <h3>LLM infrastructure</h3>
-      <p>Training, post-training, serving, evaluation, and transparency for large models under real system constraints.</p>
+      <p>Training, serving, and evaluating large models under real compute and memory constraints.</p>
     </article>
     <article class="focus-card">
-      <span>02</span>
       <h3>Federated and private ML</h3>
-      <p>Algorithms and systems that let models learn across distributed, sensitive, and heterogeneous data.</p>
+      <p>Learning across institutions when data is sensitive, distributed, or unevenly sampled.</p>
     </article>
     <article class="focus-card">
-      <span>03</span>
       <h3>Efficient optimization</h3>
-      <p>Compression, low-rank methods, model fusion, and communication-efficient distributed training.</p>
+      <p>Reducing computation and communication through compression, low-rank methods, and model fusion.</p>
     </article>
   </div>
 </section>
