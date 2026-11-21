@@ -1931,12 +1931,55 @@ a.group-person-card:hover {
   display: none;
 }
 
+.publication-browser [hidden] {
+  display: none !important;
+}
+
 .publication-year {
   margin: 1.75rem 0 0.8rem;
   color: #1f2937;
   font-family: $header-font-family;
   font-size: 1.45rem;
   letter-spacing: 0;
+}
+
+.publication-category {
+  margin-top: 2rem;
+  scroll-margin-top: 5rem;
+}
+
+.publication-category__title {
+  margin: 0 0 0.85rem;
+  color: #1f2937;
+  font-size: 1.38rem;
+}
+
+.publication-year-list .publication-year {
+  font-size: 1.12rem;
+}
+
+.publication-category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.2rem;
+  font-family: $header-font-family;
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+}
+
+.publication-card__status {
+  color: #475569;
+  font-family: $header-font-family;
+  font-size: 0.82rem;
 }
 
 .publication-list {

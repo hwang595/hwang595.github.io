@@ -11,6 +11,7 @@ redirect_from:
 ---
 
 {% assign home_technical_reports = site.technical_reports | sort: "date" | reverse %}
+{% assign home_journal_papers = site.publications | where: "type", "Journal article" | sort: "date" | reverse %}
 {% assign home_news = site.news | sort: "date" | reverse %}
 {% assign group = site.data.group %}
 {% assign group_home_people = group.people | where: "show_on_home", true %}
@@ -55,6 +56,17 @@ redirect_from:
     </article>
   </div>
 </section>
+
+{% if home_journal_papers.size > 0 %}
+<section class="home-section" id="journal-papers">
+  {% include home-section-heading.html title="Journal papers" url="/publications/#journal-papers" link_text="All journal papers" %}
+  <div class="publication-list">
+    {% for publication in home_journal_papers limit:3 %}
+      {% include publication-card.html publication=publication filterable=false %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
 
 <section class="home-section" id="selected-publications">
   {% include home-section-heading.html title="Selected publications" url="/publications/" link_text="Full publication list" %}

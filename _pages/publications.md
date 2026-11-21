@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: "Publications"
-description: "Selected and recent publications by Hongyi Wang across efficient ML systems, LLM infrastructure, MoE/RL post-training, federated learning, optimization, trustworthy ML, and technical reports."
+description: "Journal articles, conference papers, and technical reports by Hongyi Wang across efficient ML systems, LLM infrastructure, biological foundation models, federated learning, and trustworthy ML."
 permalink: /publications/
 author_profile: true
 ---
@@ -9,9 +9,12 @@ author_profile: true
 {% include base_path %}
 
 {% assign publications = site.publications | sort: "date" | reverse %}
+{% assign journal_papers = publications | where: "type", "Journal article" %}
+{% assign other_papers = publications | where_exp: "pub", "pub.type != 'Journal article'" %}
 {% assign technical_reports = site.technical_reports | sort: "date" | reverse %}
 {% assign publication_years = publications | map: "pubtype" | uniq | sort | reverse %}
 {% assign recent_year_limit = 5 %}
+{% assign recent_years = publication_years | slice: 0, recent_year_limit %}
 {% assign publication_venues = publications | map: "venue" | uniq | sort %}
 {% capture topic_pool %}{% for pub in publications %}{% assign pub_key = pub.path | split: "/" | last | replace: ".md", "" %}{% assign pub_topics = site.data.publication_topics[pub_key] %}{% for topic in pub_topics %}{{ topic | strip }}|{% endfor %}{% endfor %}{% endcapture %}
 {% assign filter_topics = topic_pool | split: "|" | uniq | sort %}
@@ -20,7 +23,7 @@ author_profile: true
   <div class="publication-browser__intro">
     <p class="publications-intro">
       Selected and recent work across efficient ML systems, LLM infrastructure, MoE/RL post-training,
-      federated learning, optimization, pedagogical visualization, and trustworthy machine learning.
+      biological foundation models, federated learning, optimization, and trustworthy machine learning.
     </p>
     <div class="publication-browser__stats">
       <span><strong>{{ publications | size }}</strong> papers</span>
@@ -67,25 +70,48 @@ author_profile: true
   </div>
 
   <p class="publication-result-count" aria-live="polite">
-    Showing <strong data-publication-count>{{ publications | size }}</strong> peer-reviewed publications. Technical reports are listed separately below and are not filtered.
+    Showing <strong data-publication-count>{{ publications | size }}</strong> publications, including accepted papers. Technical reports are listed separately below and are not filtered.
   </p>
 
   <div class="publication-no-results" data-publication-empty hidden>
     No publications match the current filters.
   </div>
 
-  <div class="publication-year-list">
+  <nav class="publication-category-nav" aria-label="Publication categories">
+    {% if journal_papers.size > 0 %}<a href="#journal-papers">Journal papers</a>{% endif %}
+    <a href="#conference-papers">Conference and other papers</a>
+    {% if technical_reports.size > 0 %}<a href="#technical-reports">Technical reports</a>{% endif %}
+  </nav>
+
+  {% if journal_papers.size > 0 %}
+    <section class="publication-category" id="journal-papers" data-publication-year-group>
+      <h2 class="publication-category__title">Journal papers</h2>
+      <div class="publication-list">
+        {% for pub in journal_papers %}
+          {% assign journal_era = "earlier" %}
+          {% if recent_years contains pub.pubtype %}{% assign journal_era = "recent" %}{% endif %}
+          {% include publication-card.html publication=pub era=journal_era %}
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  <div class="publication-year-list publication-category" id="conference-papers" data-publication-year-group>
+    <h2 class="publication-category__title">Conference and other papers</h2>
     {% for year in publication_years limit:recent_year_limit %}
+      {% assign year_papers = other_papers | where: "pubtype", year %}
+      {% if year_papers.size > 0 %}
       <section class="publication-year-group" data-publication-year-group>
-        <h2 class="publication-year">{{ year }}</h2>
+        <h3 class="publication-year">{{ year }}</h3>
         <div class="publication-list">
-          {% for pub in publications %}
+          {% for pub in other_papers %}
             {% if pub.pubtype == year %}
               {% include publication-card.html publication=pub era="recent" %}
             {% endif %}
           {% endfor %}
         </div>
       </section>
+      {% endif %}
     {% endfor %}
   </div>
 
@@ -108,20 +134,23 @@ author_profile: true
     <details class="publication-earlier" data-publication-earlier>
       <summary>
         <span>Earlier Publications</span>
-        <small>Peer-reviewed work before the recent five publication years</small>
+        <small>Conference and other work before the recent five publication years</small>
       </summary>
       <div class="publication-earlier__groups">
         {% for year in publication_years offset:recent_year_limit %}
+          {% assign year_papers = other_papers | where: "pubtype", year %}
+          {% if year_papers.size > 0 %}
           <section class="publication-year-group" data-publication-year-group>
             <h2 class="publication-year">{{ year }}</h2>
             <div class="publication-list">
-              {% for pub in publications %}
+              {% for pub in other_papers %}
                 {% if pub.pubtype == year %}
                   {% include publication-card.html publication=pub era="earlier" %}
                 {% endif %}
               {% endfor %}
             </div>
           </section>
+          {% endif %}
         {% endfor %}
       </div>
     </details>

@@ -38,6 +38,9 @@
 {% elsif pub_venue == "arXiv" or pub_venue == "bioRxiv" %}
   {% assign pub_kind = "Preprint" %}
   {% assign pub_kind_class = "preprint" %}
+{% elsif pub_type_label == "Journal article" %}
+  {% assign pub_kind = "Journal article" %}
+  {% assign pub_kind_class = "journal" %}
 {% endif %}
 {% capture action_search %}{% for action in pub_links %} {{ action.label }}{% endfor %}{% for highlight in pub_highlights %} {{ highlight }}{% endfor %}{% endcapture %}
 {% assign topic_search = pub_topics | join: " " %}
@@ -50,6 +53,9 @@
   {% for action in pub_links limit:1 %}
     {% assign title_link = action.url %}
   {% endfor %}
+{% endif %}
+{% if title_link == nil and pub.status == "accepted" %}
+  {% assign title_link = pub.url | relative_url %}
 {% endif %}
 
 <div class="publication-card{% if include.featured %} publication-card--featured{% endif %}"
@@ -64,7 +70,7 @@
   <div class="publication-card__meta">
     <span class="pub-badge pub-badge--kind pub-badge--{{ pub_kind_class }}">{{ pub_kind }}</span>
     <span class="pub-badge pub-badge--venue">{{ pub_venue }}</span>
-    <span class="pub-badge">{{ pub_year }}</span>
+    <span class="pub-badge">{% if pub.status == "accepted" %}Accepted {% endif %}{{ pub_year }}</span>
     {% if is_selected %}<span class="pub-badge pub-badge--selected">Selected</span>{% endif %}
     {% for highlight in pub_highlights %}
       <span class="pub-badge pub-badge--highlight">{{ highlight }}</span>
@@ -81,6 +87,9 @@
 
   {% if pub.excerpt %}
     <div class="publication-card__excerpt">{{ pub.excerpt | markdownify }}</div>
+  {% endif %}
+  {% if pub.status == "accepted" %}
+    <p class="publication-card__status">Accepted {{ pub.accepted_date | date: "%B %-d, %Y" }}. Publication forthcoming.</p>
   {% endif %}
 
   {% if pub_links or primary_link or pub.arxiv or pub.code or pub.project or pub.bibtex %}
@@ -131,7 +140,7 @@
 
       <section class="publication-card__detail-section publication-card__detail-section--meta">
         <h4>Classification</h4>
-        <p>{{ pub_kind }}{% if pub_venue %} · {{ pub_venue }}{% endif %}{% if pub_year %} · {{ pub_year }}{% endif %}</p>
+        <p>{{ pub_kind }}{% if pub_venue %} · {{ pub_venue }}{% endif %}{% if pub_year %} · {% if pub.status == "accepted" %}Accepted {% endif %}{{ pub_year }}{% endif %}</p>
       </section>
 
       {% if pub.bibtex %}
