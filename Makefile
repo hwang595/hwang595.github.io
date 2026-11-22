@@ -44,6 +44,7 @@ suggest-selected:
 
 quality-audit:
 	$(BUNDLE) exec ruby scripts/quality_tools.rb audit
+	$(BUNDLE) exec ruby scripts/test_journal_publications.rb
 
 quality: validate auto-audit build quality-audit
 

@@ -50,6 +50,10 @@
       var visibleCards = group.querySelectorAll("[data-publication-card]:not(.is-hidden)");
       group.hidden = visibleCards.length === 0;
     });
+    Array.prototype.forEach.call(browser.querySelectorAll(".publication-category-nav a"), function (link) {
+      var target = browser.querySelector(link.getAttribute("href"));
+      link.hidden = !target || target.hidden;
+    });
   }
 
   function update() {

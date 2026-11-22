@@ -139,7 +139,11 @@ module PublicationTools
       end
 
       link_values = links[doc.slug]
-      unless has_any_link?(front_matter, link_values)
+      accepted_journal = doc.collection == "publications" && accepted_journal?(front_matter)
+      if front_matter["status"] == "accepted" && !accepted_journal
+        errors << "#{relative(doc.path)}: accepted papers must be journal articles in publications, with a valid accepted_date matching date"
+      end
+      unless has_any_link?(front_matter, link_values) || accepted_journal
         errors << "#{relative(doc.path)}: missing link in `_data/publication_links.yml`, front matter, or excerpt"
       end
 
@@ -292,6 +296,14 @@ module PublicationTools
 
   def valid_link_url?(url)
     url.to_s.match?(%r{\A(https?://|/)})
+  end
+
+  def accepted_journal?(front_matter)
+    return false unless front_matter["type"] == "Journal article" && front_matter["status"] == "accepted"
+
+    Date.iso8601(front_matter["accepted_date"].to_s) == Date.iso8601(front_matter["date"].to_s)
+  rescue ArgumentError
+    false
   end
 
   def has_any_link?(front_matter, link_values)
@@ -836,6 +848,8 @@ module PublicationTools
         "year" => year,
         "excerpt" => data["excerpt"] || generated_excerpt(authors, venue, year),
         "type" => data["type"],
+        "status" => data["status"],
+        "accepted_date" => data["accepted_date"],
         "links" => links,
         "topics" => topics,
         "highlights" => Array(data["highlights"]).map(&:to_s).reject(&:empty?),
@@ -903,6 +917,13 @@ module PublicationTools
       lines << "date: #{data.fetch("date")}"
       lines << "venue: #{quoted(data.fetch("venue"))}"
       lines << "pubtype: #{quoted(data.fetch("year"))}"
+      if data.fetch("authors").any?
+        lines << "authors:"
+        data.fetch("authors").each { |author| lines << "  - #{quoted(author)}" }
+      end
+      %w[status accepted_date].each do |field|
+        lines << "#{field}: #{quoted(data[field])}" unless PublicationTools.blank?(data[field])
+      end
       if primary_link
         lines << "link: #{quoted(primary_link.fetch("url"))}"
         lines << "link_label: #{quoted(primary_link.fetch("label"))}"

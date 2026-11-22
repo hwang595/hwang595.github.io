@@ -33,6 +33,32 @@ ruby scripts/publication_tools.rb new path/to/publication.yml
 
 Use `collection: technical_reports` for a technical report. The script writes to `_technical_reports/` and adds `type: "Technical report"` automatically.
 
+## Journal Papers and Acceptance
+
+Use `collection: publications` and `type: "Journal article"` in the YAML input.
+Journal papers appear in a separate section on the homepage (the latest three)
+and in Publications. They participate in the same search, year, venue, and topic filters.
+
+For an accepted article without a public article URL, also provide:
+
+```yaml
+status: accepted
+accepted_date: 2026-11-13
+date: 2026-11-13
+year: "2026"
+```
+
+The date and year are the acceptance date/year while this status is set, not a
+claim of formal publication. Keep the complete ordered `authors` list and use an
+`@unpublished` BibTeX with an acceptance note. Supply an explicit `excerpt` stating
+the acceptance status. Do not add a placeholder DOI, link, or embargoed content.
+The validator permits a missing link only for an accepted journal article with
+a valid `accepted_date` matching `date`; other papers still need links.
+
+After formal publication, remove `status: accepted`, set `date` and `year`
+(or `pubtype` in the generated Markdown) to the publication date/year, and update
+the citation, BibTeX, and article/DOI link. Retain `type: "Journal article"`.
+
 ## Add From BibTeX
 
 Start from `scripts/templates/publication.bib` or paste a downloaded BibTeX entry into a scratch file:
@@ -70,7 +96,7 @@ It verifies:
 - `pubtype` matches the year parsed from `date`
 - Technical reports use `type: "Technical report"`
 - Every active publication has topics in `_data/publication_topics.yml`
-- Every active publication has at least one link in structured data, front matter, or its excerpt
+- Every active publication has at least one link, except a validated accepted journal article awaiting a public URL
 - Structured link entries have `label` and `url`
 - Topic/link/highlight/featured/research-theme data does not reference stale publication slugs
 - Active publication titles are not duplicated
